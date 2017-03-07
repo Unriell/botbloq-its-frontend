@@ -18,10 +18,11 @@ angular.module('botbloqItsFrontendApp')
 
             var loginPromise = $q.defer();
 
-            $http.post(common.bitbloqBackendUrl + 'auth/local', {
+            $http.post(common.bitbloqBackendUrl + '/students', {
+                identification: {
                 email: email,
-                password: password
-            }).then(function(response) {
+                name: password
+            }}).then(function(response) {
                 $log.debug('token', response.data.token);
                 localStorage.userToken = response.data.token;
                 getCurrentUser().then(function() {
@@ -43,7 +44,7 @@ angular.module('botbloqItsFrontendApp')
         }
 
         function getCurrentUser() {
-            return $http.get(common.bitbloqBackendUrl + 'user/me').then(function(response) {
+            return $http.get(common.bitbloqBackendUrl + '/students').then(function(response) {
                 exports.currentUser = response.data;
             });
         }

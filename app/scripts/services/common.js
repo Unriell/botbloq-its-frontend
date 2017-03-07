@@ -10,7 +10,7 @@
 angular.module('botbloqItsFrontendApp')
     .service('common', function($log) {
 
-        var bitbloqBackendUrl = 'http://localhost:8000/bitbloq/v1/';
+        var bitbloqBackendUrl = 'http://localhost:8000/botbloq/v1/its';
 
         $log.log('common start');
 
