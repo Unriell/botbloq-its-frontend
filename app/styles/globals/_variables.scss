@@ -1,0 +1,59 @@
+
+// == Colores
+$color-gray-base: #000000 !default;
+$color-gray: #666666;
+$color-grayLight: #c2c2c2;
+$color-blueDark1: #022a45;
+$color-blueDark2: #0c4b63
+$color-blueLight: #00add4;
+$color-white: #fff;
+
+// == Scaffolding
+$body-bg: #FFFFFF !default;
+$text-color-white: #FFFFFF; // blanco
+$text-color-black: #000000; // negro
+$text-color-grayDark: #414141; // gris oscuro
+$text-color-gray: #666666; // gris
+$text-color4: #B82C33; // rojo
+$link-color: #000000;
+$link-hover-color: #000000;
+$link-hover-decoration: underline !default;
+
+// backgrounds
+$bg-color-white: #FFFFFF; // blanco
+$bg-color-black: #000000; // negro
+$bg-color-grayDark: #282828; // gris oscuro oscuro (utilizado en el footer)
+$bg-color-gray: #F2F2F2; // gris (utilizado por ejemplo en "También te puede interesar", "enlaces" -home-)
+$bg-color-red: #B82C33; // rojo
+
+
+// == Tipografias
+$font-corporate-regular: "AvenirNext-Regular";
+$font-corporate-medium: "AvenirNext-Medium";
+$font-corporate-bold: "AvenirNext-Bold";
+
+//== Media queries breakpoints
+// Extra small screen / phone
+$screen-xs: 480px !default;
+$screen-xs-min: $screen-xs !default;
+$screen-phone: $screen-xs-min !default;
+
+// Small screen / tablet
+$screen-sm: 768px !default;
+$screen-sm-min: $screen-sm !default;
+$screen-tablet: $screen-sm-min !default;
+
+// Medium screen / desktop
+$screen-md: 992px !default;
+$screen-md-min: $screen-md !default;
+$screen-desktop: $screen-md-min !default;
+
+// Large screen / wide desktop
+$screen-lg: 1200px !default;
+$screen-lg-min: $screen-lg !default;
+$screen-lg-desktop: $screen-lg-min !default;
+
+
+$screen-xs-max: ($screen-sm-min - 1) !default;
+$screen-sm-max: ($screen-md-min - 1) !default;
+$screen-md-max: ($screen-lg-min - 1) !default;

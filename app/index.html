@@ -32,13 +32,15 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="#/">botbloqItsFrontend</a>
-                    <a href="">{{userApi.currentUser.email}}</a>
+                    <a href="">{{userApi.currentUser.identification.email}}</a>
                 </div>
                 <div class="collapse navbar-collapse" id="js-navbar-collapse">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="#!/">Home</a></li>
-                        <li><a ng-href="#!/login">Login</a></li>
-                        <li><a ng-href="#!/test">Test</a></li>
+                        <li ng-class="{ active : isActive('/') }"><a href="#!/">Home</a></li>
+                        <li ng-class="{ active : isActive('/login') }"><a ng-href="#!/login">Login</a></li>
+                        <li ng-class="{ active : isActive('/views/404') }"><a ng-href="#!/test">Test</a></li>
+                        <li ng-class="{ active : isActive('/students') }"><a ng-href="#!/students">Students</a></li>
+                        <li ng-class="{ active : isActive('/adminResources') }"><a ng-href="#!/adminResources">Admin Resources</a></li>
                     </ul>
                 </div>
             </div>
@@ -76,7 +78,8 @@
     <script src="scripts/services/authInterceptor.js"></script>
     <script src="scripts/controllers/body.js"></script>
     <script src="scripts/controllers/landing.js"></script>
-    <script src="scripts/controllers/login.js"></script>
+    <script src="scripts/controllers/login.js"></script> 
+    <script src="scripts/controllers/students.js"></script>
     <!-- endbuild -->
 </body>
 

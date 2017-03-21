@@ -1,0 +1,57 @@
+@font-face {
+  font-family: 'csic';
+  src:  url('./../css/fonts/csic.eot?zdvchc');
+  src:  url('./../css/fonts/csic.eot?zdvchc#iefix') format('embedded-opentype'),
+    url('./../css/fonts/csic.ttf?zdvchc') format('truetype'),
+    url('./../css/fonts/csic.woff?zdvchc') format('woff'),
+    url('./../css/fonts/csic.svg?zdvchc#csic') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'csic' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-arrow-diagonal-up:before {
+  content: "\e900";
+}
+.icon-facebook:before {
+  content: "\e901";
+}
+.icon-arrow-up:before {
+  content: "\e902";
+}
+.icon-arrow-down:before {
+  content: "\e903";
+}
+.icon-instagram:before {
+  content: "\e904";
+}
+.icon-menu:before {
+  content: "\e905";
+}
+.icon-pause:before {
+  content: "\e906";
+}
+.icon-search:before {
+  content: "\e907";
+}
+.icon-twitter:before {
+  content: "\e908";
+}
+.icon-youtube:before {
+  content: "\e909";
+}
+

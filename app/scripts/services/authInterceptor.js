@@ -1,6 +1,5 @@
 'use strict';
-angular.module('botbloqItsFrontendApp')
-    .service('authInterceptor', function($log, $q) {
+botBloqApp.service('authInterceptor', function($log, $q) {
         return {
             // Add authorization token to headers
             'request': function(config) {

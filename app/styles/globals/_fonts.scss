@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'AvenirNext-Demibold';
+    src: url('./../css/fonts/AvenirNext-Demibold.eot');
+    src: url('./../css/fonts/AvenirNext-Demibold.eot') format('embedded-opentype'),
+         url('./../css/fonts/AvenirNext-Demibold.woff') format('woff'),
+         url('./../css/fonts/AvenirNext-Demibold.ttf') format('truetype'),
+         url('./../css/fonts/AvenirNext-Demibold.svg#AvenirNext-Demibold') format('svg');
+}
+@font-face {
+    font-family: 'AvenirNext-Regular';
+    src: url('./../css/fonts/AvenirNext-Regular.eot');
+    src: url('./../css/fonts/AvenirNext-Regular.eot') format('embedded-opentype'),
+         url('./../css/fonts/AvenirNext-Regular.woff') format('woff'),
+         url('./../css/fonts/AvenirNext-Regular.ttf') format('truetype'),
+         url('./../css/fonts/AvenirNext-Regular.svg#AvenirNext-Regular') format('svg');
+}
+@font-face {
+    font-family: 'AvenirNext-Medium';
+    src: url('./../css/fonts/AvenirNext-Medium.eot');
+    src: url('./../css/fonts/AvenirNext-Medium.eot') format('embedded-opentype'),
+         url('./../css/fonts/AvenirNext-Medium.woff') format('woff'),
+         url('./../css/fonts/AvenirNext-Medium.ttf') format('truetype'),
+         url('./../css/fonts/AvenirNext-Medium.svg#AvenirNext-Medium') format('svg');
+}
+@font-face {
+    font-family: 'AvenirNext-Bold';
+    src: url('./../css/fonts/AvenirNext-Bold.eot');
+    src: url('./../css/fonts/AvenirNext-Bold.eot') format('embedded-opentype'),
+         url('./../css/fonts/AvenirNext-Bold.woff') format('woff'),
+         url('./../css/fonts/AvenirNext-Bold.ttf') format('truetype'),
+         url('./../css/fonts/AvenirNext-Bold.svg#AvenirNext-Bold') format('svg');
+}
+
+html, body {
+    font-family: $font-corporate-regular;
+}

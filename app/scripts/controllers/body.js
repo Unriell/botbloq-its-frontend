@@ -7,8 +7,11 @@
  * # BodyCtrl
  * Controller of the botbloqItsFrontendApp
  */
-angular.module('botbloqItsFrontendApp')
-    .controller('BodyCtrl', function($scope, common, $log, userApi) {
+botBloqApp.controller('BodyCtrl', function($scope, common, $log, userApi, $location) {
         $log.log('body ctrl start');
         $scope.userApi = userApi;
+
+        $scope.isActive =  function(currentPath){
+       		return currentPath === $location.path();
+  		}
     });
