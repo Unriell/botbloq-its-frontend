@@ -7,8 +7,7 @@
  * # LoginCtrl
  * Controller of the botbloqItsFrontendApp
  */
-angular.module('botbloqItsFrontendApp')
-    .controller('loginCtrl', function($log, $scope, userApi) {
+botBloqApp.controller('loginCtrl', function($log, $scope, userApi) {
         $log.log('login ctrl start');
 
         $scope.save = function() {

@@ -8,8 +8,7 @@
  *
  * Main module of the application.
  */
-angular
-    .module('botbloqItsFrontendApp', [
+var botBloqApp= angular.module('botbloqItsFrontendApp', [
         'ngRoute',
         'ngSanitize',
         'ngTouch'
@@ -24,8 +23,18 @@ angular
                 templateUrl: 'views/login.html',
                 controller: 'loginCtrl'
             })
+            .when('/students', {
+                templateUrl: 'views/students.html',
+                controller: 'studentsCtrl'
+            })
+            .when('/adminResources', {
+                templateUrl: 'views/adminResources.html',
+                controller: 'adminResourcesCtrl'
+            })
             .otherwise({
-                redirectTo: '/'
+                redirectTo: 'views/404'
             });
         $httpProvider.interceptors.push('authInterceptor');
     });
+
+   

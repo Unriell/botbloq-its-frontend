@@ -7,11 +7,9 @@
  * # userApi
  * Service in the bitbloqApp.
  */
-angular.module('botbloqItsFrontendApp')
-    .service('userApi', function($log, $q, $http, common) {
+botBloqApp.service('userApi', function($log, $q, $http, common) {
 
         $log.log('userApi start');
-
 
         function login(email, password) {
             $log.debug(email, password);
@@ -24,7 +22,7 @@ angular.module('botbloqItsFrontendApp')
                 name: password
             }}).then(function(response) {
                 $log.debug('token', response.data.token);
-                localStorage.userToken = response.data.token;
+                localStorage.userToken = response.data.token; 
                 getCurrentUser().then(function() {
                     loginPromise.resolve();
                 }, function(err) {
@@ -38,6 +36,10 @@ angular.module('botbloqItsFrontendApp')
             return loginPromise.promise;
         }
 
+        function getStudents() { 
+          return $http.get( common.bitbloqBackendUrl + "/students" );      
+        }
+       
         function logout() {
             localStorage.userToken = null;
             exports.currentUser = {};
@@ -52,6 +54,7 @@ angular.module('botbloqItsFrontendApp')
         var exports = {
             currentUser: null,
             login: login,
+            getStudents, getStudents,
             logout: logout,
             getCurrentUser: getCurrentUser
         };
