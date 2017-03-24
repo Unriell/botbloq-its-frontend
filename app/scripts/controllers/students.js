@@ -13,7 +13,6 @@
         $log.log('student ctrl start');
 
         $scope.showStudents= function() {
-         
             $log.debug('loading students ...');
             userApi.getStudents().then(function(response){
                    $scope.students= response.data;
@@ -21,7 +20,7 @@
                 $log.debug(err);
                 alert('Error de tipo: '+err.status);      
             });
-           
         };
+       
         
     });

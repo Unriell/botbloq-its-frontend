@@ -29,7 +29,7 @@ var botBloqApp= angular.module('botbloqItsFrontendApp', [
             })
             .when('/adminResources', {
                 templateUrl: 'views/adminResources.html',
-                controller: 'adminResourcesCtlr'
+                controller: 'adminResourcesCtrl'
             })
             .otherwise({
                 redirectTo: 'views/404'

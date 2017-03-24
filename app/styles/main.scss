@@ -1,3 +1,9 @@
 @import "bootstrapstart";
 
+@import "globals/reset";
+@import "globals/base";
+
+@import "partials/table";
+
 @import "modules/students";
+@import "modules/adminResources";

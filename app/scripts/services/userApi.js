@@ -10,7 +10,6 @@
 botBloqApp.service('userApi', function($log, $q, $http, common) {
 
         $log.log('userApi start');
-        this.students;
 
         function login(email, password) {
             $log.debug(email, password);
@@ -23,7 +22,7 @@ botBloqApp.service('userApi', function($log, $q, $http, common) {
                 name: password
             }}).then(function(response) {
                 $log.debug('token', response.data.token);
-                localStorage.userToken = response.data.token;
+                localStorage.userToken = response.data.token; 
                 getCurrentUser().then(function() {
                     loginPromise.resolve();
                 }, function(err) {
@@ -36,13 +35,11 @@ botBloqApp.service('userApi', function($log, $q, $http, common) {
             });
             return loginPromise.promise;
         }
-        function getStudents() { 
-        
-          return $http.get( common.bitbloqBackendUrl + "/students" );
-                 
-        
-        }
 
+        function getStudents() { 
+          return $http.get( common.bitbloqBackendUrl + "/students" );      
+        }
+       
         function logout() {
             localStorage.userToken = null;
             exports.currentUser = {};
