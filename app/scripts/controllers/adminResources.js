@@ -35,7 +35,7 @@
         $scope.showInfoResource = function(item){
             $scope.InfoResource=true;
             $log.debug('loading get info resource ...');
-            lomsApi.getResource().then(function(response){
+            lomsApi.getResource(item).then(function(response){
                 $scope.generalSchema=response.data.general;
                 $scope.lifecycleSchema=response.data.lifecycle;
                 $scope.metadataSchema=response.data.metadata;
