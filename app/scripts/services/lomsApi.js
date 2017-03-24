@@ -114,7 +114,7 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
           return $http.get( common.bitbloqBackendUrl + "/loms" );      
         }
         function getResource(item) { 
-          return $http.get( common.bitbloqBackendUrl + "/loms/"+item_id );      
+          return $http.get( common.bitbloqBackendUrl + "/loms/"+item._id );      
         }
         function removeItem(item) { 
           return $http.delete(common.bitbloqBackendUrl + "/loms/"+item );      
