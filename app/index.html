@@ -40,7 +40,8 @@
                         <li ng-class="{ active : isActive('/login') }"><a ng-href="#!/login">Login</a></li>
                         <li ng-class="{ active : isActive('/views/404') }"><a ng-href="#!/test">Test</a></li>
                         <li ng-class="{ active : isActive('/students') }"><a ng-href="#!/students">Students</a></li>
-                        <li ng-class="{ active : isActive('/adminResources') }"><a ng-href="#!/adminResources">Admin Resources</a></li>
+                        <li ng-class="{ active : isActive('/loms') }"><a ng-href="#!/loms">Loms</a></li>
+                        <li ng-class="{ active : isActive('/courses') }"><a ng-href="#!/courses">Courses</a></li>
                     </ul>
                 </div>
             </div>
@@ -76,12 +77,14 @@
     <script src="scripts/services/common.js"></script>
     <script src="scripts/services/userApi.js"></script>
     <script src="scripts/services/lomsApi.js"></script>
+    <script src="scripts/services/coursesApi.js"></script>
     <script src="scripts/services/authInterceptor.js"></script>
     <script src="scripts/controllers/body.js"></script>
     <script src="scripts/controllers/landing.js"></script>
     <script src="scripts/controllers/login.js"></script> 
     <script src="scripts/controllers/students.js"></script>
-    <script src="scripts/controllers/adminResources.js"></script>
+    <script src="scripts/controllers/loms.js"></script>
+    <script src="scripts/controllers/courses.js"></script>
     <!-- endbuild -->
 </body>
 

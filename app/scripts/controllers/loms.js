@@ -8,34 +8,34 @@
  * Controller of the botbloqItsFrontendApp
  */
 
-   botBloqApp.controller('adminResourcesCtrl',
+   botBloqApp.controller('lomsCtrl',
                          function($log, $scope,$http,$location,lomsApi) {
-        $log.log('adminResources ctrl start');
-        $log.debug('loading resources p ...');
+        $log.log('loms ctrl start');
+        $log.debug('loading loms p ...');
 
-        $scope.InfoResource=false;
+        $scope.InfoLom=false;
         $scope.idItemToEdit;
        
-        lomsApi.getResources().then(function(response){
+        lomsApi.getLoms().then(function(response){
                 $scope.loms= response.data;
             }, function myError(err) {
                 $log.debug(err);
                 alert('Error de tipo: '+err.status);      
         }); 
 
-        $scope.showResources= function() {
-            $log.debug('loading resources ...');
-            lomsApi.getResources().then(function(response){
+        $scope.showLoms= function() {
+            $log.debug('loading Loms ...');
+            lomsApi.getLoms().then(function(response){
                    $scope.loms= response.data;
             }, function myError(err) {
                 $log.debug(err);
                 alert('Error de tipo: '+err.status);      
             }); 
         };
-        $scope.showInfoResource = function(item){
-            $scope.InfoResource=true;
-            $log.debug('loading get info resource ...');
-            lomsApi.getResource(item).then(function(response){
+        $scope.showInfoLom = function(item){
+            $scope.InfoLom=true;
+            $log.debug('loading get info lom ...');
+            lomsApi.getLom(item).then(function(response){
                 $scope.generalSchema=response.data.general;
                 $scope.lifecycleSchema=response.data.lifecycle;
                 $scope.metadataSchema=response.data.metadata;
@@ -46,15 +46,20 @@
                 alert('Error de tipo: '+err.status);      
             });
         };
-        $scope.hideInfoResource = function(){
-            $scope.InfoResource=false;
+        $scope.hideInfoLom = function(){
+            $scope.InfoLom=false;
+            $scope.generalSchema={};
+            $scope.lifecycleSchema={};
+            $scope.metadataSchema={};
+            $scope.technicalSchema={};
+            $scope.useSchema={};
         };
-        $scope.showAddResourceForm = function() {
-            $scope.showAdminResourcesForm=true;
+        $scope.showAddLomForm = function() {
+            $scope.showAdminLomsForm=true;
             $scope.edit=false;
         };
-        $scope.showEditResourceForm = function(item) {
-            $scope.showAdminResourcesForm=true;
+        $scope.showEditLomForm = function(item) {
+            $scope.showAdminLomsForm=true;
             $scope.edit=true;
             $scope.idItemToEdit=item._id;
 
@@ -64,16 +69,16 @@
             $scope.technicalSchema=item.technical;
             $scope.useSchema=item.use;
         };
-        $scope.addResource = function() {
-            if ($scope.adminResourcesForm.$valid) {
+        $scope.addLom = function() {
+            if ($scope.adminLomsForm.$valid) {
                 $log.debug('adding...', $scope.technicalSchema);
-                lomsApi.addResource($scope.generalSchema,$scope.lifecycleSchema,$scope.metadataSchema,$scope.technicalSchema, $scope.useSchema).then(function(response) {
-                    $log.debug('ok después de addResource', response);
-                    $scope.showResources();
+                lomsApi.addLom($scope.generalSchema,$scope.lifecycleSchema,$scope.metadataSchema,$scope.technicalSchema, $scope.useSchema).then(function(response) {
+                    $log.debug('ok después de addLom', response);
+                    $scope.showLoms();
                 }, function(error) {
-                    $log.debug('error después de addResource', error);
+                    $log.debug('error después de addLom', error);
                 });
-                $scope.showAdminResourcesForm=false;
+                $scope.showAdminLomsForm=false;
             } else {
                 $log.debug('There are invalid fields');
             }
@@ -83,16 +88,16 @@
             $scope.technicalSchema={};
             $scope.useSchema={};
         };
-        $scope.editResource = function(idItem) {
-            if ($scope.adminResourcesForm.$valid) {
+        $scope.editLom = function(idItem) {
+            if ($scope.adminLomsForm.$valid) {
                 $log.debug('editing...', $scope.technicalSchema);
-                lomsApi.editResource(idItem,$scope.generalSchema,$scope.lifecycleSchema,$scope.metadataSchema,$scope.technicalSchema, $scope.useSchema).then(function(response) {
-                    $log.debug('ok después de editResource', response);
-                    $scope.showResources();
+                lomsApi.editLom(idItem,$scope.generalSchema,$scope.lifecycleSchema,$scope.metadataSchema,$scope.technicalSchema, $scope.useSchema).then(function(response) {
+                    $log.debug('ok después de editLom', response);
+                    $scope.showLoms();
                 }, function(error) {
-                    $log.debug('error después de editResource', error);
+                    $log.debug('error después de editLom', error);
                 });
-                $scope.showAdminResourcesForm=false;
+                $scope.showAdminLomsForm=false;
             } else {
                 $log.debug('There are invalid fields');
             }
@@ -102,17 +107,17 @@
             $scope.technicalSchema={};
             $scope.useSchema={};
         };
-        $scope.addEditResource = function() {
+        $scope.addEditLom = function() {
             $log.debug('valor de edit: ', $scope.edit);
-            if($scope.edit) $scope.editResource($scope.idItemToEdit);
-            else $scope.addResource();
+            if($scope.edit) $scope.editLom($scope.idItemToEdit);
+            else $scope.addLom();
         };
 
-        $scope.removeResource = function(item){
+        $scope.removeLom = function(item){
             $log.debug('eliminado item con id: ', item);
             lomsApi.removeItem(item).then(function(response) {
                     $log.debug('eliminado item con exito', response);
-                    $scope.showResources();
+                    $scope.showLoms();
                 }, function(error) {
                     $log.debug('error al eliminar item', error);
              });

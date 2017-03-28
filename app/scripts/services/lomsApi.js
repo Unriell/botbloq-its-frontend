@@ -11,7 +11,7 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
 
         $log.log('lomsApi start');
 
-        function addResource(generalSchema,lifecycleSchema,metadataSchema,technicalSchema, useSchema) {
+        function addLom(generalSchema,lifecycleSchema,metadataSchema,technicalSchema, useSchema) {
             $log.debug("Objetos para hacer post: "+ generalSchema,lifecycleSchema,metadataSchema,
                                  technicalSchema, useSchema);
 
@@ -60,7 +60,7 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
             });
             return lomsPromise.promise;
         }
-        function editResource(idItem,generalSchema,lifecycleSchema,metadataSchema,technicalSchema, useSchema) {
+        function editLom(idItem,generalSchema,lifecycleSchema,metadataSchema,technicalSchema, useSchema) {
             $log.debug("Objetos para editar: "+ generalSchema,lifecycleSchema,metadataSchema,
                                  technicalSchema, useSchema);
 
@@ -110,10 +110,10 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
             return lomsPromise.promise;
         }
 
-        function getResources() { 
+        function getLoms() { 
           return $http.get( common.bitbloqBackendUrl + "/loms" );      
         }
-        function getResource(item) { 
+        function getLom(item) { 
           return $http.get( common.bitbloqBackendUrl + "/loms/"+item._id );      
         }
         function removeItem(item) { 
@@ -126,12 +126,12 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
       
 
         var exports = {
-            addResource : addResource,
-            getResources : getResources,
-            getResource : getResource,
+            addLom : addLom,
+            getLoms : getLoms,
+            getLom : getLom,
             removeItem : removeItem,
             removeAllItem : removeAllItem,
-            editResource : editResource
+            editLom : editLom
         };
 
 
