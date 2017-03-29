@@ -1,0 +1,26 @@
+ <div class="header">
+    <div class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#/">botbloqItsFrontend</a>
+                <a href="">{{userApi.currentUser.identification.email}}</a>
+            </div>
+            <div class="collapse navbar-collapse" id="js-navbar-collapse">
+                <ul class="nav navbar-nav">
+                    <li ng-class="{ active : isActive('/') }"><a href="#!/">Home</a></li>
+                    <li ng-class="{ active : isActive('/login') }"><a ng-href="#!/login">Login</a></li>
+                    <li ng-class="{ active : isActive('/views/404') }"><a ng-href="#!/test">Test</a></li>
+                    <li ng-class="{ active : isActive('/students') }"><a ng-href="#!/students">Students</a></li>
+                    <li ng-class="{ active : isActive('/loms') }"><a ng-href="#!/loms">Loms</a></li>
+                    <li ng-class="{ active : isActive('/courses') }"><a ng-href="#!/courses">Courses</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

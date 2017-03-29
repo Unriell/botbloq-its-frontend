@@ -1,10 +1,14 @@
 @import "bootstrapstart";
 
 @import "globals/reset";
+@import "globals/variables";
 @import "globals/base";
+@import "globals/fonts";
+@import "globals/icon-fonts";
 
 @import "partials/table";
+@import "partials/header";
+@import "partials/footer";
 
-@import "modules/students";
-@import "modules/loms";
-@import "modules/courses";
+@import "pages/loms";
+@import "pages/courses";

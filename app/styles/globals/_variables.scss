@@ -1,36 +1,82 @@
-
 // == Colores
-$color-gray-base: #000000 !default;
-$color-gray: #666666;
+$color-gray: #666666; //color texto menu cabecera
+$color-gray2: #999999; //Borde de matrículas
 $color-grayLight: #c2c2c2;
+$color-grayTooLight: #f0f0f0; //color de barra de porcentajes
+$color-grayTooLight2: #d6d7d9; //Triángulo ordenar tabla desactivado
+$color-blue-shadow:#00759c;
 $color-blueDark1: #022a45;
-$color-blueDark2: #0c4b63
-$color-blueLight: #00add4;
+$color-blueDark2: #0c4b63;    
+$color-blueLight: #39bee6;
+$color-blueTooLight: #aec1cf;
 $color-white: #fff;
+$color-black:#000000;
+$color-purple:#6f60b3;
+$color-greenWater: #29bd98;
+$color-blueTable: #2f5f75;
+$tabPanel-color-gray: #e6e0e0;
+
+//map
+$map-color-red: #ff3b55;
+$map-color-green:#00bf96;
+$map-color-blue:#00bfe6;
+$map-color-light:#ebf2f7;
+$map-color-gray:#616161;
 
 // == Scaffolding
 $body-bg: #FFFFFF !default;
+//color de fuentes
+$text-color-gray: #666666; //color texto menu cabecera
+$text-color-grayLight: #c2c2c2;
+$text-color-grayTooLight: #f0f0f0; //color de barra de porcentajes
+$text-color-blueDark: #022a45;
+$text-color-blueDark2: #0c4b63;
+$text-color-blueLight: #39bee6;
+$text-color-blueTooLight: #aec1cf;
+$text-color-purple:#6f60b3;
+$text-color-waterGreen: #00bd9a;
 $text-color-white: #FFFFFF; // blanco
 $text-color-black: #000000; // negro
-$text-color-grayDark: #414141; // gris oscuro
-$text-color-gray: #666666; // gris
-$text-color4: #B82C33; // rojo
+$text-color-gray2: #213744; // letras de footer
+
+//Color de enlaces
 $link-color: #000000;
 $link-hover-color: #000000;
+$link-hover-decoration: underline !default;
+$link-color-gray: #666666; //color texto menu cabecera
+$link-color-grayLight: #c2c2c2;
+$link-color-grayTooLight: #f0f0f0; //color de barra de porcentajes
+$link-color-blueDark: #022a45;
+$link-color-blueDark2: #0c4b63;
+$link-color-blueLight: #39bee6;
+$link-color-blueTooLight: #aec1cf;
+$link-color-purple:#6f60b3;
+$link-color-waterGreen: #00bd9a;
+$link-color-white: #FFFFFF; // blanco
+$link-color-black: #000000; // negro
+$link-color-gray2: #213744; // letras de footer
+$link-color-blue2:#8598ba; //enlace log out | profile de cabecera
+$link-hover-color: #000000;
+$link-hover-color-gray:#666666;
 $link-hover-decoration: underline !default;
 
 // backgrounds
 $bg-color-white: #FFFFFF; // blanco
 $bg-color-black: #000000; // negro
+$bg-color-gray: #f0f3f5; //Color de fondo de cuerpo de estadísticas, rutas, ..
+$bg-color-blueLight: #00add4;
+$bg-color-blueHoverNav: #016889;
+$bg-color-blueDark: #022a45;
+$bg-color-grayLight: #f2f3f6; //Color de fondo de cuerpod de pagina de tablas
 $bg-color-grayDark: #282828; // gris oscuro oscuro (utilizado en el footer)
-$bg-color-gray: #F2F2F2; // gris (utilizado por ejemplo en "También te puede interesar", "enlaces" -home-)
 $bg-color-red: #B82C33; // rojo
+$bg-color-green:#60C250;
 
 
 // == Tipografias
-$font-corporate-regular: "AvenirNext-Regular";
-$font-corporate-medium: "AvenirNext-Medium";
-$font-corporate-bold: "AvenirNext-Bold";
+$font-corporate-regular: "bbq_latin_greek-regular";
+$font-corporate-italic: "bbq_latin_greek-italic";
+
 
 //== Media queries breakpoints
 // Extra small screen / phone

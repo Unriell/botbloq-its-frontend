@@ -1,0 +1,70 @@
+
+
+.contentHeader{
+	background:#4B4B4B;
+	position:relative;
+    display: block;
+    width: 100%;
+}
+	.contentHeader__logo{
+		background:$bg-color-green;
+		display: block;
+	    text-align: center;
+	    width: 100%;
+	    padding-top: 5px;
+	}
+	.contentHeader__logo__image{
+		width: 50px;
+	}
+	.contentHeader_content{
+		display: block;
+	    vertical-align: middle;
+	    width: 100%;
+	}
+	.contentHeader_content__options{
+		
+	}
+	.contentHeader_content__options__element{
+		display: block;
+    	text-align: center;
+	}
+	.contentHeader_content__options__element__link{
+		display: inline-block;
+	    padding: 10px 0;
+	    font-size: 1.1em;
+	    &:hover{
+	    	text-decoration: none;
+	    	background: $link-hover-color-gray;
+	    }
+	}
+	.contentHeader_content__options__element__link__label{
+		font-size: 0.7em;
+		color:$color-grayLight;
+	}
+	.contentHeader_content__profile{
+		position: absolute;
+	    top: 16px;
+	    right: 12px;
+	}
+	.bbq-graduation-cap--header:before {
+	  vertical-align: middle;
+	  color:$color-grayLight;
+	}
+	.bbq-cloud--header:before {
+	  vertical-align: middle;
+	  color:$color-grayLight;
+	}
+	.bbq-book-open--header:before {
+	  vertical-align: middle;
+	  color:$color-grayLight;
+	}
+	.bbq-comment--header:before {
+	  vertical-align: middle;
+	  color:$color-grayLight;
+	}
+	.bbq-user--header:before {  	
+	  	color:$color-grayLight;
+    	vertical-align: middle;
+	    float: right;
+	    font-size: 1.8em;
+	}

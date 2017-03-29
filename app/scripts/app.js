@@ -20,23 +20,23 @@ var botBloqApp= angular.module('botbloqItsFrontendApp', [
                 controller: 'landingCtrl'
             })
             .when('/login', {
-                templateUrl: 'views/login.html',
+                templateUrl: 'views/pages/login.html',
                 controller: 'loginCtrl'
             })
             .when('/students', {
-                templateUrl: 'views/students.html',
+                templateUrl: 'views/pages/students.html',
                 controller: 'studentsCtrl'
             })
             .when('/loms', {
-                templateUrl: 'views/loms.html',
+                templateUrl: 'views/pages/loms.html',
                 controller: 'lomsCtrl'
             })
             .when('/courses', {
-                templateUrl: 'views/courses.html',
+                templateUrl: 'views/pages/courses.html',
                 controller: 'coursesCtrl'
             })
             .otherwise({
-                redirectTo: 'views/404'
+                redirectTo: 'views/pages/404'
             });
         $httpProvider.interceptors.push('authInterceptor');
     });
