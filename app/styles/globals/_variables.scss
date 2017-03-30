@@ -2,11 +2,11 @@
 $color-gray: #666666; //color texto menu cabecera
 $color-gray2: #999999; //Borde de matrículas
 $color-grayLight: #c2c2c2;
-$color-grayTooLight: #f0f0f0; //color de barra de porcentajes
-$color-grayTooLight2: #d6d7d9; //Triángulo ordenar tabla desactivado
+$color-grayLight2:  #a3a4a8; //Color de enlace de orderBy desactivado de loms
+$color-grayTooLight: #ededed; 
 $color-blue-shadow:#00759c;
 $color-blueDark1: #022a45;
-$color-blueDark2: #0c4b63;    
+$color-blueDark2: #5d6069;    
 $color-blueLight: #39bee6;
 $color-blueTooLight: #aec1cf;
 $color-white: #fff;
@@ -28,7 +28,8 @@ $body-bg: #FFFFFF !default;
 //color de fuentes
 $text-color-gray: #666666; //color texto menu cabecera
 $text-color-grayLight: #c2c2c2;
-$text-color-grayTooLight: #f0f0f0; //color de barra de porcentajes
+$text-color-grayLight2: #a3a4a8;
+$text-color-grayTooLight: #ededed; 
 $text-color-blueDark: #022a45;
 $text-color-blueDark2: #0c4b63;
 $text-color-blueLight: #39bee6;
@@ -45,7 +46,7 @@ $link-hover-color: #000000;
 $link-hover-decoration: underline !default;
 $link-color-gray: #666666; //color texto menu cabecera
 $link-color-grayLight: #c2c2c2;
-$link-color-grayTooLight: #f0f0f0; //color de barra de porcentajes
+$link-color-grayTooLight: #ededed; //color de barra de porcentajes
 $link-color-blueDark: #022a45;
 $link-color-blueDark2: #0c4b63;
 $link-color-blueLight: #39bee6;
@@ -63,14 +64,18 @@ $link-hover-decoration: underline !default;
 // backgrounds
 $bg-color-white: #FFFFFF; // blanco
 $bg-color-black: #000000; // negro
-$bg-color-gray: #f0f3f5; //Color de fondo de cuerpo de estadísticas, rutas, ..
+$bg-color-gray: #f0f3f5; 
+$bg-color-graytooLight: #ededed;//color de fondo de estión de loms
+$bg-color-graytooLight2: #ebebeb;//color de fondo de estión de loms
+$bg-color-grayDark: #424752;//Color de fondo de cabecera
 $bg-color-blueLight: #00add4;
 $bg-color-blueHoverNav: #016889;
 $bg-color-blueDark: #022a45;
 $bg-color-grayLight: #f2f3f6; //Color de fondo de cuerpod de pagina de tablas
 $bg-color-grayDark: #282828; // gris oscuro oscuro (utilizado en el footer)
 $bg-color-red: #B82C33; // rojo
-$bg-color-green:#60C250;
+$bg-color-green:#82a63c;
+$bg-color-active-green:#749c2c;
 
 
 // == Tipografias

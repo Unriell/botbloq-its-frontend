@@ -1,62 +1,94 @@
 <div class="contentAdminLoms">
-    
-        <h4>ADMINISTRAR RECURSOS</h4>
-        <ul>
-        	<li>Editar</li>
-        	<li>Eliminar</li>
-        	<li>Descargar</li>
-        	<li>Empaquetar</li>
-        	<li>Evaluar y comentar</li>
-        	<li>Objeto de aprendizaje</li>
-        	<li>Contenido</li>
-        	<li>Información</li>
-        	<li>Estadísticas</li>
-        	<li>Copiar URL</li>
-        </ul>
+        <div class="contentTitle">
+            <h1 class="h1Class">Recursos Objetos de Aprendizaje </h1>
+        </div>
+        <div class="contentAdminLoms__contentLoms">
+            <div class="row">
+                <div class="col-xs-12 col-md-8">
+                    <div class="contentAdminLoms__contentLoms__viewOptions clearfix">
+                        <a class="contentAdminLoms__contentLoms_viewOptions__byIcon" href="#">
+                            <span class="bbq-thumbnails bbq-thumbnails--loms"></span>
+                        </a>
+                        <a class="contentAdminLoms__contentLoms_viewOptions__byList" href="">
+                            <span class="bbq-list bbq-list--loms"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-4">
+                    <form class="contentAdminLoms__contentLoms__viewOptionsfilterSearch">
+                        <div class="row">
+                            <div class="col-xs-6">
+                                <select class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter">
+                                    <option disabled>Filtrar por:</option>
+                                </select>  
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__search">
+                                    <input placeholder="Buscar ..." class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__search__input" type="text" name="searchLom"> 
+                                    <span class="bbq-search bbq-search--loms"></span>   
+                                </div>  
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12">
+                    <ul class="contentAdminLoms__contentLoms__wrapperLoms">
+                        <li ng-repeat="i in loms">
+                            <img src="">
+                            <div>
+                                
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-		<table>
-			<caption>Tabla de administración de recursos</caption>
-			<colgroup>
-				<col class="size10">
-				<col class="size10">	
-				<col class="size10">	
-				<col class="size30">	
-				<col class="size40">		
-			</colgroup>
-			<thead>
-				<tr>
-					<th>ID CATÁLOGO</th>
-					<th>Título</th>
-					<th>ID</th>
-					<th>Opciones</th>
-					<th>Herramientas</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr ng-repeat="i in loms">
-					<td>{{i.general.id_catalog}}</td>
-					<td>archivo.txt</td>
-					<td>{{i._id}}</td>
-					<td>
-						<ul class="contentOptions">
-							<li><button disabled>Contenido</button></li>
-							<li><button ng-click="showInfoLom(i)">Información</button></li>
-							<li><button disabled>Estadísticas</button></li>
-						</ul>
-					</td>
-					<td>
-						<ul class="contentOptions">
-							<li><button ng-click="showEditLomForm(i)">Editar</button></li>
-							<li><button ng-click="removeLom(i._id)">Eliminar</button></li>
-							<li><button disabled>Descargar</button></li>
-							<li><button disabled>Empaquetar</button></li>
-							<li><button disabled>Evaluar y comentar</button></li>
-							<li><button disabled>Copiar</button></li>
-						</ul>
-					</td>
-				</tr>
-			</tbody>
-		</table>
+		<!-- <table>
+            <caption>Tabla de administración de recursos</caption>
+            <colgroup>
+                <col class="size10">
+                <col class="size10">    
+                <col class="size10">    
+                <col class="size30">    
+                <col class="size40">        
+            </colgroup>
+            <thead>
+                <tr>
+                    <th>ID CATÁLOGO</th>
+                    <th>Título</th>
+                    <th>ID</th>
+                    <th>Opciones</th>
+                    <th>Herramientas</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="i in loms">
+                    <td>{{i.general.id_catalog}}</td>
+                    <td>archivo.txt</td>
+                    <td>{{i._id}}</td>
+                    <td>
+                        <ul class="contentOptions">
+                            <li><button disabled>Contenido</button></li>
+                            <li><button ng-click="showInfoLom(i)">Información</button></li>
+                            <li><button disabled>Estadísticas</button></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul class="contentOptions">
+                            <li><button ng-click="showEditLomForm(i)">Editar</button></li>
+                            <li><button ng-click="removeLom(i._id)">Eliminar</button></li>
+                            <li><button disabled>Descargar</button></li>
+                            <li><button disabled>Empaquetar</button></li>
+                            <li><button disabled>Evaluar y comentar</button></li>
+                            <li><button disabled>Copiar</button></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table> -->
 
 
         <button class="btn btn-primary" ng-click="showAddLomForm()">Agregar</button>

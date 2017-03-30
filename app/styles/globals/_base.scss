@@ -1,7 +1,15 @@
 
 .wrapperMain{
-	padding:40px;
+	padding:30px;
 	background:$bg-color-white;
+}
+.containerMain{
+	padding-top: 25px;
+}
+
+.h1Class{
+	font-size: 1.3em;
+    font-weight: bold;
 }
 .h3Class{
 	font-size: 25px;
@@ -62,6 +70,9 @@
 			display: table-cell;
 			vertical-align: middle;
 			width: 90%;
+			nav{
+	    		display:inline-block;
+	    	}
 		}
 		.contentHeader_content__options{
 			display: inline-block;
@@ -80,8 +91,17 @@
 		    margin-top: 21px;
 		}
 		.bbq-user--header:before {
+			color:$color-grayLight;
 		  	font-size: 1.6em;
 		}
+	}
+
+	.contentAdminLoms{
+		.contentTitle{
+			padding-left: 15px;
+		}
+
+		
 	}
 }
 
@@ -93,6 +113,9 @@
    		padding-right: 20px;
 		.contentHeader_content{
 			text-align:center;
+		}
+		.contentHeader__logo__image{
+			width: 36px;
 		}
 		.contentHeader_content__options__element__link{
 			padding: 20px 69px;

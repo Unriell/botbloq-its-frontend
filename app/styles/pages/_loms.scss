@@ -1,24 +1,90 @@
+
 .contentAdminLoms{
-	background:#FFD6D6;
-	.contentForm{
-		background:#F4FCF4;
-		padding: 10px;
-		margin-top:30px;
-		fieldset{
-			border: 1px solid gray;
-		    padding: 10px;
-		    margin-bottom: 30px;
+
+}
+	.contentTitle {
+	    padding-bottom: 15px;
+	}
+	.contentAdminLoms__contentLoms{
+		background: $bg-color-graytooLight;
+    	padding: 13px;
+	}
+	.contentAdminLoms__contentLoms__viewOptions{
+		margin-bottom: 13px;
+	}
+	.contentAdminLoms__contentLoms_viewOptions__byIcon{
+		background:$bg-color-graytooLight2;
+		padding: 4px;
+		border:1px solid $color-grayLight;
+		border-top-left-radius: 3px;
+    	border-bottom-left-radius: 3px;
+    	display: inline-block;
+    	float: left;
+    	&.active{
+    		background:$bg-color-white;
+    		.bbq-thumbnails--loms:before{
+				color:$color-blueDark2		
+    		}
+    	}
+	}
+	.contentAdminLoms__contentLoms_viewOptions__byList{
+		background:$bg-color-graytooLight2;
+		padding: 4px;
+		border:1px solid $color-grayLight;
+		border-top-right-radius: 3px;
+    	border-bottom-right-radius: 3px;
+    	display: inline-block;
+    	float: left;
+    	&.active{
+			background:$bg-color-white;
+    		.bbq-list--loms:before{
+				color:$color-blueDark2;
+    		}
+    	}
+	}
+	.contentAdminLoms__contentLoms__viewOptionsfilterSearch{
+	}
+	.contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter{
+		font-size: 1.2em;
+		font-color:$text-color-black;
+		padding: 3px;
+	    border-radius: 5px;
+	    border: 1px solid $color-grayLight;
+	}
+	.contentAdminLoms__contentLoms__viewOptionsfilterSearch__search{
+		position:relative;
+	}
+	.contentAdminLoms__contentLoms__viewOptionsfilterSearch__search__input{
+		width: 100%;
+		padding:7px 0 5px 32px;
+		border-radius:5px;
+		border:1px solid $color-grayLight;
+		&::-webkit-input-placeholder {
+		    font-size: 1.2em;
+			font-color:$text-color-gray;
 		}
 	}
-}
-.contentInfoLom{
-	background:#52CFFE
-}
+	.contentAdminLoms__contentLoms__wrapperLoms{
 
-table button[disabled]{
-	cursor: not-allowed !important;
-   	opacity: 0.65 !important;  
-}
-.attr{
-	font-weight:bold;
-}
+	}
+
+	.bbq-list--loms:before {
+	  color:$color-grayLight2;
+	  display: block;
+	  font-size: 1.6em;
+	  padding-top:2px;
+	}
+	.bbq-thumbnails--loms:before {
+	  color:$color-grayLight2;
+	  display: block;
+	  font-size: 1.6em;
+	  padding-top:2px;
+	}
+
+	.bbq-search--loms:before {
+		color:$color-grayLight;
+		position: absolute;
+		top: 6px;
+		left: 8px;
+		font-size: 1.3em;
+	}

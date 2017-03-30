@@ -137,3 +137,9 @@
 .bbq-user:before {
   content: "\47";
 }
+.bbq-list:before {
+  content: "\48";
+}
+.bbq-thumbnails:before {
+  content: "\49";
+}
