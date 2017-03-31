@@ -1,6 +1,6 @@
 <div class="contentAdminLoms">
         <div class="contentTitle">
-            <h1 class="h1Class">Recursos Objetos de Aprendizaje </h1>
+            <h2 class="h2Class">Recursos Objetos de Aprendizaje </h2>
         </div>
         <div class="contentAdminLoms__contentLoms">
             <div class="row">
@@ -91,120 +91,13 @@
         </table> -->
 
 
-        <button class="btn btn-primary" ng-click="showAddLomForm()">Agregar</button>
-        <!-- <button class="btn btn-primary" ng-click="showLoms()">Mostrar</button> -->
+        <a ng-href="#!/addLom">Agregar</a>
+        <!-- <button class="btn btn-primary" ng-click="showLoms()">Mostrar</button>  -->
         <button class="btn btn-primary" ng-click="deleteAllLoms()">Eliminar todo</button>
         <button class="btn btn-primary" disabled>Agregar con Asistente</button>
         <button class="btn btn-primary" disabled>Regresar</button>
 
-        <form id="adminLomsForm" name="adminLomsForm" class="contentForm" ng-submit="addEditLom()" ng-show="showAdminLomsForm" ng-hide="!showAdminLomsFormValid" novalidate>
-        <fieldset>
-        	<legend>FORMULARIO AGREGAR</legend>
-
-        	<fieldset>
-        		<legend>General</legend>
-
-				<label for="generalSchema_catalog">Identificador Catálogo*</label>
-				<input ng-model="generalSchema.id_catalog" type="text" id="generalSchema_catalog" name="generalSchema_catalog" required>
-
-				<label for="generalSchema_entry">Identificador De Entrada*</label>
-				<input ng-model="generalSchema.id_entry" type="number" id="generalSchema_entry" name="generalSchema_entry">
-
-				<label for="generalSchema_title">Título*</label>
-				<input ng-model="generalSchema.title" type="text" id="generalSchema_title" name="generalSchema_title">
-
-				<label for="generalSchema_language">Idioma*</label>
-				<select ng-model="generalSchema.language" id="generalSchema_language"  type="text" name="generalSchema_language">
-				  <option>es</option>
-				  <option>en</option>
-				</select>
-
-				<label for="generalSchema_structure">Estructura*</label>
-				<select ng-model="generalSchema.structure" id="generalSchema_structure" type="text" name="generalSchema_structure">
-				  <option>atomic</option>
-				  <option>complex</option>
-				</select>
-
-				<label for="generalSchema_aggregation_level">Nivel de agregación*</label>
-				<input ng-model="generalSchema.aggregation_level" type="number" id="generalSchema_aggregation_level" name="generalSchema_aggregation_level">
-        	</fieldset>
-
-        	<fieldset>
-        		<legend>Ciclo de vida</legend>
-				
-				<label for="lifecycleSchema_version">Versión</label>
-				<input ng-model="lifecycleSchema.version" type="number" id="lifecycleSchema_version" name="lifecycleSchema_version">
-
-				<label for="lifecycleSchema_state">Estado</label>
-				<select ng-model="lifecycleSchema.state" id="lifecycleSchema_state" type="text" name="lifecycleSchema_state">
-				  <option>draft</option>
-				  <option>final</option>
-				</select>
-				
-				<label for="lifecycleSchema_contribution_type">Contribución.Tipo*</label>
-				<input ng-model="lifecycleSchema.contribution_type" type="text" id="lifecycleSchema_contribution_type" name="lifecycleSchema_contribution_type">
-
-				<label for="lifecycleSchema_contribution_entity">Contribución.Entidad*</label>
-				<input ng-model="lifecycleSchema.contribution_entity" type="text" id="lifecycleSchema_contribution_entity" name="lifecycleSchema_contribution_entity">
-
-				<label for="lifecycleSchema_contribution_date">Contribución.Fecha*</label>
-				<input ng-model="lifecycleSchema.contribution_date" type="date" id="lifecycleSchema_contribution_date" name="lifecycleSchema_contribution_date">
-
-        	</fieldset>
-        	<fieldset>
-        		<legend>Meta-metadatos</legend>
-
-				<label for="metadataSchema_contribution_type">Contribución.Tipo</label>
-				<input ng-model="metadataSchema.contribution_type" type="text" id="metadataSchema_contribution_type" name="metadataSchema_contribution_type">
-
-				<label for="metadataSchema_contribution_entity">Contribución.Entidad*</label>
-				<input ng-model="metadataSchema.contribution_entity" type="text" id="metadataSchema_contribution_entity" name="metadataSchema_contribution_entity">
-
-				<label for="metadataSchema_contribution_date">Contribución.Fecha*</label>
-				<input ng-model="metadataSchema.contribution_date" type="date" id="metadataSchema_contribution_date" name="metadataSchema_contribution_date">
-
-        	</fieldset>
-        	<fieldset>
-        		<legend>Técnico</legend>
-				
-				<label for="technicalSchema_format">Formato</label>
-				<input ng-model="technicalSchema.format" type="text" id="technicalSchema_format" name="technicalSchema_format">
-
-				<label for="technicalSchema_size_kb">Tamaño</label>
-				<input ng-model="technicalSchema.size_kb" type="number" id="technicalSchema_size_kb" name="technicalSchema_size_kb">
-
-				<label for="technicalSchema_url">Localización</label>
-				<input ng-model="technicalSchema.url" type="text" id="technicalSchema_url" name="technicalSchema_url">
-
-        	</fieldset>
-        	<fieldset>
-        		<legend>Uso Educativo</legend>
-
-				<label for="useSchema_interactivity_type">Tipo de interactividad</label>
-				<input ng-model="useSchema.interactivity_type" type="text" id="useSchema_interactivity_type" name="useSchema_interactivity_type">
-
-				<label for="useSchema_interactivity_level">Nivel de interactividad</label>
-				<input ng-model="useSchema.interactivity_level" type="text" id="useSchema_interactivity_level" name="useSchema_interactivity_level">
-
-				<label for="useSchema_language">Idioma*</label>
-				<input ng-model="useSchema.language" type="text" id="useSchema_language" name="useSchema_language">
-
-				<label for="useSchema_resource_type">Tipo de recurso*</label>
-				<input ng-model="useSchema.resource_type" type="text" id="useSchema_resource_type" name="useSchema_resource_type">
-
-				<label for="useSchema_resource_target">Objetivo de recursos</label>
-				<input ng-model="useSchema.resource_target" type="text" id="useSchema_resource_target" name="useSchema_resource_target">
-
-				<label for="useSchema_resource_context">Contexto</label>
-				<input ng-model="useSchema.resource_context" type="text" id="useSchema_resource_context" name="useSchema_resource_context">
-
-				<label for="useSchema_resource_difficulty">Dificultad</label>
-				<input ng-model="useSchema.resource_difficulty" type="text" id="useSchema_resource_difficulty" name="useSchema_resource_difficulty">
-
-        	</fieldset>
-        </fieldset>
-       	<input type="submit" name="sendFormAddLom">
-        </form>
+       
         <div class="contentInfoLom" ng-show="InfoLom">
         	<div>
         		<h3 class="h3Class">General</h3>

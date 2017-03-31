@@ -15,6 +15,29 @@
 
         $scope.InfoLom=false;
         $scope.idItemToEdit;
+        $scope.showFieldsGeneral=true;
+        $scope.showFieldsLifecicle=true;
+        $scope.showFieldsMetadata=true;
+        $scope.showFieldsTechnical=true;
+        $scope.showFieldsUse=true;
+        $scope.showHideFields= function(fieldset) {
+            if (fieldset==1){
+                if($scope.showFieldsGeneral) $scope.showFieldsGeneral=false;
+                else $scope.showFieldsGeneral=true;
+            }else if(fieldset==2){
+                if($scope.showFieldsLifecicle) $scope.showFieldsLifecicle=false;
+                else $scope.showFieldsLifecicle=true;
+            }else if(fieldset==3){
+                if($scope.showFieldsMetadata) $scope.showFieldsMetadata=false;
+                else $scope.showFieldsMetadata=true;
+            }else if(fieldset==4){
+                if($scope.showFieldsTechnical) $scope.showFieldsTechnical=false;
+                else $scope.showFieldsTechnical=true;
+            }else if(fieldset==5){
+                if($scope.showFieldsUse) $scope.showFieldsUse=false;
+                else $scope.showFieldsUse=true;
+            }
+        };
        
         lomsApi.getLoms().then(function(response){
                 $scope.loms= response.data;
