@@ -21,34 +21,40 @@
 
 .asideLeft{
 	background:$bg-color-grayDark;
-	width: 10%;
-	float: left;
+	ul{
+		text-align:center;
+	}
 }
 .asideLeft__element{
+	display:inline-block;
 	text-align: center;
+	&.active{
+		background:$bg-color-active-green;
+	}
 }
 .asideLeft__element__link{
-	padding:20px 0;
+	padding: 6px 62px;
 	text-decoration: none;
 	display: block;
 	&:hover, &:link{
 		text-decoration: none;
 	}
+	&:hover{
+		background: $link-hover-color-gray;
+	}
 }
 .bbq-align-left--style1:before {
   	color:$color-white;
-    font-size: 1.7em;
+    font-size: 2.3em;
 }
 .bbq-info-1--style1:before {
   	color:$color-white;
-    font-size: 1.7em;
+    font-size: 2.3em;
 }
 
 .contentAddItem__wrapperAddItem{
 	background: $bg-color-graytooLight;
 	padding: 13px;	
-	float:left;
-	width:90%;
 }
 .viewOptions{
 	margin-bottom: 13px;
@@ -72,23 +78,23 @@
 	}
 }
 .viewOptions__byList{
-		background:$bg-color-graytooLight2;
-		padding: 4px;
-		border:1px solid $color-grayLight;
-		border-top-right-radius: 3px;
-    	border-bottom-right-radius: 3px;
-    	display: inline-block;
-    	float: left;
-    	&:hover, &:link{
-			text-decoration: none;
-		}
-    	&.active{
-			background:$bg-color-white;
-    		.bbq-list--loms:before{
-				color:$color-blueDark2;
-    		}
-    	}
+	background:$bg-color-graytooLight2;
+	padding: 4px;
+	border:1px solid $color-grayLight;
+	border-top-right-radius: 3px;
+	border-bottom-right-radius: 3px;
+	display: inline-block;
+	float: left;
+	&:hover, &:link{
+		text-decoration: none;
 	}
+	&.active{
+		background:$bg-color-white;
+		.bbq-list--loms:before{
+			color:$color-blueDark2;
+		}
+	}
+}
 .bbq-list--style:before {
   color:$color-grayLight2;
   display: block;
@@ -166,7 +172,30 @@
 @media (min-width: $screen-sm) {
 	body.wrapperMain{
 		padding:30px;
+
+		.asideLeft{
+			width: 10%;
+			float: left;
+		}
+		.asideLeft__element{
+			display:inherit;
+			padding: 20px 0px;
+		}
+		.asideLeft__element__link{
+			padding: 27px 0;
+		}
+		.bbq-list--style:before {
+		  font-size: 1.7em;
+		}
+		.bbq-thumbnails--style:before {
+		  font-size: 1.7em;
+		}
+		.contentAddItem__wrapperAddItem{
+			float:left;
+			width:90%;
+		}
 	}
+
 	header.contentHeader{
 		display:table;
 		padding-right: 12px;
@@ -213,16 +242,40 @@
 		.contentTitle{
 			padding-left: 15px;
 		}	
-		.contentAdminLoms__contentLoms__list{
-			padding:0 75px;
-		}
 		.contentAdminLoms__contentLoms__viewOptionsfilterSearch{
 			padding-top: 6px;
+		}
+		.contentAdminLoms__contentLoms__list{
+			padding:0 60px;
+		}
+		.contentAdminLoms__contentLoms__list__wrapperLom{
+			padding:26px 11px;
 		}
 		.contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter{
 		    float:right;
 		}
 		.contentAdminLoms__contentLoms__viewOptionsfilterSearch__search{
+			float: right;
+	    	display: inline-block;
+		}
+	}
+	.contentAdminCourses{
+		.contentTitle{
+			padding-left: 15px;
+		}	
+		.contentAdminCourses__contentCourses__viewOptionsfilterSearch{
+			padding-top: 6px;
+		}
+		.contentAdminCourses__contentCourses__list{
+			padding:0 60px;
+		}
+		.contentAdminCourses__contentCourses__list__wrapperCourse{
+			padding:26px 11px;
+		}
+		.contentAdminCourses__contentCourses__viewOptionsfilterSearch__filter{
+		    float:right;
+		}
+		.contentAdminCourses__contentCourses__viewOptionsfilterSearch__search{
 			float: right;
 	    	display: inline-block;
 		}
@@ -233,6 +286,15 @@
 /* Medium devices (desktops, 992px and up) */
 
 @media (min-width: $screen-md) {
+	body.wrapperMain{
+		.asideLeft{
+			width: 7%;
+			float: left;
+		}
+		.contentAddItem__wrapperAddItem{
+			width:93%;
+		}
+	}
    header.contentHeader{
    		padding-right: 20px;
 		.contentHeader_content{
@@ -266,8 +328,19 @@
 	.contentAdminLoms{
 		
 		.contentAdminLoms__contentLoms__list{
-			padding:0 150px;
+			padding:0 120px;
 		}
+		.contentAdminLoms__contentLoms__list__wrapperLom{
+			padding:29px 17px;
+		}
+	}
+	.contentAdminCourses{
 		
+		.contentAdminCourses__contentCourses__list{
+			padding:0 120px;
+		}
+		.contentAdminCourses__contentCourses__list__wrapperCourse{
+			padding:29px 17px;
+		}
 	}
 }

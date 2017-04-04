@@ -11,11 +11,11 @@
 
 	}
 	.contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter{
-		font-size: 1.2em;
-		font-color:$text-color-black;
-		padding: 3px;
+		font-color:$text-color-grayLight;
 	    border-radius: 5px;
 	    border: 1px solid $color-grayLight;
+	    padding: 5px 0 6px 7px;
+    	font-size: 1em;
 	}
 	.contentAdminLoms__contentLoms__viewOptionsfilterSearch__search{
 		position:relative;
@@ -36,19 +36,19 @@
 	.contentAdminLoms__contentLoms__list{
 	
 	}
-	.contentAdminLoms__contentLoms__list__wrapperlom{
+	.contentAdminLoms__contentLoms__list__wrapperLom{
 		padding:15px 0;
 	}
-	.contentAdminLoms__contentLoms__list__wrapperlom__lom{
+	.contentAdminLoms__contentLoms__list__wrapperLom__lom{
 		border:1px solid $color-grayLight;
 		border-radius:3px;
-		box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.39);
+		box-shadow: 3px 3px 20px -2px rgba(0,0,0,0.39);
 	}
-	.contentAdminLoms__contentLoms__list__wrapperlom__lom__img{
+	.contentAdminLoms__contentLoms__list__wrapperLom__lom__img{
 		width: 100%;
 		display: inherit;
 	}
-	.contentAdminLoms__contentLoms__list__wrapperlom__lom__info{
+	.contentAdminLoms__contentLoms__list__wrapperLom__lom__info{
 		padding: 7px;
 		background: $bg-color-white;
 		border-top:1px solid $color-grayLight;
@@ -64,7 +64,7 @@
 	.originInfoLom__user{
 		color:$link-color-green;
 	}
-	.contentAdminLoms__contentLoms__list__wrapperlom__lom__info__viewsInfoLom{
+	.contentAdminLoms__contentLoms__list__wrapperLom__lom__info__viewsInfoLom{
 
 	}
 	
