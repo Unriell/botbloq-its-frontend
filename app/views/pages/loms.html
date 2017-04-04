@@ -4,25 +4,25 @@
         </div>
         <div class="contentAdminLoms__contentLoms">
             <div class="row">
-                <div class="col-xs-12 col-md-8">
-                    <div class="contentAdminLoms__contentLoms__viewOptions clearfix">
-                        <a class="contentAdminLoms__contentLoms_viewOptions__byIcon" href="#">
+                <div class="col-xs-12 col-sm-2">
+                    <div class="viewOptions clearfix">
+                        <a class="viewOptions__byIcon" href="#">
                             <span class="bbq-thumbnails bbq-thumbnails--style"></span>
                         </a>
-                        <a class="contentAdminLoms__contentLoms_viewOptions__byList" href="">
+                        <a class="viewOptions__byList" href="">
                             <span class="bbq-list bbq-list--style"></span>
                         </a>
                     </div>
                 </div>
-                <div class="col-xs-12 col-md-4">
+                <div class="col-xs-12 col-sm-10">
                     <form class="contentAdminLoms__contentLoms__viewOptionsfilterSearch">
                         <div class="row">
-                            <div class="col-xs-6">
+                            <div class="col-xs-6 col-sm-9">
                                 <select class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter">
                                     <option disabled value="0">Filtrar por:</option>
                                 </select>  
                             </div>
-                            <div class="col-xs-6">
+                            <div class="col-xs-6 col-sm-3">
                                 <div class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__search">
                                     <input placeholder="Buscar ..." class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__search__input" type="text" name="searchLom"> 
                                     <span class="bbq-search bbq-search--loms"></span>   
@@ -35,7 +35,7 @@
             
             <div class="contentAdminLoms__contentLoms__list">
                 <div class="row">
-                    <div ng-repeat="i in loms" class="col-xs-12 col-sm-4 col-md-3">
+                    <div ng-repeat="i in loms" class="col-xs-12 col-sm-4">
                         <div class="contentAdminLoms__contentLoms__list__wrapperlom">
                             <div class="contentAdminLoms__contentLoms__list__wrapperlom__lom">
                                 <img class="contentAdminLoms__contentLoms__list__wrapperlom__lom__img" src="http://lorempixel.com/animals/200/200/">
@@ -112,6 +112,7 @@
         <button class="btn btn-primary" ng-click="deleteAllLoms()">Eliminar todo</button>
         <button class="btn btn-primary" disabled>Agregar con Asistente</button>
         <button class="btn btn-primary" disabled>Regresar</button>
+      
 
        
         <div class="contentInfoLom" ng-show="InfoLom">
@@ -182,3 +183,5 @@
         </div>
     
 </div>
+
+

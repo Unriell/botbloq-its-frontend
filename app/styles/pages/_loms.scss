@@ -4,42 +4,11 @@
 }
 	.contentAdminLoms__contentLoms{
 		background: $bg-color-graytooLight;
-    	padding: 13px;
+    	padding: 20px;
 	}
-	.contentAdminLoms__contentLoms__viewOptions{
-		margin-bottom: 13px;
-	}
-	.contentAdminLoms__contentLoms_viewOptions__byIcon{
-		background:$bg-color-graytooLight2;
-		padding: 4px;
-		border:1px solid $color-grayLight;
-		border-top-left-radius: 3px;
-    	border-bottom-left-radius: 3px;
-    	display: inline-block;
-    	float: left;
-    	&.active{
-    		background:$bg-color-white;
-    		.bbq-thumbnails--loms:before{
-				color:$color-blueDark2		
-    		}
-    	}
-	}
-	.contentAdminLoms__contentLoms_viewOptions__byList{
-		background:$bg-color-graytooLight2;
-		padding: 4px;
-		border:1px solid $color-grayLight;
-		border-top-right-radius: 3px;
-    	border-bottom-right-radius: 3px;
-    	display: inline-block;
-    	float: left;
-    	&.active{
-			background:$bg-color-white;
-    		.bbq-list--loms:before{
-				color:$color-blueDark2;
-    		}
-    	}
-	}
+	
 	.contentAdminLoms__contentLoms__viewOptionsfilterSearch{
+
 	}
 	.contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter{
 		font-size: 1.2em;
@@ -68,11 +37,12 @@
 	
 	}
 	.contentAdminLoms__contentLoms__list__wrapperlom{
-		padding:15px;
+		padding:15px 0;
 	}
 	.contentAdminLoms__contentLoms__list__wrapperlom__lom{
 		border:1px solid $color-grayLight;
 		border-radius:3px;
+		box-shadow: 0px 0px 11px 0px rgba(0,0,0,0.39);
 	}
 	.contentAdminLoms__contentLoms__list__wrapperlom__lom__img{
 		width: 100%;
