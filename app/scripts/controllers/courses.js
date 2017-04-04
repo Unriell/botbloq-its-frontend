@@ -16,6 +16,21 @@
         $scope.InfoCourse=false;
         $scope.idItemToEdit;
        
+        $scope.showFieldsGeneral=true;
+        $scope.showFieldsObjectives=true;
+        $scope.showFieldsStatistics=true;
+        $scope.showHideFields= function(fieldset) {
+            if (fieldset==1){
+                if($scope.showFieldsGeneral) $scope.showFieldsGeneral=false;
+                else $scope.showFieldsGeneral=true;
+            }else if(fieldset==2){
+                if($scope.showFieldsObjectives) $scope.showFieldsObjectives=false;
+                else $scope.showFieldsObjectives=true;
+            }else if(fieldset==3){
+                if($scope.showFieldsStatistics) $scope.showFieldsStatistics=false;
+                else $scope.showFieldsStatistics=true;
+            }
+        };
         coursesApi.getCourses().then(function(response){
                 $scope.courses= response.data;
             }, function myError(err) {
@@ -66,8 +81,11 @@
             $scope.statistics=item.statistics;
             $scope.courseHistory=item.history;
         };
+        $scope.goAddCourse= function(){
+            $location.path("/addCourse");
+        };
         $scope.addCourse = function() {
-            if ($scope.coursesForm.$valid) {
+            if ($scope.adminCoursesForm.$valid) {
                 $log.debug('adding...');
                 coursesApi.addCourse($scope.courseName,$scope.courseCode,$scope.courseSummary,$scope.objectives,$scope.statistics,$scope.courseHistory).then(function(response) {
                     $log.debug('ok después de addCourse', response);

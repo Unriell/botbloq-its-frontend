@@ -1,0 +1,185 @@
+
+
+
+<div class="contentAddItem clearfix">
+	<div class="contentTitle">
+    	<h2 class="h2Class">Nuevo Curso</h2>
+	</div>
+	<div class="asideLeft">
+		<ul>
+			<li class="asideLeft__element">
+				<a href="#" title="Show Options" class="asideLeft__element__link">
+					<span class="bbq-align-left bbq-align-left--style1"></span>
+				</a>
+			</li>
+			<li class="asideLeft__element">
+				<a class="asideLeft__element__link" href="#" title="Info">
+					<span class="bbq-info-1 bbq-info-1--style1"></span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="contentAddItem__wrapperAddItem">
+		<form id="adminCoursesForm" name="adminCoursesForm" class="formAddCourse" ng-submit="addEditCourse()"  novalidate>
+	    <fieldset>
+	        	<legend class="sr-only">FORMULARIO AGREGAR</legend>
+	        	<ul>
+	        		<li>
+	        			<fieldset class="formAddCourse__fieldset">
+			        		<legend class="formAddCourse__legend"> 
+				        		<a class="formAddCourse__legend__link" ng-click="showHideFields(1)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsGeneral, 'bbq-plus bbq-plus--form': !showFieldsGeneral}"></span></a>
+				        		General
+			        		</legend>
+							<div class="formAddCourse__fieldset__contentFields" ng-show="showFieldsGeneral">
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<label for="course_name">Name</label>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<input ng-model="courseName" type="text" id="course_name" name="course_name" required>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<label for="course_code">Code</label>	
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<input ng-model="courseCode" type="text" id="course_code" name="course_code">		
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="row"> 
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<label for="course_summary">Summary</label>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<input ng-model="courseSummary" type="text" id="course_summary" name="course_summary">
+											</div>
+										</div>
+									</div>	
+								</div>
+								
+							</div>
+	        			</fieldset>
+	        		</li>
+	        		<li>
+	        			<fieldset class="formAddCourse__fieldset">
+			        		<legend class="formAddCourse__legend"> 
+				        		<a class="formAddCourse__legend__link" ng-click="showHideFields(2)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsObjectives, 'bbq-plus bbq-plus--form': !showFieldsObjectives}"></span></a>
+				        		Objetivos
+			        		</legend>
+							<div class="formAddCourse__fieldset__contentFields" ng-show="showFieldsObjectives">
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<label for="objectives_code">Code</label>	
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<input ng-model="objectives.code" type="text" id="objectives_code" name="objectives_code">		
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<label for="objectives_description">Description</label>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<input ng-model="objectives.description" type="text" id="objectives_description" name="objectives_description">
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<label for="objectives_level">Level</label>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<input ng-model="objectives.level" type="number" id="objectives_level" name="objectives_level">
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<label for="objectives_bloom">Type</label>label>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<select ng-model="objectives.bloom" id="objectives_bloom" type="text" name="objectives_bloom">
+												  <option>knowledge</option>
+												  <option>comprehension</option>
+								                  <option>application</option>
+								                  <option>analysis</option>
+								                  <option>sintehsis</option>
+								                  <option>evaluation</option>
+												</select>
+											</div>
+										</div>
+									</div>
+								</div>								
+		        		</fieldset>
+	        		</li>
+	        		<li>
+	        			<fieldset class="formAddCourse__fieldset">
+			        		<legend class="formAddCourse__legend"> 
+				        		<a class="formAddCourse__legend__link" ng-click="showHideFields(3)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsStatistics, 'bbq-plus bbq-plus--form': !showFieldsStatistics}"></span></a>
+				        		Estadísticas
+			        		</legend>
+							<div class="formAddCourse__fieldset__contentFields" ng-show="showFieldsStatistics">
+							
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<label for="statistics_std_enrolled">Std_enrolled</label>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<input ng-model="statistics.std_enrolled" type="text" id="statistics_std_enrolled" name="statistics_std_enrolled">
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												 <label for="statistics_std_finished">Std_finished</label>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<input ng-model="statistics.std_finished" type="text" id="statistics_std_finished" name="statistics_std_finished">
+											</div>
+										</div>
+									</div>
+								</div>
+								
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												 <label for="statistics_std_unenrolled">Std_unenrolled</label>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<input ng-model="statistics.std_unenrolled" type="text" id="statistics_std_unenrolled" name="objectives_std_unenrolled">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+	        			</fieldset>
+	        		</li>
+	        	</ul>        		        		
+	        </fieldset>
+	    <input class="formAddCourse__submit" type="submit" name="sendFormAddCourse">
+	</form>
+</div>
+
+</div>

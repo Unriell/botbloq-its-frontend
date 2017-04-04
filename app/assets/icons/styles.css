@@ -149,3 +149,9 @@
 .bbq-plus:before {
   content: "\4b";
 }
+.bbq-align-left:before {
+  content: "\4c";
+}
+.bbq-info-1:before {
+  content: "\4d";
+}

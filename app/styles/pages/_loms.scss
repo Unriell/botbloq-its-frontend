@@ -64,6 +64,40 @@
 	.contentAdminLoms__contentLoms__wrapperLoms{
 
 	}
+	.contentAdminLoms__contentLoms__list{
+	
+	}
+	.contentAdminLoms__contentLoms__list__wrapperlom{
+		padding:15px;
+	}
+	.contentAdminLoms__contentLoms__list__wrapperlom__lom{
+		border:1px solid $color-grayLight;
+		border-radius:3px;
+	}
+	.contentAdminLoms__contentLoms__list__wrapperlom__lom__img{
+		width: 100%;
+		display: inherit;
+	}
+	.contentAdminLoms__contentLoms__list__wrapperlom__lom__info{
+		padding: 7px;
+		background: $bg-color-white;
+		border-top:1px solid $color-grayLight;
+	}
+	.titleInfoLom{
+		color: $text-color-black;
+		font-weight: bold;
+		padding-bottom:5px;
+	}
+	.originInfoLom{
+		color: $text-color-grayLight;
+	}
+	.originInfoLom__user{
+		color:$link-color-green;
+	}
+	.contentAdminLoms__contentLoms__list__wrapperlom__lom__info__viewsInfoLom{
+
+	}
+	
 
 	.bbq-list--loms:before {
 	  color:$color-grayLight2;

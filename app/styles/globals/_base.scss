@@ -19,6 +19,48 @@
 	font-size: 25px;
 }
 
+.asideLeft{
+	background:$bg-color-grayDark;
+	width: 10%;
+	float: left;
+}
+.asideLeft__element{
+	text-align: center;
+}
+.asideLeft__element__link{
+	padding:20px 0;
+	text-decoration: none;
+	display: block;
+}
+.bbq-align-left--style1:before {
+  	color:$color-white;
+    font-size: 1.7em;
+}
+.bbq-info-1--style1:before {
+  	color:$color-white;
+    font-size: 1.7em;
+}
+
+.contentAddItem__wrapperAddItem{
+	background: $bg-color-graytooLight;
+	padding: 13px;	
+	float:left;
+	width:90%;
+}
+
+.bbq-list--style:before {
+  color:$color-grayLight2;
+  display: block;
+  font-size: 1.6em;
+  padding-top:2px;
+}
+.bbq-thumbnails--style:before {
+  color:$color-grayLight2;
+  display: block;
+  font-size: 1.6em;
+  padding-top:2px;
+}
+
 .size5{
 	width:5%;
 }.size10{
@@ -53,6 +95,29 @@
 	width:80%;
 }
 
+.mb5{
+	margin-bottom:5px;
+}.mb10{
+	margin-bottom:10px;
+}.mb15{
+	margin-bottom:15px;
+}.mb20{
+	margin-bottom:20px;
+}.mb25{
+	margin-bottom:25px;
+}
+
+.pdb5{
+	padding-bottom:5px;
+}.pdb10{
+	padding-bottom:10px;
+}.pdb15{
+	padding-bottom:15px;
+}.pdb20{
+	padding-bottom:20px;
+}.pdb25{
+	padding-bottom:25px;
+}
 
 
 /* Small devices (tablets, 768px and up) */
@@ -104,6 +169,7 @@
 		.contentTitle{
 			padding-left: 15px;
 		}	
+		
 	}
 }
 

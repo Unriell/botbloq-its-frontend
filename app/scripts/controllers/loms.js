@@ -92,12 +92,16 @@
             $scope.technicalSchema=item.technical;
             $scope.useSchema=item.use;
         };
+        $scope.goAddLom= function(){
+            $location.path("/addLom");
+        };
         $scope.addLom = function() {
             if ($scope.adminLomsForm.$valid) {
                 $log.debug('adding...', $scope.technicalSchema);
                 lomsApi.addLom($scope.generalSchema,$scope.lifecycleSchema,$scope.metadataSchema,$scope.technicalSchema, $scope.useSchema).then(function(response) {
                     $log.debug('ok después de addLom', response);
                     $scope.showLoms();
+                    $location.path("/loms");
                 }, function(error) {
                     $log.debug('error después de addLom', error);
                 });

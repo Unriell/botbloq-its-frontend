@@ -39,6 +39,10 @@ var botBloqApp= angular.module('botbloqItsFrontendApp', [
                 templateUrl: 'views/pages/courses.html',
                 controller: 'coursesCtrl'
             })
+            .when('/addCourse', {
+                templateUrl: 'views/pages/addCourse.html',
+                controller: 'coursesCtrl'
+            })
             .otherwise({
                 redirectTo: 'views/pages/404'
             });

@@ -7,8 +7,14 @@
 		font-weight: bold;
 		color:$text-color-black;
 	}
+	.formAddLom__label{
+		padding-bottom:5px;
+	}
 	.formAddLom__input{
-
+		width: 100%;
+	}
+	.formAddLom__submit{
+		
 	}
 	.formAddLom__fieldset{
 		background:$bg-color-white;
@@ -23,6 +29,42 @@
 	.formAddLom__fieldset__contentFields{
 		padding:10px;
 	}
+
+.formAddCourse{
+
+}
+	.formAddCourse__legend{
+		font-size: 1.2em;
+		font-weight: bold;
+		color:$text-color-black;
+	}
+	.formAddCourse__label{
+		padding-bottom:5px;
+	}
+	.formAddCourse__input{
+		width: 100%;
+	}
+	.formAddCourse__submit{
+		
+	}
+	.formAddCourse__fieldset{
+		background:$bg-color-white;
+		margin-bottom:10px;
+	}
+	.formAddCourse__legend__link{
+		text-decoration: none;
+		&:link{
+			text-decoration: none;
+		}
+	}
+	.formAddCourse__fieldset__contentFields{
+		padding:10px;
+	}
+
+
+
+
+	
 	.bbq-minus--form:before {
 		color:$color-black;
 		font-size: 1em;
