@@ -1,8 +1,17 @@
 
 .formAddLom{
-
+	input,select{
+		width: 100%;
+		min-height: 24px;
+	}
+	.formAddLom__submit{
+		width: initial;
+	}
 }
-	.formAddLom__legend{
+	.formAddLom__fieldset__contentFields{
+
+	}
+	.formAddLom__fieldset__legend{
 		font-size: 1.2em;
 		font-weight: bold;
 		color:$text-color-black;
@@ -31,9 +40,17 @@
 	}
 
 .formAddCourse{
-
+	input,select{
+		width: 100%;
+		min-height: 24px;
+	}
+	.formAddCourse__submit{
+		width: initial;
+	}
 }
-	.formAddCourse__legend{
+	.formAddCourse__fieldset__contentFields{
+	}
+	.formAddCourse__fieldset__legend{
 		font-size: 1.2em;
 		font-weight: bold;
 		color:$text-color-black;
@@ -51,7 +68,28 @@
 		background:$bg-color-white;
 		margin-bottom:10px;
 	}
-	.formAddCourse__legend__link{
+	.formAddCourse__fieldset__level2{
+		padding: 44px 26px 0 26px;
+	    background:$bg-color-greenLight;;
+	    position: relative;
+	    margin-bottom: 15px;
+	}
+	.formAddCourse__fieldset__level2__legend{
+		width: initial;
+	    position: absolute;
+	    top: 14px;
+	    font-weight: bold;
+	    left: 10px;
+	}
+	.formAddCourse__fieldset__level3{
+		@extend .formAddCourse__fieldset__level2;
+		background:$bg-color-greenTooLight;
+	}
+	.formAddCourse__fieldset__level3__legend{
+		@extend .formAddCourse__fieldset__level2__legend;
+	}
+
+	.formAddCourse__fieldset__legend__link{
 		text-decoration: none;
 		&:link{
 			text-decoration: none;
@@ -60,9 +98,38 @@
 	.formAddCourse__fieldset__contentFields{
 		padding:10px;
 	}
-
-
-
+	.formAddCourse__fieldset__contentFields__loms{
+		background:$bg-color-white;
+		padding:10px;
+		max-height: 170px;
+		overflow-y: scroll;
+	}
+	.formAddCourse__fieldset__contentFields__loms__element{
+		position:relative;
+	}
+	.formAddCourse__fieldset__contentFields__loms__element__link{
+		display: block;
+		padding:3px 0 3px 5px;
+		color:$link-color-black;
+		
+		&.active{
+			background:$bg-color-cherry;
+			color:$link-color-white;
+			text-decoration: none;	
+		}
+		&:link{
+			text-decoration: none;
+		}
+		&:hover{
+			cursor: pointer;
+			text-decoration: none;
+			background:$bg-color-cherryLight;
+			color:$link-color-white;
+		}
+	}
+	.formAddCourse__fieldset__contentFields__loms__element__link__link{
+		
+	}
 
 
 	.bbq-minus--form:before {
@@ -76,4 +143,13 @@
 		color:$color-black;
 		font-size: 1.5em;
     	vertical-align: middle;
+	}
+
+	.bbq-remove--lom:before {
+  		color: $color-white;
+	    font-size: 1em;
+	    float: right;
+	    position: absolute;
+	    right: 7px;
+	    top: 3px;
 	}

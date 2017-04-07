@@ -28,11 +28,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
                     bloom: objectives.bloom
                 },
                 sections  : null,
-                statistics: {
-                    std_enrolled: statistics.std_enrolled,
-                    std_finished: statistics.std_finished,
-                    std_unenrolled: statistics.std_unenrolled     
-                },
+                statistics: null,
                 history: courseHistory
             }).then(function(response) {
                 $log.debug('ok despues de post', response.data.token);
@@ -42,6 +38,38 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             });
             return coursesPromise.promise;
         }
+        function addSection(idCourse) {
+            $log.debug("Objetos para hacer post: "+ courseName,courseCode,courseSummary,
+                                 objectives, statistics, courseHistory);
+
+            var coursesPromise = $q.defer();
+
+            $http.post(common.bitbloqBackendUrl + '/courses/'+idCourse, { 
+                sections  : null
+                history: courseHistory
+            }).then(function(response) {
+                $log.debug('ok despues de post', response.data.token);
+                coursesPromise.resolve();  
+            }, function(err) {
+                 $log.debug('error despues de post',err);
+            });
+            return coursesPromise.promise;
+        }
+
+        function asignLomsLesson(idCourse,idSection,idLesson,idLom) { 
+            var coursesPromise = $q.defer();
+
+            $http.post(common.bitbloqBackendUrl + '/courses/'+idCourse+'/section/'+idSection+'/lesson/'+idLesson+'/lom/'+idLom, {
+           
+            }).then(function(response) {
+                $log.debug('ok despues de post', response.data.token);
+                coursesPromise.resolve();  
+            }, function(err) {
+                 $log.debug('error despues de post',err);
+            });
+            return coursesPromise.promise;     
+        }
+        
         function editCourse(idItem,courseName,courseCode,courseSummary,objectives, statistics, courseHistory) {
             $log.debug("Objetos para editar: "+ courseName,courseCode,courseSummary,
                                  objectives, statistics, courseHistory);
@@ -92,7 +120,8 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             getCourse : getCourse,
             removeItem : removeItem,
             removeAllItem : removeAllItem,
-            editCourse : editCourse
+            editCourse : editCourse,
+            asignLomsLesson : asignLomsLesson
         };
 
         return exports;

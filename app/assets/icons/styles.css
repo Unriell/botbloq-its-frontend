@@ -155,3 +155,6 @@
 .bbq-info-1:before {
   content: "\4d";
 }
+.bbq-remove:before {
+  content: "\4e";
+}

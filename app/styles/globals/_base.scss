@@ -10,7 +10,9 @@
     padding-bottom: 15px;
     text-align: center;
 }
-
+.bgGreenLight{
+	background:$bg-color-greenTooLight;
+}
 .h2Class{
 	font-size: 1.3em;
     font-weight: bold;
@@ -279,6 +281,11 @@
 			float: right;
 	    	display: inline-block;
 		}
+	}
+	.contentAddItem{
+
+		
+
 	}
 }
 

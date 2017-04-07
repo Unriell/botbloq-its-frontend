@@ -9,7 +9,7 @@
  */
 
    botBloqApp.controller('studentsCtrl',
-                         function($log, $scope,$http,$location,userApi) {
+                         function($log, $scope,$http,$location,userApi, knowledge) {
         $log.log('student ctrl start');
 
         $scope.showStudents= function() {

@@ -157,8 +157,6 @@
                     $log.debug('error al eliminar todos los items', error);
              });
         };
-        $scope.reset = function() {
-            $scope.user = { name: '', password: '' };
-        };
+        
         
     });
