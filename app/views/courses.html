@@ -1,0 +1,182 @@
+<div class="contentCourses">
+    
+        <h4>ADMINISTRAR CURSOS</h4>
+        <ul>
+        	<li>Editar</li>
+        	<li>Eliminar</li>
+        	<li>Descargar</li>
+        	<li>Empaquetar</li>
+        	<li>Evaluar y comentar</li>
+        	<li>Objeto de aprendizaje</li>
+        	<li>Contenido</li>
+        	<li>Información</li>
+        	<li>Estadísticas</li>
+        	<li>Copiar URL</li>
+        </ul>
+
+		<table>
+			<caption>Tabla de administración de cursos</caption>
+			<colgroup>
+				<col class="size10">
+				<col class="size10">	
+				<col class="size10">	
+				<col class="size5">	
+				<col class="size5">
+                <col class="size30">
+                <col class="size30">		
+			</colgroup>
+			<thead>
+				<tr>
+					<th>NAME</th>
+					<th>CODE</th>
+					<th>SUMMARY</th>
+					<th>OBJECTIVES</th>
+					<th>STATISTICS</th>
+                    <th>OPCIONES</th>
+                    <th>HERRAMIENTAS</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="i in courses">
+					<td>{{i.name}}</td>
+					<td>{{i.code}}</td>
+					<td>{{i.summary}}</td>
+					<td>
+						<ul>
+							<li><span>code: {{i.objectives.code}}</span></li>
+                            <li><span>description: {{i.objectives.description}}</span></li>
+                            <li><span>level: {{i.objectives.level}}</span></li>
+                            <li><span>bloom: {{i.objectives.bloom}}</span></li>
+						</ul>
+					</td>
+                    <td>
+                        <ul>
+                            <li><span>std_enrolled: {{i.statistic.std_enrolled}}</span></li>
+                            <li><span>std_finished: {{i.statistic.std_finished}}</span></li>
+                            <li><span>std_unenrolled: {{i.statistic.std_unenrolled}}</span></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul class="contentOptions">
+                            <li><button disabled>Contenido</button></li>
+                            <li><button ng-click="showInfoCourse(i)">Información</button></li>
+                            <li><button disabled>Estadísticas</button></li>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul class="contentOptions">
+                            <li><button ng-click="showEditCourseForm(i)">Editar</button></li>
+                            <li><button ng-click="removeCourse(i._id)">Eliminar</button></li>
+                            <li><button disabled>Descargar</button></li>
+                            <li><button disabled>Empaquetar</button></li>
+                            <li><button disabled>Evaluar y comentar</button></li>
+                            <li><button disabled>Copiar</button></li>
+                        </ul>
+                    </td>
+				</tr>
+			</tbody>
+		</table>
+
+
+        <button class="btn btn-primary" ng-click="showAddCourseForm()">Agregar</button>
+        <!-- <button class="btn btn-primary" ng-click="showCourses()">Mostrar</button> -->
+        <button class="btn btn-primary" ng-click="deleteAllCourses()">Eliminar todo</button>
+        <button class="btn btn-primary" disabled>Agregar con Asistente</button>
+        <button class="btn btn-primary" disabled>Regresar</button>
+
+        <form id="coursesForm" name="coursesForm" class="contentForm" ng-submit="addEditCourse()" ng-show="showCoursesForm" ng-hide="!showCoursesFormValid" novalidate>
+        <fieldset>
+        	<legend>FORMULARIO AGREGAR</legend>
+
+        	<fieldset>
+        		<legend>General</legend>
+
+				<label for="course_name">Name</label>
+				<input ng-model="courseName" type="text" id="course_name" name="course_name" required>
+
+				<label for="course_code">Code</label>
+                <input ng-model="courseCode" type="text" id="course_code" name="course_code">
+
+				<label for="course_summary">Summary</label>
+                <input ng-model="courseSummary" type="text" id="course_summary" name="course_summary">
+        	</fieldset>
+
+        	<fieldset>
+        		<legend>Objetivos</legend>
+				
+				<label for="objectives_code">Code</label>
+                <input ng-model="objectives.code" type="text" id="objectives_code" name="objectives_code">
+
+                <label for="objectives_description">Description</label>
+                <input ng-model="objectives.description" type="text" id="objectives_description" name="objectives_description">
+
+                <label for="objectives_level">Level</label>
+                <input ng-model="objectives.level" type="number" id="objectives_level" name="objectives_level">
+
+				<label for="objectives_bloom">Type</label>
+				<select ng-model="objectives.bloom" id="objectives_bloom" type="text" name="objectives_bloom">
+				  <option>knowledge</option>
+				  <option>comprehension</option>
+                  <option>application</option>
+                  <option>analysis</option>
+                  <option>sintehsis</option>
+                  <option>evaluation</option>
+				</select>
+        	</fieldset>
+        	<fieldset>
+        		<legend>Statistics</legend>
+
+				<label for="statistics_std_enrolled">Std_enrolled</label>
+                <input ng-model="statistics.std_enrolled" type="text" id="statistics_std_enrolled" name="statistics_std_enrolled">
+
+
+                <label for="statistics_std_finished">Std_finished</label>
+                <input ng-model="statistics.std_finished" type="text" id="statistics_std_finished" name="statistics_std_finished">
+
+                <label for="statistics_std_unenrolled">Std_unenrolled</label>
+                <input ng-model="statistics.std_unenrolled" type="text" id="statistics_std_unenrolled" name="objectives_std_unenrolled">
+
+        	</fieldset>
+        	
+        	<label for="course_history">History</label>
+            <input ng-model="courseHistory" type="text" id="course_history" name="course_history">
+        </fieldset>
+        <input type="submit" name="sendFormAddCourse">
+        </form>
+        <div class="contentInfoCourse" ng-show="InfoCourse">
+        	<div>
+        		<h3 class="h3Class">General</h3>
+        		<span class="attr">Name</span>
+        		<span>{{courseName}}</span>
+        		<span class="attr">Code</span>
+        		<span>{{courseCode}}</span>
+        		<span class="attr">Summary</span>
+        		<span>{{courseSummary}}</span>
+        	<div>
+        		<h3 class="h3Class">Objectives</h3>
+        		<span class="attr">Code</span>
+        		<span>{{objectives.code}}</span>
+        		<span class="attr">Description</span>
+        		<span>{{objectives.description}}</span>
+        		<span class="attr">Level</span>
+        		<span>{{objectives.level}}</span>
+        		<span class="attr">Type</span>
+        		<span>{{objectives.bloom}}</span>
+        	</div>
+        	<div>
+        		<h3 class="h3Class">Statistics</h3>
+        		<span class="attr">Std_enrolled</span>
+        		<span>{{statistics.std_enrolled}}</span>
+        		<span class="attr">Std_finished</span>
+        		<span>{{statistics.std_finished}}</span>
+        		<span class="attr">std_unenrolled</span>
+        		<span>{{statistics.std_unenrolled}}</span>
+        	</div>
+        	<div>
+        		<span class="attr">History</span>
+        		<span>{{courseHistory}}</span>
+        	</div>
+        	<button ng-click="hideInfoCourse()">Ocultar</button>
+        </div>
+    
+</div>

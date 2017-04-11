@@ -3,7 +3,7 @@
 
 <div class="contentAddItem clearfix">
 	<div class="contentTitle">
-    	<h2 class="h2Class">Nuevo Curso - Secciones</h2>
+    	<h2 class="h2Class">Nuevo Curso - Secciones - Lecciones</h2>
 	</div>
 	<div class="asideLeft">
 		<ul>
@@ -20,101 +20,13 @@
 		</ul>
 	</div>
 	<div class="contentAddItem__wrapperAddItem">
-	<button ng-click="showNewSection()" ng-hide="newSection">Nueva Sección</button>
+	<button ng-click="showNewLesson()" ng-hide="newSection">Nueva Lección</button>
 	<button>Fin</button>
-		<form ng-show="newSection" id="adminCoursesFormSection" name="adminCoursesFormSection" class="formAddCourse" ng-submit="addSection()"  novalidate>
+		<form ng-show="newLesson" id="adminCoursesFormSectionLesson" name="adminCoursesFormSectionLesson" class="formAddCourse" ng-submit="addLesson()"  novalidate>
 	    <fieldset>
 	        	<legend class="sr-only">FORMULARIO AGREGAR</legend>
 	        	<ul>
-	        		<li>
-	        			<fieldset class="formAddCourse__fieldset">
-			        		<legend class="formAddCourse__fieldset__legend"> 
-				        		<a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(3)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsSections, 'bbq-plus bbq-plus--form': !showFieldsSections}"></span></a>
-				        		Secciones
-			        		</legend>
-							<div class="formAddCourse__fieldset__contentFields" ng-show="showFieldsSections">
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label for="sections_name">Name</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input ng-model="sections.name" type="text" id="sections_name" name="sections_name"/>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												 <label for="sections_summary">Summary</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input ng-model="sections.summary" type="text" id="sections_summary" name="sections_summary"/>
-											</div>
-										</div>
-									</div>
-								</div>
-								<ul>
-									<li>
-										<fieldset class="formAddCourse__fieldset__level2">
-			        						<legend class="formAddCourse__fieldset__level2__legend"><a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(4)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsSectionsObj, 'bbq-plus bbq-plus--form': !showFieldsSectionsObj}"></span></a>Objetivos</legend>
-				        					<div class="formAddCourse__fieldset__contentFields" ng-show="showFieldsSectionsObj">
-												<div class="row">
-													<div class="col-xs-12 col-sm-6 mb15">
-														<div class="row">
-															<div class="col-xs-12 col-sm-6">
-																<label for="sections_objectives_code">Code</label>	
-															</div>
-															<div class="col-xs-12 col-sm-6">
-																<input ng-model="sections.objectives.code" type="text" id="sections_objectives_code" name="sections_objectives_code">		
-															</div>
-														</div>
-													</div>
-													<div class="col-xs-12 col-sm-6 mb15">
-														<div class="row">
-															<div class="col-xs-12 col-sm-6">
-																<label for="sections_objectives_description">Description</label>
-															</div>
-															<div class="col-xs-12 col-sm-6">
-																<input ng-model="sections.objectives.description" type="text" id="sections_objectives_description" name="sections_objectives_description">
-															</div>
-														</div>
-													</div>
-												</div>	
-												<div class="row">
-													<div class="col-xs-12 col-sm-6 mb15">
-														<div class="row">
-															<div class="col-xs-12 col-sm-6">
-																<label for="sections_objectives_level">Level</label>
-															</div>
-															<div class="col-xs-12 col-sm-6">
-																<input ng-model="sections.objectives.level" type="number" id="sections_objectives_level" name="sections_objectives_level">
-															</div>
-														</div>
-													</div>
-													<div class="col-xs-12 col-sm-6 mb15">
-														<div class="row">
-															<div class="col-xs-12 col-sm-6">
-																<label for="sections_objectives_bloom">Type</label>
-															</div>
-															<div class="col-xs-12 col-sm-6">
-																<select ng-model="sections.objectives.bloom" id="sections_objectives_bloom" type="text" name="sections_objectives_bloom">
-																  	<option>knowledge</option>
-																  	<option>comprehension</option>
-											                  <option>application</option>
-											                  <option>analysis</option>
-											                  <option>sintehsis</option>
-											                  <option>evaluation</option>
-																</select>
-															</div>
-														</div>
-													</div>
-												</div>	
-											</div>							
-		        						</fieldset>
-									</li>
-									<li>
+					<li>
 										<fieldset class="formAddCourse__fieldset__level2">
 			        						<legend class="formAddCourse__fieldset__level2__legend"><a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(5)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsSectionsLesson, 'bbq-plus bbq-plus--form': !showFieldsSectionsLesson}"></span></a>Lección</legend>
 		        							<div class="formAddCourse__fieldset__contentFields" ng-show="showFieldsSectionsLesson">
@@ -125,7 +37,7 @@
 																<label for="sections_lesson_name">Nombre</label>	
 															</div>
 															<div class="col-xs-12 col-sm-6">
-																<input ng-model="sections.lesson.name" type="text" id="sections_lesson_name" name="sections_lesson_name">		
+																<input ng-model="lesson.name" type="text" id="sections_lesson_name" name="sections_lesson_name">		
 															</div>
 														</div>
 													</div>
@@ -135,7 +47,7 @@
 																<label for="sections_lesson_summary">Description</label>
 															</div>
 															<div class="col-xs-12 col-sm-6">
-																<input ng-model="sections.lesson.summary" type="text" id="sections_lesson_summary" name="sections_lesson_summary">
+																<input ng-model="lesson.summary" type="text" id="sections_lesson_summary" name="sections_lesson_summary">
 															</div>
 														</div>
 													</div>
@@ -150,7 +62,7 @@
 																		<label for="sections_lesson_objectives_code">Code</label>	
 																	</div>
 																	<div class="col-xs-12 col-sm-6">
-																		<input ng-model="sections.lesson.objectives.code" type="text" id="sections_lesson_objectives_code" name="sections_lesson_objectives_code">		
+																		<input ng-model="lesson.objectives.code" type="text" id="sections_lesson_objectives_code" name="sections_lesson_objectives_code">		
 																	</div>
 																</div>
 															</div>
@@ -160,7 +72,7 @@
 																		<label for="sections_lesson_objectives_description">Description</label>
 																	</div>
 																	<div class="col-xs-12 col-sm-6">
-																		<input ng-model="sections.lesson.objectives.description" type="text" id="sections_lesson_objectives_description" name="sections_lesson_objectives_description">
+																		<input ng-model="lesson.objectives.description" type="text" id="sections_lesson_objectives_description" name="sections_lesson_objectives_description">
 																	</div>
 																</div>
 															</div>
@@ -173,7 +85,7 @@
 																		<label for="sections_lesson_objectives_level">Level</label>
 																	</div>
 																	<div class="col-xs-12 col-sm-6">
-																		<input ng-model="sections.lesson.objectives.level" type="number" id="sections_lesson_objectives_level" name="sections_lesson_objectives_level">
+																		<input ng-model="lesson.objectives.level" type="number" id="sections_lesson_objectives_level" name="sections_lesson_objectives_level">
 																	</div>
 																</div>
 															</div>
@@ -183,7 +95,7 @@
 																		<label for="sections_lesson_objectives_bloom">Type</label>
 																	</div>
 																	<div class="col-xs-12 col-sm-6">
-																		<select ng-model="sections.lesson.objectives.bloom" id="sections_lesson_objectives_bloom" type="text" name="sections_lesson_objectives_bloom">
+																		<select ng-model="lesson.objectives.bloom" id="sections_lesson_objectives_bloom" type="text" name="sections_lesson_objectives_bloom">
 																		  <option>knowledge</option>
 																		  <option>comprehension</option>
 														                  <option>application</option>
@@ -207,7 +119,7 @@
 																<button class="btn btn-primary" ng-click="panelSelectLom()">Seleccionar loms</button>		
 															</div>
 															<div class="col-xs-12 col-sm-5">
-																<input ng-model="sections.lesson.name" type="text" id="sections_lesson_name" name="sections_lesson_name">		
+																<input ng-model="lesson.name" type="text" id="sections_lesson_name" name="sections_lesson_name">		
 															</div>
 														</div>
 													</div>
@@ -260,7 +172,7 @@
 																	<label for="sections_lesson_learningPath">Learning Path</label>
 																</div>
 																<div class="col-xs-12 col-sm-6">
-																	<input ng-model="sections.lesson.learningPath" type="number" id="sections_lesson_learningPath" name="sections_lesson_learningPath">
+																	<input ng-model="lesson.learningPath" type="number" id="sections_lesson_learningPath" name="sections_lesson_learningPath">
 																</div>
 															</div>
 														</div>
@@ -270,7 +182,7 @@
 																	<label for="sections_lesson_type">Type</label>
 																</div>
 																<div class="col-xs-12 col-sm-6">
-																	<select ng-model="sections.lesson.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
+																	<select ng-model="lesson.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
 																	  	<option>Reinforcement</option>
 																	  	<option>Essential</option>
 													              		<option>Extension</option>
@@ -281,15 +193,11 @@
 													</div>	
 												</div>
 											</div>									
-						        </fieldset>
-									</li>
-								</ul>							
-							</div>
-	        			</fieldset>
-	        		</li>
+						</fieldset>
+					</li>				
 	        	</ul>        		        		
 	    </fieldset>
-	    <input value="Añadir Sección" class="formAddCourse__submit" type="submit" name="sendFormAddCourseSection"/>
+	    <input value="Añadir Lección" class="formAddCourse__submit" type="submit" name="sendFormAddCourseSectionLesson"/>
 		</form>
 	</div>
 
