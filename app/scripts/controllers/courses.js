@@ -24,13 +24,14 @@
         $scope.showFieldsObjectives=true;
         $scope.showFieldsSections=true;
         $scope.showFieldsSectionsObj=false;
-        $scope.showFieldsSectionsLesson=false;
+        $scope.showFieldsSectionsLesson=true;
         $scope.showFieldsSectionsLessonObj=false;
 
         $scope.newSection=false;
-        $scope.newLessson=false;
+        $scope.newLesson=false;
+
         var idActualCourse;
-        var idActualSection;
+        var actualSection;
 
         lomsApi.getLoms().then(function(response){
                 $scope.loms= response.data;
@@ -46,7 +47,8 @@
         coursesApi.getCourses().then(function(response){
                 $scope.courses= response.data;
                 idActualCourse=$scope.courses[$scope.courses.length -1]._id;
-                
+                if ($scope.courses[$scope.courses.length -1].sections.length >0)
+                    $scope.showSections(idActualCourse);
             }, function myError(err) {
                 $log.debug(err);
                 alert('Error de tipo: '+err.status);      
@@ -75,7 +77,7 @@
             }
         };
 
-        $scope.showCourses= function() {
+        $scope.updateCourses= function() {
             $log.debug('loading Courses ...');
             coursesApi.getCourses().then(function(response){
                 $scope.courses= response.data;          
@@ -84,12 +86,12 @@
                 alert('Error de tipo: '+err.status);      
             }); 
         };
-        $scope.showSections= function() {
+        $scope.showSections= function(idCourse) {
             $log.debug('loading Sections ...');
-            coursesApi.getSections().then(function(response){
+            coursesApi.getSections(idCourse).then(function(response){
                     $scope.sections= response.data;
-                    idActualSection=$scope.sections[$scope.sections.length -1]._id;
-                    $log.debug("numero de cursos "+idActualSection);
+                    actualSection=$scope.sections[$scope.sections.length -1];
+                    $log.debug("numero de secciones actuales: "+$scope.sections.length);
                 }, function myError(err) {
                     $log.debug(err);
                     alert('Error de tipo: '+err.status);      
@@ -138,7 +140,7 @@
                 $log.debug('adding...');
                 coursesApi.addCourse($scope.courseName,$scope.courseCode,$scope.courseSummary,$scope.objectives).then(function(response) {
                     $log.debug('ok después de addCourse', response);
-                    $scope.showCourses();
+                    $scope.updateCourses();
                     $location.path("/addSections");
                 }, function(error) {
                     $log.debug('error después de addCourse', error);
@@ -159,12 +161,18 @@
         $scope.showNewLesson=function(){
             $scope.newLesson=true;
         };
+        $scope.finAddCourse=function(){
+            $location.path("/addSections");
+        };
+        $scope.finAddLesson=function(){
+            $location.path("/addSections");
+        };
         $scope.addSection=function(){
             if ($scope.adminCoursesFormSection.$valid) {
                 $scope.newSection=false;
                 coursesApi.addSection(idActualCourse, $scope.sections.name, $scope.sections.summary,$scope.sections.objectives).then(function(response) {
                     $log.debug('ok después de addSection', response);
-                    /*$scope.showSections(); */
+                    $scope.showSections(idActualCourse);
                     $location.path("/addLessons");
                 }, function(error) {
                     $log.debug('error después de addSection', error);
@@ -172,20 +180,35 @@
             } else {
                 $log.debug('There are invalid fields');
             }
-            
+
+            $scope.sections.name='';
+            $scope.sections.summary='';
+            $scope.sections.objectives={};
         };
         $scope.addLesson=function(){
             if ($scope.adminCoursesFormSectionLesson.$valid) {
                 $scope.newLesson=false;
-                coursesApi.addSection(idActualCourse,idActualSection, $scope.lesson.name, $scope.lesson.summary,$scope.lesson.objectives, $scope.lesson.learningPath, $scope.lesson.type).then(function(response) {
+                coursesApi.addLesson(idActualCourse,actualSection.name, $scope.lesson.name, $scope.lesson.summary,$scope.lesson.objectives, $scope.lesson.learningPath, $scope.lesson.type).then(function(response) {
                     $log.debug('ok después de addSection', response);
-                    
+
+                    coursesApi.asignLomsLesson(idActualCourse,actualSection.name,$scope.lesson.name,$scope.lomsToAdd[0]._id).then(function(response) {
+                            $log.debug('ok después de asignar loms a una lecciomn', response);
+                            $scope.lesson.name='';
+                        }, function(error) {
+                            $log.debug('error después asignación de lom a una lección', error);
+                    });
+
                 }, function(error) {
                     $log.debug('error después de addSection', error);
                 });
             } else {
                 $log.debug('There are invalid fields');
             }
+ 
+            $scope.lesson.summary='';
+            $scope.lesson.objectives={};
+            $scope.lesson.learningPath=''; 
+            $scope.lesson.type='';
             
         };
 
@@ -206,7 +229,8 @@
                 });
             }
         };
-        $scope.addToListAdd=function(){
+        $scope.addToListAdd=function($event){
+            $event.preventDefault();
             angular.forEach($scope.listAuxLomsAdd, function(element) {
                 $scope.lomsAux=$scope.lomsAux.filter(function(el) {
                     return el!== element;
@@ -226,7 +250,8 @@
                 });
             }
         };
-        $scope.removeLomsFromListAdd=function(){
+        $scope.removeLomsFromListAdd=function($event){
+            $event.preventDefault();
             angular.forEach($scope.listAuxLomsRemove, function(element) {
                 $scope.lomsToAdd=$scope.lomsToAdd.filter(function(el) {
                     return el!== element;
@@ -242,8 +267,10 @@
             $scope.lomsAux.push(lom);
         };
 
-        $scope.panelSelectLom= function(){
+        $scope.panelSelectLom= function($event){
+            $event.preventDefault();
             $scope.showSelectLoms=true;
+            $scope.newLesson=true;
         };
 
         $scope.editCourse = function(idItem) {
@@ -251,7 +278,7 @@
                 $log.debug('editing...');
                 coursesApi.editCourse(idItem,$scope.courseName,$scope.courseCode,$scope.courseSummary,$scope.objectives,$scope.sections,$scope.courseHistory).then(function(response) {
                     $log.debug('ok después de editCourse', response);
-                    $scope.showCourses();
+                    $scope.updateCourses();
                 }, function(error) {
                     $log.debug('error después de editCourse', error);
                 });
@@ -276,7 +303,7 @@
             $log.debug('eliminado item con id: ', item);
             coursesApi.removeItem(item).then(function(response) {
                     $log.debug('eliminado item con exito', response);
-                    $scope.showCourses();
+                    $scope.updateCourses();
                 }, function(error) {
                     $log.debug('error al eliminar item', error);
              });
