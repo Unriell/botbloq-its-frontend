@@ -27,8 +27,17 @@
         $scope.showFieldsSectionsLesson=true;
         $scope.showFieldsSectionsLessonObj=false;
 
+        $scope.newObjective=true;
         $scope.newSection=false;
         $scope.newLesson=false;
+
+        $scope.objCourse=false;
+        $scope.objSection=false;
+        $scope.objLesson=false;
+
+        var objectivesCourse=[],
+            objectivesSection=[],
+            objectivesLesson=[];
 
         var idActualCourse;
         var actualSection;
@@ -135,13 +144,88 @@
         $scope.goAddCourse= function(){
             $location.path("/addCourse");
         };
+
+        $scope.showNewObjective=function(){
+            $scope.newObjective=true;
+        };
+        $scope.showAddObjectives = function (breadcrumbs) {
+            $location.path("/addObjectives");
+            switch (breadcrumbs) {
+                case 'objCourse':
+                    $scope.objBreadCrumb="course";
+                    break;
+                case 'objSection':
+                    $scope.objBreadCrumb="section";
+                    break;
+                case 'objLesson':
+                    $scope.objBreadCrumb="lesson";
+                    break;
+                default:
+            }
+        };
+        $scope.showNewSection=function(){
+            $scope.newSection=true;
+        };
+        $scope.showNewLesson=function(){
+            $scope.newLesson=true;
+        };
+        $scope.finAddCourse=function(){
+            $location.path("/courses");
+        };
+        $scope.finAddObjectives=function(){
+            $location.path("/addSections");
+        };
+        $scope.finNewObjective=function(){
+            $scope.newObjective=false;
+        };
+        $scope.finAddLesson=function(){
+            $location.path("/addSections");
+        };
+
+        $scope.addEditCourse = function() {
+            $log.debug('valor de edit: ', $scope.edit);
+            if($scope.edit) $scope.editCourse($scope.idItemToEdit);
+            else $scope.addCourse();
+        };
+
+        $scope.addNewObjective=function(){
+            $scope.newObjective=false;
+            switch ($scope.objBreadCrumb) {
+                case 'objCourse':
+                    objectivesCourse.push($scope.objectives);
+                    break;
+                case 'objSection':
+                    objectivesCourse.push($scope.section.objectives);
+                    break;
+                case 'objLesson':
+                    objectivesCourse.push($scope.lesson.objectives);
+                    break;
+                default:
+            }
+        };
+
+        $scope.addObjectives = function () {
+            switch ($scope.objBreadCrumb) {
+                case 'objCourse':
+                    $scope.addEditCourse();
+                    break;
+                case 'objSection':
+                    $scope.addSection();
+                    break;
+                case 'objLesson':
+                    $scope.addLesson();
+                    break;
+                default:
+            }
+        };
         $scope.addCourse = function() {
             if ($scope.adminCoursesForm.$valid) {
                 $log.debug('adding...');
-                coursesApi.addCourse($scope.courseName,$scope.courseCode,$scope.courseSummary,$scope.objectives).then(function(response) {
+                coursesApi.addCourse($scope.courseName,$scope.courseCode,$scope.courseSummary, $scope.objectives).then(function(response) {
                     $log.debug('ok después de addCourse', response);
                     $scope.updateCourses();
-                    $location.path("/addSections");
+                    $location.path("/addObjectives");
+                    $scope.objBreadcrumbs(objCourse);
                 }, function(error) {
                     $log.debug('error después de addCourse', error);
                 });
@@ -155,18 +239,6 @@
             $scope.objectives={};
         };
 
-        $scope.showNewSection=function(){
-            $scope.newSection=true;
-        };
-        $scope.showNewLesson=function(){
-            $scope.newLesson=true;
-        };
-        $scope.finAddCourse=function(){
-            $location.path("/addSections");
-        };
-        $scope.finAddLesson=function(){
-            $location.path("/addSections");
-        };
         $scope.addSection=function(){
             if ($scope.adminCoursesFormSection.$valid) {
                 $scope.newSection=false;
@@ -293,12 +365,7 @@
             $scope.sections={};
             $scope.courseHistory='';
         };
-        $scope.addEditCourse = function() {
-            $log.debug('valor de edit: ', $scope.edit);
-            if($scope.edit) $scope.editCourse($scope.idItemToEdit);
-            else $scope.addCourse();
-        };
-
+        
         $scope.removeCourse = function(item){
             $log.debug('eliminado item con id: ', item);
             coursesApi.removeItem(item).then(function(response) {

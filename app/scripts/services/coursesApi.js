@@ -11,9 +11,8 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
 
         $log.log('coursesApi start');
 
-        function addCourse(courseName,courseCode,courseSummary,objectives) {
-            $log.debug("Objetos para hacer post course: "+ courseName,courseCode,courseSummary,
-                                 objectives);
+        function addCourse(courseName,courseCode,courseSummary, obj) {
+            $log.debug("Objetos para hacer post course: "+ courseName,courseCode,courseSummary,obj);
 
             var coursesPromise = $q.defer();
 
@@ -21,12 +20,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
                 name: courseName,
                 code: courseCode,
                 summary: courseSummary,
-                objectives: {
-                    code: objectives.code,
-                    description: objectives.description,
-                    level: objectives.level,
-                    bloom: objectives.bloom
-                },
+                objectives: obj,
                 statistics:  {},
                 history: ''
             }).then(function(response) {
