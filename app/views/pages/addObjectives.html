@@ -21,8 +21,8 @@
 	</div>
 	<div class="contentAddItem__wrapperAddItem">
 	<button ng-click="showNewObjective()" ng-hide="newObjective">Nuevo Objetivo</button>
-	<button ng-click="addObjectives()>Fin</button>
-		<form ng-show="newObjective" id="adminCoursesFormObjective" name="adminCoursesFormObjective" class="formAddCourse" ng-submit="addNewObjective()"  novalidatobjCourse:addEditCourse();e>
+	<button ng-click="addObjectives()">Fin</button>
+		<form ng-show="newObjective" id="adminCoursesFormObjective" name="adminCoursesFormObjective" class="formAddCourse" ng-submit="addNewObjective()">
 	    <div ng-switch="objBreadCrumb">
 		  <div ng-switch-when="course">
 		    <ng-include src=" 'views/modules/objCourse.html' "></ng-include>

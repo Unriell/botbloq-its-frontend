@@ -11,8 +11,7 @@
    botBloqApp.controller('coursesCtrl',
                          function($log, $scope,$http,$location,coursesApi, lomsApi) {
         $log.log('courses ctrl start');
-        $log.debug('loading Cocurses p ...');
-
+        
         $scope.lomsAux=[];
         $scope.lomsToAdd=[];
         $scope.listAuxLomsAdd=[];
@@ -35,6 +34,7 @@
         $scope.objSection=false;
         $scope.objLesson=false;
 
+        $scope.objBreadCrumb="course";
         var objectivesCourse=[],
             objectivesSection=[],
             objectivesLesson=[];
@@ -55,7 +55,8 @@
 
         coursesApi.getCourses().then(function(response){
                 $scope.courses= response.data;
-                idActualCourse=$scope.courses[$scope.courses.length -1]._id;
+                if($scope.courses.length>0)
+                    idActualCourse=$scope.courses[$scope.courses.length -1]._id;
                 if ($scope.courses[$scope.courses.length -1].sections.length >0)
                     $scope.showSections(idActualCourse);
             }, function myError(err) {
@@ -148,20 +149,23 @@
         $scope.showNewObjective=function(){
             $scope.newObjective=true;
         };
-        $scope.showAddObjectives = function (breadcrumbs) {
-            $location.path("/addObjectives");
-            switch (breadcrumbs) {
-                case 'objCourse':
+        $scope.showAddObjectives = function (i) {
+            switch (i) {
+                case 1:
                     $scope.objBreadCrumb="course";
                     break;
-                case 'objSection':
+                case 2:
                     $scope.objBreadCrumb="section";
                     break;
-                case 'objLesson':
+                case 3:
                     $scope.objBreadCrumb="lesson";
                     break;
                 default:
+                    $scope.objBreadCrumb="lesson";
+                    break;
             }
+            $log.debug('&&&&&&&&& valor de objBreadCrumb: '+$scope.objBreadCrumb);
+            $location.path("/addObjectives");
         };
         $scope.showNewSection=function(){
             $scope.newSection=true;
