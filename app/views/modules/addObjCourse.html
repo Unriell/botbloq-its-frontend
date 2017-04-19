@@ -1,0 +1,15 @@
+
+
+
+<div class="contentAddItem clearfix">
+
+	<div class="contentAddItem__wrapperAddItem">
+		<button ng-click="showNewObjective()" ng-hide="newObjective" type="button">Nuevo Objetivo</button>
+		<!-- <button ng-click="addObjectives()">Fin</button> -->
+		<div ng-show="newObjective">
+			<ng-include src=" 'views/modules/objCourse.html' "></ng-include>
+			<button ng-click="addNewObjective(1)" type="button">Añadir Objetivo</button>
+		</div>
+	</div>
+
+</div>

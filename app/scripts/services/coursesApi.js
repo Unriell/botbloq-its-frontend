@@ -39,12 +39,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             $http.post(common.bitbloqBackendUrl + '/courses/'+idCourse, { 
                 name: sectionsName,
                 summary: sectionsSummary,
-                objectives: {
-                    code: sectionsObjectives.code,
-                    description: sectionsObjectives.description,
-                    level: sectionsObjectives.level,
-                    bloom: sectionsObjectives.bloom
-                }
+                objectives:sectionsObjectives
             }).then(function(response) {
                 $log.debug('ok despues de post', response.data.token);
                 coursesPromise.resolve();  
@@ -62,12 +57,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             $http.post(common.bitbloqBackendUrl + '/courses/'+idCourse+'/section/'+section, { 
                 name:lessonName, 
                 summary: lessonSummary ,  
-                objectives: {
-                    code: lessonObjectives.code,
-                    description: lessonObjectives.description,
-                    level: lessonObjectives.level,
-                    bloom: lessonObjectives.bloom
-                },  
+                objectives: lessonObjectives,  
                 learning_path: learningPath,
                 type: lessonType,
                 loms:[]

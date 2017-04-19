@@ -20,9 +20,9 @@
 		</ul>
 	</div>
 	<div class="contentAddItem__wrapperAddItem">
-	<button ng-click="showNewSection()" ng-hide="newSection">Nueva Sección</button>
-	<button ng-click="finAddCourse()">Fin</button>
-		<form ng-show="newSection" id="adminCoursesFormSection" name="adminCoursesFormSection" class="formAddCourse" ng-submit="showAddObjectives(2)"  novalidate>
+	<button class="btnBq--form" ng-click="showNewSection()" ng-hide="newSection">Nueva Sección</button>
+	<button class="btnBq--form" ng-click="finAddCourse()">Fin</button>
+		<form ng-show="newSection" id="adminCoursesFormSection" name="adminCoursesFormSection" class="formAddCourse" ng-submit="addSection()"  novalidate>
 	    <fieldset>
 	        	<legend class="sr-only">FORMULARIO AGREGAR</legend>
 	        	<ul>
@@ -57,6 +57,9 @@
 								</div>							
 							</div>
 	        			</fieldset>
+	        		</li>
+	        		<li>
+	        			<ng-include src=" 'views/modules/addObjSection.html' "></ng-include>
 	        		</li>
 	        	</ul>        		        		
 	    </fieldset>

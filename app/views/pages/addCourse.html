@@ -20,7 +20,7 @@
 		</ul>
 	</div>
 	<div class="contentAddItem__wrapperAddItem">
-		<form id="adminCoursesForm" name="adminCoursesForm" class="formAddCourse" ng-submit="showAddObjectives(1)"  novalidate>
+		<form id="adminCoursesForm" name="adminCoursesForm" class="formAddCourse" ng-submit="addEditCourse()"  novalidate>
 	    <fieldset>
 	        	<legend class="sr-only">FORMULARIO AGREGAR</legend>
 	        	<ul>
@@ -68,9 +68,12 @@
 							</div>
 	        			</fieldset>
 	        		</li>
+	        		<li>
+	        			<ng-include src=" 'views/modules/addObjCourse.html' "></ng-include>
+	        		</li>
 	        	</ul>        		        		
 	    </fieldset>
-	    <input value="Crear curso" class="formAddCourse__submit" type="submit" name="sendFormAddCourse"/>
+	    <input class="btnBq--form" value="Crear curso" class="formAddCourse__submit" type="submit" name="sendFormAddCourse"/>
 		</form>
 	</div>
 
