@@ -1,3 +1,4 @@
+// --------- BUTTON STRECTH-------------
 @charset "UTF-8";
 .bttn-default {
   color: #fff;
@@ -159,16 +160,26 @@
   color: #bd2df5;
 }
 
+//-------------------------------------------------
 
-//------------------------------------------------------------------
+//------------------------- MY BUTTONS -------------
 
-.btnBq--form{
+.btnBq--style1{
   background: $bgButton-color-green;
   border: none;
   border-radius: 5px;
   padding: 7px;
   color: $text-color-white;
+  font-weight: bold;
   &:hover{
     background: $bgButton-color-greenDark;
+  }
+}
+.btnBq--style2{
+ @extend .btnBq--style1;
+ background:$bg-color-black;
+ padding:7px 35px;
+  &:hover{
+    background: $bg-color-blackLight;
   }
 }

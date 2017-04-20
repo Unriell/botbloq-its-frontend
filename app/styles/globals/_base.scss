@@ -10,6 +10,17 @@
     padding-bottom: 15px;
     text-align: center;
 }
+.width100{
+	width:100%;
+}
+
+.floatR{
+	float:right;
+}
+.floatL{
+	float:left;
+}
+
 .bgGreenLight{
 	background:$bg-color-greenTooLight;
 }
@@ -58,6 +69,11 @@
 	background: $bg-color-graytooLight;
 	padding: 13px;	
 }
+.contentAddItem__wrapperAddItem__level2{
+	@extend .contentAddItem__wrapperAddItem;
+	width:100%;
+}
+
 .viewOptions{
 	margin-bottom: 13px;
 }
@@ -97,6 +113,8 @@
 		}
 	}
 }
+
+// ------------------ Icons -----------------
 .bbq-list--style:before {
   color:$color-grayLight2;
   display: block;
@@ -110,6 +128,24 @@
   padding-top:2px;
 }
 
+.bbq-page-add--style1:before {
+  font-size: 2.6em;
+  color:$color-green;
+}
+.bbq-page-delete--style1:before {
+  font-size: 2.6em;
+  color:$color-green;
+}
+.bbq-page-edit--style1:before {
+  font-size: 2.6em;
+  color:$color-green;
+}
+.bbq-page-remove--style1:before {
+  font-size: 2.6em;
+  color:$color-green;
+}
+
+// --------------------------------------------
 .size5{
 	width:5%;
 }.size10{
@@ -271,6 +307,21 @@
 			float:left;
 			width:90%;
 		}
+		.contentAddItem__wrapperAddItem__level2{
+			width:100%;
+		}
+		.bbq-page-add--style1:before {
+		  font-size: 2.2em;
+		}
+		.bbq-page-delete--style1:before {
+		  font-size: 2.2em;
+		}
+		.bbq-page-edit--style1:before {
+		  font-size: 2.2em;
+		}
+		.bbq-page-remove--style1:before {
+		  font-size: 2.2em;
+		}
 	}
 
 	header.contentHeader{
@@ -357,9 +408,19 @@
 	    	display: inline-block;
 		}
 	}
+
 	.contentAddItem{
 
+		.formAddCourse__fieldset__contentFields{
+			padding:23px;
+		}
+		.formAddCourse__fieldset__level2__contentFields{
+			padding: 10px;
+		}
 		
+		.contentAddItem__wrapperAddItem__level2{
+			margin-top:15px;
+		}
 
 	}
 }
@@ -375,6 +436,9 @@
 		}
 		.contentAddItem__wrapperAddItem{
 			width:93%;
+		}
+		.contentAddItem__wrapperAddItem__level2{
+			width:100%;
 		}
 	}
    header.contentHeader{
@@ -423,6 +487,9 @@
 		}
 		.contentAdminCourses__contentCourses__list__wrapperCourse{
 			padding:29px 17px;
+		}
+		.formAddCourse__fieldset__contentFields__btLoms{
+		float: none;
 		}
 	}
 }

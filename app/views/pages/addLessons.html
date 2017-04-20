@@ -27,8 +27,11 @@
 	        	<legend class="sr-only">FORMULARIO AGREGAR</legend>
 	        	<ul>
 					<li>
-						<fieldset class="formAddCourse__fieldset__level2">
-    						<legend class="formAddCourse__fieldset__level2__legend"><a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(5)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsSectionsLesson, 'bbq-plus bbq-plus--form': !showFieldsSectionsLesson}"></span></a>Lección</legend>
+						<fieldset class="formAddCourse__fieldset">
+    						<legend class="formAddCourse__fieldset__level2__legend">
+    						<!-- <a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(5)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsSectionsLesson, 'bbq-plus bbq-plus--form': !showFieldsSectionsLesson}"></span></a> -->
+    						Lección
+    						</legend>
 							<div class="formAddCourse__fieldset__contentFields" ng-show="showFieldsSectionsLesson">
 								<div class="row">
 									<div class="col-xs-12 col-sm-6 mb15">
@@ -81,11 +84,11 @@
 								<div class="row">
 									<div class="col-xs-12 col-sm-12 mb15">
 										<div class="row">
-											<div class="col-xs-12 col-sm-3">
-												<label for="sections_lesson_name">Loms</label>	
+											<div class="col-xs-4 col-sm-3">
+												<label class="formAddCourse__fieldset__contentFields__labelLoms" for="sections_lesson_name">Loms</label>	
 											</div>
-											<div class="col-xs-12 col-sm-4">
-												<button class="btn btn-primary" ng-click="panelSelectLom($event)">Seleccionar loms</button>		
+											<div class="col-xs-8 col-sm-4">
+												<button class="btnBq--style1 formAddCourse__fieldset__contentFields__btLoms" ng-click="panelSelectLom($event)">Seleccionar loms</button>		
 											</div>
 										</div>
 									</div>
@@ -139,7 +142,7 @@
 					</li>				
 	        	</ul>        		        		
 	    </fieldset>
-	    <button class="btnBq--form formAddCourse__submit" type="submit" name="sendFormAddCourseSectionLesson">Añadir Lección</button>
+	    <button class="btnBq--style1 formAddCourse__submit" type="submit" name="sendFormAddCourseSectionLesson">Añadir Lección</button>
 		</form>
 	</div>
 

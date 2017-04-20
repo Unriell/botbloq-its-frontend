@@ -109,12 +109,16 @@
             </tbody>
         </table> -->
 
+        
+        <div class="contentAdminCourses__options">
+            <a class="contentAdminCourses__options__link" ng-click="goAddCourse()" herf><span title="Agregar Curso" class="bbq-page-add bbq-page-add--style1"></span></a>
+            <a class="contentAdminCourses__options__link" ng-click="deleteAllCourses($event)" herf><span title="Eliminar todos los cursos" class="bbq-page-remove bbq-page-remove--style1"></span></a>
+        </div>
+            
+      
+        <!-- <button class="btnBq--style1" disabled>Agregar con Asistente</button>
+        <button class="btnBq--style1" disabled>Regresar</button> -->
 
-        <button class="btnBq--form mb10" ng-click="goAddCourse()">Agregar</button>
-        <!-- <button class="" ng-click="showCourses()">Mostrar</button> -->
-        <button class="btnBq--form mb10" ng-click="deleteAllCourses()">Eliminar todo</button>
-        <button class="btnBq--form" disabled>Agregar con Asistente</button>
-        <button class="btnBq--form" disabled>Regresar</button>
         <div class="contentInfoCourse" ng-show="InfoCourse">
             <div>
                 <h3 class="h3Class">General</h3>

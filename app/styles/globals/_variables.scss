@@ -12,8 +12,11 @@ $color-blueTooLight: #aec1cf;
 $color-white: #fff;
 $color-black:#000000;
 $color-purple:#6f60b3;
+$color-green:#82ad3a; //color de fondo de botones
+$color-greenDark:#6a8d2f; //color de fondo de botones en hover
 $color-greenWater: #29bd98;
 $color-blueTable: #2f5f75;
+$color-blackLiht:#504f4f;
 $tabPanel-color-gray: #e6e0e0;
 
 //map
@@ -35,10 +38,12 @@ $text-color-blueDark2: #0c4b63;
 $text-color-blueLight: #39bee6;
 $text-color-blueTooLight: #aec1cf;
 $text-color-purple:#6f60b3;
+$text-color-greenDark:#6a8d2f; //color de fondo de botones en hover
 $text-color-green:#82a63c;
 $text-color-waterGreen: #00bd9a;
 $text-color-white: #FFFFFF; // blanco
 $text-color-black: #000000; // negro
+$text-color-blackLiht:#504f4f;
 $text-color-gray2: #213744; // letras de footer
 
 //Color de enlaces
@@ -53,10 +58,14 @@ $link-color-blueDark2: #0c4b63;
 $link-color-blueLight: #39bee6;
 $link-color-blueTooLight: #aec1cf;
 $link-color-purple:#6f60b3;
+$link-color-green:#82ad3a; //color de fondo de botones
+$link-color-greenDark:#6a8d2f; //color de fondo de botones en hover
+$link-color-green:#82a63c;
 $link-color-green:#82a63c;//usuario de info de lista de loms
 $link-color-waterGreen: #00bd9a;
 $link-color-white: #FFFFFF; // blanco
 $link-color-black: #000000; // negro
+$link-color-blackLiht:#504f4f;
 $link-color-gray2: #213744; // letras de footer
 $link-color-blue2:#8598ba; //enlace log out | profile de cabecera
 $link-hover-color: #000000;
@@ -66,6 +75,7 @@ $link-hover-decoration: underline !default;
 // backgrounds
 $bg-color-white: #FFFFFF; // blanco
 $bg-color-black: #000000; // negro
+$bg-color-blackLight:#504f4f;
 $bg-color-gray: #f0f3f5; 
 $bg-color-graytooLight: #ededed;//color de fondo de estión de loms
 $bg-color-graytooLight2: #ebebeb;//color de fondo de estión de loms

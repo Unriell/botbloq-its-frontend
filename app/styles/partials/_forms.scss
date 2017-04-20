@@ -64,13 +64,16 @@
 	.formAddCourse__submit{
 		
 	}
+	.formAddCourse__end{
+		float: right;
+	}
 	.formAddCourse__fieldset{
 		background:$bg-color-white;
 		margin-bottom:10px;
 	}
 	.formAddCourse__fieldset__level2{
 		padding: 44px 26px 0 26px;
-	    background:$bg-color-greenLight;;
+	    background:$bg-color-greenLight;
 	    position: relative;
 	    margin-bottom: 15px;
 	}
@@ -96,7 +99,16 @@
 		}
 	}
 	.formAddCourse__fieldset__contentFields{
-		padding:10px;
+		padding:18px;
+	}
+	.formAddCourse__fieldset__contentFields__labelLoms{
+		line-height: 30px;
+	}
+	.formAddCourse__fieldset__contentFields__btLoms{
+		float: right;
+	}
+	.formAddCourse__fieldset__level2__contentFields{
+		padding: 9px 0 0 0;
 	}
 	.formAddCourse__fieldset__contentFields__loms{
 		background:$bg-color-white;

@@ -130,7 +130,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
         function removeItem(idCourse) { 
           return $http.delete(common.bitbloqBackendUrl + "/courses/"+idCourse);      
         }
-        function removeAllItem(item) { 
+        function removeAllItem() { 
           return $http.delete(common.bitbloqBackendUrl + "/courses");      
         }
        

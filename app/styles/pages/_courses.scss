@@ -11,11 +11,11 @@
 
 	}
 	.contentAdminCourses__contentCourses__viewOptionsfilterSearch__filter{
-		font-color:$text-color-grayLight;
 	    border-radius: 5px;
 	    border: 1px solid $color-grayLight;
 	    padding: 5px 0 6px 7px;
     	font-size: 1em;
+    	color: $text-color-gray;
 	}
 	.contentAdminCourses__contentCourses__viewOptionsfilterSearch__search{
 		position:relative;
@@ -26,7 +26,7 @@
 		border-radius:5px;
 		border:1px solid $color-grayLight;
 		&::-webkit-input-placeholder {
-		    font-size: 1.2em;
+		    font-size: 1em;
 			font-color:$text-color-gray;
 		}
 	}
@@ -68,6 +68,20 @@
 
 	}
 	
+	.contentAdminCourses__options{
+		text-align:center;
+	}
+	.contentAdminCourses__options__link{
+		margin:0 5px;
+		display: inline-block;
+		&:hover, &:link{
+			text-decoration: none;
+			cursor: pointer;
+			.bbq-page-add--style1:before, .bbq-page-delete--style1:before, .bbq-page-edit--style1:before, .bbq-page-remove--style1:before{
+			  color:$color-greenDark;
+			}
+		}
+	}
 
 	.bbq-list--Courses:before {
 	  color:$color-grayLight2;

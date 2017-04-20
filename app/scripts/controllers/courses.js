@@ -22,9 +22,9 @@
         $scope.showFieldsGeneral=true;
         $scope.showFieldsObjectives=true;
         $scope.showFieldsSections=true;
-        $scope.showFieldsSectionsObj=false;
+        $scope.showFieldsSectionsObj=true;
         $scope.showFieldsSectionsLesson=true;
-        $scope.showFieldsSectionsLessonObj=false;
+        $scope.showFieldsSectionsLessonObj=true;
 
         $scope.newObjective=true;
         $scope.newSection=true;
@@ -374,9 +374,13 @@
                     $log.debug('error al eliminar item', error);
              });
         };
-        $scope.deleteAllCourses = function(item){
+        $scope.deleteAllCourses = function(e){
             $log.debug('eliminado courses');
-            coursesApi.removeAllItem(item).then(function(response) {
+            if (confirm("¿Esta dispuesto a eliminar todos los cursos?") === false) {
+                e.preventDefault();
+                return;
+            }
+            coursesApi.removeAllItem().then(function(response) {
                     $log.debug('eliminado todos los items con exito', response);
                 }, function(error) {
                     $log.debug('error al eliminar todos los items', error);

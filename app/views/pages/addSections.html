@@ -20,8 +20,7 @@
 		</ul>
 	</div>
 	<div class="contentAddItem__wrapperAddItem">
-	<button class="btnBq--form" ng-click="showNewSection()" ng-hide="newSection">Nueva Sección</button>
-	<button class="btnBq--form" ng-click="finAddCourse()">Fin</button>
+	<button class="btnBq--style1" ng-click="showNewSection()" ng-hide="newSection">Nueva Sección</button>
 		<form ng-show="newSection" id="adminCoursesFormSection" name="adminCoursesFormSection" class="formAddCourse" ng-submit="addSection()"  novalidate>
 	    <fieldset>
 	        	<legend class="sr-only">FORMULARIO AGREGAR</legend>
@@ -29,7 +28,7 @@
 	        		<li>
 	        			<fieldset class="formAddCourse__fieldset">
 			        		<legend class="formAddCourse__fieldset__legend"> 
-				        		<a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(3)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsSections, 'bbq-plus bbq-plus--form': !showFieldsSections}"></span></a>
+				        		<!-- <a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(3)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsSections, 'bbq-plus bbq-plus--form': !showFieldsSections}"></span></a> -->
 				        		Secciones
 			        		</legend>
 							<div class="formAddCourse__fieldset__contentFields" ng-show="showFieldsSections">
@@ -54,16 +53,15 @@
 											</div>
 										</div>
 									</div>
-								</div>							
+								</div>	
+								<ng-include src=" 'views/modules/addObjSection.html' "></ng-include>						
 							</div>
 	        			</fieldset>
 	        		</li>
-	        		<li>
-	        			<ng-include src=" 'views/modules/addObjSection.html' "></ng-include>
-	        		</li>
 	        	</ul>        		        		
 	    </fieldset>
-	    <button class="btnBq--form formAddCourse__submit" type="submit" name="sendFormAddCourseSection">Añadir Sección</button>
+	    <button class="btnBq--style1 formAddCourse__submit mr10" type="submit" name="sendFormAddCourseSection">Añadir Sección</button>
+		<button class="btnBq--style2 formAddCourse__end" ng-click="finAddCourse()">Fin</button>
 		</form>
 	</div>
 

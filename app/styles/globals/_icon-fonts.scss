@@ -157,3 +157,15 @@
 .bbq-remove:before {
   content: "\4e";
 }
+.bbq-page-add:before {
+  content: "\50";
+}
+.bbq-page-delete:before {
+  content: "\51";
+}
+.bbq-page-edit:before {
+  content: "\52";
+}
+.bbq-page-remove:before {
+  content: "\53";
+}
