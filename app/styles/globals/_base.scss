@@ -67,7 +67,8 @@
 
 .contentAddItem__wrapperAddItem{
 	background: $bg-color-graytooLight;
-	padding: 13px;	
+	padding: 28px 13px 13px 13px;	
+	position:relative;
 }
 .contentAddItem__wrapperAddItem__level2{
 	@extend .contentAddItem__wrapperAddItem;
@@ -422,6 +423,9 @@
 			margin-top:15px;
 		}
 
+		.formAddCourse__fieldset__contentFields__btLoms{
+			float: inherit;
+		}
 	}
 }
 
@@ -488,8 +492,6 @@
 		.contentAdminCourses__contentCourses__list__wrapperCourse{
 			padding:29px 17px;
 		}
-		.formAddCourse__fieldset__contentFields__btLoms{
-		float: none;
-		}
+		
 	}
 }

@@ -79,13 +79,15 @@
 	}
 	.formAddCourse__fieldset__level2__legend{
 		width: initial;
-	    position: absolute;
-	    top: 14px;
 	    font-weight: bold;
-	    left: 10px;
+	    position: absolute;
+    	top: 7px;
+    	left: 16px;
+    	text-transform: uppercase;
 	}
 	.formAddCourse__fieldset__level3{
 		@extend .formAddCourse__fieldset__level2;
+		position: inherit;
 		background:$bg-color-greenTooLight;
 	}
 	.formAddCourse__fieldset__level3__legend{
