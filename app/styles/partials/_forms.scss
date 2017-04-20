@@ -74,7 +74,6 @@
 	.formAddCourse__fieldset__level2{
 		padding: 44px 26px 0 26px;
 	    background:$bg-color-greenLight;
-	    position: relative;
 	    margin-bottom: 15px;
 	}
 	.formAddCourse__fieldset__level2__legend{
@@ -87,7 +86,6 @@
 	}
 	.formAddCourse__fieldset__level3{
 		@extend .formAddCourse__fieldset__level2;
-		position: inherit;
 		background:$bg-color-greenTooLight;
 	}
 	.formAddCourse__fieldset__level3__legend{
