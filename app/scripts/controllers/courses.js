@@ -29,6 +29,7 @@
         $scope.newObjective=true;
         $scope.newSection=true;
         $scope.newLesson=true;
+        $scope.showSelectLoms=false;
 
         $scope.objectives={};
         $scope.sectionObj={};
@@ -148,28 +149,7 @@
         $scope.showNewObjective=function(){
             $scope.newObjective=true;
         };
-        /*$scope.showAddObjectives = function (i) {
-            switch (i) {
-                case 1:
-                    $scope.objBreadCrumb="course";
-                    break;
-                case 2:
-                    $scope.objBreadCrumb="section";
-                    break;
-                case 3:
-                    $scope.objBreadCrumb="lesson";
-                    break;
-                default:
-                    $scope.objBreadCrumb="lesson";
-                    break;
-            }
-            $log.debug('&&&&&&&&& valor de objBreadCrumb: '+$scope.objBreadCrumb);
-            if ( ($scope.objBreadCrumb=='course' && $scope.adminCoursesForm.$valid) ||
-                 ($scope.objBreadCrumb=='section' && $scope.adminCoursesFormSection.$valid) ||
-                 ($scope.objBreadCrumb=='lesson' && $scope.adminCoursesFormSectionLesson.$valid)  ){
-                $location.path("/addObjectives");
-            }
-        };*/
+        
         $scope.showNewSection=function(){
             $scope.newSection=true;
         };
@@ -215,20 +195,10 @@
             $scope.newObjective=false;
         };
 
-        /*$scope.addObjectives = function () {
-            switch ($scope.objBreadCrumb) {
-                case 'course':
-                    $scope.addEditCourse();
-                    break;
-                case 'section':
-                    $scope.addSection();
-                    break;
-                case 'lesson':
-                    $scope.addLesson();
-                    break;
-                default:
-            }
-        };*/
+        $scope.hideSelectLoms= function(){
+            $scope.selectLoms=true;
+        };
+
         $scope.addCourse = function() {
             if ($scope.adminCoursesForm.$valid) {
                 $log.debug('adding...');
@@ -336,12 +306,6 @@
                 return element!== lom;
             }); 
             $scope.lomsAux.push(lom);
-        };
-
-        $scope.panelSelectLom= function($event){
-            $event.preventDefault();
-            $scope.showSelectLoms=true;
-            $scope.newLesson=true;
         };
 
         $scope.editCourse = function(idItem) {

@@ -20,7 +20,9 @@
 .floatL{
 	float:left;
 }
-
+.center{
+	text-align:center;
+}
 .bgGreenLight{
 	background:$bg-color-greenTooLight;
 }
@@ -67,11 +69,12 @@
 
 .contentAddItem__wrapperAddItem{
 	background: $bg-color-graytooLight;
-	padding: 28px 13px 13px 13px;	
+	padding: 28px 13px 10px 13px;	
 	position:relative;
 }
 .contentAddItem__wrapperAddItem__level2{
 	@extend .contentAddItem__wrapperAddItem;
+	padding:13px;
 	width:100%;
 }
 
@@ -425,6 +428,19 @@
 
 		.formAddCourse__fieldset__contentFields__btLoms{
 			float: inherit;
+		}
+
+		.formAddCourse__fieldset__contentFields__selectLoms__options{
+			margin-top:68px;
+		}
+		.formAddCourse__fieldset__contentFields__selectLoms__options__add{
+			margin-bottom:14px;
+		}
+		.formAddCourse__fieldset__contentFields__selectLoms__options__delete{
+
+		}
+		.formAddCourse__fieldset__contentFields__selectLoms__added{
+			margin-top: 0px;
 		}
 	}
 }

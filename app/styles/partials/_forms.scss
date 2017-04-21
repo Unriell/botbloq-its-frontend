@@ -51,9 +51,14 @@
 	.formAddCourse__fieldset__contentFields{
 	}
 	.formAddCourse__fieldset__legend{
+		width: inherit;
 		font-size: 1.2em;
 		font-weight: bold;
 		color:$text-color-black;
+		position: absolute;
+    	top: 5px;
+    	left: 15px;
+    	text-transform: uppercase;
 	}
 	.formAddCourse__label{
 		padding-bottom:5px;
@@ -72,7 +77,7 @@
 		margin-bottom:10px;
 	}
 	.formAddCourse__fieldset__level2{
-		padding: 44px 26px 0 26px;
+		padding: 42px 26px 0 26px;
 	    background:$bg-color-greenLight;
 	    margin-bottom: 15px;
 	}
@@ -80,9 +85,9 @@
 		width: initial;
 	    font-weight: bold;
 	    position: absolute;
-    	top: 7px;
-    	left: 16px;
-    	text-transform: uppercase;
+	    top: 27px;
+	    left: 22px;
+	    text-transform: uppercase;
 	}
 	.formAddCourse__fieldset__level3{
 		@extend .formAddCourse__fieldset__level2;
@@ -115,6 +120,36 @@
 		padding:10px;
 		max-height: 170px;
 		overflow-y: scroll;
+		border: 1px solid $color-gray;
+    	box-shadow: 0px 0px 2px 0px #446906; //verde oscuro - negro
+	}
+	.formAddCourse__fieldset__contentFields__selectLoms{
+		background: $bg-color-greenLight;
+		border:13px solid $color-grayTooLight;
+		padding:13px;
+	}
+	.formAddCourse__fieldset__contentFields__selectLoms__toSelect{
+		margin-bottom: 20px;
+	}
+	.formAddCourse__fieldset__contentFields__selectLoms__toSelect__labelSelect{
+		margin-bottom:7px;
+		font-weight: bold;
+	}
+	.formAddCourse__fieldset__contentFields__selectLoms__options{
+		text-align: center;
+	}
+	.formAddCourse__fieldset__contentFields__selectLoms__options__add{
+
+	}
+	.formAddCourse__fieldset__contentFields__selectLoms__options__delete{
+
+	}
+	.formAddCourse__fieldset__contentFields__selectLoms__added{
+		margin-top: 20px;
+	}
+	.formAddCourse__fieldset__contentFields__selectLoms__added__label{
+		margin-bottom:7px;
+		font-weight: bold;
 	}
 	.formAddCourse__fieldset__contentFields__loms__element{
 		position:relative;
