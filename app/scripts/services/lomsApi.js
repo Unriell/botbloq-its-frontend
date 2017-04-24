@@ -119,7 +119,7 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
         function removeItem(item) { 
           return $http.delete(common.bitbloqBackendUrl + "/loms/"+item );      
         }
-        function removeAllItem(item) { 
+        function removeAllItem() { 
           return $http.delete(common.bitbloqBackendUrl + "/loms");      
         }
        

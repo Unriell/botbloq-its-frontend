@@ -340,7 +340,7 @@
         };
         $scope.deleteAllCourses = function(e){
             $log.debug('eliminado courses');
-            if (confirm("¿Esta dispuesto a eliminar todos los cursos?") === false) {
+            if (confirm("¿ESTÁ DISPUESTO A ELIMINAR TODOS LOS CURSOS?") === false) {
                 e.preventDefault();
                 return;
             }

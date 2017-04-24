@@ -29,6 +29,7 @@
 .h2Class{
 	font-size: 1.3em;
     font-weight: bold;
+   	text-transform:uppercase;
 }
 .h3Class{
 	font-size: 25px;
@@ -134,19 +135,23 @@
 
 .bbq-page-add--style1:before {
   font-size: 2.6em;
-  color:$color-green;
+  color:$color-white;
+  vertical-align: middle;
 }
 .bbq-page-delete--style1:before {
   font-size: 2.6em;
-  color:$color-green;
+  color:$color-white;
+  vertical-align: middle;
 }
 .bbq-page-edit--style1:before {
   font-size: 2.6em;
-  color:$color-green;
+  color:$color-white;
+  vertical-align: middle;
 }
 .bbq-page-remove--style1:before {
   font-size: 2.6em;
-  color:$color-green;
+  color:$color-white;
+  vertical-align: middle;
 }
 
 // --------------------------------------------
@@ -326,6 +331,9 @@
 		.bbq-page-remove--style1:before {
 		  font-size: 2.2em;
 		}
+		.btnBq--withIcon{
+		  padding: 7px 10px;
+		}
 	}
 
 	header.contentHeader{
@@ -415,6 +423,21 @@
 
 	.contentAddItem{
 
+		.btnBq--style2{
+		  padding:7px 35px;
+		}
+		
+		// -------  LOMS  ----------
+		
+		.formAddLom__label{
+			line-height: 32px;
+			margin-bottom:0px;
+		}
+		.formAddLom__input{
+			
+		}
+
+		// ------- CURSOS ----------
 		.formAddCourse__fieldset__contentFields{
 			padding:23px;
 		}
@@ -443,12 +466,14 @@
 			margin-top: 0px;
 		}
 		.formAddCourse__fieldset__contentFields__label{
+			line-height: 32px;
 			margin-bottom:0px;
 		}
 		.formAddCourse__fieldset__contentFields__input{
 			
 		}
 		.formAddCourse__fieldset__level2__contentFields__label{
+			line-height: 32px;
 			margin-bottom:0px;
 		}
 		.formAddCourse__fieldset__level2__contentFields__input{
@@ -472,6 +497,9 @@
 		}
 		.contentAddItem__wrapperAddItem__level2{
 			width:100%;
+		}
+		.btnBq--withIcon{
+		  padding: 7px 35px;
 		}
 	}
    header.contentHeader{

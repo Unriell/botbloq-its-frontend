@@ -149,9 +149,13 @@
                     $log.debug('error al eliminar item', error);
              });
         };
-        $scope.deleteAllLoms = function(item){
+        $scope.deleteAllLoms = function(e){
             $log.debug('eliminado loms');
-            lomsApi.removeAllItem(item).then(function(response) {
+            if (confirm("¿ESTÁ DISPUESTO A ELIMINAR TODOS LOS LOMS?") === false) {
+                e.preventDefault();
+                return;
+            }
+            lomsApi.removeAllItem().then(function(response) {
                     $log.debug('eliminado todos los items con exito', response);
                 }, function(error) {
                     $log.debug('error al eliminar todos los items', error);

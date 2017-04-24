@@ -178,8 +178,19 @@
 .btnBq--style2{
  @extend .btnBq--style1;
  background:$bg-color-black;
- padding:7px 35px;
+ padding:7px 20px;
   &:hover{
     background: $bg-color-blackLight;
+  }
+}
+.btnBq--withIcon{
+ @extend .btnBq--style1;
+ background:$bg-color-black;
+ padding:7px;
+  &:hover{
+    background:$bg-color-black; 
+    span,.bbq-page-add--style1:before, .bbq-page-delete--style1:before{
+      color:$color-green;
+    }
   }
 }

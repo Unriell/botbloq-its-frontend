@@ -1,10 +1,4 @@
 
-
-.inputDescription{
-	min-height:75px;
-	overflow-y:scroll;
-}
-
 .formAddLom{
 	input,select{
 		width: 100%;
@@ -26,6 +20,11 @@
 	}
 	.formAddLom__input{
 		width: 100%;
+		padding:5px 0 5px 7px;
+	}
+	.formAddLom__select{
+		width: 100%;
+		padding:5px 0 5px 7px;
 	}
 	.formAddLom__submit{
 		
@@ -116,13 +115,17 @@
 	.formAddCourse__fieldset__contentFields__input{
 		padding:5px 0 5px 7px;
 	}
+	.formAddCourse__fieldset__contentFields__textArea{
+		min-height:75px;
+		width: 100%;
+		padding: 8px 7px 8px 7px;
+	}
 	.formAddCourse__fieldset__level2__contentFields__label{
 		margin-bottom:5px;
 	}
 	.formAddCourse__fieldset__level2__contentFields__input{
 		padding:5px 7px 5px 7px;
 	}
-
 	.formAddCourse__fieldset__contentFields__labelLoms{
 		line-height: 30px;
 	}
@@ -139,6 +142,7 @@
 		overflow-y: scroll;
 		border: 1px solid $color-gray;
     	box-shadow: 0px 0px 2px 0px #446906; //verde oscuro - negro
+    	height: 170px;
 	}
 	.formAddCourse__fieldset__contentFields__selectLoms{
 		background: $bg-color-greenLight;
@@ -171,6 +175,7 @@
 	.formAddCourse__fieldset__contentFields__loms__element{
 		position:relative;
 	}
+
 	.formAddCourse__fieldset__contentFields__loms__element__link{
 		display: block;
 		padding:3px 0 3px 5px;
@@ -192,10 +197,12 @@
 		}
 	}
 	.formAddCourse__fieldset__contentFields__loms__element__link__link{
-		
+		display: none;
+		&.active{
+				display: block;
+			}
 	}
-
-
+	
 	.bbq-minus--form:before {
 		color:$color-black;
 		font-size: 1em;

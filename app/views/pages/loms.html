@@ -1,6 +1,6 @@
 <div class="contentAdminLoms">
         <div class="contentTitle">
-            <h2 class="h2Class">Recursos Objetos de Aprendizaje </h2>
+            <h2 class="h2Class">Recursos - Objetos de Aprendizaje </h2>
         </div>
         <div class="contentAdminLoms__contentLoms mb20">
             <div class="row">
@@ -108,11 +108,20 @@
 
 
         <!-- <button class="btn btn-primary" ng-click="showLoms()">Mostrar</button>  -->
-        <button class="btnBq--style1" ng-click="goAddLom()">Agregar</button>
-        <button class="btnBq--style1" ng-click="deleteAllLoms()">Eliminar todo</button>
-        <button class="btnBq--style1" disabled>Agregar con Asistente</button>
-        <button class="btnBq--style1" disabled>Regresar</button>
+
+        <div class="contentAdminCourses__options">
+            <button class="btnBq--withIcon" ng-click="goAddLom()">
+                <span class="hidden-xs contentAdminCourses__options__title">Agregar Lom</span>
+                <span title="Agregar Curso" class="bbq-page-add bbq-page-add--style1"></span>
+            </button>
+            <button class="btnBq--withIcon" ng-click="deleteAllLoms($event)">
+                <span class="hidden-xs contentAdminCourses__options__title">Eliminar Todo</span>
+                <span title="Eliminar todos los cursos" class="bbq-page-delete bbq-page-delete--style1"></span>
+            </button>
+        </div>
       
+       <!--  <button class="btnBq--style1" disabled>Agregar con Asistente</button>
+       <button class="btnBq--style1" disabled>Regresar</button> -->
 
        
         <div class="contentInfoLom" ng-show="InfoLom">

@@ -19,7 +19,7 @@
 			</li>
 		</ul>
 	</div>
-	<div class="contentAddItem__wrapperAddItem">
+	<div class="contentAddItem__wrapperAddItem pdt10">
 		<form id="adminLomsForm" name="adminLomsForm" class="formAddLom" ng-submit="addEditLom()"  novalidate>
 	    <fieldset>
 	        	<legend class="sr-only">FORMULARIO AGREGAR</legend>
@@ -70,7 +70,7 @@
 												<label class="formAddLom__label" for="generalSchema_language">Idioma*</label>
 											</div>
 											<div class="col-xs-12 col-sm-6">
-												<select ng-model="generalSchema.language" id="generalSchema_language"  type="text" name="generalSchema_language">
+												<select class="formAddLom__select" ng-model="generalSchema.language" id="generalSchema_language"  type="text" name="generalSchema_language">
 												  <option>es</option>
 												  <option>en</option>
 												</select>
@@ -85,7 +85,7 @@
 												<label class="formAddLom__label" for="generalSchema_structure">Estructura*</label>
 											</div>
 											<div class="col-xs-12 col-sm-6">
-												<select ng-model="generalSchema.structure" id="generalSchema_structure" type="text" name="generalSchema_structure">
+												<select class="formAddLom__select" ng-model="generalSchema.structure" id="generalSchema_structure" type="text" name="generalSchema_structure">
 												  <option>atomic</option>
 												  <option>complex</option>
 												</select>
@@ -129,7 +129,7 @@
 												<label class="formAddLom__label" for="lifecycleSchema_state">Estado</label>
 											</div>
 											<div class="col-xs-12 col-sm-6">
-												<select ng-model="lifecycleSchema.state" id="lifecycleSchema_state" type="text" name="lifecycleSchema_state">
+												<select class="formAddLom__select" ng-model="lifecycleSchema.state" id="lifecycleSchema_state" type="text" name="lifecycleSchema_state">
 									  				<option>draft</option>
 									  				<option>final</option>
 												</select>	
@@ -360,7 +360,7 @@
 	        		</li>
 	        	</ul>        		        		
 	        </fieldset>
-	    <input class="formAddLom__submit" type="submit" name="sendFormAddLom">
+	        <button class="btnBq--style2 formAddCourse__submit" type="submit" name="sendFormAddLom">Crear Lom</button>
 	</form>
 </div>
 

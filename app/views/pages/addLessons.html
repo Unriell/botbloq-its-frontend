@@ -49,7 +49,7 @@
 												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_summary">Description</label>
 											</div>
 											<div class="col-xs-12 col-sm-8 col-md-9">
-												<input class="formAddCourse__fieldset__contentFields__input inputDescription" ng-model="lesson.summary" type="text" id="sections_lesson_summary" name="sections_lesson_summary">
+												<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="lesson.summary" type="text" id="sections_lesson_summary" name="sections_lesson_summary"></textarea>
 											</div>
 										</div>
 									</div>
@@ -128,7 +128,7 @@
 												<ul class="formAddCourse__fieldset__contentFields__loms">
 													<li class="formAddCourse__fieldset__contentFields__loms__element" ng-repeat="i in lomsToAdd">
 														<a ng-click="selected=!selected; removeFromListAux(i,selected)" ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link">{{i.general.id_catalog}}
-															<a class="formAddCourse__fieldset__contentFields__loms__element__link__link" ng-click="removeLomFromListAdd(i)" href><span class="bbq-remove bbq-remove--lom" title="Eliminar lom"></span></a>
+															<a ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link__link" ng-click="removeLomFromListAdd(i)" href><span class="bbq-remove bbq-remove--lom" title="Eliminar lom"></span></a>
 														</a>
 													</li>
 												</ul>

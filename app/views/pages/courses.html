@@ -1,6 +1,6 @@
 <div class="contentAdminCourses">
         <div class="contentTitle">
-            <h2 class="h2Class">Recursos Cursos </h2>
+            <h2 class="h2Class">Recursos - Cursos </h2>
         </div>
         <div class="contentAdminCourses__contentCourses mb20">
             <div class="row">
@@ -108,11 +108,16 @@
                 </tr>
             </tbody>
         </table> -->
-
         
         <div class="contentAdminCourses__options">
-            <a class="contentAdminCourses__options__link" ng-click="goAddCourse()" herf><span title="Agregar Curso" class="bbq-page-add bbq-page-add--style1"></span></a>
-            <a class="contentAdminCourses__options__link" ng-click="deleteAllCourses($event)" herf><span title="Eliminar todos los cursos" class="bbq-page-delete bbq-page-delete--style1"></span></a>
+            <button class="btnBq--withIcon" ng-click="goAddCourse()">
+                <span class="hidden-xs contentAdminCourses__options__title">Agregar Curso</span>
+                <span title="Agregar Curso" class="bbq-page-add bbq-page-add--style1"></span>
+            </button>
+            <button class="btnBq--withIcon" ng-click="deleteAllCourses($event)">
+                <span class="hidden-xs contentAdminCourses__options__title">Eliminar Todo</span>
+                <span title="Eliminar todos los cursos" class="bbq-page-delete bbq-page-delete--style1"></span>
+            </button>
         </div>
             
       
