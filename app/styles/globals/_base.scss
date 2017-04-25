@@ -334,6 +334,19 @@
 		.btnBq--withIcon{
 		  padding: 7px 10px;
 		}
+
+		.contentAdminCourses{
+			.contentAdminCourses__contentCourses{
+    			padding:20px;
+			}
+			.contentAdminCourses__contentCourses__wrapperCourses{
+				padding: 20px 20px 0px 20px;
+			}
+
+
+		}
+
+
 	}
 
 	header.contentHeader{
@@ -500,6 +513,15 @@
 		}
 		.btnBq--withIcon{
 		  padding: 7px 35px;
+		}
+
+
+		.contentAdminCourses{
+			.contentAdminCourses__contentCourses__wrapperCourses{
+				padding: 20px 40px 0px 40px;
+			}
+
+
 		}
 	}
    header.contentHeader{
