@@ -31,49 +31,41 @@
 		}
 	}
 	.contentAdminCourses__contentCourses__wrapperCourses{
+		padding: 13px 5px 13px 5px;
+	}
 
+	.contentAdminCourses__contentCourses__wrapperCourses__course{
+		padding: 13px 5px 13px 5px;
 	}
-	.contentAdminCourses__contentCourses__list{
-	
-	}
-	.contentAdminCourses__contentCourses__list__wrapperCourse{
-		padding:15px 0;
-	}
-	.contentAdminCourses__contentCourses__list__wrapperCourse__Course{
-		border:1px solid $color-grayLight;
-		border-radius:3px;
-		box-shadow: 3px 3px 20px -2px rgba(0,0,0,0.39);
-	}
-	.contentAdminCourses__contentCourses__list__wrapperCourse__Course__img{
-		width: 100%;
-		display: inherit;
-	}
-	.contentAdminCourses__contentCourses__list__wrapperCourse__Course__info{
-		padding: 7px;
+	.contentAdminCourses__contentCourses__wrapperCourses__course__link{
+		display: block;
 		background: $bg-color-white;
-		border-top:1px solid $color-grayLight;
+		border-radius:6px;
 	}
-	.titleInfoCourse{
-		color: $text-color-black;
-		font-weight: bold;
-		padding-bottom:5px;
-	}
-	.originInfoCourse{
-		color: $text-color-grayLight;
-	}
-	.originInfoCourse__user{
-		color:$link-color-green;
-	}
-	.contentAdminCourses__contentCourses__list__wrapperCourse__Course__info__viewsInfoCourse{
+	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage{
 
 	}
-	
-	.contentAdminCourses__options{
-		text-align:center;
+	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__image{
+		width: 100%;
+    	border-radius: 6px 7px 0 0;
 	}
-	.contentAdminCourses__options__title{
+	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle{
+		padding: 10px;
+	}
+	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__name{
+		text-transform: uppercase;
+	    margin-bottom: 7px;
+	    font-weight: bold;
+	    color: $text-color-black;
+	    font-size: 1.3em;
+	}
+	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__description{
+		color: $text-color-gray;
+	}
+	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo{
+		
+	}
 
-	}
 	.bbq-list--Courses:before {
 	  color:$color-grayLight2;
 	  display: block;

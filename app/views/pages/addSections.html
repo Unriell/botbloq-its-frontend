@@ -19,8 +19,9 @@
 			</li>
 		</ul>
 	</div>
-	<div class="contentAddItem__wrapperAddItem">
+	<div class="contentAddItem__wrapperAddItem" ng-class="{pdt10:!newSection}">
 	<button class="btnBq--style1" ng-click="showNewSection()" ng-hide="newSection">Nueva Sección</button>
+	<button class="btnBq--style2 formAddCourse__end" ng-click="finAddCourse()" ng-hide="newSection">Fin Curso</button>
 		<form ng-show="newSection" id="adminCoursesFormSection" name="adminCoursesFormSection" class="formAddCourse" ng-submit="addSection()"  novalidate>
 	    <fieldset>
 	        	<legend class="sr-only">FORMULARIO AGREGAR</legend>

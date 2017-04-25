@@ -24,10 +24,10 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
                 statistics:  {},
                 history: ''
             }).then(function(response) {
-                $log.debug('ok despues de post', response.data.token);
+                $log.debug('ok despues de post course', response.data.token);
                 coursesPromise.resolve();  
             }, function(err) {
-                 $log.debug('error despues de post',err);
+                 $log.debug('error despues de post course',err);
             });
             return coursesPromise.promise;
         }
@@ -41,10 +41,10 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
                 summary: sectionsSummary,
                 objectives:sectionsObjectives
             }).then(function(response) {
-                $log.debug('ok despues de post', response.data.token);
+                $log.debug('ok despues de post section', response.data.token);
                 coursesPromise.resolve();  
             }, function(err) {
-                 $log.debug('error despues de post',err);
+                 $log.debug('error despues de post section',err);
             });
             return coursesPromise.promise;
         }
@@ -62,25 +62,24 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
                 type: lessonType,
                 loms:[]
             }).then(function(response) {
-                $log.debug('ok despues de post', response.data.token);
+                $log.debug('ok despues de post lesson', response.data.token);
                 coursesPromise.resolve();  
             }, function(err) {
-                 $log.debug('error despues de post',err);
+                 $log.debug('error despues de post lesson',err);
             });
             return coursesPromise.promise;
         }
 
         function asignLomsLesson(idCourse,section,lesson,idLom) { 
             var coursesPromise = $q.defer();
-            $log.debug("Objetos para hacer post asing lom: "+ idCourse,section,lesson,idLom);
+            $log.debug("Objetos para hacer post asign lom: "+ idCourse,section,lesson,idLom);
             $http.post(common.bitbloqBackendUrl + '/courses/'+idCourse+'/section/'+section+'/lesson/'+lesson+'/lom/'+idLom, {
-           
-            }).then(function(response) {
-                $log.debug('ok despues de post', response.data.token);
-                coursesPromise.resolve();  
-            }, function(err) {
-                 $log.debug('error despues de post',err);
-            });
+                }).then(function(response) {
+                    $log.debug('ok despues de asignar un lom '+idLom+' a una leccion', response.data.token);
+                    coursesPromise.resolve();  
+                }, function(err) {
+                     $log.debug('error despues intentar asignar el lom '+idLom+' a una leccion',err);
+                });
             return coursesPromise.promise;     
         }
         

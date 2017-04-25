@@ -32,17 +32,23 @@
                     </form>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-xs-12">
-                    <ul class="contentAdminCourses__contentCourses__wrapperCourses">
-                        <li ng-repeat="i in Courses">
-                            <img src="">
-                            <div>
-                                
-                            </div>
-                        </li>
-                    </ul>
-                </div>
+            <div class="contentAdminCourses__contentCourses__wrapperCourses">
+                <ul class="row">
+                    <li ng-repeat="i in courses" class="col-xs-12 col-sm-4">
+                        <div class="contentAdminCourses__contentCourses__wrapperCourses__course">
+                            <a class="contentAdminCourses__contentCourses__wrapperCourses__course__link" href>
+                                <div class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage">
+                                    <img class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__image" src="http://lorempicsum.com/simpsons/340/150/1">
+                                </div>
+                                <div class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle">
+                                    <p class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__name">{{i.name}}</p>
+                                    <p class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__description">{{i.code}}</p>
+                                </div>
+                                <div class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo"></div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
             </div>
         </div>
 
