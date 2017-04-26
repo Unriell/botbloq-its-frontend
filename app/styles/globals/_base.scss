@@ -342,6 +342,13 @@
 			.contentAdminCourses__contentCourses__wrapperCourses{
 				padding: 20px 20px 0px 20px;
 			}
+			.contentAdminCourses__contentCourses__wrapperCourses__course{
+				padding: 0px 10px 46px 10px; 
+			}
+			.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__title{
+	    		font-size: 1.6em;
+	    		bottom: 8px;
+			}
 
 
 		}
@@ -515,12 +522,17 @@
 		  padding: 7px 35px;
 		}
 
-
 		.contentAdminCourses{
 			.contentAdminCourses__contentCourses__wrapperCourses{
 				padding: 20px 40px 0px 40px;
 			}
-
+			.contentAdminCourses__contentCourses__wrapperCourses__course{
+				padding: 0px 15px 60px 15px; 
+			}
+			.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__title{
+	    		font-size: 1.8em;
+	    		bottom: 8px;
+			}
 
 		}
 	}

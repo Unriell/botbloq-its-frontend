@@ -107,7 +107,7 @@
 .bbq-codigo:before {
   content: "\7a";
 }
-.bbq-cierre:before {
+.bbq-close:before {
   content: "\41";
 }
 .bbq-cargar:before {
@@ -169,4 +169,13 @@
 }
 .bbq-page-remove:before {
   content: "\53";
+}
+.bbq-archive:before {
+  content: "\4f";
+}
+.bbq-list-alt:before {
+  content: "\54";
+}
+.bbq-students:before {
+  content: "\55";
 }

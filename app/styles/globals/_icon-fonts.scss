@@ -9,7 +9,6 @@
   font-style: normal;
 }
 
- 
 
 [data-icon]:before {
   font-family: "botbloq" !important;
@@ -106,7 +105,7 @@
 .bbq-codigo:before {
   content: "\7a";
 }
-.bbq-cierre:before {
+.bbq-close:before {
   content: "\41";
 }
 .bbq-cargar:before {
@@ -168,4 +167,13 @@
 }
 .bbq-page-remove:before {
   content: "\53";
+}
+.bbq-lessons:before {
+  content: "\4f";
+}
+.bbq-sections:before {
+  content: "\54";
+}
+.bbq-students:before {
+  content: "\55";
 }

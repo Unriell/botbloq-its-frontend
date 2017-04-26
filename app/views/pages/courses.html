@@ -6,10 +6,10 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-2">
                     <div class="viewOptions clearfix">
-                        <a class="viewOptions__byIcon" href="#">
+                        <a ng-click="viewCourseWithoutInfo()" class="viewOptions__byIcon" ng-class="{active:!viewCoursesInfo}" href>
                             <span class="bbq-thumbnails bbq-thumbnails--style"></span>
                         </a>
-                        <a class="viewOptions__byList" href="">
+                        <a ng-click="viewCourseWithInfo()" class="viewOptions__byList" ng-class="{active:viewCoursesInfo}" href>
                             <span class="bbq-list bbq-list--style"></span>
                         </a>
                     </div>
@@ -36,15 +36,32 @@
                 <ul class="row">
                     <li ng-repeat="i in courses" class="col-xs-12 col-sm-4">
                         <div class="contentAdminCourses__contentCourses__wrapperCourses__course">
-                            <a class="contentAdminCourses__contentCourses__wrapperCourses__course__link" href>
-                                <div class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage">
-                                    <img class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__image" src="http://lorempixel.com/340/150/">
+                            <a class="contentAdminCourses__contentCourses__wrapperCourses__course__link clearfix" href>
+                                <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage">
+                                    <img ng-class="{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__image" src="http://lorempixel.com/340/150/">
+                                    <p ng-show="!viewCoursesInfo" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__title">{{i.name}}</p>
                                 </div>
-                                <div class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle">
-                                    <p class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__name">{{i.name}}</p>
-                                    <p class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__description">{{i.code}}</p>
+                                <div ng-show="viewCoursesInfo">
+                                    <div class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle">
+                                        <p class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__name">{{i.name}}</p>
+                                        <p class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__description">{{i.code}}</p>
+                                    </div>
+                                    <ul class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo">
+                                        <li class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
+                                            <span class="bbq-sections bbq-sections--courses"></span>
+                                            <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{i.sections.length}}</span>
+                                        </li>
+                                        <li class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
+                                            <span class="bbq-lessons bbq-lessons--courses"></span>
+                                            <!-- <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{calcNumLessons(i)}}</span> -->
+                                            <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">20</span>
+                                        </li>
+                                        <li class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
+                                            <span class="bbq-students bbq-students--courses"></span>
+                                            <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">100</span>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo"></div>
                             </a>
                         </div>
                     </li>

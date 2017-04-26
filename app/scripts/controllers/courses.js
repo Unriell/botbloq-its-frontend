@@ -31,6 +31,8 @@
         $scope.newLesson=true;
         $scope.showSelectLoms=false;
 
+        $scope.viewCoursesInfo=false;
+
         $scope.objectives={};
         $scope.sectionObj={};
         $scope.lessonObj={};
@@ -70,11 +72,32 @@
                 if($scope.courses.length>0)
                     idActualCourse=$scope.courses[$scope.courses.length -1]._id;
                 if ($scope.courses[$scope.courses.length -1].sections.length >0)
-                    $scope.showSections(idActualCourse);
+                    $scope.updateSections(idActualCourse);
             }, function myError(err) {
                 $log.debug(err);
                 alert('Error de tipo: '+err.status);      
         }); 
+
+        $scope.updateCourses= function() {
+            $log.debug('loading Courses ...');
+            coursesApi.getCourses().then(function(response){
+                $scope.courses= response.data;          
+            }, function myError(err) {
+                $log.debug(err);
+                alert('Error de tipo: '+err.status);      
+            }); 
+        };
+        $scope.updateSections= function(idCourse) {
+            $log.debug('loading Sections ...');
+            coursesApi.getSections(idCourse).then(function(response){
+                    $scope.sections= response.data;
+                    actualSection=$scope.sections[$scope.sections.length -1];
+                    $log.debug("numero de secciones actuales: "+$scope.sections.length);
+                }, function myError(err) {
+                    $log.debug(err);
+                    alert('Error de tipo: '+err.status);      
+            });
+        };
 
         
         $scope.showHideFields= function(fieldset) {
@@ -97,27 +120,6 @@
                 if($scope.showFieldsSectionsLessonObj) $scope.showFieldsSectionsLessonObj=false;
                 else $scope.showFieldsSectionsLessonObj=true;
             }
-        };
-
-        $scope.updateCourses= function() {
-            $log.debug('loading Courses ...');
-            coursesApi.getCourses().then(function(response){
-                $scope.courses= response.data;          
-            }, function myError(err) {
-                $log.debug(err);
-                alert('Error de tipo: '+err.status);      
-            }); 
-        };
-        $scope.showSections= function(idCourse) {
-            $log.debug('loading Sections ...');
-            coursesApi.getSections(idCourse).then(function(response){
-                    $scope.sections= response.data;
-                    actualSection=$scope.sections[$scope.sections.length -1];
-                    $log.debug("numero de secciones actuales: "+$scope.sections.length);
-                }, function myError(err) {
-                    $log.debug(err);
-                    alert('Error de tipo: '+err.status);      
-            });
         };
 
         $scope.showInfoCourse = function(item){
@@ -157,11 +159,15 @@
         $scope.goAddCourse= function(){
             $location.path("/addCourse");
         };
-
+        $scope.viewCourseWithInfo= function(){
+             $scope.viewCoursesInfo=true;
+        };
+        $scope.viewCourseWithoutInfo= function(){
+             $scope.viewCoursesInfo=false;
+        };
         $scope.showNewObjective=function(){
             $scope.newObjective=true;
         };
-        
         $scope.showNewSection=function(){
             $scope.newSection=true;
         };
@@ -170,6 +176,7 @@
         };
         $scope.finAddCourse=function(){
             $location.path("/courses");
+            $scope.updateCourses();
         };
         $scope.finAddObjectives=function(){
             $location.path("/addSections");
@@ -232,7 +239,7 @@
             if ($scope.adminCoursesFormSection.$valid) {
                 coursesApi.addSection(idActualCourse, $scope.sections.name, $scope.sections.summary,objectivesSection).then(function(response) {
                     $log.debug('ok después de addSection', response);
-                    $scope.showSections(idActualCourse);
+                    $scope.updateSections(idActualCourse);
                     $location.path("/addLessons");
                 }, function(error) {
                     $log.debug('error después de addSection', error);
@@ -277,6 +284,16 @@
                 });
             });
             
+        };
+
+        $scope.calcNumLessons = function(course){
+            var sections={};
+            sections=coursesApi.getSections(course._id);
+            var numLessons=0;
+            angular.forEach(sections,function(section){
+                numLessons= numLessons + section.lessons.length;
+            });
+            return numLessons;
         };
     
         $scope.deleteItemFromList=function(list,item){
