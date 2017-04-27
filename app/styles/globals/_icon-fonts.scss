@@ -10,6 +10,7 @@
 }
 
 
+
 [data-icon]:before {
   font-family: "botbloq" !important;
   content: attr(data-icon);
@@ -176,4 +177,7 @@
 }
 .bbq-students:before {
   content: "\55";
+}
+.bbq-logobibtloq:before {
+  content: "\56";
 }

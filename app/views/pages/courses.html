@@ -24,7 +24,7 @@
                             </div>
                             <div class="col-xs-6 col-sm-3">
                                 <div class="contentAdminCourses__contentCourses__viewOptionsfilterSearch__search">
-                                    <input placeholder="Buscar ..." class="contentAdminCourses__contentCourses__viewOptionsfilterSearch__search__input" type="text" name="searchCourse"> 
+                                    <input ng-model="courses.name" placeholder="Buscar ..." class="contentAdminCourses__contentCourses__viewOptionsfilterSearch__search__input" type="text" name="searchCourse"> 
                                     <span class="bbq-search bbq-search--Courses"></span>   
                                 </div>  
                             </div>
@@ -34,7 +34,8 @@
             </div>
             <div class="contentAdminCourses__contentCourses__wrapperCourses">
                 <ul class="row">
-                    <li ng-repeat="i in courses" class="col-xs-12 col-sm-4">
+                    <li ng-repeat="i in courses | filter:'CUR'" class="col-xs-12 col-sm-4">
+                        <input value="calcNumLessons(i)" type="" name="">
                         <div class="contentAdminCourses__contentCourses__wrapperCourses__course">
                             <a class="contentAdminCourses__contentCourses__wrapperCourses__course__link clearfix" href>
                                 <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage">
@@ -49,16 +50,15 @@
                                     <ul class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo">
                                         <li class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
                                             <span class="bbq-sections bbq-sections--courses"></span>
-                                            <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{i.sections.length}}</span>
+                                            <span title="Secciones" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{i.sections.length}}</span>
                                         </li>
                                         <li class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
                                             <span class="bbq-lessons bbq-lessons--courses"></span>
-                                            <!-- <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{calcNumLessons(i)}}</span> -->
-                                            <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">20</span>
+                                            <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{}}</span><!-- <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{}}</span> -->
                                         </li>
                                         <li class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
                                             <span class="bbq-students bbq-students--courses"></span>
-                                            <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">100</span>
+                                            <span title="Estudiantes matriculados" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">100</span>
                                         </li>
                                     </ul>
                                 </div>

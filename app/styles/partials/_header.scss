@@ -14,8 +14,15 @@
 	    padding-bottom: 10px;
     	padding-top: 15px;
 	}
+	.contentHeader__logo__link:hover,.contentHeader__logo__link:link{
+		text-decoration: none;
+	}
 	.contentHeader__logo__image{
 		width: 41px;
+	}
+	.bbq-logobibtloq--header:before {
+  		color:$color-white;
+  		font-size:2.6em;
 	}
 	.contentHeader_content{
 		display: block;

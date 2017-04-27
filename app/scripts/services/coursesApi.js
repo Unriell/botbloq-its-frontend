@@ -70,7 +70,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             return coursesPromise.promise;
         }
 
-        function asignLomsLesson(idCourse,section,lesson,idLom) { 
+        function asignLomLesson(idCourse,section,lesson,idLom) { 
             var coursesPromise = $q.defer();
             $log.debug("Objetos para hacer post asign lom: "+ idCourse,section,lesson,idLom);
             $http.post(common.bitbloqBackendUrl + '/courses/'+idCourse+'/section/'+section+'/lesson/'+lesson+'/lom/'+idLom, {
@@ -80,6 +80,20 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
                 }, function(err) {
                      $log.debug('error despues intentar asignar el lom '+idLom+' a una leccion',err);
                 });
+            return coursesPromise.promise;     
+        }
+
+        function asignLomsLesson(idCourse,section,lesson,listLoms) { 
+            var coursesPromise = $q.defer();
+            $log.debug("Objetos para hacer post asign lom: "+ idCourse,section,lesson,listLoms);
+            $http.post(common.bitbloqBackendUrl + '/courses/'+idCourse+'/section/'+section+'/lesson/'+lesson+'/asign_loms', 
+              listLoms
+                ).then(function(response) {
+                    $log.debug('ok despues de asignar una lista de '+listLoms.length+' loms a una leccion', response.data.token);
+                    coursesPromise.resolve();  
+                }, function(err) {
+                     $log.debug('error despues intentar asignar la lista de loms a una leccion',err);
+            });
             return coursesPromise.promise;     
         }
         

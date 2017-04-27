@@ -170,12 +170,15 @@
 .bbq-page-remove:before {
   content: "\53";
 }
-.bbq-archive:before {
+.bbq-lessons:before {
   content: "\4f";
 }
-.bbq-list-alt:before {
+.bbq-sections:before {
   content: "\54";
 }
 .bbq-students:before {
   content: "\55";
+}
+.bbq-logobibtloq:before {
+  content: "\56";
 }

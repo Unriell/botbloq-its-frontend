@@ -272,20 +272,34 @@
             $scope.lomsToAdd=[];
         };
 
+        $scope.asignLomToLesson=function(idCourse,section,lesson, lom){
+            $log.debug('--- metodo que asigna un lom a una lección----');
+            coursesApi.asignLomLesson(idCourse,section,lesson,lom._id).then(function(response) {
+                    $log.debug('ok después de asignar el lom cuyo id es '+lom._id+' a una lección', response);
+                    $log.debug('    -----    '); 
+                }, function(error) {
+                     $log.debug('error después de asignación de lom a una lección', error);
+            }); 
+        };
         $scope.asignLomsToLesson=function(idCourse,section,lesson, loms){
-            $log.debug('--- metodo asignLomsToLesson----');
+            $log.debug('--- metodo que asigna una lista de loms a una lección ----');
             $log.debug('Numero de loms para asignar: '+loms.length);
-            angular.forEach(loms, function(element) {
-                coursesApi.asignLomsLesson(idCourse,section,lesson,element._id).then(function(response) {
-                        $log.debug('ok después de asignar el lom '+element._id+' a una lección', response);
-                        $log.debug('    -----    '); 
-                    }, function(error) {
-                         $log.debug('error después de asignación de lom a una lección', error);
-                });
+            var listIdLoms= $scope.listIdLoms(loms);
+            coursesApi.asignLomsLesson(idCourse,section,lesson,listIdLoms).then(function(response) {
+                    $log.debug('ok después de asignar la lista de '+listIdLoms.length+' loms a una lección', response);
+                    $log.debug('    -----    '); 
+                }, function(error) {
+                     $log.debug('error después de asignación de lom a una lección', error);
             });
-            
         };
 
+        $scope.listIdLoms=function(listLoms){
+            var listIdLoms=[];
+            angular.forEach(listLoms,function(element){
+                listIdLoms.push(element._id);
+            });
+            return listIdLoms;
+        };
         $scope.calcNumLessons = function(course){
             var sections={};
             sections=coursesApi.getSections(course._id);
