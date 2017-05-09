@@ -137,8 +137,11 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
         function getSections(idCourse) { 
           return $http.get( common.bitbloqBackendUrl + "/courses/"+idCourse+"/sections" );      
         }
-        function getSection(idCourse,idSection) { 
-          return $http.get( common.bitbloqBackendUrl + "/courses/"+idCourse+"/section/"+idSection);      
+        function getSection(idCourse,section) { 
+          return $http.get( common.bitbloqBackendUrl + "/courses/"+idCourse+"/section/"+section);      
+        }
+        function getLessons(idCourse,section) { 
+          return $http.get( common.bitbloqBackendUrl + "/courses/"+idCourse+"/section/"+section+"/lessons");      
         }
         function removeItem(idCourse) { 
           return $http.delete(common.bitbloqBackendUrl + "/courses/"+idCourse);      

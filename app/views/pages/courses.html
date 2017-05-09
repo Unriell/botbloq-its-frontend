@@ -35,9 +35,9 @@
             <div class="contentAdminCourses__contentCourses__wrapperCourses">
                 <ul class="row">
                     <li ng-repeat="i in courses | filter:'CUR'" class="col-xs-12 col-sm-4">
-                        <input value="calcNumLessons(i)" type="" name="">
+                       
                         <div class="contentAdminCourses__contentCourses__wrapperCourses__course">
-                            <a class="contentAdminCourses__contentCourses__wrapperCourses__course__link clearfix" href>
+                            <a class="contentAdminCourses__contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i._id)" href>
                                 <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage">
                                     <img ng-class="{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__image" src="http://lorempixel.com/340/150/">
                                     <p ng-show="!viewCoursesInfo" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__title">{{i.name}}</p>

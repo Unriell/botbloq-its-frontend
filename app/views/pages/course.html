@@ -1,0 +1,35 @@
+<div class="wrapperCourse">
+	<div class="wrapperCourse__header">
+		<div class="row">
+			<div class="col-xs-12 col-sm-7">
+				<div class="wrapperCourse__header__contentImg">
+					<img class="wrapperCourse__header__contentImg__img" src="http://lorempixel.com/g/600/400" alt="">
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-4">
+				<div class="wrapperCourse__header__info">
+					<h2 class="wrapperCourse__header__info__title">Title Curso {{courseSelected.name}}</h2>
+					<p class="wrapperCourse__header__info__description">Última Lección 2. Conociendo BitBloq</p>
+					<a class="wrapperCourse__header__info__link">Nueva actividad <span></span></a>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="wrapperCourse__lessons">	
+		<h3 class="wrapperCourse__lessons__title">Descripción del curso</h3>
+		<p class="wrapperCourse__lessons__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum natus quia officiis maiores fugit asperiores quo doloremque eligendi sint at quibusdam nostrum, accusantium iusto sed facere rerum ea. Sed, explicabo?</p>
+		<h4 class="wrapperCourse__lessons__subTitle">Contenidos</h4>
+		<ul class="wrapperCourse__lessons__contentLessons">
+			<li ng-repeat="i in courses">
+				<!-- <ul>
+					<li ng-repeat="lesson in lessons">
+						{{lesson.name}}
+					</li>
+				</ul> -->
+				{{i.name}}
+			</li>
+		</ul>
+		
+	</div>
+</div>

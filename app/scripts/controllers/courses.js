@@ -71,6 +71,7 @@
                 $scope.courses= response.data;
                 if($scope.courses.length>0)
                     idActualCourse=$scope.courses[$scope.courses.length -1]._id;
+                    $scope.courseSelected=$scope.courses[0];
                 if ($scope.courses[$scope.courses.length -1].sections.length >0)
                     $scope.updateSections(idActualCourse);
             }, function myError(err) {
@@ -97,6 +98,26 @@
                     $log.debug(err);
                     alert('Error de tipo: '+err.status);      
             });
+        };
+        var getSections= function(idCourse){
+            var sections={};
+            coursesApi.getSections(idCourse).then(function(response){
+                    sections= response.data;
+                }, function myError(err) {
+                    $log.debug(err);
+                    alert('Error de tipo: '+err.status);      
+            });
+            return sections;
+        };
+        var getLessons= function(idCourse, section){
+            var lessons={};
+            coursesApi.getLessons(idCourse, section).then(function(response){
+                    lessons= response.data;
+                }, function myError(err) {
+                    $log.debug(err);
+                    alert('Error de tipo: '+err.status);      
+            });
+            return lessons;
         };
 
         
@@ -406,6 +427,20 @@
                 }, function(error) {
                     $log.debug('error al eliminar todos los items', error);
              });
+        };
+
+        $scope.goCourse=function(id){
+            $location.path("/course");
+            $scope.courseSelected= searchCourse(id);
+        };
+        var searchCourse= function(id){
+            var courseSelected=null;
+            angular.forEach($scope.courses, function(element) {
+                if(element._id==id){
+                    courseSelected=element;
+                }
+            });
+            return courseSelected;
         };
        
         

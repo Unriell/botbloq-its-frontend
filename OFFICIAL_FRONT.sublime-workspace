@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"paddin",
+				"padding-bottom"
+			],
+			[
 				"pos",
 				"position"
 			],
@@ -24,56 +28,40 @@
 	"buffers":
 	[
 		{
-			"file": "app/views/pages/addSections.html",
+			"contents": "<div class=\"contentAdminCourses\">\n        <div class=\"contentTitle\">\n            <h2 class=\"h2Class\">Recursos - Cursos </h2>\n        </div>\n        <div class=\"contentAdminCourses__contentCourses mb20\">\n            <div class=\"row\">\n                <div class=\"col-xs-12 col-sm-2\">\n                    <div class=\"viewOptions clearfix\">\n                        <a ng-click=\"viewCourseWithoutInfo()\" class=\"viewOptions__byIcon\" ng-class=\"{active:!viewCoursesInfo}\" href>\n                            <span class=\"bbq-thumbnails bbq-thumbnails--style\"></span>\n                        </a>\n                        <a ng-click=\"viewCourseWithInfo()\" class=\"viewOptions__byList\" ng-class=\"{active:viewCoursesInfo}\" href>\n                            <span class=\"bbq-list bbq-list--style\"></span>\n                        </a>\n                    </div>\n                </div>\n                <div class=\"col-xs-12 col-sm-10\">\n                    <form class=\"contentAdminCourses__contentCourses__viewOptionsfilterSearch\">\n                        <div class=\"row\">\n                            <div class=\"col-xs-6 col-sm-9\">\n                                <select class=\"contentAdminCourses__contentCourses__viewOptionsfilterSearch__filter\">\n                                    <option selected=\"\" disabled value=\"0\">Filtrar por:</option>\n                                </select>  \n                            </div>\n                            <div class=\"col-xs-6 col-sm-3\">\n                                <div class=\"contentAdminCourses__contentCourses__viewOptionsfilterSearch__search\">\n                                    <input ng-model=\"courses.name\" placeholder=\"Buscar ...\" class=\"contentAdminCourses__contentCourses__viewOptionsfilterSearch__search__input\" type=\"text\" name=\"searchCourse\"> \n                                    <span class=\"bbq-search bbq-search--Courses\"></span>   \n                                </div>  \n                            </div>\n                        </div>\n                    </form>\n                </div>\n            </div>\n            <div class=\"contentAdminCourses__contentCourses__wrapperCourses\">\n                <ul class=\"row\">\n                    <li ng-repeat=\"i in courses\" class=\"col-xs-12 col-sm-4\">\n                       \n                        <div class=\"contentAdminCourses__contentCourses__wrapperCourses__course\">\n                            <a class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link clearfix\" href>\n                                <div ng-class=\"{bkgOpacityBlack:!viewCoursesInfo}\" class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage\">\n                                    <img ng-class=\"{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}\" class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__image\" src=\"http://lorempixel.com/340/150/\">\n                                    <p ng-show=\"!viewCoursesInfo\" class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__title\">{{i.name}}</p>\n                                </div>\n                                <div ng-show=\"viewCoursesInfo\">\n                                    <div class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle\">\n                                        <p class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__name\">{{i.name}}</p>\n                                        <p class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__description\">{{i.code}}</p>\n                                    </div>\n                                    <ul class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo\">\n                                        <li class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum\">\n                                            <span class=\"bbq-sections bbq-sections--courses\"></span>\n                                            <span title=\"Secciones\" class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num\">{{i.sections.length}}</span>\n                                        </li>\n                                        <li class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum\">\n                                            <span class=\"bbq-lessons bbq-lessons--courses\"></span>\n                                            <span class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num\">{{}}</span><!-- <span class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num\">{{}}</span> -->\n                                        </li>\n                                        <li class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum\">\n                                            <span class=\"bbq-students bbq-students--courses\"></span>\n                                            <span title=\"Estudiantes matriculados\" class=\"contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num\">100</span>\n                                        </li>\n                                    </ul>\n                                </div>\n                            </a>\n                        </div>\n                    </li>\n                </ul>\n            </div>\n        </div>\n\n        <!-- <table>\n            \n                <tr ng-repeat=\"i in courses\">\n                    <td>{{i.name}}</td>\n                    <td>{{i.code}}</td>\n                    <td>{{i.summary}}</td>\n                    <td>\n                        <ul>\n                            <li><span>code: {{i.objectives.code}}</span></li>\n                            <li><span>description: {{i.objectives.description}}</span></li>\n                            <li><span>level: {{i.objectives.level}}</span></li>\n                            <li><span>bloom: {{i.objectives.bloom}}</span></li>\n                        </ul>\n                    </td>\n                    <td>\n                        <ul>\n                            <li><span>std_enrolled: {{i.statistic.std_enrolled}}</span></li>\n                            <li><span>std_finished: {{i.statistic.std_finished}}</span></li>\n                            <li><span>std_unenrolled: {{i.statistic.std_unenrolled}}</span></li>\n                        </ul>\n                    </td>\n                    <td>\n                        <ul class=\"contentOptions\">\n                            <li><button disabled>Contenido</button></li>\n                            <li><button ng-click=\"showInfoCourse(i)\">Información</button></li>\n                            <li><button disabled>Estadísticas</button></li>\n                        </ul>\n                    </td>\n                    <td>\n                        <ul class=\"contentOptions\">\n                            <li><button ng-click=\"showEditCourseForm(i)\">Editar</button></li>\n                            <li><button ng-click=\"removeCourse(i._id)\">Eliminar</button></li>\n                            <li><button disabled>Descargar</button></li>\n                            <li><button disabled>Empaquetar</button></li>\n                            <li><button disabled>Evaluar y comentar</button></li>\n                            <li><button disabled>Copiar</button></li>\n                        </ul>\n                    </td>\n                </tr>\n            </tbody>\n        </table> -->\n        \n        <div class=\"contentAdminCourses__options\">\n            <button class=\"btnBq--withIcon\" ng-click=\"goAddCourse()\">\n                <span class=\"hidden-xs contentAdminCourses__options__title\">Agregar Curso</span>\n                <span title=\"Agregar Curso\" class=\"bbq-page-add bbq-page-add--style1\"></span>\n            </button>\n            <button class=\"btnBq--withIcon\" ng-click=\"deleteAllCourses($event)\">\n                <span class=\"hidden-xs contentAdminCourses__options__title\">Eliminar Todo</span>\n                <span title=\"Eliminar todos los cursos\" class=\"bbq-page-delete bbq-page-delete--style1\"></span>\n            </button>\n        </div>\n            \n      \n        <!-- <button class=\"btnBq--style1\" disabled>Agregar con Asistente</button>\n        <button class=\"btnBq--style1\" disabled>Regresar</button> -->\n\n        <div class=\"contentInfoCourse\" ng-show=\"InfoCourse\">\n            <div>\n                <h3 class=\"h3Class\">General</h3>\n                <span class=\"attr\">Name</span>\n                <span>{{courseName}}</span>\n                <span class=\"attr\">Code</span>\n                <span>{{courseCode}}</span>\n                <span class=\"attr\">Summary</span>\n                <span>{{courseSummary}}</span>\n            </div>\n            <div>\n                <h3 class=\"h3Class\">Objectives</h3>\n                <span class=\"attr\">Code</span>\n                <span>{{objectives.code}}</span>\n                <span class=\"attr\">Description</span>\n                <span>{{objectives.description}}</span>\n                <span class=\"attr\">Level</span>\n                <span>{{objectives.level}}</span>\n                <span class=\"attr\">Type</span>\n                <span>{{objectives.bloom}}</span>\n            </div>\n            <div>\n                <h3 class=\"h3Class\">Statistics</h3>\n                <span class=\"attr\">Std_enrolled</span>\n                <span>{{statistics.std_enrolled}}</span>\n                <span class=\"attr\">Std_finished</span>\n                <span>{{statistics.std_finished}}</span>\n                <span class=\"attr\">std_unenrolled</span>\n                <span>{{statistics.std_unenrolled}}</span>\n            </div>\n            <div>\n                <span class=\"attr\">History</span>\n                <span>{{courseHistory}}</span>\n            </div>\n            <button ng-click=\"hideInfoCourse()\">Ocultar</button>\n        </div>\n    \n</div>\n\n",
+			"file": "app/views/pages/courses.html",
+			"file_size": 10268,
+			"file_write_time": 131377830260520724,
 			"settings":
 			{
-				"buffer_size": 2917,
-				"encoding": "UTF-8",
+				"buffer_size": 10084,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/views/modules/objCourse.html",
+			"contents": "\n\n\n<div class=\"contentAddItem clearfix\">\n\t<div class=\"contentTitle\">\n    \t<h2 class=\"h2Class\">Nuevo Curso</h2>\n\t</div>\n\t<div class=\"asideLeft\">\n\t\t<ul>\n\t\t\t<li class=\"asideLeft__element\">\n\t\t\t\t<a href=\"#\" title=\"Show Options\" class=\"asideLeft__element__link\">\n\t\t\t\t\t<span class=\"bbq-align-left bbq-align-left--style1\"></span>\n\t\t\t\t</a>\n\t\t\t</li>\n\t\t\t<li class=\"asideLeft__element\">\n\t\t\t\t<a class=\"asideLeft__element__link\" href=\"#\" title=\"Info\">\n\t\t\t\t\t<span class=\"bbq-info-1 bbq-info-1--style1\"></span>\n\t\t\t\t</a>\n\t\t\t</li>\n\t\t</ul>\n\t</div>\n\t<div class=\"contentAddItem__wrapperAddItem\">\n\t\t<form id=\"adminCoursesForm\" name=\"adminCoursesForm\" class=\"formAddCourse\" ng-submit=\"addEditCourse()\"  novalidate>    \t\n\t\t\t<fieldset class=\"formAddCourse__fieldset\">\n\t    \t\t<legend class=\"formAddCourse__fieldset__legend\"> \n\t        \t\t<!-- <a class=\"formAddCourse__fieldset__legend__link\" ng-click=\"showHideFields(1)\" href><span ng-class=\"{'bbq-minus bbq-minus--form':showFieldsGeneral, 'bbq-plus bbq-plus--form': !showFieldsGeneral}\"></span></a> -->\n\t        \t\tGeneral\n\t    \t\t</legend>\n\t\t\t\t<div class=\"formAddCourse__fieldset__contentFields\" ng-show=\"showFieldsGeneral\">\n\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t<div class=\"col-xs-12 col-sm-6 mb15\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-xs-12 col-sm-6\">\n\t\t\t\t\t\t\t\t\t<label class=\"formAddCourse__fieldset__contentFields__label\" for=\"course_name\">Name</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-xs-12 col-sm-6\">\n\t\t\t\t\t\t\t\t\t<input class=\"formAddCourse__fieldset__contentFields__input\" ng-model=\"courseName\" type=\"text\" id=\"course_name\" name=\"course_name\" required>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t\t<div class=\"col-xs-12 col-sm-6 mb15\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-xs-12 col-sm-6\">\n\t\t\t\t\t\t\t\t\t<label class=\"formAddCourse__fieldset__contentFields__label\" for=\"course_code\">Code</label>\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-xs-12 col-sm-6\">\n\t\t\t\t\t\t\t\t\t<input class=\"formAddCourse__fieldset__contentFields__input\" ng-model=\"courseCode\" type=\"text\" id=\"course_code\" name=\"course_code\">\t\t\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\n\t\t\t\t\t</div>\n\t\t\t\t\t<div class=\"row\"> \n\t\t\t\t\t\t<div class=\"col-xs-12 col-sm-6 mb15\">\n\t\t\t\t\t\t\t<div class=\"row\">\n\t\t\t\t\t\t\t\t<div class=\"col-xs-12 col-sm-6\">\n\t\t\t\t\t\t\t\t\t<label class=\"formAddCourse__fieldset__contentFields__label\" for=\"course_summary\">Summary</label>\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t\t<div class=\"col-xs-12 col-sm-6\">\n\t\t\t\t\t\t\t\t\t<input class=\"formAddCourse__fieldset__contentFields__input\" ng-model=\"courseSummary\" type=\"text\" id=\"course_summary\" name=\"course_summary\">\n\t\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t\t</div>\n\t\t\t\t\t\t</div>\t\n\t\t\t\t\t</div>\n\t\t\t\t\t<ng-include src=\" 'views/modules/addObjCourse.html' \"></ng-include>\t\n\t\t\t\t</div>\n\t\t\t</fieldset>         \t\t        \t\t    \n\t    \t<button class=\"btnBq--style1 formAddCourse__submit\" type=\"submit\" name=\"sendFormAddCourse\">Crear curso</button>   \n\t\t</form>\n\t</div>\n\n</div>\n",
+			"file": "app/views/pages/addCourse.html",
+			"file_size": 3242,
+			"file_write_time": 131372663750455851,
 			"settings":
 			{
-				"buffer_size": 3112,
-				"encoding": "UTF-8",
+				"buffer_size": 2869,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/views/modules/objSection.html",
+			"file": "app/scripts/services/coursesApi.js",
 			"settings":
 			{
-				"buffer_size": 2828,
-				"encoding": "UTF-8",
+				"buffer_size": 7099,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/views/modules/objLesson.html",
+			"file": "app/scripts/services/lomsApi.js",
 			"settings":
 			{
-				"buffer_size": 2921,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/styles/partials/_forms.scss",
-			"settings":
-			{
-				"buffer_size": 4479,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/styles/globals/_base.scss",
-			"settings":
-			{
-				"buffer_size": 8978,
-				"encoding": "UTF-8",
+				"buffer_size": 6150,
 				"line_ending": "Windows"
 			}
 		},
@@ -81,43 +69,7 @@
 			"file": "app/views/pages/addLessons.html",
 			"settings":
 			{
-				"buffer_size": 7772,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/views/pages/addCourse.html",
-			"settings":
-			{
-				"buffer_size": 3164,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/views/modules/addObjCourse.html",
-			"settings":
-			{
-				"buffer_size": 504,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/styles/partials/_buttons.scss",
-			"settings":
-			{
-				"buffer_size": 3598,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/views/pages/courses.html",
-			"settings":
-			{
-				"buffer_size": 7401,
+				"buffer_size": 7985,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -126,25 +78,19 @@
 			"file": "app/scripts/controllers/courses.js",
 			"settings":
 			{
-				"buffer_size": 13738,
+				"buffer_size": 16054,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/scripts/app.js",
+			"contents": "\n.contentAdminCourses{\n\n}\n\t.contentAdminCourses__contentCourses{\n\t\tbackground: $bg-color-graytooLight;\n    \tpadding: 20px 20px 0 20px;\n\t}\n\t\n\t.contentAdminCourses__contentCourses__viewOptionsfilterSearch{\n\t\t\n\t}\n\t.contentAdminCourses__contentCourses__viewOptionsfilterSearch__filter{\n\t    border-radius: 5px;\n\t    border: 1px solid $color-grayLight;\n\t    padding: 5px 0 6px 7px;\n    \tfont-size: 1em;\n    \tcolor: $text-color-gray;\n\t}\n\t.contentAdminCourses__contentCourses__viewOptionsfilterSearch__search{\n\t\tposition:relative;\n\t}\n\t.contentAdminCourses__contentCourses__viewOptionsfilterSearch__search__input{\n\t\twidth: 100%;\n\t\tpadding:7px 0 5px 32px;\n\t\tborder-radius:5px;\n\t\tborder:1px solid $color-grayLight;\n\t\t&::-webkit-input-placeholder {\n\t\t    font-size: 1em;\n\t\t\tfont-color:$text-color-gray;\n\t\t}\n\t}\n\t.contentAdminCourses__contentCourses__wrapperCourses{\n\t\tpadding: 30px 0px 0px 0px;\n\t}\n\t.contentAdminCourses__contentCourses__wrapperCourses__course{\n    \tpadding: 0px 15px 40px 15px; \n\t}\n\t.contentAdminCourses__contentCourses__wrapperCourses__course__link{\n\t\tdisplay: block;\n\t\tbackground: $bg-color-white;\n\t\tborder-radius:6px;\n\t    box-shadow: 15px 18px 32px -14px rgba(69, 101, 70, 0.57);\n\t\t&:hover{\n\t    \ttext-decoration:none;\n\t\t    box-shadow: 7px 7px 27px 1px rgba(69, 101, 70, 0.57);\n\t    }\n\t}\n\t.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage{\n\t\ttext-align: center;\n    \toverflow: hidden;\n    \tposition:relative;\n\t}\n\t.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__title{\n\t\ttext-transform: uppercase;\n\t    font-weight: bold;\n\t    color: $text-color-green;\n\t    position: absolute;\n\t    font-size: 2.5em;\n\t    bottom: 8px;\n\t    width: 100%;\n\t    text-shadow: 3px 5px 5px $text-color-black;\n\t}\n\t.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__image{\n\t\twidth: 100%;\n    \tborder-radius: 6px 6px 0 0;\n    \tdisplay: block;\n\t}\n\t.bdRadius{\n\t\tborder-radius: 6px;\n\t}\n\t.bkgOpacityBlack{\n\t\tbackground-color: rgba(0,0,0,0.8);\n\t}\n\t.opacity0_2{\n\t\topacity: 0.2;\n\t}\n\t.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle{\n\t\tpadding: 12px;\n\t}\n\t.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__name{\n\t\ttext-transform: uppercase;\n\t    margin-bottom: 7px;\n\t    font-weight: bold;\n\t    color: $text-color-black;\n\t    font-size: 1.3em;\n\t}\n\t.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__description{\n\t\tcolor: $text-color-gray;\n\t\t&:hover{\n\t\t\ttext-decoration:none;\n\t\t}\n\t}\n\t.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo{\n\t\tpadding: 23px 12px 7px 12px;\n\t\ttext-align: right;\n\t\tbackground:$bg-color-white;\n\t\twidth: 100%;\n\t}\n\t.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum{\n\t\tdisplay: inline-block;\n\t\tmargin-left: 7px;\n\t}\n\t.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num{\n\t\tcolor:$color-gray;\n\t}\n\n\t.contentAdminCourses__options{\n\t\ttext-align:center;\n\t}\n\n\t.bbq-list--Courses:before {\n\t  color:$color-grayLight2;\n\t  display: block;\n\t  font-size: 1.6em;\n\t  padding-top:2px;\n\t}\n\t.bbq-thumbnails--Courses:before {\n\t  color:$color-grayLight2;\n\t  display: block;\n\t  font-size: 1.6em;\n\t  padding-top:2px;\n\t}\n\n\t.bbq-search--Courses:before {\n\t\tcolor:$color-grayLight;\n\t\tposition: absolute;\n\t\ttop: 6px;\n\t\tleft: 8px;\n\t\tfont-size: 1.3em;\n\t}\n\n\t.bbq-lessons--courses:before {\n\t  color: $color-gray;\n\t  font-size: 1em;\n\t  vertical-align: middle;\n\t}\n\t.bbq-sections--courses:before {\n\t  color: $color-gray;\n\t  font-size: 1em;\n\t  vertical-align: middle;\n\t}\n\t.bbq-students--courses:before {\n\t  color: $color-gray;\n\t  font-size: 1em;\n\t  vertical-align: middle;\n\t}\n",
+			"file": "app/styles/pages/_courses.scss",
+			"file_size": 3883,
+			"file_write_time": 131377828459323694,
 			"settings":
 			{
-				"buffer_size": 1816,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/scripts/services/coursesApi.js",
-			"settings":
-			{
-				"buffer_size": 6176,
-				"encoding": "UTF-8",
+				"buffer_size": 3735,
 				"line_ending": "Windows"
 			}
 		}
@@ -199,22 +145,31 @@
 	"expanded_folders":
 	[
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/filters",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/globals",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/partials",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/services",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/modules"
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/pages"
 	],
 	"file_history":
 	[
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/pages/courses.html",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/pages/_courses.scss",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/globals/_base.scss",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/modules/objLesson.html",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/modules/objSection.html",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/modules/objCourse.html",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/pages/addSections.html",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/services/coursesApi.js",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/partials/_forms.scss",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/app.js",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/controllers/courses.js",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/partials/_buttons.scss",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/modules/addObjCourse.html",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/pages/addCourse.html",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/pages/addLessons.html",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/globals/_variables.scss",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/pages/addObjectives.html",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/app.js",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/main.scss",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/modules/_adminResources.scss",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/controllers/adminResources.js",
@@ -240,6 +195,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"addLom",
+			"addLess",
+			"addSection",
+			"valid",
+			"hover",
 			"<input",
 			"<label",
 			"<input",
@@ -321,24 +281,133 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "app/views/pages/addSections.html",
+					"file": "app/views/pages/courses.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2917,
+						"buffer_size": 10084,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2199,
-								2199
+								1391,
+								1391
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 142.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/views/pages/addCourse.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2869,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1290,
+								1381
+							],
+							[
+								1587,
+								1447
 							]
 						],
 						"settings":
@@ -351,13 +420,23 @@
 								{
 									"1":
 									[
-										2195,
-										2198
+										1375,
+										1380
+									],
+									"2":
+									[
+										1448,
+										1453
 									]
 								},
 								"icon":
 								{
 									"1":
+									[
+										"Packages/BracketHighlighter/icons/tag.png",
+										"brackethighlighter.default"
+									],
+									"2":
 									[
 										"Packages/BracketHighlighter/icons/tag.png",
 										"brackethighlighter.default"
@@ -367,8 +446,13 @@
 								{
 									"1":
 									[
-										2037,
-										2040
+										1291,
+										1296
+									],
+									"2":
+									[
+										1448,
+										1453
 									]
 								},
 								"unmatched":
@@ -377,205 +461,67 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 648.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/views/modules/objCourse.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3112,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1179,
-								1179
-							],
-							[
-								1380,
-								1380
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1179,
-										1180
-									],
-									"2":
-									[
-										1380,
-										1381
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/double_quote.png",
-										"brackethighlighter.default"
-									],
-									"2":
-									[
-										"Packages/BracketHighlighter/icons/double_quote.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1151,
-										1152
-									],
-									"2":
-									[
-										1352,
-										1353
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
 							],
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 324.0,
+						"translation.y": 57.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
@@ -583,23 +529,19 @@
 				},
 				{
 					"buffer": 2,
-					"file": "app/views/modules/objSection.html",
+					"file": "app/scripts/services/coursesApi.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2828,
+						"buffer_size": 7099,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1042,
-								1069
-							],
-							[
-								1234,
-								1261
+								1871,
+								1875
 							]
 						],
 						"settings":
@@ -610,197 +552,34 @@
 							{
 								"close":
 								{
-									"1":
-									[
-										1069,
-										1070
-									],
-									"2":
-									[
-										1261,
-										1262
-									]
 								},
 								"icon":
 								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/double_quote.png",
-										"brackethighlighter.default"
-									],
-									"2":
-									[
-										"Packages/BracketHighlighter/icons/double_quote.png",
-										"brackethighlighter.default"
-									]
 								},
 								"open":
 								{
-									"1":
-									[
-										1041,
-										1042
-									],
-									"2":
-									[
-										1233,
-										1234
-									]
 								},
 								"unmatched":
 								{
+									"1":
+									[
+										212,
+										213
+									]
 								}
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 108.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "app/views/modules/objLesson.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2921,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1106,
-								1106
-							],
-							[
-								1305,
-								1305
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										1106,
-										1107
-									],
-									"2":
-									[
-										1305,
-										1306
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/double_quote.png",
-										"brackethighlighter.default"
-									],
-									"2":
-									[
-										"Packages/BracketHighlighter/icons/double_quote.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										1078,
-										1079
-									],
-									"2":
-									[
-										1277,
-										1278
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
@@ -811,312 +590,72 @@
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 108.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 5,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "app/styles/partials/_forms.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 4479,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								822,
-								822
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										996,
-										997
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										821,
-										822
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
 								"bh_single_quote_close",
 								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
-							],
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 702.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 0,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "app/styles/globals/_base.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 8978,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								7608,
-								7608
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										7611,
-										7612
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										7603,
-										7604
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
+								"bh_unmatched_content"
 							],
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 637.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 1,
 					"type": "text"
 				},
 				{
-					"buffer": 6,
-					"file": "app/views/pages/addLessons.html",
-					"semi_transient": false,
+					"buffer": 3,
+					"file": "app/scripts/services/lomsApi.js",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 7772,
+						"buffer_size": 6150,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2085,
-								2085
-							],
-							[
-								2279,
-								2279
+								2672,
+								2679
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
 							"bracket_highlighter.busy": false,
 							"bracket_highlighter.locations":
 							{
@@ -1124,25 +663,15 @@
 								{
 									"1":
 									[
-										2085,
-										2086
-									],
-									"2":
-									[
-										2279,
-										2280
+										2758,
+										2759
 									]
 								},
 								"icon":
 								{
 									"1":
 									[
-										"Packages/BracketHighlighter/icons/double_quote.png",
-										"brackethighlighter.default"
-									],
-									"2":
-									[
-										"Packages/BracketHighlighter/icons/double_quote.png",
+										"Packages/BracketHighlighter/icons/round_bracket.png",
 										"brackethighlighter.default"
 									]
 								},
@@ -1150,13 +679,8 @@
 								{
 									"1":
 									[
-										2057,
-										2058
-									],
-									"2":
-									[
-										2251,
-										2252
+										2679,
+										2680
 									]
 								},
 								"unmatched":
@@ -1165,175 +689,11 @@
 							},
 							"bracket_highlighter.regions":
 							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
 								"bh_tag",
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
 								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"open_with_edit": true,
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 773.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 2,
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "app/views/pages/addCourse.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3164,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2514,
-								2514
-							],
-							[
-								2686,
-								2686
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										2544,
-										2549
-									],
-									"2":
-									[
-										2626,
-										2631
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/tag.png",
-										"brackethighlighter.default"
-									],
-									"2":
-									[
-										"Packages/BracketHighlighter/icons/tag.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										2454,
-										2459
-									],
-									"2":
-									[
-										2626,
-										2631
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
 								"bh_single_quote",
 								"bh_single_quote_center",
 								"bh_single_quote_open",
@@ -1349,517 +709,21 @@
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
-							],
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 1026.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 8,
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "app/views/modules/addObjCourse.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 504,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
-							],
-							"syntax": "Packages/HTML/HTML.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 9,
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "app/styles/partials/_buttons.scss",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3598,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
 								"bh_default",
 								"bh_default_center",
 								"bh_default_open",
 								"bh_default_close",
 								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
 								"bh_square_close",
 								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2633.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 7,
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "app/views/pages/courses.html",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7401,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-								},
-								"icon":
-								{
-								},
-								"open":
-								{
-								},
-								"unmatched":
-								{
-									"1":
-									[
-										1,
-										4
-									]
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
 								"bh_regex",
 								"bh_regex_center",
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1930.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 10,
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "app/scripts/controllers/courses.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 13738,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										11,
-										12
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/single_quote.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										0,
-										1
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content"
-							],
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 449.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 11,
-					"type": "text"
-				},
-				{
-					"buffer": 12,
-					"file": "app/scripts/app.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1816,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										11,
-										12
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/single_quote.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										0,
-										1
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
@@ -1870,46 +734,11 @@
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
@@ -1921,32 +750,35 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 432.0,
+						"translation.y": 1007.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 12,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
-					"buffer": 13,
-					"file": "app/scripts/services/coursesApi.js",
+					"buffer": 4,
+					"file": "app/views/pages/addLessons.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6176,
+						"buffer_size": 7985,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								6084,
+								6104
+							],
+							[
+								6370,
+								6399
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
 							"bracket_highlighter.busy": false,
 							"bracket_highlighter.locations":
 							{
@@ -1954,8 +786,245 @@
 								{
 									"1":
 									[
-										2712,
-										2713
+										6103,
+										6104
+									],
+									"2":
+									[
+										6399,
+										6400
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/round_bracket.png",
+										"brackethighlighter.default"
+									],
+									"2":
+									[
+										"Packages/BracketHighlighter/icons/double_quote.png",
+										"brackethighlighter.default"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										6096,
+										6097
+									],
+									"2":
+									[
+										6369,
+										6370
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2555.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/scripts/controllers/courses.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 16054,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								9384,
+								9388
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content"
+							],
+							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": -0.0,
+						"translation.y": 4433.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "app/styles/pages/_courses.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3735,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1188,
+								1107
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										1296,
+										1297
 									]
 								},
 								"icon":
@@ -1970,8 +1039,8 @@
 								{
 									"1":
 									[
-										2640,
-										2641
+										1054,
+										1055
 									]
 								},
 								"unmatched":
@@ -1980,6 +1049,41 @@
 							},
 							"bracket_highlighter.regions":
 							[
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_c_define",
 								"bh_c_define_center",
 								"bh_c_define_open",
@@ -1990,61 +1094,25 @@
 								"bh_double_quote_open",
 								"bh_double_quote_close",
 								"bh_double_quote_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content"
 							],
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2106.0,
+						"translation.y": 467.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 13,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
@@ -2089,7 +1157,7 @@
 	"project": "OFFICIAL_FRONT.sublime-project",
 	"replace":
 	{
-		"height": 48.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
