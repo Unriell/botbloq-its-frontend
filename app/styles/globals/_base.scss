@@ -10,6 +10,9 @@
     padding-bottom: 15px;
     text-align: center;
 }
+.contentRow{
+	margin-bottom:10px;
+}
 .width100{
 	width:100%;
 }
@@ -349,10 +352,52 @@
 	    		font-size: 1.6em;
 	    		bottom: 8px;
 			}
-
-
 		}
 
+
+		.wrapperCourse{
+			padding:0 7px;
+			.wrapperCourse__header{
+				padding: 7px 0 20px 0;
+			}
+			.wrapperCourse__header__info{
+				text-align: center;
+			}
+			.wrapperCourse__header__info__title{
+				
+			}
+			.wrapperCourse__lessons__contentLessons__element{
+				margin-bottom: 30px;
+				border: none;
+		    	padding-bottom: 0px;
+			}
+			.wrapperCourse__lessons__contentLessons__element__img{
+				margin-bottom: 0px;
+				width: 30%;
+				max-height: 115px;
+				display: inline-block;
+				vertical-align: middle;
+				margin-right:15px;
+			}
+			.wrapperCourse__lessons__contentLessons__element__info{
+				width: 30%;
+				display: inline-block;
+				vertical-align: middle;
+				padding:0px;
+			}
+			.wrapperCourse__lessons__contentLessons__element__info__title{
+				font-size: 1.2em;
+			}
+			.wrapperCourse__lessons__contentLessons__element__link{
+		    	display: inline-block;
+		    	width: 35%;
+			}
+			.bbq-arrow-go--lesson:before {
+		 		float: right;
+		 		font-size: 2.4em;
+			}
+
+		}
 
 	}
 

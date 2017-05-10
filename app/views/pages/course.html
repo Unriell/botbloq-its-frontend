@@ -6,7 +6,7 @@
 					<img class="wrapperCourse__header__contentImg__img" src="http://lorempixel.com/g/600/400" alt="">
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-4">
+			<div class="col-xs-12 col-sm-5">
 				<div class="wrapperCourse__header__info">
 					<h2 class="wrapperCourse__header__info__title">Title Curso {{courseSelected.name}}</h2>
 					<p class="wrapperCourse__header__info__description">Última Lección 2. Conociendo BitBloq</p>
@@ -19,15 +19,22 @@
 	<div class="wrapperCourse__lessons">	
 		<h3 class="wrapperCourse__lessons__title">Descripción del curso</h3>
 		<p class="wrapperCourse__lessons__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum natus quia officiis maiores fugit asperiores quo doloremque eligendi sint at quibusdam nostrum, accusantium iusto sed facere rerum ea. Sed, explicabo?</p>
-		<h4 class="wrapperCourse__lessons__subTitle">Contenidos</h4>
+		<p class="wrapperCourse__lessons__subTitle">Contenidos</p>
 		<ul class="wrapperCourse__lessons__contentLessons">
-			<li ng-repeat="i in courses">
+			<li class="wrapperCourse__lessons__contentLessons__element" ng-repeat="i in courses">
 				<!-- <ul>
 					<li ng-repeat="lesson in lessons">
 						{{lesson.name}}
 					</li>
-				</ul> -->
-				{{i.name}}
+				</ul> -->	
+					
+				<img class="wrapperCourse__lessons__contentLessons__element__img" src="http://lorempixel.com/g/200/200" alt="">
+				<div class="wrapperCourse__lessons__contentLessons__element__info">
+					<h4 class="wrapperCourse__lessons__contentLessons__element__info__title">{{i.name}}</h4>
+					<p class="wrapperCourse__lessons__contentLessons__element__info__subtitle">Antes de empezar con Bitbloq 2</p>
+					<p class="wrapperCourse__lessons__contentLessons__element__info__description">Primeros pasos con bitbloq 2 antes de empezar a programar</p>
+				</div>
+				<a class="wrapperCourse__lessons__contentLessons__element__link"><span class="bbq-arrow-go bbq-arrow-go--lesson"></span></a>
 			</li>
 		</ul>
 		
