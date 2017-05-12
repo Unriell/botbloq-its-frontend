@@ -1,3 +1,57 @@
 .wrapperLesson{
 	
 }
+
+	.wrapperLesson__options{
+		margin-bottom: 15px;
+	}
+	.wrapperLesson__options__ok{
+		border:1px solid $color-black;
+		text-align: center;
+	}
+	.wrapperLesson__options__nok{
+		border:1px solid $color-black;
+		text-align: center;	
+	}
+	.wrapperLesson__options__wait{
+		border:1px solid $color-black;
+		text-align: center;
+	}
+	
+	.wrapperLesson__options__ok__link{
+		display: block;
+		padding:5px;
+		background: $bg-color-white;
+		&:hover, &:link{
+			background:rgba(130, 167, 57, 0.55);;
+			text-decoration:none;
+		}
+	}
+
+	.bbq-ok2--lesson:before {
+	  	color:$color-black;
+	  	font-size: 2.9em;
+		vertical-align: middle;
+		display: block;
+		text-align:center;
+	}
+	.bbq-nok--lesson:before {
+	   	color:$color-black;
+	  	font-size: 2.9em;
+		vertical-align: middle;
+		display: block;
+		text-align:center;
+	}
+	.bbq-cloud--lesson:before {
+	   	color:$color-black;
+	  	font-size: 2.9em;
+		vertical-align: middle;	
+		display: block;
+		text-align:center;
+	}
+
+	.wrapperLesson__contentBody{
+		background:$bg-color-graytooLight;
+		height: 500px;
+		width: 100%;
+	}

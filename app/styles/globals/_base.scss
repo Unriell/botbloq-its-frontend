@@ -401,6 +401,42 @@
 			}
 
 		}
+		
+		.wrapperLesson{
+			.contentTitle{
+				margin-bottom:15px;
+			}
+			.wrapperLesson__options{
+				float: right;	
+			}		
+			.wrapperLesson__options__ok{
+				display: inline-block;
+				margin-right: 10px;
+			}
+			.wrapperLesson__options__nok{
+				display: inline-block;	
+				margin-right: 10px;
+			}
+			.wrapperLesson__options__wait{
+				display: inline-block;
+			}
+			
+			.wrapperLesson__options__ok__link{
+				padding:10px;
+			}
+			.bbq-ok2--lesson:before {
+			  	font-size: 2em;
+			}
+			.bbq-nok--lesson:before {
+			  	font-size: 2em;
+			}
+			.bbq-cloud--lesson:before {
+			  	font-size: 2em;
+			}
+
+
+		}
+
 
 	}
 
