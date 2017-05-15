@@ -429,8 +429,8 @@
              });
         };
 
-        $scope.goCourse=function(id){
-            $location.path("/course");
+        $scope.goCourse=function(id,course){
+            $location.path("/course").search({courseSelected:course});
             $scope.courseSelected= searchCourse(id);
         };
         var searchCourse= function(id){

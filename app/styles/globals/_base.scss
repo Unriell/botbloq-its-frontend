@@ -437,6 +437,42 @@
 
 		}
 
+		.wrapperObjectives{
+			.contentTitle{
+				text-align: left;
+			}
+			.wrapperObjectives__contetObjetives__list{
+				padding:40px 0 0 70px;
+			}
+			.wrapperObjectives__contetObjetives__list__element{
+				margin-bottom: 20px;
+			}
+			.wrapperObjectives__contetObjetives__list__element__contentImage{
+				vertical-align: middle;
+				text-align: left;
+				display: inline-block; 
+				margin-bottom: 0px;
+				margin-right: 30px;
+			}
+			.wrapperObjectives__contetObjetives__list__element__contentImage__img{
+				display: inline-block;
+				width: 100px;
+			}
+			.wrapperObjectives__contetObjetives__list__element__info{
+				display: inline-block;
+				text-align:left;
+			}
+			.wrapperObjectives__contetObjetives__list__element__info__title{
+			
+			}
+			.wrapperObjectives__contetObjetives__list__element__info__description{
+				
+			}
+			
+
+
+		}
+
 
 	}
 
