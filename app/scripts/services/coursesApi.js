@@ -156,6 +156,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             getSections :getSections,
             getSection :getSection,
             getCourse : getCourse,
+            getLessons: getLessons,
             removeItem : removeItem,
             removeAllItem : removeAllItem,
             editCourse : editCourse,

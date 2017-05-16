@@ -1,0 +1,124 @@
+<div ng-show="enrolledCoursesPage" class="contentAdminCourses">
+        <div class="contentTitle">
+            <h2 class="h2Class">Cursos Matriculados </h2>
+        </div>
+        <div class="contentAdminCourses__contentCourses mb20">
+            <div class="row">
+                <div class="col-xs-12 col-sm-2">
+                    <div class="viewOptions clearfix">
+                        <a ng-click="viewCourseWithoutInfo()" class="viewOptions__byIcon" ng-class="{active:!viewCoursesInfo}" href>
+                            <span class="bbq-thumbnails bbq-thumbnails--style"></span>
+                        </a>
+                        <a ng-click="viewCourseWithInfo()" class="viewOptions__byList" ng-class="{active:viewCoursesInfo}" href>
+                            <span class="bbq-list bbq-list--style"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-10">
+                    <form class="contentAdminCourses__contentCourses__viewOptionsfilterSearch">
+                        <div class="row">
+                            <div class="col-xs-6 col-sm-9">
+                                <select class="contentAdminCourses__contentCourses__viewOptionsfilterSearch__filter">
+                                    <option selected="" disabled value="0">Filtrar por:</option>
+                                </select>  
+                            </div>
+                            <div class="col-xs-6 col-sm-3">
+                                <div class="contentAdminCourses__contentCourses__viewOptionsfilterSearch__search">
+                                    <input ng-model="courses.name" placeholder="Buscar ..." class="contentAdminCourses__contentCourses__viewOptionsfilterSearch__search__input" type="text" name="searchCourse"> 
+                                    <span class="bbq-search bbq-search--Courses"></span>   
+                                </div>  
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="contentAdminCourses__contentCourses__wrapperCourses">
+                <ul class="row">
+                    <li ng-repeat="i in courses | filter:'CUR'" class="col-xs-12 col-sm-4">
+                       
+                        <div class="contentAdminCourses__contentCourses__wrapperCourses__course">
+                            <a class="contentAdminCourses__contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i._id,i)" href>
+                                <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage">
+                                    <img ng-class="{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__image" src="http://lorempixel.com/340/150/">
+                                    <p ng-show="!viewCoursesInfo" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__title">{{i.name}}</p>
+                                </div>
+                                <div ng-show="viewCoursesInfo">
+                                    <div class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle">
+                                        <p class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__name">{{i.name}}</p>
+                                        <p class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__description">{{i.code}}</p>
+                                    </div>
+                                    <ul class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo">
+                                        <li class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
+                                            <span class="bbq-sections bbq-sections--courses"></span>
+                                            <span title="Secciones" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{i.sections.length}}</span>
+                                        </li>
+                                        <li class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
+                                            <span class="bbq-lessons bbq-lessons--courses"></span>
+                                            <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{}}</span><!-- <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{}}</span> -->
+                                        </li>
+                                        <li class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
+                                            <span class="bbq-students bbq-students--courses"></span>
+                                            <span title="Estudiantes matriculados" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">100</span>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contentAdminCourses__options">
+            <button class="btnBq--withIcon" ng-click="goAddCourse()">
+                <span class="hidden-xs contentAdminCourses__options__title">Agregar Curso</span>
+                <span title="Agregar Curso" class="bbq-page-add bbq-page-add--style1"></span>
+            </button>
+            <button class="btnBq--withIcon" ng-click="deleteAllCourses($event)">
+                <span class="hidden-xs contentAdminCourses__options__title">Eliminar Todo</span>
+                <span title="Eliminar todos los cursos" class="bbq-page-delete bbq-page-delete--style1"></span>
+            </button>
+        </div>
+            
+      
+        <!-- <button class="btnBq--style1" disabled>Agregar con Asistente</button>
+        <button class="btnBq--style1" disabled>Regresar</button> -->
+
+        <div class="contentInfoCourse" ng-show="InfoCourse">
+            <div>
+                <h3 class="h3Class">General</h3>
+                <span class="attr">Name</span>
+                <span>{{courseName}}</span>
+                <span class="attr">Code</span>
+                <span>{{courseCode}}</span>
+                <span class="attr">Summary</span>
+                <span>{{courseSummary}}</span>
+            </div>
+            <div>
+                <h3 class="h3Class">Objectives</h3>
+                <span class="attr">Code</span>
+                <span>{{objectives.code}}</span>
+                <span class="attr">Description</span>
+                <span>{{objectives.description}}</span>
+                <span class="attr">Level</span>
+                <span>{{objectives.level}}</span>
+                <span class="attr">Type</span>
+                <span>{{objectives.bloom}}</span>
+            </div>
+            <div>
+                <h3 class="h3Class">Statistics</h3>
+                <span class="attr">Std_enrolled</span>
+                <span>{{statistics.std_enrolled}}</span>
+                <span class="attr">Std_finished</span>
+                <span>{{statistics.std_finished}}</span>
+                <span class="attr">std_unenrolled</span>
+                <span>{{statistics.std_unenrolled}}</span>
+            </div>
+            <div>
+                <span class="attr">History</span>
+                <span>{{courseHistory}}</span>
+            </div>
+            <button ng-click="hideInfoCourse()">Ocultar</button>
+        </div>
+    
+</div>
