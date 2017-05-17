@@ -376,27 +376,32 @@
 			}
 			.wrapperCourse__lessons__contentLessons__element__img{
 				margin-bottom: 0px;
-				width: 30%;
+				width: 100%;
 				max-height: 115px;
 				display: inline-block;
 				vertical-align: middle;
-				margin-right:15px;
 			}
-			.wrapperCourse__lessons__contentLessons__element__info{
-				width: 30%;
+			.wrapperCourse__lessons__contentLessons__element__link{
+				margin-left:15px;
+				display: inline-block;
+				vertical-align: middle;
+			}
+			.wrapperCourse__lessons__contentLessons__element__link__info{
+				width: auto;
 				display: inline-block;
 				vertical-align: middle;
 				padding:0px;
+				vertical-align: middle;
 			}
-			.wrapperCourse__lessons__contentLessons__element__info__title{
+			.wrapperCourse__lessons__contentLessons__element__link__info__title{
 				font-size: 1.2em;
 			}
-			.wrapperCourse__lessons__contentLessons__element__link{
-		    	display: inline-block;
-		    	width: 35%;
+			.bbq-arrow-go--lesson {
+				vertical-align: middle;
+				display: inline-block;
+				float: right;
 			}
 			.bbq-arrow-go--lesson:before {
-		 		float: right;
 		 		font-size: 2.4em;
 			}
 

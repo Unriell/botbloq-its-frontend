@@ -22,13 +22,21 @@
 		<p class="wrapperCourse__lessons__subTitle">Contenidos</p>
 		<ul class="wrapperCourse__lessons__contentLessons">
 			<li class="wrapperCourse__lessons__contentLessons__element" ng-repeat="i in lessonsSelected">	
-				<img class="wrapperCourse__lessons__contentLessons__element__img" src="http://lorempixel.com/g/200/200" alt="">
-				<div class="wrapperCourse__lessons__contentLessons__element__info">
-					<h4 class="wrapperCourse__lessons__contentLessons__element__info__title">{{i.name}}</h4>
-					<p class="wrapperCourse__lessons__contentLessons__element__info__subtitle">Antes de empezar con Bitbloq 2</p>
-					<p class="wrapperCourse__lessons__contentLessons__element__info__description">Primeros pasos con bitbloq 2 antes de empezar a programar</p>
+				<div class="row">
+					<div class="col-xs-12 col-sm-3">
+						<img class="wrapperCourse__lessons__contentLessons__element__img" src="http://lorempixel.com/g/200/200" alt="">	
+					</div>
+					<div class="col-xs-12 col-sm-9">
+						<a class="wrapperCourse__lessons__contentLessons__element__link" href>
+							<div class="wrapperCourse__lessons__contentLessons__element__link__info">
+								<h4 class="wrapperCourse__lessons__contentLessons__element__link__info__title">{{i.name}}</h4>
+								<p class="wrapperCourse__lessons__contentLessons__element__link__info__subtitle">Antes de empezar con Bitbloq 2</p>
+								<p class="wrapperCourse__lessons__contentLessons__element__link__info__description">Primeros pasos con bitbloq 2 antes de empezar a programar</p>
+							</div>
+							<span class="bbq-arrow-go bbq-arrow-go--lesson"></span>
+						</a>
+					</div>
 				</div>
-				<a class="wrapperCourse__lessons__contentLessons__element__link"><span class="bbq-arrow-go bbq-arrow-go--lesson"></span></a>
 			</li>
 		</ul>
 		

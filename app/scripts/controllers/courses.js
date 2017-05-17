@@ -9,7 +9,7 @@
  */
 
    botBloqApp.controller('coursesCtrl',
-                         function($log, $scope,$http,$location,coursesApi, lomsApi) {
+                         function($log,$q,$scope,$http,$location,coursesApi, lomsApi,common) {
         $log.log('courses ctrl start');
         
         $scope.totalCoursesPage=true;
@@ -17,9 +17,9 @@
         $scope.coursePage=false;
         $scope.objectivesPage=false;
 
-        $scope.courseSelected=null;
-        $scope.sectionsSelected=null;
-        $scope.lessonsSelected=null;
+        $scope.courseSelected=common.courseSelected;
+        $scope.sectionsSelected=common.sectionsCourseSelected;
+        $scope.lessonsSelected=common.lessonsCourseSelected;
 
         $scope.lomsAux=[];
         $scope.lomsToAdd=[];
@@ -111,32 +111,37 @@
                     alert('Error de tipo: '+err.status);      
             });
         };
-        var getSections= function(idCourse){
+        var updateSectionsSelected= function(idCourse){
+            var defered = $q.defer(),
+                promise = defered.promise;
             coursesApi.getSections(idCourse).then(function(response){
-                    $scope.sectionsSelected= response.data;
-                    $log.debug('numero de secciones en getSections dentro: ', sections.length);
+                    common.sectionsCourseSelected=response.data;
+                    $log.debug('numero de secciones en getSections dentro: ', common.sectionsCourseSelected.length);
+                    defered.resolve();
                 }, function myError(err) {
                     $log.debug(err);
                     alert('Error de tipo: '+err.status);      
             });
+            return promise;
         };
 
-        var getLessons= function(idCourse,sections){
-            var lessons={};
-           angular.forEach(sections,function(section){
-                coursesApi.getLessons(idCourse,section).then(function(response){
-                    lessonsSection= response.data;
-
-                    angular.forEach(lessonsSection,function(lesson){
-                        lessons.push(lesson);
-                    }); 
-
-                }, function myError(err) {
-                    $log.debug(err);
-                    alert('Error de tipo: '+err.status);      
+        var updateLessonsSelected= function(idCourse,section){
+            var defered = $q.defer(),
+                promise = defered.promise,
+                lessonsSection={};
+            coursesApi.getLessons(idCourse,section).then(function(response){
+                lessonsSection= response.data;
+                angular.forEach(lessonsSection,function(lesson){
+                    common.lessonsCourseSelected.push(lesson);
                 });
+                $log.debug('numero de lecciones en getLessons dentro: ', common.sectionsCourseSelected.length);
+                defered.resolve();
+            }, function myError(err) {
+                $log.debug(err);
+                alert('Error de tipo: '+err.status);      
             });
-            return lessons;
+            
+            return promise;
         };
 
         
@@ -449,17 +454,34 @@
         };
 
         $scope.goCourse=function(course){
-            $scope.courseSelected= course;
-            getSections(course._id);
-            $log.debug('numero de secciones en goCourse: ', sectionsSelected.length);
-            $scope.lessonsSelected=getLessons(course._id,sectionsSelected);
+            common.courseSelected= course;
+            $scope.courseSelected=course;
+            resetCourseSelected();
+            var promise=updateSectionsSelected(course._id);
+            promise.then(function() {
+                $log.debug('numero de secciones en goCourse: ', common.sectionsCourseSelected.length);
+                calculateNumLessons(course._id);
 
+            }, function(error) {
+                $log.debug('Se ha producido un error al obtener el dato: '+error);     
+            });
             $scope.coursePage=true;
             $scope.totalCoursesPage=false;
             $scope.enrolledCoursesPage=false;
             $scope.objectivesPage=false;
         };
 
+        var calculateNumLessons=function(idCourse){
+            angular.forEach(common.sectionsCourseSelected,function(section){
+                updateLessonsSelected(idCourse,section.name);
+            });
+        };
+        var resetCourseSelected=function(){
+            common.sectionsCourseSelected=[];
+            common.lessonsCourseSelected=[];
+            $scope.sectionsSelected=common.sectionsCourseSelected;
+            $scope.lessonsSelected=common.lessonsCourseSelected;
+        };
         var searchCourse= function(id){
             var courseSelected=null;
             angular.forEach($scope.courses, function(element) {

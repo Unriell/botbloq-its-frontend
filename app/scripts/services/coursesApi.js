@@ -135,7 +135,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
           return $http.get( common.bitbloqBackendUrl + "/courses/"+idCourse._id );      
         }
         function getSections(idCourse) { 
-          return $http.get( common.bitbloqBackendUrl + "/courses/"+idCourse+"/sections" );      
+          return $http.get( common.bitbloqBackendUrl + "/courses/"+idCourse+"/sections" );
         }
         function getSection(idCourse,section) { 
           return $http.get( common.bitbloqBackendUrl + "/courses/"+idCourse+"/section/"+section);      
