@@ -12,11 +12,12 @@
 					<p class="wrapperCourse__header__info__description">Última Lección 2. Conociendo BitBloq</p>
 					<a class="wrapperCourse__header__info__link">Nueva actividad <span></span></a>
 				</div>
+				<button class="btnBq--withIcon btnBig" ng-click="enrollStudent(activeUser._id,courseSelected._id)" >MATRICÚLATE</button>
 			</div>
 		</div>
 		
 	</div>
-	<div class="wrapperCourse__lessons">	
+	<div class="wrapperCourse__lessons disabledPage" ng-class="{true:courseDisabled}">
 		<h3 class="wrapperCourse__lessons__title">Descripción del curso</h3>
 		<p class="wrapperCourse__lessons__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum natus quia officiis maiores fugit asperiores quo doloremque eligendi sint at quibusdam nostrum, accusantium iusto sed facere rerum ea. Sed, explicabo?</p>
 		<p class="wrapperCourse__lessons__subTitle">Contenidos</p>

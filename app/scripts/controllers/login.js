@@ -7,13 +7,13 @@
  * # LoginCtrl
  * Controller of the botbloqItsFrontendApp
  */
-botBloqApp.controller('loginCtrl', function($log, $scope, userApi) {
+botBloqApp.controller('loginCtrl', function($log, $scope, usersApi) {
         $log.log('login ctrl start');
 
         $scope.save = function() {
             if ($scope.userForm.$valid) {
                 $log.debug('saving...');
-                userApi.login($scope.user.name, $scope.user.password).then(function(response) {
+                usersApi.login($scope.user.name, $scope.user.password).then(function(response) {
                     $log.debug('ok', response);
                 }, function(error) {
                     $log.debug('error', error);

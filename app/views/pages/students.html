@@ -2,6 +2,12 @@
     
         <h4>LISTA DE ESTUDIANTES</h4>
         <button class="btn btn-primary" ng-click="showStudents()">Show Students</button>
-        <ul ng-repeat="i in students"><li>{{i.identification.name}}</li></ul>
+        <ul ng-repeat="i in students">
+        	<li>
+	        	<a href ng-click="activeUser(i)" ng-class="{activeUser:iSActiveUSer(i)}">
+	        		{{i.identification.name}}
+	        	</a>
+        	</li>
+        </ul>
     
 </div>

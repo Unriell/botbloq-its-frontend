@@ -9,9 +9,11 @@
  */
 
    botBloqApp.controller('coursesCtrl',
-                         function($log,$q,$scope,$http,$location,coursesApi, lomsApi,common) {
+                         function($log,$q,$scope,$http,$location,coursesApi,usersApi, lomsApi,common) {
         $log.log('courses ctrl start');
         
+        $scope.activeUser=common.activeUSer;
+
         $scope.totalCoursesPage=true;
         $scope.enrolledCoursesPage=false;
         $scope.coursePage=false;
@@ -492,5 +494,12 @@
             return courseSelected;
         };
 
-
+        //  STUDENT
+        $scope.enrollStudent=function(idStudent,idCourse){
+            usersApi.enrollStudent(idStudent,idCourse).then(function(response) {
+                    $log.debug('ok después de enrollStudent', response);
+                }, function(error) {
+                    $log.debug('error después de enrollStudent', error);
+            });
+        };
     });

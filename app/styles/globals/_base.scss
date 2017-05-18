@@ -365,9 +365,25 @@
 			}
 			.wrapperCourse__header__info{
 				text-align: center;
+				margin-bottom:40px;
 			}
 			.wrapperCourse__header__info__title{
 				
+			}
+			.wrapperCourse__header__info__description{
+				text-align: center;
+			}
+			.wrapperCourse__header__info__link{
+				text-align: center;
+			}
+			.wrapperCourse__lessons{
+				padding:24px 0 13px 0;
+			}
+			.wrapperCourse__lessons__title{
+				margin-bottom: 25px;
+			}
+			.wrapperCourse__lessons__description{
+				margin-bottom: 25px;
 			}
 			.wrapperCourse__lessons__contentLessons__element{
 				margin-bottom: 30px;
@@ -380,14 +396,23 @@
 				max-height: 115px;
 				display: inline-block;
 				vertical-align: middle;
+				border:none;
 			}
 			.wrapperCourse__lessons__contentLessons__element__link{
-				margin-left:15px;
-				display: inline-block;
+				padding-left:15px;
+				display: block;
 				vertical-align: middle;
+				height: 115px;
+				padding-top: 23px;
+				background-color:rgba(116, 156, 44, 0.23);
+				&:hover{
+					background-color: rgba(116, 156, 44, 0.5);
+		    		text-decoration: none;
+		    		color:$link-color-black;
+		    	}
 			}
 			.wrapperCourse__lessons__contentLessons__element__link__info{
-				width: auto;
+				width: 91%;
 				display: inline-block;
 				vertical-align: middle;
 				padding:0px;
@@ -395,11 +420,11 @@
 			}
 			.wrapperCourse__lessons__contentLessons__element__link__info__title{
 				font-size: 1.2em;
+				text-align: inherit;
 			}
 			.bbq-arrow-go--lesson {
 				vertical-align: middle;
 				display: inline-block;
-				float: right;
 			}
 			.bbq-arrow-go--lesson:before {
 		 		font-size: 2.4em;

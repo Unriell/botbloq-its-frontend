@@ -11,9 +11,11 @@ botBloqApp.service('common', function($log) {
 
         var bitbloqBackendUrl = 'http://localhost:8000/botbloq/v1/its';
 
-  		var courseSelected=null,
+  		var courseSelected={},
   			sectionsCourseSelected=[],
-  			lessonsCourseSelected=[];
+  			lessonsCourseSelected=[],
+        activeUser={},
+        nameActiveUser="";
 
         $log.log('common start');
 
@@ -21,7 +23,9 @@ botBloqApp.service('common', function($log) {
             bitbloqBackendUrl: bitbloqBackendUrl,
             courseSelected: courseSelected, 
             sectionsCourseSelected: sectionsCourseSelected,
-            lessonsCourseSelected: lessonsCourseSelected
+            lessonsCourseSelected: lessonsCourseSelected,
+            activeUser: activeUser,
+            nameActiveUser: nameActiveUser
         };
 
     });

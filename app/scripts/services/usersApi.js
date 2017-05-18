@@ -2,14 +2,14 @@
 
 /**
  * @ngdoc service
- * @name botbloqItsFrontendApp.userApi
+ * @name botbloqItsFrontendApp.usersApi
  * @description
- * # userApi
+ * # usersApi
  * Service in the bitbloqApp.
  */
-botBloqApp.service('userApi', function($log, $q, $http, common) {
+botBloqApp.service('usersApi', function($log, $q, $http, common) {
 
-        $log.log('userApi start');
+        $log.log('usersApi start');
 
         function login(email, password) {
             $log.debug(email, password);
@@ -36,6 +36,18 @@ botBloqApp.service('userApi', function($log, $q, $http, common) {
             return loginPromise.promise;
         }
 
+        function enrollStudent(idStudent,idCourse) { 
+            var coursesPromise = $q.defer();
+            $http.put(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse,
+                {}).then(function(response) {
+                    $log.debug('ok despues de matricular al estudiante '+idStudent+' a un curso', response.data.token);
+                    coursesPromise.resolve();  
+                }, function(err) {
+                     $log.debug('error despues intentar matricular un estudiante en un curso',err);
+            });
+            return coursesPromise.promise;     
+        }
+
         function getStudents() { 
           return $http.get( common.bitbloqBackendUrl + "/students" );      
         }
@@ -56,7 +68,8 @@ botBloqApp.service('userApi', function($log, $q, $http, common) {
             login: login,
             getStudents, getStudents,
             logout: logout,
-            getCurrentUser: getCurrentUser
+            getCurrentUser: getCurrentUser,
+            enrollStudent: enrollStudent
         };
 
 

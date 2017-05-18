@@ -1,0 +1,9 @@
+
+	.activeUser{
+		font-weight: bold;
+		color:red;
+		&:hover,&:link{
+			font-weight: bold;
+			color:red;
+		}
+	}
