@@ -38,8 +38,7 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
 
         function enrollStudent(idStudent,idCourse) { 
             var coursesPromise = $q.defer();
-            $http.put(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse,
-                {}).then(function(response) {
+            $http.put(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse,{}).then(function(response) {
                     $log.debug('ok despues de matricular al estudiante '+idStudent+' a un curso', response.data.token);
                     coursesPromise.resolve();  
                 }, function(err) {

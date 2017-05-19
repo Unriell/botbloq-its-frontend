@@ -1,6 +1,56 @@
+<div class="contentAdminCourses">
+	{{activeUser.identification.name}}
+	<ng-include src=" 'views/pages/totalCourses.html' "></ng-include>
+	<ng-include src=" 'views/pages/enrolledCourses.html' "></ng-include>
+	<ng-include src=" 'views/pages/course.html' "></ng-include>
+	<ng-include src=" 'views/pages/objectives.html' "></ng-include>
 
-{{activeUser.identification.name}}
-<ng-include src=" 'views/pages/totalCourses.html' "></ng-include>
-<ng-include src=" 'views/pages/enrolledCourses.html' "></ng-include>
-<ng-include src=" 'views/pages/course.html' "></ng-include>
-<ng-include src=" 'views/pages/objectives.html' "></ng-include>
+	<div class="wrapperLinkCourses"> 
+
+		<h3 class="h3Class wrapperLinkCourses__title">Explora y Aprende</h3>
+		<ul class="row wrapperLinkCourses__list">
+			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
+				<a class="wrapperLinkCourses__list__element__link" href>
+					<img class="wrapperLinkCourses__list__element__link__img" src="http://lorempixel.com/100/100/">
+					<p class="wrapperLinkCourses__list__element__link__subtitle">Total de Cursos</p>
+					<p class="wrapperLinkCourses__list__element__link__description">¡Ver todos los cursos</p>
+				</a>
+			</li>
+			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
+				<a class="wrapperLinkCourses__list__element__link" href>
+					<img class="wrapperLinkCourses__list__element__link__img" src="http://lorempixel.com/100/100/">
+					<p class="wrapperLinkCourses__list__element__link__subtitle">Cursos matriculados</p>
+					<p class="wrapperLinkCourses__list__element__link__description">Ver todos los cursos en los que estás matriculado</p>
+				</a>
+			</li>
+			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
+				<a class="wrapperLinkCourses__list__element__link" href>
+					<img class="wrapperLinkCourses__list__element__link__img" src="http://lorempixel.com/100/100/">
+					<p class="wrapperLinkCourses__list__element__link__subtitle">Novedades</p>
+					<p class="wrapperLinkCourses__list__element__link__description">¡No te pierdas los cursos más actualizados! ¡Matricúlate!</p>
+				</a>
+			</li>	
+			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
+				<a class="wrapperLinkCourses__list__element__link" href>
+					<img class="wrapperLinkCourses__list__element__link__img" src="http://lorempixel.com/100/100/">
+					<p class="wrapperLinkCourses__list__element__link__subtitle">Cursos más antiguos</p>
+					<p class="wrapperLinkCourses__list__element__link__description">¡No te pierdas los cursos más clásicos! ¡Matricúlate!</p>
+				</a>
+			</li>
+			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
+				<a class="wrapperLinkCourses__list__element__link" href>
+					<img class="wrapperLinkCourses__list__element__link__img" src="http://lorempixel.com/100/100/">
+					<p class="wrapperLinkCourses__list__element__link__subtitle">Cursos Inactivos</p>
+					<p class="wrapperLinkCourses__list__element__link__description">¡Cursos actualmente inactivos</p>
+				</a>
+			</li>	
+			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
+				<a class="wrapperLinkCourses__list__element__link" href>
+					<img class="wrapperLinkCourses__list__element__link__img" src="http://lorempixel.com/100/100/">
+					<p class="wrapperLinkCourses__list__element__link__subtitle">Cursos completados</p>
+					<p class="wrapperLinkCourses__list__element__link__description">¡Ver todos los cursos ya completados</p>
+				</a>
+			</li>
+		</ul>
+	</div>
+</div>

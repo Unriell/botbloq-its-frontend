@@ -198,3 +198,8 @@
 .btnBig{
   font-size:2.5em;
 }
+
+.btnDisabled{
+  cursor: not-allowed;
+  opacity: 0.5;
+}

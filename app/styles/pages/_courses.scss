@@ -1,0 +1,41 @@
+	.contentAdminCourses{
+
+	}
+
+	.wrapperLinkCourses{
+		padding:23px 15px 0px 15px;
+		background: $bg-color-greenLight;
+	}
+	.wrapperLinkCourses__title{
+		margin-bottom:23px;
+	}
+	.wrapperLinkCourses__list{
+		text-align: center;
+	}
+	.wrapperLinkCourses__list__element{
+		margin-bottom:38px;
+	}
+	.wrapperLinkCourses__list__element__link{
+		padding:15px;
+		display: block;
+		color:$link-color-black;
+		border-radius:10px;
+		&:hover{
+			background:$bg-color-greenLightHover;
+			text-decoration: none;
+		}
+	}
+	.wrapperLinkCourses__list__element__link__img{
+		margin-bottom:8px;
+		border-radius: 50%;
+	}
+	.wrapperLinkCourses__list__element__link__subtitle{
+		margin-bottom:10px;
+		font-weight: bold;
+		font-size: 1.2em;
+		color:$text-color-black;
+	}
+	.wrapperLinkCourses__list__element__link__description{
+		font-size: 1em;
+		color:$text-color-black;
+	}

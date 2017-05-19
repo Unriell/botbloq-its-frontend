@@ -1,26 +1,26 @@
 
-.contentAdminCourses{
-
+.contentTotalCourses{
+	margin-bottom:30px;
 }
-	.contentAdminCourses__contentCourses{
+	.contentTotalCourses__contentCourses{
 		background: $bg-color-graytooLight;
     	padding: 20px 20px 0 20px;
 	}
 	
-	.contentAdminCourses__contentCourses__viewOptionsfilterSearch{
+	.contentTotalCourses__contentCourses__viewOptionsfilterSearch{
 		
 	}
-	.contentAdminCourses__contentCourses__viewOptionsfilterSearch__filter{
+	.contentTotalCourses__contentCourses__viewOptionsfilterSearch__filter{
 	    border-radius: 5px;
 	    border: 1px solid $color-grayLight;
 	    padding: 5px 0 6px 7px;
     	font-size: 1em;
     	color: $text-color-gray;
 	}
-	.contentAdminCourses__contentCourses__viewOptionsfilterSearch__search{
+	.contentTotalCourses__contentCourses__viewOptionsfilterSearch__search{
 		position:relative;
 	}
-	.contentAdminCourses__contentCourses__viewOptionsfilterSearch__search__input{
+	.contentTotalCourses__contentCourses__viewOptionsfilterSearch__search__input{
 		width: 100%;
 		padding:7px 0 5px 32px;
 		border-radius:5px;
@@ -30,13 +30,13 @@
 			font-color:$text-color-gray;
 		}
 	}
-	.contentAdminCourses__contentCourses__wrapperCourses{
+	.contentTotalCourses__contentCourses__wrapperCourses{
 		padding: 30px 0px 0px 0px;
 	}
-	.contentAdminCourses__contentCourses__wrapperCourses__course{
+	.contentTotalCourses__contentCourses__wrapperCourses__course{
     	padding: 0px 15px 40px 15px; 
 	}
-	.contentAdminCourses__contentCourses__wrapperCourses__course__link{
+	.contentTotalCourses__contentCourses__wrapperCourses__course__link{
 		display: block;
 		background: $bg-color-white;
 		border-radius:6px;
@@ -46,12 +46,12 @@
 		    box-shadow: 7px 7px 27px 1px rgba(69, 101, 70, 0.57);
 	    }
 	}
-	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage{
+	.contentTotalCourses__contentCourses__wrapperCourses__course__link__contentImage{
 		text-align: center;
     	overflow: hidden;
     	position:relative;
 	}
-	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__title{
+	.contentTotalCourses__contentCourses__wrapperCourses__course__link__contentImage__title{
 		text-transform: uppercase;
 	    font-weight: bold;
 	    color: $text-color-green;
@@ -61,7 +61,7 @@
 	    width: 100%;
 	    text-shadow: 3px 5px 5px $text-color-black;
 	}
-	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__image{
+	.contentTotalCourses__contentCourses__wrapperCourses__course__link__contentImage__image{
 		width: 100%;
     	border-radius: 6px 6px 0 0;
     	display: block;
@@ -75,37 +75,37 @@
 	.opacity0_2{
 		opacity: 0.2;
 	}
-	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle{
+	.contentTotalCourses__contentCourses__wrapperCourses__course__link__contentTitle{
 		padding: 12px;
 	}
-	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__name{
+	.contentTotalCourses__contentCourses__wrapperCourses__course__link__contentTitle__name{
 		text-transform: uppercase;
 	    margin-bottom: 7px;
 	    font-weight: bold;
 	    color: $text-color-black;
 	    font-size: 1.3em;
 	}
-	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__description{
+	.contentTotalCourses__contentCourses__wrapperCourses__course__link__contentTitle__description{
 		color: $text-color-gray;
 		&:hover{
 			text-decoration:none;
 		}
 	}
-	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo{
+	.contentTotalCourses__contentCourses__wrapperCourses__course__link__contentInfo{
 		padding: 23px 12px 7px 12px;
 		text-align: right;
 		background:$bg-color-white;
 		width: 100%;
 	}
-	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum{
+	.contentTotalCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum{
 		display: inline-block;
 		margin-left: 7px;
 	}
-	.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num{
+	.contentTotalCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num{
 		color:$color-gray;
 	}
 
-	.contentAdminCourses__options{
+	.contentTotalCourses__options{
 		text-align:center;
 	}
 

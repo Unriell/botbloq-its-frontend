@@ -33,13 +33,17 @@
 	background:$bg-color-greenTooLight;
 }
 .h2Class{
-	font-size: 1.3em;
+	font-size: 1.6em;
     font-weight: bold;
    	text-transform:uppercase;
 }
 .h3Class{
-	font-size: 25px;
+	font-size: 1.4em;
+	text-align: center;
+	font-weight: bold;
+	text-transform:uppercase;
 }
+
 
 .asideLeft{
 	background:$bg-color-grayDark;
@@ -300,7 +304,12 @@
 @media (min-width: $screen-sm) {
 	body.wrapperMain{
 		padding:30px;
-
+		.h2Class{
+			font-size: 2em;
+		}
+		.h3Class{
+			font-size: 1.6em;
+		}
 		.asideLeft{
 			width: 10%;
 			float: left;
@@ -342,16 +351,45 @@
 		}
 
 		.contentAdminCourses{
-			.contentAdminCourses__contentCourses{
+			.wrapperLinkCourses{
+			    padding: 25px 16px 0px 16px;				
+			    background: $bg-color-greenLight;
+			    .wrapperLinkCourses__title{
+					margin-bottom:40px;
+				}
+				.wrapperLinkCourses__list{
+
+				}
+				.wrapperLinkCourses__list__element{
+					margin-bottom:45px;
+				}
+				.wrapperLinkCourses__list__element__link{
+					
+				}
+				.wrapperLinkCourses__list__element__link__img{
+					margin-bottom:15px;
+				}
+				.wrapperLinkCourses__list__element__link__subtitle{
+					margin-bottom:5px;
+					font-size: 1.4em;
+				}
+				.wrapperLinkCourses__list__element__link__description{
+					font-size: 1.2em;
+				}
+			}
+		}
+
+		.contentTotalCourses{
+			.contentTotalCourses__contentCourses{
     			padding:20px;
 			}
-			.contentAdminCourses__contentCourses__wrapperCourses{
+			.contentTotalCourses__contentCourses__wrapperCourses{
 				padding: 20px 20px 0px 20px;
 			}
-			.contentAdminCourses__contentCourses__wrapperCourses__course{
+			.contentTotalCourses__contentCourses__wrapperCourses__course{
 				padding: 0px 10px 46px 10px; 
 			}
-			.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__title{
+			.contentTotalCourses__contentCourses__wrapperCourses__course__link__contentImage__title{
 	    		font-size: 1.6em;
 	    		bottom: 8px;
 			}
@@ -389,6 +427,7 @@
 				margin-bottom: 30px;
 				border: none;
 		    	padding-bottom: 0px;
+		    	border-radius:0px;
 			}
 			.wrapperCourse__lessons__contentLessons__element__img{
 				margin-bottom: 0px;
@@ -396,7 +435,7 @@
 				max-height: 115px;
 				display: inline-block;
 				vertical-align: middle;
-				border:none;
+				border-radius:10px;
 			}
 			.wrapperCourse__lessons__contentLessons__element__link{
 				padding-left:15px;
@@ -404,14 +443,16 @@
 				vertical-align: middle;
 				height: 115px;
 				padding-top: 23px;
-				background-color:rgba(116, 156, 44, 0.23);
+				background-color:$bg-color-greenLight;
+				border:1px solid $color-green;
 				&:hover{
-					background-color: rgba(116, 156, 44, 0.5);
+					background-color: $bg-color-greenLightHover;
 		    		text-decoration: none;
 		    		color:$link-color-black;
 		    	}
 			}
 			.wrapperCourse__lessons__contentLessons__element__link__info{
+				text-align:left;
 				width: 91%;
 				display: inline-block;
 				vertical-align: middle;
@@ -421,6 +462,7 @@
 			.wrapperCourse__lessons__contentLessons__element__link__info__title{
 				font-size: 1.2em;
 				text-align: inherit;
+				margin-bottom:7px;
 			}
 			.bbq-arrow-go--lesson {
 				vertical-align: middle;
@@ -572,23 +614,24 @@
 	    	display: inline-block;
 		}
 	}
-	.contentAdminCourses{
+
+	.contentTotalCourses{
 		.contentTitle{
 			padding-left: 15px;
 		}	
-		.contentAdminCourses__contentCourses__viewOptionsfilterSearch{
+		.contentTotalCourses__contentCourses__viewOptionsfilterSearch{
 			padding-top: 6px;
 		}
-		.contentAdminCourses__contentCourses__list{
+		.contentTotalCourses__contentCourses__list{
 			padding:0 60px;
 		}
-		.contentAdminCourses__contentCourses__list__wrapperCourse{
+		.contentTotalCourses__contentCourses__list__wrapperCourse{
 			padding:26px 11px;
 		}
-		.contentAdminCourses__contentCourses__viewOptionsfilterSearch__filter{
+		.contentTotalCourses__contentCourses__viewOptionsfilterSearch__filter{
 		    float:right;
 		}
-		.contentAdminCourses__contentCourses__viewOptionsfilterSearch__search{
+		.contentTotalCourses__contentCourses__viewOptionsfilterSearch__search{
 			float: right;
 	    	display: inline-block;
 		}
@@ -675,14 +718,14 @@
 		  padding: 7px 35px;
 		}
 
-		.contentAdminCourses{
-			.contentAdminCourses__contentCourses__wrapperCourses{
+		.contentTotalCourses{
+			.contentTotalCourses__contentCourses__wrapperCourses{
 				padding: 20px 40px 0px 40px;
 			}
-			.contentAdminCourses__contentCourses__wrapperCourses__course{
+			.contentTotalCourses__contentCourses__wrapperCourses__course{
 				padding: 0px 15px 60px 15px; 
 			}
-			.contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__title{
+			.contentTotalCourses__contentCourses__wrapperCourses__course__link__contentImage__title{
 	    		font-size: 1.8em;
 	    		bottom: 8px;
 			}
@@ -722,6 +765,7 @@
 		  	font-size: 2.4em;
 		}
 	}
+
 	.contentAdminLoms{
 		
 		.contentAdminLoms__contentLoms__list{
@@ -731,12 +775,30 @@
 			padding:29px 17px;
 		}
 	}
+
 	.contentAdminCourses{
+		.wrapperLinkCourses{
+			.wrapperLinkCourses__title{
+				margin-bottom:50px;
+			}
+			.wrapperLinkCourses__list{
+
+			}
+			.wrapperLinkCourses__list__element{
+				margin-bottom:55px;
+			}
+			.wrapperLinkCourses__list__element__link__description{
+				min-height: 40px;
+			}
+		}
+	}
+
+	.contentTotalCourses{
 		
-		.contentAdminCourses__contentCourses__list{
+		.contentTotalCourses__contentCourses__list{
 			padding:0 120px;
 		}
-		.contentAdminCourses__contentCourses__list__wrapperCourse{
+		.contentTotalCourses__contentCourses__list__wrapperCourse{
 			padding:29px 17px;
 		}
 		
