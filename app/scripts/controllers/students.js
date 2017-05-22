@@ -36,7 +36,7 @@
 
             $log.debug('USUARIO ACTIVO CON ID: '+user._id+' y nombre: '+user.identification.name);
         };
-       
+
         $scope.iSActiveUSer=function(user){
             return angular.equals(user, common.activeUSer);
         };

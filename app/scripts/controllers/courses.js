@@ -14,10 +14,14 @@
         
         $scope.activeUser=common.activeUSer;
 
+        $scope.enrolledCourses=[];
+        $scope.doneCourses=[];
+
         $scope.totalCoursesPage=true;
         $scope.enrolledCoursesPage=false;
         $scope.coursePage=false;
         $scope.objectivesPage=false;
+        $scope.completedCoursesPage=false;
 
         $scope.courseSelected=common.courseSelected;
         $scope.sectionsSelected=common.sectionsCourseSelected;
@@ -494,12 +498,96 @@
             return courseSelected;
         };
 
-        //  STUDENT
-        $scope.enrollStudent=function(idStudent,idCourse){
-            usersApi.enrollStudent(idStudent,idCourse).then(function(response) {
-                    $log.debug('ok después de enrollStudent', response);
-                }, function(error) {
-                    $log.debug('error después de enrollStudent', error);
+        $scope.showEnrolledCourses=function(){
+            $scope.totalCoursesPage=false;
+            $scope.enrolledCoursesPage=true;
+            $scope.coursePage=false;
+            $scope.objectivesPage=false;
+            $scope.completedCoursesPage=false;
+            $scope.getStudentsCoursesActives($scope.activeUser._id);
+            //$scope.getAllStudentsCourses($scope.activeUser._id);
+            //$scope.getStudentsCoursesUnfinished($scope.activeUser._id);
+            //$scope.getStudentsCoursesFinished($scope.activeUser._id);
+        };
+        $scope.showCompletedCourses=function(){
+            $scope.totalCoursesPage=false;
+            $scope.enrolledCoursesPage=false;
+            $scope.coursePage=false;
+            $scope.objectivesPage=false;
+            $scope.completedCoursesPage=true;
+            //$scope.getStudentsCoursesActives($scope.activeUser._id);
+            //$scope.getAllStudentsCourses($scope.activeUser._id);
+            //$scope.getStudentsCoursesUnfinished($scope.activeUser._id);
+            $scope.getStudentsCoursesFinished($scope.activeUser._id);
+        };
+
+        $scope.showTotalCourses=function(){
+            $scope.totalCoursesPage=true;
+            $scope.enrolledCoursesPage=false;
+            $scope.coursePage=false;
+            $scope.objectivesPage=false;
+        };
+
+        // ----------------    STUDENT  ---------------
+        $scope.assignStudentToGroup=function(idStudent){
+            $log.debug('Asignando estudiante a grupo ...');
+            usersApi.assignStudentToGroup(idStudent).then(function(response){
+                $log.debug('Estudiante asignado correctamente ...'); 
+            }, function myError(err) {
+                $log.debug(err);
+                alert('Error de tipo: '+err.status);      
             });
         };
+
+        $scope.enrollStudent=function(idStudent,idCourse){
+            $log.debug('Matriculando a alumno ...');
+            usersApi.enrollStudent(idStudent,idCourse).then(function(response) {
+                $log.debug('ok después de enrollStudent', response);
+            }, function(error) {
+                $log.debug('error después de enrollStudent', error);
+            });   
+        };
+
+        $scope.getStudentsCoursesActives= function(idStudent) {
+            $log.debug('loading cursos activos ...');
+            coursesApi.getStudentsCoursesActives(idStudent).then(function(response){
+                $scope.enrolledCourses= response.data;          
+            }, function myError(err) {
+                $log.debug(err);
+                alert('Error de tipo: '+err.status);      
+            }); 
+        };
+        $scope.getStudentsCoursesFinished= function(idStudent) {
+            $log.debug('loading cursos terminados ...');
+            coursesApi.getStudentsCoursesFinished(idStudent).then(function(response){
+                $scope.doneCourses= response.data;          
+            }, function myError(err) {
+                $log.debug(err);
+                alert('Error de tipo: '+err.status);      
+            }); 
+        };
+        $scope.getStudentsCoursesUnfinished= function(idStudent) {
+            $log.debug('loading cursos inacabados ...');
+            coursesApi.getStudentsCoursesUnfinished(idStudent).then(function(response){
+                $scope.enrolledCourses= response.data;          
+            }, function myError(err) {
+                $log.debug(err);
+                alert('Error de tipo: '+err.status);      
+            }); 
+        };
+        $scope.getAllStudentsCourses= function(idStudent) {
+            $log.debug('loading todos los cursos ...');
+            coursesApi.getAllStudentsCourses(idStudent).then(function(response){
+                $scope.enrolledCourses= response.data;          
+            }, function myError(err) {
+                $log.debug(err);
+                alert('Error de tipo: '+err.status);      
+            }); 
+        };
+        
+
+         // ----------------    FIN STUDENT METHODS ---------------
+
+
+
     });

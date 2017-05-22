@@ -47,6 +47,20 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             return coursesPromise.promise;     
         }
 
+        function assignStudentToGroup(idStudent) {
+            $log.debug('asignando estudiante con id: '+idStudent+' a grupo. (userApi).');
+
+            var assignGroupPromise = $q.defer();
+
+            $http.put(common.bitbloqBackendUrl + '/students/'+idStudent+'/group', {}).then(function(response) {
+                $log.debug('assignado estudiante a grupo correctamente (userApi).');
+            }, function(err) {
+                logout();
+                assignGroupPromise.reject(err);
+            });
+            return assignGroupPromise.promise;
+        }
+
         function getStudents() { 
           return $http.get( common.bitbloqBackendUrl + "/students" );      
         }
@@ -68,7 +82,8 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             getStudents, getStudents,
             logout: logout,
             getCurrentUser: getCurrentUser,
-            enrollStudent: enrollStudent
+            enrollStudent: enrollStudent,
+            assignStudentToGroup: assignStudentToGroup
         };
 
 

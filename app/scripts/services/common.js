@@ -14,8 +14,8 @@ botBloqApp.service('common', function($log) {
   		var courseSelected={},
   			sectionsCourseSelected=[],
   			lessonsCourseSelected=[],
-        activeUser={},
-        nameActiveUser="";
+            activeUser={},
+            nameActiveUser="";
 
         $log.log('common start');
 

@@ -1,6 +1,6 @@
-<div ng-show="totalCoursesPage" class="contentTotalCourses">
+<div ng-show="completedCoursesPage" class="contentEnrolledCourses">
         <div class="contentTitle">
-            <h2 class="h2Class">Recursos - Cursos </h2>
+            <h2 class="h2Class">Cursos Completados </h2>
         </div>
         <div class="contentCourses mb30">
             <div class="row">
@@ -34,10 +34,10 @@
             </div>
             <div class="contentCourses__wrapperCourses">
                 <ul class="row">
-                    <li ng-repeat="i in courses | filter:'CUR'" class="col-xs-12 col-sm-4">
+                    <li ng-repeat="i in doneCourses" class="col-xs-12 col-sm-4">
                        
                         <div class="contentCourses__wrapperCourses__course">
-                            <a class="contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i)" href>
+                            <a class="contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i._id,i)" href>
                                 <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage">
                                     <img ng-class="{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage__image" src="http://lorempixel.com/340/150/">
                                     <p ng-show="!viewCoursesInfo" class="contentCourses__wrapperCourses__course__link__contentImage__title">{{i.name}}</p>
@@ -71,11 +71,11 @@
 
         <div class="contentCourses__options">
             <button class="btnBq--withIcon" ng-click="goAddCourse()">
-                <span class="hidden-xs contentCourses__options__title">Agregar Curso</span>
+                <span class="hidden-xs options__title">Agregar Curso</span>
                 <span title="Agregar Curso" class="bbq-page-add bbq-page-add--style1"></span>
             </button>
             <button class="btnBq--withIcon" ng-click="deleteAllCourses($event)">
-                <span class="hidden-xs contentCourses__options__title">Eliminar Todo</span>
+                <span class="hidden-xs options__title">Eliminar Todo</span>
                 <span title="Eliminar todos los cursos" class="bbq-page-delete bbq-page-delete--style1"></span>
             </button>
         </div>

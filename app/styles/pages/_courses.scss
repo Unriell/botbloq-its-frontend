@@ -1,5 +1,149 @@
-	.contentAdminCourses{
 
+	.contentTotalCourses,.contentEnrolledCourses{
+		margin-bottom:30px;
+	}
+	
+	.bbq-list--Courses:before {
+	  color:$color-grayLight2;
+	  display: block;
+	  font-size: 1.6em;
+	  padding-top:2px;
+	}
+	.bbq-thumbnails--Courses:before {
+	  color:$color-grayLight2;
+	  display: block;
+	  font-size: 1.6em;
+	  padding-top:2px;
+	}
+
+	.bbq-search--Courses:before {
+		color:$color-grayLight;
+		position: absolute;
+		top: 6px;
+		left: 8px;
+		font-size: 1.3em;
+	}
+
+	.bbq-lessons--courses:before {
+	  color: $color-gray;
+	  font-size: 1em;
+	  vertical-align: middle;
+	}
+	.bbq-sections--courses:before {
+	  color: $color-gray;
+	  font-size: 1em;
+	  vertical-align: middle;
+	}
+	.bbq-students--courses:before {
+	  color: $color-gray;
+	  font-size: 1em;
+	  vertical-align: middle;
+	}
+
+	.contentCourses{
+		background: $bg-color-graytooLight;
+    	padding: 20px 20px 0 20px;
+	}
+	.contentCourses__viewOptionsfilterSearch{
+		
+	}
+	.contentCourses__viewOptionsfilterSearch__filter{
+	    border-radius: 5px;
+	    border: 1px solid $color-grayLight;
+	    padding: 5px 0 6px 7px;
+    	font-size: 1em;
+    	color: $text-color-gray;
+	}
+	.contentCourses__viewOptionsfilterSearch__search{
+		position:relative;
+	}
+	.contentCourses__viewOptionsfilterSearch__search__input{
+		width: 100%;
+		padding:7px 0 5px 32px;
+		border-radius:5px;
+		border:1px solid $color-grayLight;
+		&::-webkit-input-placeholder {
+		    font-size: 1em;
+			font-color:$text-color-gray;
+		}
+	}
+	.contentCourses__wrapperCourses{
+		padding: 30px 0px 0px 0px;
+	}
+	.contentCourses__wrapperCourses__course{
+    	padding: 0px 15px 40px 15px; 
+	}
+	.contentCourses__wrapperCourses__course__link{
+		display: block;
+		background: $bg-color-white;
+		border-radius:6px;
+	    	box-shadow: 15px 18px 32px -14px rgba(69, 101, 70, 0.57);
+		&:hover{
+	    	text-decoration:none;
+		    box-shadow: 7px 7px 27px 1px rgba(69, 101, 70, 0.57);
+	    }
+	}
+	.contentCourses__wrapperCourses__course__link__contentImage{
+		text-align: center;
+    	overflow: hidden;
+    	position:relative;
+	}
+	.contentCourses__wrapperCourses__course__link__contentImage__title{
+		text-transform: uppercase;
+	    font-weight: bold;
+	    color: $text-color-green;
+	    position: absolute;
+	    font-size: 2.5em;
+	    bottom: 8px;
+	    width: 100%;
+	    text-shadow: 3px 5px 5px $text-color-black;
+	}
+	.contentCourses__wrapperCourses__course__link__contentImage__image{
+		width: 100%;
+    	border-radius: 6px 6px 0 0;
+    	display: block;
+	}
+	.bdRadius{
+		border-radius: 6px;
+	}
+	.bkgOpacityBlack{
+		background-color: rgba(0,0,0,0.8);
+	}
+	.opacity0_2{
+		opacity: 0.2;
+	}
+	.contentCourses__wrapperCourses__course__link__contentTitle{
+		padding: 12px;
+	}
+	.contentCourses__wrapperCourses__course__link__contentTitle__name{
+		text-transform: uppercase;
+	    margin-bottom: 7px;
+	    font-weight: bold;
+	    color: $text-color-black;
+	    font-size: 1.3em;
+	}
+	.contentCourses__wrapperCourses__course__link__contentTitle__description{
+		color: $text-color-gray;
+		&:hover{
+			text-decoration:none;
+		}
+	}
+	.contentCourses__wrapperCourses__course__link__contentInfo{
+		padding: 23px 12px 7px 12px;
+		text-align: right;
+		background:$bg-color-white;
+		width: 100%;
+	}
+	.contentCourses__wrapperCourses__course__link__contentInfo__iconNum{
+		display: inline-block;
+		margin-left: 7px;
+	}
+	.contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num{
+		color:$color-gray;
+	}
+
+	.contentCourses__options{
+		text-align:center;
 	}
 
 	.wrapperLinkCourses{
@@ -20,8 +164,12 @@
 		display: block;
 		color:$link-color-black;
 		border-radius:10px;
+		text-decoration: none;
 		&:hover{
 			background:$bg-color-greenLightHover;
+			text-decoration: none;
+		}
+		&:link{
 			text-decoration: none;
 		}
 	}

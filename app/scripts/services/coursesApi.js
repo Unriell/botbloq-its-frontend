@@ -149,7 +149,22 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
         function removeAllItem() { 
           return $http.delete(common.bitbloqBackendUrl + "/courses");      
         }
-       
+        function getStudentsCoursesActives(idStudent) { 
+          return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/active-courses' );      
+        }
+
+        function getStudentsCoursesFinished(idStudent) { 
+          return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/courses-done' );      
+        }
+
+        function getStudentsCoursesUnfinished(idStudent) { 
+          return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/courses-not-done' );      
+        }
+
+        function getAllStudentsCourses(idStudent) { 
+          return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/all' );      
+        }
+
         var exports = {
             addCourse : addCourse,
             getCourses : getCourses,
@@ -162,7 +177,11 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             editCourse : editCourse,
             asignLomsLesson : asignLomsLesson,
             addSection : addSection,
-            addLesson : addLesson
+            addLesson : addLesson,
+            getStudentsCoursesActives: getStudentsCoursesActives,
+            getStudentsCoursesFinished: getStudentsCoursesFinished,
+            getStudentsCoursesUnfinished: getStudentsCoursesUnfinished,
+            getAllStudentsCourses: getAllStudentsCourses
         };
 
         return exports;

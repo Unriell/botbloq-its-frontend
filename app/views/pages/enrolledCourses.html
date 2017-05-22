@@ -1,8 +1,8 @@
-<div ng-show="enrolledCoursesPage" class="contentAdminCourses">
+<div ng-show="enrolledCoursesPage" class="contentEnrolledCourses">
         <div class="contentTitle">
             <h2 class="h2Class">Cursos Matriculados </h2>
         </div>
-        <div class="contentAdminCourses__contentCourses mb20">
+        <div class="contentCourses mb30">
             <div class="row">
                 <div class="col-xs-12 col-sm-2">
                     <div class="viewOptions clearfix">
@@ -15,16 +15,16 @@
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-10">
-                    <form class="contentAdminCourses__contentCourses__viewOptionsfilterSearch">
+                    <form class="contentCourses__viewOptionsfilterSearch">
                         <div class="row">
                             <div class="col-xs-6 col-sm-9">
-                                <select class="contentAdminCourses__contentCourses__viewOptionsfilterSearch__filter">
+                                <select class="contentCourses__viewOptionsfilterSearch__filter">
                                     <option selected="" disabled value="0">Filtrar por:</option>
                                 </select>  
                             </div>
                             <div class="col-xs-6 col-sm-3">
-                                <div class="contentAdminCourses__contentCourses__viewOptionsfilterSearch__search">
-                                    <input ng-model="courses.name" placeholder="Buscar ..." class="contentAdminCourses__contentCourses__viewOptionsfilterSearch__search__input" type="text" name="searchCourse"> 
+                                <div class="contentCourses__viewOptionsfilterSearch__search">
+                                    <input ng-model="courses.name" placeholder="Buscar ..." class="contentCourses__viewOptionsfilterSearch__search__input" type="text" name="searchCourse"> 
                                     <span class="bbq-search bbq-search--Courses"></span>   
                                 </div>  
                             </div>
@@ -32,33 +32,33 @@
                     </form>
                 </div>
             </div>
-            <div class="contentAdminCourses__contentCourses__wrapperCourses">
+            <div class="contentCourses__wrapperCourses">
                 <ul class="row">
-                    <li ng-repeat="i in courses | filter:'CUR'" class="col-xs-12 col-sm-4">
+                    <li ng-repeat="i in enrolledCourses" class="col-xs-12 col-sm-4">
                        
-                        <div class="contentAdminCourses__contentCourses__wrapperCourses__course">
-                            <a class="contentAdminCourses__contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i._id,i)" href>
-                                <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage">
-                                    <img ng-class="{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__image" src="http://lorempixel.com/340/150/">
-                                    <p ng-show="!viewCoursesInfo" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentImage__title">{{i.name}}</p>
+                        <div class="contentCourses__wrapperCourses__course">
+                            <a class="contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i._id,i)" href>
+                                <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage">
+                                    <img ng-class="{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage__image" src="http://lorempixel.com/340/150/">
+                                    <p ng-show="!viewCoursesInfo" class="contentCourses__wrapperCourses__course__link__contentImage__title">{{i.name}}</p>
                                 </div>
                                 <div ng-show="viewCoursesInfo">
-                                    <div class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle">
-                                        <p class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__name">{{i.name}}</p>
-                                        <p class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentTitle__description">{{i.code}}</p>
+                                    <div class="contentCourses__wrapperCourses__course__link__contentTitle">
+                                        <p class="contentCourses__wrapperCourses__course__link__contentTitle__name">{{i.name}}</p>
+                                        <p class="contentCourses__wrapperCourses__course__link__contentTitle__description">{{i.code}}</p>
                                     </div>
-                                    <ul class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo">
-                                        <li class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
+                                    <ul class="contentCourses__wrapperCourses__course__link__contentInfo">
+                                        <li class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
                                             <span class="bbq-sections bbq-sections--courses"></span>
-                                            <span title="Secciones" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{i.sections.length}}</span>
+                                            <span title="Secciones" class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{i.sections.length}}</span>
                                         </li>
-                                        <li class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
+                                        <li class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
                                             <span class="bbq-lessons bbq-lessons--courses"></span>
-                                            <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{}}</span><!-- <span class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{}}</span> -->
+                                            <span class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{}}</span><!-- <span class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{}}</span> -->
                                         </li>
-                                        <li class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
+                                        <li class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
                                             <span class="bbq-students bbq-students--courses"></span>
-                                            <span title="Estudiantes matriculados" class="contentAdminCourses__contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">100</span>
+                                            <span title="Estudiantes matriculados" class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">100</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -69,13 +69,13 @@
             </div>
         </div>
 
-        <div class="contentAdminCourses__options">
+        <div class="contentCourses__options">
             <button class="btnBq--withIcon" ng-click="goAddCourse()">
-                <span class="hidden-xs contentAdminCourses__options__title">Agregar Curso</span>
+                <span class="hidden-xs options__title">Agregar Curso</span>
                 <span title="Agregar Curso" class="bbq-page-add bbq-page-add--style1"></span>
             </button>
             <button class="btnBq--withIcon" ng-click="deleteAllCourses($event)">
-                <span class="hidden-xs contentAdminCourses__options__title">Eliminar Todo</span>
+                <span class="hidden-xs options__title">Eliminar Todo</span>
                 <span title="Eliminar todos los cursos" class="bbq-page-delete bbq-page-delete--style1"></span>
             </button>
         </div>
