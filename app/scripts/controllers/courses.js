@@ -8,8 +8,7 @@
  * Controller of the botbloqItsFrontendApp
  */
 
-   botBloqApp.controller('coursesCtrl',
-                         function($log,$q,$scope,$http,$location,coursesApi,usersApi, lomsApi,common) {
+   botBloqApp.controller('coursesCtrl',function($log,$q,$scope,$http,$location,coursesApi,usersApi,lomsApi,common) {
         $log.log('courses ctrl start');
         
         $scope.activeUser=common.activeUSer;
@@ -24,9 +23,20 @@
         $scope.completedCoursesPage=false;
 
         $scope.courseSelected=common.courseSelected;
+        $scope.objectivesCourseSelected=common.courseSelected.objectives;
         $scope.sectionsSelected=common.sectionsCourseSelected;
         $scope.lessonsSelected=common.lessonsCourseSelected;
 
+        // --- EDIT COURSE ---
+        $scope.editCourseName=$scope.courseSelected.name;
+        $scope.editCourseCode=$scope.courseSelected.code;
+        $scope.editCourseSummary=$scope.courseSelected.summary;
+        $scope.editObjectives=$scope.courseSelected.objetives;
+        $scope.editSections=$scope.courseSelected.sections;
+        $scope.editCourseHistory=$scope.courseSelected.history;
+       
+        // --- END EDIT COURSE ---
+        
         $scope.lomsAux=[];
         $scope.lomsToAdd=[];
         $scope.listAuxLomsAdd=[];
@@ -117,6 +127,10 @@
                     alert('Error de tipo: '+err.status);      
             });
         };
+        $scope.pru= function(idCourse) {
+            $log.debug('loading Sections ...'); 
+        };
+
         var updateSectionsSelected= function(idCourse){
             var defered = $q.defer(),
                 promise = defered.promise;
@@ -206,6 +220,28 @@
             $scope.objectives=item.objetives;
             $scope.sections=item.sections;
             $scope.courseHistory=item.history;
+        };
+        $scope.goEditCourse = function(item) {
+            common.courseSelected=item;
+            var promise=updateSectionsSelected(item._id);
+            promise.then(function() {
+                $log.debug('numero de secciones en goCourse: ', common.sectionsCourseSelected.length);
+            }, function(error) {
+                $log.debug('Se ha producido un error al obtener el dato: '+error);     
+            });
+            $scope.sectionsSelected=common.sectionsCourseSelected;
+            
+            $location.path("/editCourse");
+            $scope.showCoursesForm=true;
+            $scope.edit=true;
+            $scope.idItemToEdit=item._id;
+
+            $scope.editCourseName=item.name;
+            $scope.editCourseCode=item.code;
+            $scope.editCourseSummary=item.summary;
+            $scope.editObjectives=item.objetives;
+            $scope.editSections=item.sections;
+            $scope.editCourseHistory=item.history;
         };
         $scope.goAddCourse= function(){
             $location.path("/addCourse");
@@ -515,10 +551,10 @@
             $scope.coursePage=false;
             $scope.objectivesPage=false;
             $scope.completedCoursesPage=true;
-            //$scope.getStudentsCoursesActives($scope.activeUser._id);
+            $scope.getStudentsCoursesActives($scope.activeUser._id);
             //$scope.getAllStudentsCourses($scope.activeUser._id);
             //$scope.getStudentsCoursesUnfinished($scope.activeUser._id);
-            $scope.getStudentsCoursesFinished($scope.activeUser._id);
+            //$scope.getStudentsCoursesFinished($scope.activeUser._id);
         };
 
         $scope.showTotalCourses=function(){
@@ -550,12 +586,13 @@
 
         $scope.getStudentsCoursesActives= function(idStudent) {
             $log.debug('loading cursos activos ...');
-            coursesApi.getStudentsCoursesActives(idStudent).then(function(response){
+            /*coursesApi.getStudentsCoursesActives(idStudent).then(function(response){
                 $scope.enrolledCourses= response.data;          
             }, function myError(err) {
                 $log.debug(err);
                 alert('Error de tipo: '+err.status);      
-            }); 
+            });*/ 
+            $scope.enrolledCourses=$scope.activeUser.course[0];
         };
         $scope.getStudentsCoursesFinished= function(idStudent) {
             $log.debug('loading cursos terminados ...');
@@ -588,6 +625,6 @@
 
          // ----------------    FIN STUDENT METHODS ---------------
 
-
+    
 
     });

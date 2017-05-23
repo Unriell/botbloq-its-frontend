@@ -40,5 +40,15 @@
         $scope.iSActiveUSer=function(user){
             return angular.equals(user, common.activeUSer);
         };
+
+        var updateStudents=function(){
+            $log.debug('Actualizando usuarios');
+            usersApi.getStudents().then(function(response){
+                $scope.students= response.data;
+            }, function myError(err) {
+                $log.debug(err);
+                alert('Error de tipo: '+err.status);      
+            });     
+        };
         
     });

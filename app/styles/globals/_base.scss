@@ -405,6 +405,9 @@
 	    		font-size: 1.6em;
 	    		bottom: 8px;
 			}
+			.bbq-edit--course:before{
+				font-size: 1.1em;
+			}
 		}
 
 
@@ -646,6 +649,9 @@
 		.contentCourses__viewOptionsfilterSearch__search{
 			float: right;
 	    	display: inline-block;
+		}
+		.bbq-edit--course:before{
+			font-size: 1.3em;
 		}
 	}
 

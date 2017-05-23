@@ -37,32 +37,36 @@
                     <li ng-repeat="i in courses | filter:'CUR'" class="col-xs-12 col-sm-4">
                        
                         <div class="contentCourses__wrapperCourses__course">
-                            <a class="contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i)" href>
-                                <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage">
-                                    <img ng-class="{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage__image" src="http://lorempixel.com/340/150/">
-                                    <p ng-show="!viewCoursesInfo" class="contentCourses__wrapperCourses__course__link__contentImage__title">{{i.name}}</p>
-                                </div>
-                                <div ng-show="viewCoursesInfo">
-                                    <div class="contentCourses__wrapperCourses__course__link__contentTitle">
-                                        <p class="contentCourses__wrapperCourses__course__link__contentTitle__name">{{i.name}}</p>
-                                        <p class="contentCourses__wrapperCourses__course__link__contentTitle__description">{{i.code}}</p>
+                            <div class="contentCourses__wrapperCourses__course__contentLinks">                         
+                               <a class="contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i)" href>
+                                    <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage">
+                                        <img ng-class="{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage__image" src="http://lorempixel.com/340/150/">
+                                        <p ng-show="!viewCoursesInfo" class="contentCourses__wrapperCourses__course__link__contentImage__title">{{i.name}}</p>
                                     </div>
-                                    <ul class="contentCourses__wrapperCourses__course__link__contentInfo">
-                                        <li class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
-                                            <span class="bbq-sections bbq-sections--courses"></span>
-                                            <span title="Secciones" class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{i.sections.length}}</span>
-                                        </li>
-                                        <li class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
-                                            <span class="bbq-lessons bbq-lessons--courses"></span>
-                                            <span class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{}}</span><!-- <span class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{}}</span> -->
-                                        </li>
-                                        <li class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
-                                            <span class="bbq-students bbq-students--courses"></span>
-                                            <span title="Estudiantes matriculados" class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">100</span>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </a>
+                                    <div ng-show="viewCoursesInfo">
+                                        <div class="contentCourses__wrapperCourses__course__link__contentTitle">
+                                            <p class="contentCourses__wrapperCourses__course__link__contentTitle__name">{{i.name}}</p>
+                                            <p class="contentCourses__wrapperCourses__course__link__contentTitle__description">{{i.code}}</p>
+                                        </div>
+                                        <ul class="contentCourses__wrapperCourses__course__link__contentInfo">
+                                            <li class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
+                                                <span class="bbq-sections bbq-sections--courses"></span>
+                                                <span title="Secciones" class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{i.sections.length}}</span>
+                                            </li>
+                                            <li class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
+                                                <span class="bbq-lessons bbq-lessons--courses"></span>
+                                                <span class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{}}</span><!-- <span class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{}}</span> -->
+                                            </li>
+                                            <li class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum">
+                                                <span class="bbq-students bbq-students--courses"></span>
+                                                <span title="Estudiantes matriculados" class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">100</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+                                <a class="contentCourses__wrapperCourses__course__linkIcon" title="Editar Curso" ng-click="goEditCourse(i)" href><span class="bbq-edit bbq-edit--course"></span></a>
+                            </div>
+
                         </div>
                     </li>
                 </ul>

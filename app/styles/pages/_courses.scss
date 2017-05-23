@@ -23,7 +23,10 @@
 		left: 8px;
 		font-size: 1.3em;
 	}
-
+	.bbq-edit--course:before{
+		color:$color-green;
+		font-size: 1.3em;
+	}
 	.bbq-lessons--courses:before {
 	  color: $color-gray;
 	  font-size: 1em;
@@ -73,16 +76,32 @@
 	.contentCourses__wrapperCourses__course{
     	padding: 0px 15px 40px 15px; 
 	}
+	.contentCourses__wrapperCourses__course__contentLinks{
+		position:relative;
+		&:hover, &:link{
+		    .contentCourses__wrapperCourses__course__linkIcon{
+		    	display: block;
+		    	text-decoration: none;
+		    }
+	    }
+	}
 	.contentCourses__wrapperCourses__course__link{
 		display: block;
 		background: $bg-color-white;
 		border-radius:6px;
-	    	box-shadow: 15px 18px 32px -14px rgba(69, 101, 70, 0.57);
+	    box-shadow: 15px 18px 32px -14px rgba(69, 101, 70, 0.57);
 		&:hover{
 	    	text-decoration:none;
 		    box-shadow: 7px 7px 27px 1px rgba(69, 101, 70, 0.57);
 	    }
 	}
+	.contentCourses__wrapperCourses__course__linkIcon{
+		position:absolute;
+		top: 10px;
+		right: 10px;
+		display: none;
+	}
+	
 	.contentCourses__wrapperCourses__course__link__contentImage{
 		text-align: center;
     	overflow: hidden;
