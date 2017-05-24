@@ -35,7 +35,13 @@
 	}
 	.formAddLom__legend__link{
 		text-decoration: none;
-		&:link{
+		&:hover,&:link{
+			text-decoration: none;
+		}
+	}
+	.formAddLom__fieldset__legend__link{
+		text-decoration: none;
+		&:hover,&:link{
 			text-decoration: none;
 		}
 	}

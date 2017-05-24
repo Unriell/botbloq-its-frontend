@@ -12,7 +12,6 @@
         $log.log('courses ctrl start');
         
         $scope.activeUser=common.activeUSer;
-
         $scope.enrolledCourses=[];
         $scope.doneCourses=[];
 
@@ -28,13 +27,12 @@
         $scope.lessonsSelected=common.lessonsCourseSelected;
 
         // --- EDIT COURSE ---
-        $scope.editCourseName=$scope.courseSelected.name;
-        $scope.editCourseCode=$scope.courseSelected.code;
-        $scope.editCourseSummary=$scope.courseSelected.summary;
-        $scope.editObjectives=$scope.courseSelected.objetives;
-        $scope.editSections=$scope.courseSelected.sections;
-        $scope.editCourseHistory=$scope.courseSelected.history;
-       
+        $scope.editCourseName=common.courseSelected.name;
+        $scope.editCourseCode=common.courseSelected.code;
+        $scope.editCourseSummary=common.courseSelected.summary;
+
+        $scope.editCourseObjectives=common.sectionsCourseSelected[0];
+        $scope.editSections=common.sectionsCourseSelected[0];
         // --- END EDIT COURSE ---
         
         $scope.lomsAux=[];
@@ -223,25 +221,33 @@
         };
         $scope.goEditCourse = function(item) {
             common.courseSelected=item;
+            common.objectivesCourseSelected=item.objectives;
+
+            resetCourseSelected();
             var promise=updateSectionsSelected(item._id);
             promise.then(function() {
                 $log.debug('numero de secciones en goCourse: ', common.sectionsCourseSelected.length);
+                $scope.sectionsSelected=common.sectionsCourseSelected;
+                $location.path("/editCourse");
             }, function(error) {
                 $log.debug('Se ha producido un error al obtener el dato: '+error);     
             });
-            $scope.sectionsSelected=common.sectionsCourseSelected;
+
             
-            $location.path("/editCourse");
+            /*$scope.editCourse.code=item.code;
+            $scope.editCourse.summary=item.summary;*/
+                
+            
+            /*$scope.editCourseCode=item.code;
+            $scope.editCourseSummary=item.summary;*/
+            $scope.editObjectives=item.objetives;
+           
+            $scope.editSections=item.sections;
+            $scope.editCourseHistory=item.history;
             $scope.showCoursesForm=true;
             $scope.edit=true;
             $scope.idItemToEdit=item._id;
 
-            $scope.editCourseName=item.name;
-            $scope.editCourseCode=item.code;
-            $scope.editCourseSummary=item.summary;
-            $scope.editObjectives=item.objetives;
-            $scope.editSections=item.sections;
-            $scope.editCourseHistory=item.history;
         };
         $scope.goAddCourse= function(){
             $location.path("/addCourse");
