@@ -38,7 +38,7 @@
 												<label class="formAddCourse__fieldset__contentFields__label" for="course_name">Name</label>
 											</div>
 											<div class="col-xs-12 col-sm-6">
-												<input class="formAddCourse__fieldset__contentFields__input" ng-model="editCourseName" type="text" id="course_name" name="course_name" required>
+												<input class="formAddCourse__fieldset__contentFields__input" ng-model="editCourseName" type="text" id="course_name" name="course_name" value="{{courseSelected.name}}" required>
 											</div>
 										</div>
 									</div>
@@ -67,57 +67,7 @@
 								</div>
 								<div class="contentAddItem clearfix">
 									<ng-include src=" 'views/modules/editObjectives.html' "></ng-include>
-									<div class="contentAddItem__wrapperAddItem__level2">
-										<button class="btnBq--style1" ng-click="showEditSections= !showEditSections" ng-hide="showEditSections" type="button">Mostrar Secciones</button>
-										<div ng-show="showEditSections">
-											<fieldset class="formAddCourse__fieldset__level2">
-						        		<legend class="formAddCourse__fieldset__level2__legend"> 
-							        		<!-- <a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(2)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsObjectives, 'bbq-plus bbq-plus--form': !showFieldsObjectives}"></span></a> -->
-							        		Secciones
-						        		</legend>
-												<div class="formAddCourse__fieldset__level2__contentFields" ng-show="showFieldsObjectives">
-													<ul>
-								        		<li ng-repeat="i in sectionsSelected" ng-init="visible = false">
-								        			<fieldset class="formAddLom__fieldset pdb20">
-										        		<legend class="formAddLom__fieldset__legend"> 
-											        		<a class="formAddLom__fieldset__legend__link" ng-click="visible= !visible" href><span ng-class="{'bbq-minus bbq-minus--form':visible, 'bbq-plus bbq-plus--form': !visible}"></span></a>
-											        		Section {{$index+1}}
-										        		</legend>
-															<div class="formAddLom__fieldset__contentFields" ng-show="visible">
-																<div class="row">
-																	<div class="col-xs-12 col-sm-6 mb15">
-																		<div class="row">
-																			<div class="col-xs-12 col-sm-6">
-																				<label class="formAddCourse__fieldset__contentFields__label" for="sections_name">Name</label>
-																			</div>
-																			<div class="col-xs-12 col-sm-6">
-																				<input class="formAddCourse__fieldset__contentFields__input" ng-model="sections.name" type="text" id="sections_name" name="sections_name"/>
-																			</div>
-																		</div>
-																	</div>
-																	<div class="col-xs-12 col-sm-6 mb15">
-																		<div class="row">
-																			<div class="col-xs-12 col-sm-6">
-																				 <label class="formAddCourse__fieldset__contentFields__label" for="sections_summary">Summary</label>
-																			</div>
-																			<div class="col-xs-12 col-sm-6">
-																				<input class="formAddCourse__fieldset__contentFields__input" ng-model="sections.summary" type="text" id="sections_summary" name="sections_summary"/>
-																			</div>
-																		</div>
-																	</div>
-																</div>	
-																	<ng-include src=" 'views/modules/editObjectives.html' "></ng-include>
-
-																	<ng-include src=" 'views/modules/editLessons.html' "></ng-include>			
-																</div>
-									        			</fieldset>
-								        		</li>
-								        	</ul>							
-							        	</div>
-					        		</fieldset> 
-					        		<button class="btnBq--style1" ng-click="showEditSections= !showEditSections" type="button">Ocultar Secciones</button>
-										</div>
-									</div>
+									<ng-include src=" 'views/modules/editSections.html' "></ng-include>
 								</div>
 							</div>
 	        			</fieldset>

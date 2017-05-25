@@ -233,13 +233,7 @@
                 $log.debug('Se ha producido un error al obtener el dato: '+error);     
             });
 
-            
-            /*$scope.editCourse.code=item.code;
-            $scope.editCourse.summary=item.summary;*/
-                
-            
-            /*$scope.editCourseCode=item.code;
-            $scope.editCourseSummary=item.summary;*/
+        
             $scope.editObjectives=item.objetives;
            
             $scope.editSections=item.sections;
