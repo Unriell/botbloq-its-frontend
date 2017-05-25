@@ -1,0 +1,19 @@
+<div class="contentAddItem__wrapperAddItem__level2">
+	<button class="btnBq--style1" ng-click="showEditObjectives= !showEditObjectives" ng-hide="showEditObjectives" type="button">Mostrar Objectivos</button>
+	<div ng-show="showEditObjectives">
+		<fieldset class="formAddCourse__fieldset__level2">
+    		<legend class="formAddCourse__fieldset__level2__legend"> 
+        		<!-- <a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(2)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsObjectives, 'bbq-plus bbq-plus--form': !showFieldsObjectives}"></span></a> -->
+        		Objetivos
+    		</legend>
+			<div class="formAddCourse__fieldset__level2__contentFields" ng-show="showFieldsObjectives">
+				<ul>
+	        		<li ng-repeat="obj in objectivesCourseSelected" ng-init="visible = false">
+	        			<ng-include src=" 'views/modules/editObjectives.html' "></ng-include>
+	        		</li>
+	        	</ul>							
+			</div>
+		</fieldset> 
+		<button class="btnBq--style1" ng-click="showEditObjectives= !showEditObjectives" type="button">Ocultar Objetivos</button>
+	</div>
+</div>

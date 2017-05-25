@@ -1,79 +1,63 @@
-<div class="contentAddItem__wrapperAddItem__level2">
-										<button class="btnBq--style1" ng-click="showEditObjectives= !showEditObjectives" ng-hide="showEditObjectives" type="button">Mostrar Objectivos</button>
-										<div ng-show="showEditObjectives">
-											<fieldset class="formAddCourse__fieldset__level2">
-								        		<legend class="formAddCourse__fieldset__level2__legend"> 
-									        		<!-- <a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(2)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsObjectives, 'bbq-plus bbq-plus--form': !showFieldsObjectives}"></span></a> -->
-									        		Objetivos
-								        		</legend>
-												<div class="formAddCourse__fieldset__level2__contentFields" ng-show="showFieldsObjectives">
-													<ul>
-										        		<li ng-repeat="obj in objectivesCourseSelected" ng-init="visible = false">
-										        			<fieldset class="formAddLom__fieldset">
-												        		<legend class="formAddLom__fieldset__legend"> 
-													        		<a class="formAddLom__fieldset__legend__link" ng-click="visible= !visible" href><span ng-class="{'bbq-minus bbq-minus--form':visible, 'bbq-plus bbq-plus--form': !visible}"></span></a>
-													        		Objetivo {{$index+1}}
-												        		</legend>
-																<div class="formAddLom__fieldset__contentFields" ng-show="visible">
-																	<div class="row">
-																		<div class="col-xs-12 col-sm-6 mb15">
-																			<div class="row">
-																
-																				<div class="col-xs-12 col-sm-6">
-																					<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_code">Code</label>	
-																				</div>
-																				<div class="col-xs-12 col-sm-6">
-																					<input class="formAddCourse__fieldset__level2__contentFields__input" ng-model="editObjectives[$index].code" type="text" id="objectives_code" name="objectives_code">		
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-xs-12 col-sm-6 mb15">
-																			<div class="row">
-																				<div class="col-xs-12 col-sm-4 col-md-3">
-																					<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_description">Description</label>
-																				</div>
-																				<div class="col-xs-12 col-sm-8 col-md-9">
-																					<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="editObjectives[$index].description" type="text" id="objectives_description" name="objectives_description"></textarea>
-																				</div>
-																			</div>
-																		</div>
-																	</div>
-													
-																	<div class="row">
-																		<div class="col-xs-12 col-sm-6 mb15">
-																			<div class="row">
-																				<div class="col-xs-12 col-sm-6">
-																					<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_level">Level</label>
-																				</div>
-																				<div class="col-xs-12 col-sm-6">
-																					<input class="formAddCourse__fieldset__level2__contentFields__input" ng-model="editObjectives[$index].level" type="number" id="objectives_level" name="objectives_level">
-																				</div>
-																			</div>
-																		</div>
-																		<div class="col-xs-12 col-sm-6 mb15">
-																			<div class="row">
-																				<div class="col-xs-12 col-sm-6">
-																					<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_bloom">Type</label>
-																				</div>
-																				<div class="col-xs-12 col-sm-6">
-																					<select class="formAddCourse__fieldset__level2__contentFields__input" ng-model="editObjectives[$index].bloom" id="objectives_bloom" type="text" name="objectives_bloom">
-																				  		<option>knowledge</option>
-																				  		<option>comprehension</option>
-																	                  <option>application</option>
-																	                  <option>analysis</option>
-																	                  <option>sintehsis</option>
-																	                  <option>evaluation</option>
-																					</select>
-																				</div>
-																			</div>
-																		</div>
-																	</div>	
-																</div>
-										        			</fieldset>
-										        		</li>
-										        	</ul>							
-							        			</div>
-							        		</fieldset> 
-							        		<button class="btnBq--style1" ng-click="showEditObjectives= !showEditObjectives" type="button">Ocultar Objetivos</button>
-										</div>
-									</div>
+
+<fieldset class="formAddLom__fieldset">
+	<legend class="formAddLom__fieldset__legend"> 
+		<a class="formAddLom__fieldset__legend__link" ng-click="visible= !visible" href><span ng-class="{'bbq-minus bbq-minus--form':visible, 'bbq-plus bbq-plus--form': !visible}"></span></a>
+		Objetivo {{$index+1}}
+	</legend>
+	<div class="formAddLom__fieldset__contentFields" ng-show="visible">
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 mb15">
+				<div class="row">
+	
+					<div class="col-xs-12 col-sm-6">
+						<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_code">Code</label>	
+					</div>
+					<div class="col-xs-12 col-sm-6">
+						<input class="formAddCourse__fieldset__level2__contentFields__input" ng-model="obj.code" type="text" id="objectives_code" name="objectives_code">		
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 mb15">
+				<div class="row">
+					<div class="col-xs-12 col-sm-4 col-md-3">
+						<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_description">Description</label>
+					</div>
+					<div class="col-xs-12 col-sm-8 col-md-9">
+						<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="obj.description" type="text" id="objectives_description" name="objectives_description"></textarea>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-12 col-sm-6 mb15">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_level">Level</label>
+					</div>
+					<div class="col-xs-12 col-sm-6">
+						<input class="formAddCourse__fieldset__level2__contentFields__input" ng-model="obj.level" type="number" id="objectives_level" name="objectives_level">
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-6 mb15">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6">
+						<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_bloom">Type</label>
+					</div>
+					<div class="col-xs-12 col-sm-6">
+						<select class="formAddCourse__fieldset__level2__contentFields__input" ng-model="obj.bloom" id="objectives_bloom" type="text" name="objectives_bloom">
+					  		<option>knowledge</option>
+					  		<option>comprehension</option>
+		                  <option>application</option>
+		                  <option>analysis</option>
+		                  <option>sintehsis</option>
+		                  <option>evaluation</option>
+						</select>
+					</div>
+				</div>
+			</div>
+		</div>	
+	</div>
+</fieldset>
+	        		
