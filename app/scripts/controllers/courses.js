@@ -339,7 +339,7 @@
         $scope.addLesson=function(){
             if ($scope.adminCoursesFormSectionLesson.$valid) {
                 coursesApi.addLesson(idActualCourse,actualSection.name, $scope.lesson.name, $scope.lesson.summary,objectivesLesson, $scope.lesson.learningPath, $scope.lesson.type).then(function(response) {
-                    $scope.asignLomsToLesson(idActualCourse,actualSection.name,$scope.lesson.name,$scope.lomsToAdd);
+                    $scope.assignLomsToLesson(idActualCourse,actualSection.name,$scope.lesson.name,$scope.lomsToAdd);
                     $scope.resetLesson();
                 }, function(error) {
                     $log.debug('error después de addSection', error);
@@ -368,11 +368,11 @@
                      $log.debug('error después de asignación de lom a una lección', error);
             }); 
         };
-        $scope.asignLomsToLesson=function(idCourse,section,lesson, loms){
+        $scope.assignLomsToLesson=function(idCourse,section,lesson, loms){
             $log.debug('--- metodo que asigna una lista de loms a una lección ----');
             $log.debug('Numero de loms para asignar: '+loms.length);
             var listIdLoms= $scope.listIdLoms(loms);
-            coursesApi.asignLomsLesson(idCourse,section,lesson,listIdLoms).then(function(response) {
+            coursesApi.assignLomsLesson(idCourse,section,lesson,listIdLoms).then(function(response) {
                     $log.debug('ok después de asignar la lista de '+listIdLoms.length+' loms a una lección', response);
                     $log.debug('    -----    '); 
                 }, function(error) {

@@ -82,7 +82,7 @@
 													<div class="formAddCourse__fieldset__contentFields__selectLoms__toSelect">
 														<p class="formAddCourse__fieldset__contentFields__selectLoms__toSelect__labelSelect" for="sections_name">Seleccionar</p>
 														<ul class="formAddCourse__fieldset__contentFields__loms">
-															<li class="formAddCourse__fieldset__contentFields__loms__element" ng-repeat="i in lesson.loms">
+															<li class="formAddCourse__fieldset__contentFields__loms__element" ng-repeat="i in lomsAux">
 																<a ng-click="selected=!selected; addToListAux(i,selected)" ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link" href>{{i.general.id_catalog}}</a>
 															</li>
 														</ul>

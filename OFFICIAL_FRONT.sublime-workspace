@@ -4,6 +4,22 @@
 		"selected_items":
 		[
 			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"tex",
+				"text-align-last"
+			],
+			[
+				"margin-",
+				"margin-right"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
 				"content",
 				"contentTitle"
 			],
@@ -54,38 +70,43 @@
 			[
 				"le",
 				"length\t: int Array"
-			],
-			[
-				"tex",
-				"text-decoration"
 			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"file": "app/scripts/controllers/course.js",
-			"settings":
-			{
-				"buffer_size": 219,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
 			"file": "app/scripts/controllers/courses.js",
 			"settings":
 			{
-				"buffer_size": 17387,
+				"buffer_size": 25090,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/scripts/app.js",
+			"file": "app/scripts/services/coursesApi.js",
 			"settings":
 			{
-				"buffer_size": 2255,
+				"buffer_size": 8240,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/pages/addLessons.html",
+			"settings":
+			{
+				"buffer_size": 7985,
+				"encoding": "UTF-8",
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "app/views/pages/addSections.html",
+			"settings":
+			{
+				"buffer_size": 3064,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -94,25 +115,16 @@
 			"file": "app/views/pages/courses.html",
 			"settings":
 			{
-				"buffer_size": 10128,
+				"buffer_size": 3560,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "app/styles/pages/_course.scss",
+			"file": "app/views/modules/editLessons.html",
 			"settings":
 			{
-				"buffer_size": 1956,
-				"encoding": "UTF-8",
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "app/views/pages/course.html",
-			"settings":
-			{
-				"buffer_size": 2099,
+				"buffer_size": 7470,
 				"encoding": "UTF-8",
 				"line_ending": "Windows"
 			}
@@ -170,23 +182,29 @@
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/services",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/globals",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/pages",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/pages",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/partials"
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/pages"
 	],
 	"file_history":
 	[
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/modules/editObjectivesLesson.html",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/pages/_objectives.scss",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/globals/_base.scss",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/pages/_course.scss",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/app.js",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/pages/objectives.html",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/controllers/course.js",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/modules/editLessons.html",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/main.scss",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/pages/course.html",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/globals/_icon-fonts.scss",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/controllers/courses.js",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/services/coursesApi.js",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/controllers/course.js",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/globals/_base.scss",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/pages/_lesson.scss",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/pages/lesson.html",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/pages/objectives.html",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/pages/_objectives.scss",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/app.js",
-		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/main.scss",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/node_modules/grunt-google-cdn/node_modules/google-cdn/node_modules/bower/node_modules/cardinal/test/cardinal-highlight-file-async.js",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/pages/_lesson.html",
 		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/assets/icons/styles.css",
@@ -214,7 +232,7 @@
 	],
 	"find":
 	{
-		"height": 34.0
+		"height": 36.0
 	},
 	"find_in_files":
 	{
@@ -228,6 +246,30 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"Lesson.",
+			"lesson.",
+			"i in",
+			"lomsA",
+			"lesson.lo",
+			"'$scopelessonname'",
+			"lesson.",
+			"addLess",
+			"asign",
+			"asignLomsLesson",
+			"coursesApi.asignLomsLesson",
+			"$scope.asignLomsToLesson",
+			"assignLomsToLesson",
+			"$scope.lesson",
+			"addLess",
+			"lessons.",
+			"sections.",
+			"section.",
+			"lesson.na",
+			"mode",
+			"lesson",
+			"repeat",
+			"lom",
+			"wrapperCourse__lessons__contentLessons__element__contentImage",
 			"vertical-align: middle;\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align:center;",
 			"\tcolor:$color-black;\n\t\t\t  \tfont-size: 2.9em;\n\t\t\t\tvertical-align: middle;\n\t\t\t\tdisplay: block;\n\t\t\t\ttext-align:center;",
 			";\n",
@@ -343,19 +385,19 @@
 			[
 				{
 					"buffer": 0,
-					"file": "app/scripts/controllers/course.js",
+					"file": "app/scripts/controllers/courses.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 219,
+						"buffer_size": 25090,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								181,
-								193
+								16593,
+								16598
 							]
 						],
 						"settings":
@@ -368,8 +410,8 @@
 								{
 									"1":
 									[
-										216,
-										217
+										16613,
+										16614
 									]
 								},
 								"icon":
@@ -384,8 +426,8 @@
 								{
 									"1":
 									[
-										124,
-										125
+										16262,
+										16263
 									]
 								},
 								"unmatched":
@@ -399,21 +441,46 @@
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -423,177 +490,34 @@
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
-							],
-							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "app/scripts/controllers/courses.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 17387,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								16923,
-								16923
-							]
-						],
-						"settings":
-						{
-							"auto_complete": false,
-							"bracket_highlighter.busy": false,
-							"bracket_highlighter.locations":
-							{
-								"close":
-								{
-									"1":
-									[
-										16923,
-										16924
-									]
-								},
-								"icon":
-								{
-									"1":
-									[
-										"Packages/BracketHighlighter/icons/round_bracket.png",
-										"brackethighlighter.default"
-									]
-								},
-								"open":
-								{
-									"1":
-									[
-										16913,
-										16914
-									]
-								},
-								"unmatched":
-								{
-								}
-							},
-							"bracket_highlighter.regions":
-							[
-								"bh_c_define",
-								"bh_c_define_center",
-								"bh_c_define_open",
-								"bh_c_define_close",
-								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
-								"bh_curly",
-								"bh_curly_center",
-								"bh_curly_open",
-								"bh_curly_close",
-								"bh_curly_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
+								"bh_tag_content"
 							],
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": -0.0,
-						"translation.y": 7477.0,
+						"translation.x": 0.0,
+						"translation.y": 8201.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 3,
+					"stack_index": 2,
 					"type": "text"
 				},
 				{
-					"buffer": 2,
-					"file": "app/scripts/app.js",
+					"buffer": 1,
+					"file": "app/scripts/services/coursesApi.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2255,
+						"buffer_size": 8240,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1779,
-								1779
+								3890,
+								3890
 							]
 						],
 						"settings":
@@ -606,8 +530,8 @@
 								{
 									"1":
 									[
-										1783,
-										1784
+										3898,
+										3899
 									]
 								},
 								"icon":
@@ -622,8 +546,8 @@
 								{
 									"1":
 									[
-										1772,
-										1773
+										3885,
+										3886
 									]
 								},
 								"unmatched":
@@ -637,21 +561,46 @@
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -661,64 +610,38 @@
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
+								"bh_tag_content"
 							],
 							"syntax": "Packages/JavaScript/JavaScript.sublime-syntax",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
-						"translation.x": 0.0,
-						"translation.y": 679.0,
+						"translation.x": 331.0,
+						"translation.y": 1461.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 4,
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "app/views/pages/courses.html",
+					"buffer": 2,
+					"file": "app/views/pages/addLessons.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 10128,
+						"buffer_size": 7985,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3037,
-								3037
+								2565,
+								2565
 							]
 						],
 						"settings":
 						{
-							"auto_complete": false,
 							"bracket_highlighter.busy": false,
 							"bracket_highlighter.locations":
 							{
@@ -726,8 +649,8 @@
 								{
 									"1":
 									[
-										3111,
-										3112
+										2569,
+										2570
 									]
 								},
 								"icon":
@@ -742,8 +665,8 @@
 								{
 									"1":
 									[
-										3024,
-										3025
+										2554,
+										2555
 									]
 								},
 								"unmatched":
@@ -757,21 +680,46 @@
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -781,59 +729,33 @@
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_unmatched",
-								"bh_unmatched_center",
-								"bh_unmatched_open",
-								"bh_unmatched_close",
-								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
+								"bh_tag_content"
 							],
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 503.0,
+						"translation.y": 1093.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
-					"buffer": 4,
-					"file": "app/styles/pages/_course.scss",
+					"buffer": 3,
+					"file": "app/views/pages/addSections.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 1956,
+						"buffer_size": 3064,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1953,
-								1886
+								1977,
+								1986
 							]
 						],
 						"settings":
@@ -845,15 +767,15 @@
 								{
 									"1":
 									[
-										1955,
-										1956
+										1990,
+										1991
 									]
 								},
 								"icon":
 								{
 									"1":
 									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"Packages/BracketHighlighter/icons/double_quote.png",
 										"brackethighlighter.default"
 									]
 								},
@@ -861,8 +783,8 @@
 								{
 									"1":
 									[
-										1881,
-										1882
+										1976,
+										1977
 									]
 								},
 								"unmatched":
@@ -881,36 +803,31 @@
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
-								"bh_double_quote",
-								"bh_double_quote_center",
-								"bh_double_quote_open",
-								"bh_double_quote_close",
-								"bh_double_quote_content",
-								"bh_tag",
-								"bh_tag_center",
-								"bh_tag_open",
-								"bh_tag_close",
-								"bh_tag_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
 								"bh_round",
 								"bh_round_center",
 								"bh_round_open",
 								"bh_round_close",
 								"bh_round_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
 								"bh_square",
 								"bh_square_center",
 								"bh_square_open",
@@ -921,37 +838,42 @@
 								"bh_regex_open",
 								"bh_regex_close",
 								"bh_regex_content",
-								"bh_angle",
-								"bh_angle_center",
-								"bh_angle_open",
-								"bh_angle_close",
-								"bh_angle_content"
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
-							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 1169.0,
+						"translation.y": 713.0,
 						"zoom_level": 1.0
 					},
 					"stack_index": 5,
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "app/views/pages/course.html",
+					"buffer": 4,
+					"file": "app/views/pages/courses.html",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2099,
+						"buffer_size": 3560,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								457,
-								457
+								0,
+								0
 							]
 						],
 						"settings":
@@ -964,15 +886,15 @@
 								{
 									"1":
 									[
-										462,
-										463
+										3556,
+										3559
 									]
 								},
 								"icon":
 								{
 									"1":
 									[
-										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"Packages/BracketHighlighter/icons/tag.png",
 										"brackethighlighter.default"
 									]
 								},
@@ -980,8 +902,8 @@
 								{
 									"1":
 									[
-										444,
-										445
+										1,
+										4
 									]
 								},
 								"unmatched":
@@ -995,21 +917,46 @@
 								"bh_c_define_open",
 								"bh_c_define_close",
 								"bh_c_define_content",
-								"bh_regex",
-								"bh_regex_center",
-								"bh_regex_open",
-								"bh_regex_close",
-								"bh_regex_content",
-								"bh_single_quote",
-								"bh_single_quote_center",
-								"bh_single_quote_open",
-								"bh_single_quote_close",
-								"bh_single_quote_content",
 								"bh_curly",
 								"bh_curly_center",
 								"bh_curly_open",
 								"bh_curly_close",
 								"bh_curly_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
 								"bh_double_quote",
 								"bh_double_quote_center",
 								"bh_double_quote_open",
@@ -1019,34 +966,127 @@
 								"bh_tag_center",
 								"bh_tag_open",
 								"bh_tag_close",
-								"bh_tag_content",
+								"bh_tag_content"
+							],
+							"syntax": "Packages/HTML/HTML.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 523.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "app/views/modules/editLessons.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7470,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								497,
+								497
+							],
+							[
+								7283,
+								7283
+							]
+						],
+						"settings":
+						{
+							"auto_complete": false,
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+									"1":
+									[
+										494,
+										496
+									],
+									"2":
+									[
+										7280,
+										7282
+									]
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
 								"bh_angle",
 								"bh_angle_center",
 								"bh_angle_open",
 								"bh_angle_close",
 								"bh_angle_content",
-								"bh_square",
-								"bh_square_center",
-								"bh_square_open",
-								"bh_square_close",
-								"bh_square_content",
-								"bh_default",
-								"bh_default_center",
-								"bh_default_open",
-								"bh_default_close",
-								"bh_default_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
 								"bh_unmatched",
 								"bh_unmatched_center",
 								"bh_unmatched_open",
 								"bh_unmatched_close",
 								"bh_unmatched_content",
-								"bh_round",
-								"bh_round_center",
-								"bh_round_open",
-								"bh_round_close",
-								"bh_round_content"
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content"
 							],
-							"open_with_edit": true,
 							"syntax": "Packages/HTML/HTML.sublime-syntax",
 							"translate_tabs_to_spaces": false
 						},
@@ -1062,7 +1102,7 @@
 	],
 	"incremental_find":
 	{
-		"height": 26.0
+		"height": 28.0
 	},
 	"input":
 	{
@@ -1099,7 +1139,7 @@
 	"project": "OFFICIAL_FRONT.sublime-project",
 	"replace":
 	{
-		"height": 134.0
+		"height": 52.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -1145,7 +1185,7 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 237.0,
+	"side_bar_width": 310.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

@@ -83,10 +83,10 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             return coursesPromise.promise;     
         }
 
-        function asignLomsLesson(idCourse,section,lesson,listLoms) { 
+        function assignLomsLesson(idCourse,section,lesson,listLoms) { 
             var coursesPromise = $q.defer();
             $log.debug("Objetos para hacer post asign lom: "+ idCourse,section,lesson,listLoms);
-            $http.post(common.bitbloqBackendUrl + '/courses/'+idCourse+'/section/'+section+'/lesson/'+lesson+'/asign_loms', 
+            $http.post(common.bitbloqBackendUrl + '/courses/'+idCourse+'/section/'+section+'/lesson/'+lesson+'/assign_loms', 
               listLoms
                 ).then(function(response) {
                     $log.debug('ok despues de asignar una lista de '+listLoms.length+' loms a una leccion', response.data.token);
@@ -175,7 +175,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             removeItem : removeItem,
             removeAllItem : removeAllItem,
             editCourse : editCourse,
-            asignLomsLesson : asignLomsLesson,
+            assignLomsLesson : assignLomsLesson,
             addSection : addSection,
             addLesson : addLesson,
             getStudentsCoursesActives: getStudentsCoursesActives,
