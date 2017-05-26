@@ -43,7 +43,7 @@
 															<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_learningPath">Learning Path</label>
 														</div>
 														<div class="col-xs-12 col-sm-6">
-															<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.learning_path" type="number" id="sections_lesson_learningPath" name="sections_lesson_learningPath">
+															<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.learning_path" type="text" id="sections_lesson_learningPath" name="sections_lesson_learningPath">
 														</div>
 													</div>
 												</div>
@@ -82,7 +82,7 @@
 													<div class="formAddCourse__fieldset__contentFields__selectLoms__toSelect">
 														<p class="formAddCourse__fieldset__contentFields__selectLoms__toSelect__labelSelect" for="sections_name">Seleccionar</p>
 														<ul class="formAddCourse__fieldset__contentFields__loms">
-															<li class="formAddCourse__fieldset__contentFields__loms__element" ng-repeat="i in lomsAux">
+															<li class="formAddCourse__fieldset__contentFields__loms__element" ng-repeat="i in lesson.loms">
 																<a ng-click="selected=!selected; addToListAux(i,selected)" ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link" href>{{i.general.id_catalog}}</a>
 															</li>
 														</ul>
@@ -108,7 +108,7 @@
 													<div class="formAddCourse__fieldset__contentFields__selectLoms__added">
 														<p class="formAddCourse__fieldset__contentFields__selectLoms__added__label" for="sections_summary">Añadidos</p>
 														<ul class="formAddCourse__fieldset__contentFields__loms">
-															<li class="formAddCourse__fieldset__contentFields__loms__element" ng-repeat="i in lomsToAdd">
+															<li class="formAddCourse__fieldset__contentFields__loms__element" ng-repeat="i in lesson.loms">
 																<a ng-click="selected=!selected; removeFromListAux(i,selected)" ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link">{{i.general.id_catalog}}
 																	<a ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link__link" ng-click="removeLomFromListAdd(i)" href><span class="bbq-remove bbq-remove--lom" title="Eliminar lom"></span></a>
 																</a>
