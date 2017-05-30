@@ -109,7 +109,7 @@
 														<p class="formAddCourse__fieldset__contentFields__selectLoms__added__label" for="sections_summary">Añadidos</p>
 														<ul class="formAddCourse__fieldset__contentFields__loms">
 															<li class="formAddCourse__fieldset__contentFields__loms__element" ng-repeat="i in lesson.loms">
-																<a ng-click="selected=!selected; removeFromListAux(i,selected)" ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link">{{i.general.id_catalog}}
+																<a ng-click="selected=!selected; removeFromListAux(i,selected)" ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link">{{i._id}}
 																	<a ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link__link" ng-click="removeLomFromListAdd(i)" href><span class="bbq-remove bbq-remove--lom" title="Eliminar lom"></span></a>
 																</a>
 															</li>
