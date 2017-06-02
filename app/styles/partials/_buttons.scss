@@ -182,6 +182,9 @@
   &:hover{
     background: $bg-color-blackLight;
   }
+  &.edit{
+    margin: 20px 0 0 10px;
+  }
 }
 .btnBq--withIcon{
  @extend .btnBq--style1;

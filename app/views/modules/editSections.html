@@ -9,7 +9,7 @@
 			<div class="formAddCourse__fieldset__level2__contentFields" ng-show="showFieldsObjectives">
 				<ul>
     				<li ng-repeat="section in sectionsSelected" ng-init="visible = false">
-    					<fieldset class="formAddLom__fieldset pdb20">
+    					<fieldset class="formAddLom__fieldset pdb10">
 			        		<legend class="formAddLom__fieldset__legend"> 
 				        		<a class="formAddLom__fieldset__legend__link" ng-click="visible= !visible" href><span ng-class="{'bbq-minus bbq-minus--form':visible, 'bbq-plus bbq-plus--form': !visible}"></span></a>
 				        		Section {{$index+1}}
@@ -40,6 +40,7 @@
 								<ng-include src=" 'views/modules/editObjectivesSection.html' "></ng-include>
 								<ng-include src=" 'views/modules/editLessons.html' "></ng-include>		
 							</div>
+							<button ng-show="visible" class="btnBq--style2 edit">Guardar Sección</button>
         				</fieldset>
     				</li>
     			</ul>							

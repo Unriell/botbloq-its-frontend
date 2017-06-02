@@ -5,365 +5,366 @@
 	<div class="contentTitle">
     	<h2 class="h2Class">Nuevo Objeto de Aprendizaje</h2>
 	</div>
-	<div class="asideLeft">
-		<ul>
-			<li class="asideLeft__element">
-				<a href="#" title="Show Options" class="asideLeft__element__link">
-					<span class="bbq-align-left bbq-align-left--style1"></span>
-				</a>
-			</li>
-			<li class="asideLeft__element">
-				<a class="asideLeft__element__link" href="#" title="Info">
-					<span class="bbq-info-1 bbq-info-1--style1"></span>
-				</a>
-			</li>
-		</ul>
-	</div>
-	<div class="contentAddItem__wrapperAddItem pdt10">
-		<form id="adminLomsForm" name="adminLomsForm" class="formAddLom" ng-submit="addEditLom()"  novalidate>
-	    <fieldset>
-	        	<legend class="sr-only">FORMULARIO AGREGAR</legend>
-	        	<ul>
-	        		<li>
-	        			<fieldset class="formAddLom__fieldset">
-			        		<legend class="formAddLom__fieldset__legend"> 
-				        		<a class="formAddLom__fieldset__legend__link" ng-click="showHideFields(1)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsGeneral, 'bbq-plus bbq-plus--form': !showFieldsGeneral}"></span></a>
-				        		General
-			        		</legend>
-							<div class="formAddLom__fieldset__contentFields" ng-show="showFieldsGeneral">
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
+	<div class="contentAsideWrapper clearfix">
+		<div class="asideLeft">
+			<ul>
+				<li class="asideLeft__element">
+					<a href="#" title="Show Options" class="asideLeft__element__link">
+						<span class="bbq-align-left bbq-align-left--style1"></span>
+					</a>
+				</li>
+				<li class="asideLeft__element">
+					<a class="asideLeft__element__link" href="#" title="Info">
+						<span class="bbq-info-1 bbq-info-1--style1"></span>
+					</a>
+				</li>
+			</ul>
+		</div>
+		<div class="contentAddItem__wrapperAddItem pdt10">
+			<form id="adminLomsForm" name="adminLomsForm" class="formAddLom" ng-submit="addEditLom()"  novalidate>
+			    <fieldset>
+			        	<legend class="sr-only">FORMULARIO AGREGAR</legend>
+			        	<ul>
+			        		<li>
+			        			<fieldset class="formAddLom__fieldset">
+					        		<legend class="formAddLom__fieldset__legend"> 
+						        		<a class="formAddLom__fieldset__legend__link" ng-click="showHideFields(1)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsGeneral, 'bbq-plus bbq-plus--form': !showFieldsGeneral}"></span></a>
+						        		General
+					        		</legend>
+									<div class="formAddLom__fieldset__contentFields" ng-show="showFieldsGeneral">
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="generalSchema_catalog">Identificador Catálogo*</label>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="generalSchema_catalog">Identificador Catálogo*</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="generalSchema.id_catalog" type="text" id="generalSchema_catalog" name="generalSchema_catalog" required>
+													</div>
+												</div>
 											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="generalSchema.id_catalog" type="text" id="generalSchema_catalog" name="generalSchema_catalog" required>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="generalSchema_entry">Identificador De Entrada*</label>	
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="generalSchema.id_entry" type="number" id="generalSchema_entry" name="generalSchema_entry">		
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row"> 
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="generalSchema_title">Título*</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="generalSchema.title" type="text" id="generalSchema_title" name="generalSchema_title">
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="generalSchema_language">Idioma*</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<select class="formAddLom__select" ng-model="generalSchema.language" id="generalSchema_language"  type="text" name="generalSchema_language">
+														  <option>es</option>
+														  <option>en</option>
+														</select>
+													</div>
+												</div>
+											</div>
+										</div>
+										<div class="row">
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="generalSchema_structure">Estructura*</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<select class="formAddLom__select" ng-model="generalSchema.structure" id="generalSchema_structure" type="text" name="generalSchema_structure">
+														  <option>atomic</option>
+														  <option>complex</option>
+														</select>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="generalSchema_aggregation_level">Nivel de agregación*</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="generalSchema.aggregation_level" type="number" id="generalSchema_aggregation_level" name="generalSchema_aggregation_level">
+													</div>
+												</div>										
 											</div>
 										</div>
 									</div>
-									<div class="col-xs-12 col-sm-6 mb15">
+			        			</fieldset>
+			        		</li>
+			        		<li>
+			        			<fieldset class="formAddLom__fieldset">
+					        		<legend class="formAddLom__fieldset__legend"> 
+						        		<a class="formAddLom__fieldset__legend__link" ng-click="showHideFields(2)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsLifecicle, 'bbq-plus bbq-plus--form': !showFieldsLifecicle}"></span></a>
+						        		Ciclo de Vida
+					        		</legend>
+									<div class="formAddLom__fieldset__contentFields" ng-show="showFieldsLifecicle">
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="generalSchema_entry">Identificador De Entrada*</label>	
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="lifecycleSchema_version">Versión</label>		
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="lifecycleSchema.version" type="number" id="lifecycleSchema_version" name="lifecycleSchema_version">		
+													</div>
+												</div>
 											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="generalSchema.id_entry" type="number" id="generalSchema_entry" name="generalSchema_entry">		
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="lifecycleSchema_state">Estado</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<select class="formAddLom__select" ng-model="lifecycleSchema.state" id="lifecycleSchema_state" type="text" name="lifecycleSchema_state">
+											  				<option>draft</option>
+											  				<option>final</option>
+														</select>	
+													</div>
+												</div>
 											</div>
 										</div>
-									</div>
-								</div>
-								<div class="row"> 
-									<div class="col-xs-12 col-sm-6 mb15">
+										
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="generalSchema_title">Título*</label>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="lifecycleSchema_contribution_type">Contribución.Tipo*</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="lifecycleSchema.contribution_type" type="text" id="lifecycleSchema_contribution_type" name="lifecycleSchema_contribution_type">
+													</div>
+												</div>
 											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="generalSchema.title" type="text" id="generalSchema_title" name="generalSchema_title">
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="lifecycleSchema_contribution_entity">Contribución.Entidad*</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="lifecycleSchema.contribution_entity" type="text" id="lifecycleSchema_contribution_entity" name="lifecycleSchema_contribution_entity">
+													</div>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="col-xs-12 col-sm-6 mb15">
+											
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="generalSchema_language">Idioma*</label>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="lifecycleSchema_contribution_date">Contribución.Fecha*</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="lifecycleSchema.contribution_date" type="date" id="lifecycleSchema_contribution_date" name="lifecycleSchema_contribution_date">
+													</div>
+												</div>
 											</div>
-											<div class="col-xs-12 col-sm-6">
-												<select class="formAddLom__select" ng-model="generalSchema.language" id="generalSchema_language"  type="text" name="generalSchema_language">
-												  <option>es</option>
-												  <option>en</option>
-												</select>
-											</div>
-										</div>
-									</div>
-								</div>
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="generalSchema_structure">Estructura*</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<select class="formAddLom__select" ng-model="generalSchema.structure" id="generalSchema_structure" type="text" name="generalSchema_structure">
-												  <option>atomic</option>
-												  <option>complex</option>
-												</select>
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="generalSchema_aggregation_level">Nivel de agregación*</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="generalSchema.aggregation_level" type="number" id="generalSchema_aggregation_level" name="generalSchema_aggregation_level">
-											</div>
-										</div>										
-									</div>
-								</div>
-							</div>
-	        			</fieldset>
-	        		</li>
-	        		<li>
-	        			<fieldset class="formAddLom__fieldset">
-			        		<legend class="formAddLom__fieldset__legend"> 
-				        		<a class="formAddLom__fieldset__legend__link" ng-click="showHideFields(2)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsLifecicle, 'bbq-plus bbq-plus--form': !showFieldsLifecicle}"></span></a>
-				        		Ciclo de Vida
-			        		</legend>
-							<div class="formAddLom__fieldset__contentFields" ng-show="showFieldsLifecicle">
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="lifecycleSchema_version">Versión</label>		
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="lifecycleSchema.version" type="number" id="lifecycleSchema_version" name="lifecycleSchema_version">		
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="lifecycleSchema_state">Estado</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<select class="formAddLom__select" ng-model="lifecycleSchema.state" id="lifecycleSchema_state" type="text" name="lifecycleSchema_state">
-									  				<option>draft</option>
-									  				<option>final</option>
-												</select>	
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="lifecycleSchema_contribution_type">Contribución.Tipo*</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="lifecycleSchema.contribution_type" type="text" id="lifecycleSchema_contribution_type" name="lifecycleSchema_contribution_type">
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="lifecycleSchema_contribution_entity">Contribución.Entidad*</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="lifecycleSchema.contribution_entity" type="text" id="lifecycleSchema_contribution_entity" name="lifecycleSchema_contribution_entity">
-											</div>
-										</div>
-									</div>
-								</div>
+										</div>	
+									</div>													
+				        		</fieldset>
+			        		</li>
+			        		<li>
+			        			<fieldset class="formAddLom__fieldset">
+					        		<legend class="formAddLom__fieldset__legend"> 
+						        		<a class="formAddLom__fieldset__legend__link" ng-click="showHideFields(3)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsMetadata, 'bbq-plus bbq-plus--form': !showFieldsMetadata}"></span></a>
+						        		Meta-metadatos
+					        		</legend>
+									<div class="formAddLom__fieldset__contentFields" ng-show="showFieldsMetadata">
 									
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="lifecycleSchema_contribution_date">Contribución.Fecha*</label>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="metadataSchema_contribution_type">Contribución.Tipo</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="metadataSchema.contribution_type" type="text" id="metadataSchema_contribution_type" name="metadataSchema_contribution_type">
+													</div>
+												</div>
 											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="lifecycleSchema.contribution_date" type="date" id="lifecycleSchema_contribution_date" name="lifecycleSchema_contribution_date">
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="metadataSchema_contribution_entity">Contribución.Entidad*</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="metadataSchema.contribution_entity" type="text" id="metadataSchema_contribution_entity" name="metadataSchema_contribution_entity">
+													</div>
+												</div>
+											</div>
+										</div>
+										
+										<div class="row">
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="metadataSchema_contribution_date">Contribución.Fecha*</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="metadataSchema.contribution_date" type="date" id="metadataSchema_contribution_date" name="metadataSchema_contribution_date">
+													</div>
+												</div>
 											</div>
 										</div>
 									</div>
-								</div>	
-							</div>													
-		        		</fieldset>
-	        		</li>
-	        		<li>
-	        			<fieldset class="formAddLom__fieldset">
-			        		<legend class="formAddLom__fieldset__legend"> 
-				        		<a class="formAddLom__fieldset__legend__link" ng-click="showHideFields(3)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsMetadata, 'bbq-plus bbq-plus--form': !showFieldsMetadata}"></span></a>
-				        		Meta-metadatos
-			        		</legend>
-							<div class="formAddLom__fieldset__contentFields" ng-show="showFieldsMetadata">
-							
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
+			        			</fieldset>
+			        		</li>
+			        		<li>
+			        			<fieldset class="formAddLom__fieldset">
+					        		<legend class="formAddLom__fieldset__legend"> 
+						        		<a class="formAddLom__fieldset__legend__link" ng-click="showHideFields(4)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsTechnical, 'bbq-plus bbq-plus--form': !showFieldsTechnical}"></span></a>
+						        		Técnico 
+					        		</legend>
+									<div class="formAddLom__fieldset__contentFields" ng-show="showFieldsTechnical">
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="metadataSchema_contribution_type">Contribución.Tipo</label>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="technicalSchema_format">Formato</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="technicalSchema.format" type="text" id="technicalSchema_format" name="technicalSchema_format">
+													</div>
+												</div>
 											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="metadataSchema.contribution_type" type="text" id="metadataSchema_contribution_type" name="metadataSchema_contribution_type">
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="technicalSchema_size_kb">Tamaño</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="technicalSchema.size_kb" type="number" id="technicalSchema_size_kb" name="technicalSchema_size_kb">
+													</div>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="col-xs-12 col-sm-6 mb15">
+										
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="metadataSchema_contribution_entity">Contribución.Entidad*</label>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="technicalSchema_url">Localización</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="technicalSchema.url" type="text" id="technicalSchema_url" name="technicalSchema_url">
+													</div>
+												</div>
 											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="metadataSchema.contribution_entity" type="text" id="metadataSchema_contribution_entity" name="metadataSchema_contribution_entity">
+										</div>	
+									</div>
+			        			</fieldset>
+			        		</li>
+			        		<li>
+			        			<fieldset class="formAddLom__fieldset">
+					        		<legend class="formAddLom__fieldset__legend"> 
+						        		<a class="formAddLom__fieldset__legend__link" ng-click="showHideFields(5)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsUse, 'bbq-plus bbq-plus--form': !showFieldsUse}"></span></a>
+						        		Uso Educativo
+					        		</legend>
+									<div class="formAddLom__fieldset__contentFields" ng-show="showFieldsUse">
+				
+										<div class="row">
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="useSchema_interactivity_type">Tipo de interactividad</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="useSchema.interactivity_type" type="text" id="useSchema_interactivity_type" name="useSchema_interactivity_type">
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="useSchema_interactivity_level">Nivel de interactividad</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="useSchema.interactivity_level" type="text" id="useSchema_interactivity_level" name="useSchema_interactivity_level">
+													</div>
+												</div>
 											</div>
 										</div>
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="metadataSchema_contribution_date">Contribución.Fecha*</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="metadataSchema.contribution_date" type="date" id="metadataSchema_contribution_date" name="metadataSchema_contribution_date">
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-	        			</fieldset>
-	        		</li>
-	        		<li>
-	        			<fieldset class="formAddLom__fieldset">
-			        		<legend class="formAddLom__fieldset__legend"> 
-				        		<a class="formAddLom__fieldset__legend__link" ng-click="showHideFields(4)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsTechnical, 'bbq-plus bbq-plus--form': !showFieldsTechnical}"></span></a>
-				        		Técnico 
-			        		</legend>
-							<div class="formAddLom__fieldset__contentFields" ng-show="showFieldsTechnical">
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="technicalSchema_format">Formato</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="technicalSchema.format" type="text" id="technicalSchema_format" name="technicalSchema_format">
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="technicalSchema_size_kb">Tamaño</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="technicalSchema.size_kb" type="number" id="technicalSchema_size_kb" name="technicalSchema_size_kb">
-											</div>
-										</div>
-									</div>
-								</div>
-								
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="technicalSchema_url">Localización</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="technicalSchema.url" type="text" id="technicalSchema_url" name="technicalSchema_url">
-											</div>
-										</div>
-									</div>
-								</div>	
-							</div>
-	        			</fieldset>
-	        		</li>
-	        		<li>
-	        			<fieldset class="formAddLom__fieldset">
-			        		<legend class="formAddLom__fieldset__legend"> 
-				        		<a class="formAddLom__fieldset__legend__link" ng-click="showHideFields(5)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsUse, 'bbq-plus bbq-plus--form': !showFieldsUse}"></span></a>
-				        		Uso Educativo
-			        		</legend>
-							<div class="formAddLom__fieldset__contentFields" ng-show="showFieldsUse">
-		
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="useSchema_interactivity_type">Tipo de interactividad</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="useSchema.interactivity_type" type="text" id="useSchema_interactivity_type" name="useSchema_interactivity_type">
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="useSchema_interactivity_level">Nivel de interactividad</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="useSchema.interactivity_level" type="text" id="useSchema_interactivity_level" name="useSchema_interactivity_level">
-											</div>
-										</div>
-									</div>
-								</div>
 
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="useSchema_language">Idioma*</label>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="useSchema_language">Idioma*</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="useSchema.language" type="text" id="useSchema_language" name="useSchema_language">
+													</div>
+												</div>
 											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="useSchema.language" type="text" id="useSchema_language" name="useSchema_language">
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="useSchema_resource_type">Tipo de recurso*</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="useSchema.resource_type" type="text" id="useSchema_resource_type" name="useSchema_resource_type">
+													</div>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="useSchema_resource_type">Tipo de recurso*</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="useSchema.resource_type" type="text" id="useSchema_resource_type" name="useSchema_resource_type">
-											</div>
-										</div>
-									</div>
-								</div>
 
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="useSchema_resource_target">Objetivo de recursos</label>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="useSchema_resource_target">Objetivo de recursos</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="useSchema.resource_target" type="text" id="useSchema_resource_target" name="useSchema_resource_target">
+													</div>
+												</div>
 											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="useSchema.resource_target" type="text" id="useSchema_resource_target" name="useSchema_resource_target">
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="useSchema_resource_context">Contexto</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="useSchema.resource_context" type="text" id="useSchema_resource_context" name="useSchema_resource_context">
+													</div>
+												</div>
 											</div>
 										</div>
-									</div>
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="useSchema_resource_context">Contexto</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="useSchema.resource_context" type="text" id="useSchema_resource_context" name="useSchema_resource_context">
-											</div>
-										</div>
-									</div>
-								</div>
 
-								<div class="row">
-									<div class="col-xs-12 col-sm-6 mb15">
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddLom__label" for="useSchema_resource_difficulty">Dificultad</label>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="useSchema_resource_difficulty">Dificultad</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="useSchema.resource_difficulty" type="text" id="useSchema_resource_difficulty" name="useSchema_resource_difficulty">
+													</div>
+												</div>
 											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddLom__input" ng-model="useSchema.resource_difficulty" type="text" id="useSchema_resource_difficulty" name="useSchema_resource_difficulty">
-											</div>
-										</div>
+										</div>								
 									</div>
-								</div>								
-							</div>
-	        			</fieldset>
-	        		</li>
-	        	</ul>        		        		
-	        </fieldset>
-	        <button class="btnBq--style2 formAddCourse__submit" type="submit" name="sendFormAddLom">Crear Lom</button>
-	</form>
-</div>
-
+			        			</fieldset>
+			        		</li>
+			        	</ul>        		        		
+			   	</fieldset>
+		        <button class="btnBq--style2 formAddCourse__submit" type="submit" name="sendFormAddLom">Crear Lom</button>
+			</form>
+		</div>
+	</div>
 </div>

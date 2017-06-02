@@ -34,8 +34,7 @@
             </div>
             <div class="contentCourses__wrapperCourses">
                 <ul class="row">
-                    <li ng-repeat="i in courses | filter:'CUR'" class="col-xs-12 col-sm-4">
-                       
+                    <li ng-repeat="i in courses" class="col-xs-12 col-sm-4">          
                         <div class="contentCourses__wrapperCourses__course">
                             <div class="contentCourses__wrapperCourses__course__contentLinks">                         
                                <a class="contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i)" href>
@@ -64,9 +63,9 @@
                                         </ul>
                                     </div>
                                 </a>
-                                <a class="contentCourses__wrapperCourses__course__linkIcon" title="Editar Curso" ng-click="goEditCourse(i)" href><span class="bbq-edit bbq-edit--course"></span></a>
+                                <a class="contentCourses__wrapperCourses__course__linkIcon edit" title="Editar Curso" ng-click="goEditCourse(i)" href><span class="bbq-edit bbq-edit--course"></span></a>
+                                <a class="contentCourses__wrapperCourses__course__linkIcon delete" title="Eliminar Curso" ng-click="removeCourse(i,$event)" href><span class="bbq-close bbq-delete--course"></span></a>
                             </div>
-
                         </div>
                     </li>
                 </ul>

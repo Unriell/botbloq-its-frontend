@@ -10,6 +10,9 @@
     padding-bottom: 15px;
     text-align: center;
 }
+.contentAsideWrapper{
+	background:$bg-color-grayDark;
+}
 .contentRow{
 	margin-bottom:10px;
 }
@@ -408,6 +411,9 @@
 			.bbq-edit--course:before{
 				font-size: 1.1em;
 			}
+			.bbq-delete--course:before{
+				font-size: 1.1em;
+			}
 		}
 
 
@@ -651,6 +657,9 @@
 	    	display: inline-block;
 		}
 		.bbq-edit--course:before{
+			font-size: 1.3em;
+		}
+		.bbq-delete--course:before{
 			font-size: 1.3em;
 		}
 	}

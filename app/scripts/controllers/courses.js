@@ -452,10 +452,10 @@
             $scope.lomsAux.push(lom);
         };
 
-        $scope.editCourse = function(idItem) {
-            if ($scope.coursesForm.$valid) {
+        $scope.editCourse = function(course) {
+            if ($scope.coursesEditForm.$valid ) {
                 $log.debug('editing...');
-                coursesApi.editCourse(idItem,$scope.courseName,$scope.courseCode,$scope.courseSummary,$scope.objectives,$scope.sections,$scope.courseHistory).then(function(response) {
+                coursesApi.editCourse(course._id,$scope.courseName,$scope.courseCode,$scope.courseSummary,$scope.objectives).then(function(response) {
                     $log.debug('ok después de editCourse', response);
                     $scope.updateCourses();
                 }, function(error) {
@@ -472,14 +472,27 @@
             $scope.sections={};
             $scope.courseHistory='';
         };
+        $scope.editSection = function(idCourse, sectionsName, sectionsSummary, sectionsObjectives) {
+            $log.debug('editing section ...');
+            coursesApi.editSection(idCourse,sectionsName,sectionsSummary,sectionsObjectives).then(function(response) {
+                $log.debug('ok después de editSection', response);
+            }, function(error) {
+                $log.debug('error después de editSection', error);
+            });
+            $scope.showCoursesForm=false; 
+        };
         
-        $scope.removeCourse = function(item){
-            $log.debug('eliminado item con id: ', item);
-            coursesApi.removeItem(item).then(function(response) {
-                    $log.debug('eliminado item con exito', response);
+        $scope.removeCourse = function(course,e){
+            $log.debug('eliminado course con id: ', course);
+            if (confirm("¿SEGURO QUE QUIERE ELIMINAR ESTE CURSO?") === false) {
+                e.preventDefault();
+                return;
+            }
+            coursesApi.removeItem(course._id).then(function(response) {
+                    $log.debug('eliminado course con exito', response);
                     $scope.updateCourses();
                 }, function(error) {
-                    $log.debug('error al eliminar item', error);
+                    $log.debug('error al eliminar course', error);
              });
         };
         $scope.deleteAllCourses = function(e){
