@@ -424,6 +424,34 @@
             });
             $scope.listAuxLomsAdd=[];
         };
+        $scope.addToListEditLom=function(section,lesson,$event){
+            $event.preventDefault();
+            var lomsToAdd=[];
+            angular.forEach($scope.listAuxLomsAdd, function(element) {
+                lomsToAdd.push(element);
+            });
+            $scope.listAuxLomsAdd=[];
+            coursesApi.assignLomsLesson(common.courseSelected._id,section,lesson,lomsToAdd).then(function(response) {
+                    $log.debug('ok después de asignar la lista de '+lomsToAdd.length+' loms a una lección', response);
+                    $log.debug('    -----    '); 
+                }, function(error) {
+                     $log.debug('error después de asignación de lom a una lección', error);
+            });
+        };
+        $scope.deleteFromListEditLom=function(section,lesson,$event){
+            $event.preventDefault();
+            var lomsToAdd=[];
+            angular.forEach($scope.listAuxLomsAdd, function(element) {
+                lomsToAdd.push(element);
+            });
+            $scope.listAuxLomsAdd=[];
+            lomsApi.removeLomOfLesson(idCourse,section,lesson,lom).then(function(response) {
+                    $log.debug('ok después de asignar la lista de '+lomsToAdd.length+' loms a una lección', response);
+                    $log.debug('    -----    '); 
+                }, function(error) {
+                     $log.debug('error después de asignación de lom a una lección', error);
+            });
+        };
 
         $scope.removeFromListAux=function(lom,active){
             if(active){
@@ -472,16 +500,23 @@
             $scope.sections={};
             $scope.courseHistory='';
         };
-        $scope.editSection = function(idCourse, sectionsName, sectionsSummary, sectionsObjectives) {
+        $scope.editSection = function(index,newSectionsName, sectionsSummary, sectionsObjectives,sectionsLessons) {
             $log.debug('editing section ...');
-            coursesApi.editSection(idCourse,sectionsName,sectionsSummary,sectionsObjectives).then(function(response) {
+            var sectionName=getSectiontByIndex(common.courseSelected,index);
+            coursesApi.editSection(common.courseSelected._id,sectionName,newSectionsName,sectionsSummary,sectionsObjectives,sectionsLessons).then(function(response) {
                 $log.debug('ok después de editSection', response);
+                confirm("Sección editada!");
             }, function(error) {
                 $log.debug('error después de editSection', error);
+                confirm("Error al editar la sección.");
             });
             $scope.showCoursesForm=false; 
         };
-        
+
+        var getSectiontByIndex=function(course, index){
+            return course.sections[index].name;
+        };
+     
         $scope.removeCourse = function(course,e){
             $log.debug('eliminado course con id: ', course);
             if (confirm("¿SEGURO QUE QUIERE ELIMINAR ESTE CURSO?") === false) {

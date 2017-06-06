@@ -126,10 +126,10 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
        function addLomsToCourse(){
             
        }
-       function removeLomOfCourse(lom){
-            
+       function removeLomOfLesson(idCourse,section,lesson,lom){
+            return $http.delete(common.bitbloqBackendUrl + "/courses/"+idCourse+'/section/'+section+'/lesson/'+lesson+'/lom/'+lom); 
        }
-       
+
         var exports = {
             addLom : addLom,
             getLoms : getLoms,
@@ -138,7 +138,7 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
             removeAllItem : removeAllItem,
             editLom : editLom,
             addLomsToCourse: addLomsToCourse,
-            removeLomOfCourse: removeLomOfCourse
+            removeLomOfLesson: removeLomOfLesson
 
         };
 
