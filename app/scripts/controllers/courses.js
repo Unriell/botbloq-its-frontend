@@ -300,6 +300,30 @@
             }
             $scope.newObjective=false;
         };
+        $scope.addObjectiveEdit=function(breadCrumb){
+            switch (breadCrumb) {
+                case 1:
+                    //common.objectivesCourseSelected.push($scope.objectives);
+                    coursesApi.addObjectiveEdit(common.courseSelected,common.objectivesCourseSelected).then(function(response) {
+                        $log.debug('ok después de editCourse', response);
+                        $scope.updateCourses(); 
+                        $scope.objectives={};
+                    }, function(error) {
+                        $log.debug('error después de editCourse', error);
+                    });         
+                    break;
+                case 2:
+                    objectivesSection.push($scope.sectionObj);
+                    $scope.sectionObj={};
+                    break;
+                case 3:
+                    objectivesLesson.push($scope.lessonObj);
+                    $scope.lessonObj={};
+                    break;
+                default:
+            }
+            $scope.newObjective=false;
+        };
 
         $scope.hideSelectLoms= function(){
             $scope.selectLoms=true;
@@ -440,13 +464,13 @@
         };
         $scope.deleteFromListEditLom=function(section,lesson,$event){
             $event.preventDefault();
-            var lomsToAdd=[];
-            angular.forEach($scope.listAuxLomsAdd, function(element) {
-                lomsToAdd.push(element);
+            var lomsToDelete=[];
+            angular.forEach($scope.listAuxLomsRemove, function(element) {
+                lomsToDelete.push(element);
             });
             $scope.listAuxLomsAdd=[];
-            lomsApi.removeLomOfLesson(idCourse,section,lesson,lom).then(function(response) {
-                    $log.debug('ok después de asignar la lista de '+lomsToAdd.length+' loms a una lección', response);
+            lomsApi.removeLomsOfLesson(common.courseSelected._id,section,lesson,lomsToDelete).then(function(response) {
+                    $log.debug('ok después eliminar loms de una lección', response);
                     $log.debug('    -----    '); 
                 }, function(error) {
                      $log.debug('error después de asignación de lom a una lección', error);

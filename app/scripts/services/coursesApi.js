@@ -122,6 +122,26 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             });
             return coursesPromise.promise;
         }
+        function addObjectiveEdit(course,objs) {
+            console.log("Objetos para editar: ", course,objs);
+            var coursesPromise = $q.defer();
+            $log.debug('id de item a editar (antes de llamada)', course._id);
+            $http.put(common.bitbloqBackendUrl + '/courses/'+course._id,{
+                name: course.name,
+                code: course.code,
+                summary: course.summary,
+                objectives: objs,
+                sections:course.sections,
+                statistics:  {},
+                history: ''
+            }).then(function(response) {
+                $log.debug('ok despues de editar-post', response.data.token);
+                coursesPromise.resolve();  
+            }, function(err) {
+                 $log.debug('error despues de editar-post',err);
+            });
+            return coursesPromise.promise;
+        }
         function editSection(idCourse, sectionsName,newSectionsName,sectionsSummary,sectionsObjectives,sectionsLessons) {
             $log.debug("Objetos para hacer put section: "+ idCourse, sectionsName,sectionsSummary,sectionsObjectives,sectionsLessons);
             var coursesPromise = $q.defer();
@@ -186,6 +206,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             removeAllItem : removeAllItem,
             editCourse : editCourse,
             editSection: editSection,
+            addObjectiveEdit : addObjectiveEdit,
             assignLomsLesson : assignLomsLesson,
             addSection : addSection,
             addLesson : addLesson,
