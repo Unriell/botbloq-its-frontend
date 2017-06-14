@@ -229,4 +229,12 @@
 	    position: absolute;
 	    right: 7px;
 	    top: 3px;
+	} 
+
+	.formEditCourse{
+		.contentAddItem__wrapperAddItem__level2.bgWhite{
+			.formAddCourse__fieldset__level2, .formAddCourse__fieldset__level2{
+				background:$bg-color-white !important;
+			}
+		}
 	}

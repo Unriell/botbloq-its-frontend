@@ -11,7 +11,16 @@
 	        		<li ng-repeat="obj in section.objectives" ng-init="visible = false">
 	        			<ng-include src=" 'views/modules/editObjectives.html' "></ng-include>	
 	        		</li>
-	        	</ul>							
+	        	</ul>	
+	        	<div class="contentAddItem__wrapperAddItem__level2 mb15 bgWhite">
+					<button class="btnBq--style1" ng-click="newObjective= !newObjective" ng-hide="newObjective" type="button">Nuevo Objetivo</button>
+					<!-- <button ng-click="addObjectives()">Fin</button> -->
+					<div ng-show="newObjective" ng-init="newObjective = false">
+						<ng-include src=" 'views/modules/objCourse.html' "></ng-include>
+						<button class="btnBq--style1" ng-click="addObjectiveEdit(1)" type="button">Añadir Objetivo</button>
+						<button class="btnBq--style1" ng-click="newObjective= !newObjective" ng-show="newObjective" type="button">Ocultar</button>
+					</div>
+				</div>						
 			</div>
 		</fieldset> 
 		<button class="btnBq--style1" ng-click="showEditObjectives= !showEditObjectives" type="button">Ocultar Objetivos</button>
