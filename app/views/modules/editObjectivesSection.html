@@ -17,7 +17,7 @@
 					<!-- <button ng-click="addObjectives()">Fin</button> -->
 					<div ng-show="newObjective" ng-init="newObjective = false">
 						<ng-include src=" 'views/modules/objCourse.html' "></ng-include>
-						<button class="btnBq--style1" ng-click="addObjectiveEdit(1)" type="button">Añadir Objetivo</button>
+						<button class="btnBq--style1" ng-click="addObjectiveEdit(2);newObjective= !newObjective" type="button">Añadir Objetivo</button>
 						<button class="btnBq--style1" ng-click="newObjective= !newObjective" ng-show="newObjective" type="button">Ocultar</button>
 					</div>
 				</div>						

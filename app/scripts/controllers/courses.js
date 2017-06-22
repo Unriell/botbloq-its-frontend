@@ -226,7 +226,7 @@
             resetCourseSelected();
             var promise=updateSectionsSelected(item._id);
             promise.then(function() {
-                $log.debug('numero de secciones en goCourse: ', common.sectionsCourseSelected.length);
+                console.log('numero de secciones en goCourse: ', common.sectionsCourseSelected.length);
                 $scope.sectionsSelected=common.sectionsCourseSelected;
                 $location.path("/editCourse");
             }, function(error) {
@@ -509,10 +509,11 @@
             if ($scope.coursesEditForm.$valid ) {
                 console.log('editing...');
                 console.log("parametros de entrada: ",common.courseSelected._id,courseName,courseCode,courseSummary,objs);
-                coursesApi.editCourse(common.courseSelected._id,courseName,$scope.courseCode,courseSummary,objs).then(function(response) {
+                coursesApi.editCourse(common.courseSelected._id,courseName,courseCode,courseSummary,common.objectivesCourseSelected).then(function(response) {
                     $log.debug('ok después de editCourse', response);
                     $scope.updateCourses();
-                    confirm("Curso editado!");
+                    confirm("Curso editado con éxito!");
+                    $location.path("/courses");
                 }, function(error) {
                     $log.debug('error después de editCourse', error);
                     confirm("Error al editar el curso.");
@@ -530,6 +531,7 @@
         };
         $scope.editSection = function(index,newSectionsName, sectionsSummary, sectionsObjectives,sectionsLessons) {
             $log.debug('editing section ...');
+            console.log('objetos para editar ',newSectionsName,sectionsSummary,sectionsObjectives,sectionsLessons);
             var sectionName=getSectiontByIndex(common.courseSelected,index);
             coursesApi.editSection(common.courseSelected._id,sectionName,newSectionsName,sectionsSummary,sectionsObjectives,sectionsLessons).then(function(response) {
                 $log.debug('ok después de editSection', response);
