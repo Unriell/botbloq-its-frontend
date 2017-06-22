@@ -22,7 +22,7 @@
         $scope.completedCoursesPage=false;
 
         $scope.courseSelected=common.courseSelected;
-        $scope.objectivesCourseSelected=common.courseSelected.objectives;
+        $scope.objectivesCourseSelected=common.objectivesCourseSelected;
         $scope.sectionsSelected=common.sectionsCourseSelected;
         $scope.lessonsSelected=common.lessonsCourseSelected;
 
@@ -301,13 +301,14 @@
             $scope.newObjective=false;
         };
         $scope.addObjectiveEdit=function(breadCrumb){
+            $scope.objectives={};
             switch (breadCrumb) {
                 case 1:
-                    //common.objectivesCourseSelected.push($scope.objectives);
+                    common.objectivesCourseSelected.push($scope.objectives);
+                    $scope.objectivesCourseSelected=common.objectivesCourseSelected;
                     coursesApi.addObjectiveEdit(common.courseSelected,common.objectivesCourseSelected).then(function(response) {
                         $log.debug('ok después de editCourse', response);
                         $scope.updateCourses(); 
-                        $scope.objectives={};
                     }, function(error) {
                         $log.debug('error después de editCourse', error);
                     });         
@@ -504,25 +505,28 @@
             $scope.lomsAux.push(lom);
         };
 
-        $scope.editCourse = function(course) {
+        $scope.editCourse = function(courseName, courseCode, courseSummary,objs) {
             if ($scope.coursesEditForm.$valid ) {
-                $log.debug('editing...');
-                coursesApi.editCourse(course._id,$scope.courseName,$scope.courseCode,$scope.courseSummary,$scope.objectives).then(function(response) {
+                console.log('editing...');
+                console.log("parametros de entrada: ",common.courseSelected._id,courseName,courseCode,courseSummary,objs);
+                coursesApi.editCourse(common.courseSelected._id,courseName,$scope.courseCode,courseSummary,objs).then(function(response) {
                     $log.debug('ok después de editCourse', response);
                     $scope.updateCourses();
+                    confirm("Curso editado!");
                 }, function(error) {
                     $log.debug('error después de editCourse', error);
+                    confirm("Error al editar el curso.");
                 });
                 $scope.showCoursesForm=false;
             } else {
                 $log.debug('There are invalid fields');
             }
-            $scope.courseName='';
+            /*$scope.courseName='';
             $scope.courseCode='';
             $scope.courseSummary='';
             $scope.objectives={};
             $scope.sections={};
-            $scope.courseHistory='';
+            $scope.courseHistory='';*/
         };
         $scope.editSection = function(index,newSectionsName, sectionsSummary, sectionsObjectives,sectionsLessons) {
             $log.debug('editing section ...');

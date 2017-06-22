@@ -3,11 +3,12 @@
 <div class="contentAddItem clearfix">
 
 	<div class="contentAddItem__wrapperAddItem__level2">
-		<button class="btnBq--style1" ng-click="showNewObjective()" ng-hide="newObjective" type="button">Nuevo Objetivo</button>
+		<button class="btnBq--style1" ng-click="newObjective= !newObjective" ng-init="newObjective = false" ng-hide="newObjective" type="button">Nuevo Objetivo</button>
 		<!-- <button ng-click="addObjectives()">Fin</button> -->
 		<div ng-show="newObjective">
 			<ng-include src=" 'views/modules/objSection.html' "></ng-include>
 			<button class="btnBq--style1" ng-click="addNewObjective(2)" type="button">Añadir Objetivo</button>
+			<button class="btnBq--style1" ng-click="newObjective= !newObjective" type="button">Ocultar Objetivo</button>
 		</div>
 	</div>
 

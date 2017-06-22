@@ -21,7 +21,7 @@
 			</ul>
 		</div>
 		<div class="contentAddItem__wrapperAddItem">
-			<form id="adminCoursesForm" name="coursesEditForm" class="formAddCourse formEditCourse" ng-submit="editCourse(courseSelected)"  novalidate>
+			<form id="adminCoursesForm" name="coursesEditForm" class="formAddCourse formEditCourse" ng-submit="editCourse(editCourseName,editCourseCode,editCourseSummary,courseSelected.objectives)"  novalidate>
 		    <fieldset>
 		        	<legend class="sr-only">FORMULARIO AGREGAR</legend>
 		        	<ul>
@@ -75,7 +75,7 @@
 		        		</li>
 		        	</ul>        		        		
 		    </fieldset>
-		    <button class="btnBq--style2 formAddCourse__submit" type="submit" name="sendFormAddCourse">Guardar Cambios</button>   
+		    <button class="btnBq--style2 formAddCourse__submit" type="submit" name="sendFormAddCourse" >Guardar Cambios</button>   
 			</form>
 		</div>
 	</div>

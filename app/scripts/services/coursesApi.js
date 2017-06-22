@@ -97,23 +97,15 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             return coursesPromise.promise;     
         }
         
-        function editCourse(idItem,courseName,courseCode,courseSummary,objectives) {
-            $log.debug("Objetos para editar: "+ courseName,courseCode,courseSummary,
-                                 objectives);
+        function editCourse(idItem,courseName,courseCode,courseSummary,objs) {
+            $log.debug("Objetos para editar: "+ courseName,courseCode,courseSummary,objs);
             var coursesPromise = $q.defer();
             $log.debug('id de item a editar (antes de llamada)', idItem);
             $http.put(common.bitbloqBackendUrl + '/courses/'+idItem, {
                 name: courseName,
                 code: courseCode,
                 summary: courseSummary,
-                objectives: {
-                    code: objectives.code,
-                    description: objectives.description,
-                    level: objectives.level,
-                    bloom: objectives.bloom
-                },
-                statistics: {},
-                history: ''
+                objectives: objs
             }).then(function(response) {
                 $log.debug('ok despues de editar-post', response.data.token);
                 coursesPromise.resolve();  
