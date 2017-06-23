@@ -1,10 +1,12 @@
 <div class="contentAddItem clearfix">
 
-	<div class="">
+	<div class="contentAddItem__wrapperAddItem__level2">
 		<button class="btnBq--style1" ng-click="newLesson= !newLesson" ng-init="newLesson = false" ng-hide="newLesson" type="button">Nueva Lección</button>
 		<!-- <button ng-click="addObjectives()">Fin</button> -->
 		<div ng-show="newLesson">
 			<ng-include src=" 'views/modules/formAddNewLesson.html' "></ng-include>
+			<button class="btnBq--style1" ng-click="addNewLesson()" type="button">Añadir Lección</button>
+			<button class="btnBq--style1" ng-click="newLesson= !newLesson" type="button">Ocultar Lección</button>
 		</div>
 	</div>
 
