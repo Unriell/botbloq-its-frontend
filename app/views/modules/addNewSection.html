@@ -1,5 +1,4 @@
-
-<div class="formAddCourse__fieldset__contentFields bgWhite" ng-show="showFieldsSections">
+<div class="formAddCourse__fieldset__contentFields" ng-show="showFieldsSections">
 	<div class="row">
 		<div class="col-xs-12 col-sm-6 mb15">
 			<div class="row">
@@ -7,7 +6,7 @@
 					<label class="formAddCourse__fieldset__contentFields__label" for="sections_name">Name</label>
 				</div>
 				<div class="col-xs-12 col-sm-6">
-					<input class="formAddCourse__fieldset__contentFields__input" ng-model="sectionsName" type="text" id="sections_name" name="sections_name"/>
+					<input class="formAddCourse__fieldset__contentFields__input" ng-model="sections.name" type="text" id="sections_name" name="sections_name"/>
 				</div>
 			</div>
 		</div>
@@ -17,11 +16,10 @@
 					 <label class="formAddCourse__fieldset__contentFields__label" for="sections_summary">Summary</label>
 				</div>
 				<div class="col-xs-12 col-sm-6">
-					<input class="formAddCourse__fieldset__contentFields__input" ng-model="sectionsSummary" type="text" id="sections_summary" name="sections_summary"/>
+					<input class="formAddCourse__fieldset__contentFields__input" ng-model="sections.summary" type="text" id="sections_summary" name="sections_summary"/>
 				</div>
 			</div>
 		</div>
 	</div>	
 	<ng-include src=" 'views/modules/addObjSection.html' "></ng-include>						
-					
 </div>

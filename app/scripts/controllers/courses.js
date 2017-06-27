@@ -349,8 +349,8 @@
 
         $scope.addSection=function(){
             if ($scope.adminCoursesFormSection.$valid) {
-                console.log('parametros addSection: ',idActualCourse, $scope.sectionsName, $scope.sectionsSummary,objectivesSection);
-                coursesApi.addSection(idActualCourse, $scope.sectionsName, $scope.sectionsSummary,objectivesSection).then(function(response) {
+                console.log('parametros addSection: ',idActualCourse, $scope.sections.name, $scope.sections.summary,objectivesSection);
+                coursesApi.addSection(idActualCourse, $scope.sections.name, $scope.sections.summary,objectivesSection).then(function(response) {
                     $log.debug('ok después de addSection', response);
                     $scope.updateSections(idActualCourse);
                     $location.path("/addLessons");
