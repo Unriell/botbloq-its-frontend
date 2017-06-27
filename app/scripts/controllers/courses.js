@@ -26,6 +26,8 @@
         $scope.sectionsSelected=common.sectionsCourseSelected;
         $scope.lessonsSelected=common.lessonsCourseSelected;
 
+        $scope.sections=[];
+        $scope.lesson=[];
         // --- EDIT COURSE ---
         $scope.editCourseName=common.courseSelected.name;
         $scope.editCourseCode=common.courseSelected.code;
@@ -119,7 +121,7 @@
             coursesApi.getSections(idCourse).then(function(response){
                     $scope.sections= response.data;
                     actualSection=$scope.sections[$scope.sections.length -1];
-                    $log.debug("numero de secciones actuales: "+$scope.sections.length);
+                    console.log("numero de secciones actuales: "+$scope.sections.length);
                 }, function myError(err) {
                     $log.debug(err);
                     alert('Error de tipo: '+err.status);      
@@ -523,12 +525,12 @@
             } else {
                 $log.debug('There are invalid fields');
             }
-            /*$scope.courseName='';
+            $scope.courseName='';
             $scope.courseCode='';
             $scope.courseSummary='';
             $scope.objectives={};
             $scope.sections={};
-            $scope.courseHistory='';*/
+            $scope.courseHistory='';
         };
         $scope.editSection = function(index,newSectionsName, sectionsSummary, sectionsObjectives,sectionsLessons) {
             $log.debug('editing section ...');
