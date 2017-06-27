@@ -48,7 +48,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             });
             return coursesPromise.promise;
         }
-
+        
         function addLesson(idCourse, section, lessonName,lessonSummary,lessonObjectives, learningPath, lessonType) {
             $log.debug("Objetos para hacer post lesson: "+ idCourse,section,lessonName,lessonSummary,lessonObjectives,learningPath,lessonType);
 
@@ -104,8 +104,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             $http.put(common.bitbloqBackendUrl + '/courses/'+idCourse, {
                 name: courseName,
                 code: courseCode,
-                summary: courseSummary,
-                objectives: objs
+                summary: courseSummary 
             }).then(function(response) {
                 $log.debug('ok despues de editar-post', response.data.token);
                 coursesPromise.resolve();  
@@ -115,22 +114,13 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             return coursesPromise.promise;
         }
         function addObjectiveEdit(course,objs) {
-            console.log("Objetos para editar: ", course,objs);
+            console.log("Objetos para editar (API): ", course,objs);
             var coursesPromise = $q.defer();
-            $log.debug('id de item a editar (antes de llamada)', course._id);
-            $http.put(common.bitbloqBackendUrl + '/courses/'+course._id,{
-                name: course.name,
-                code: course.code,
-                summary: course.summary,
-                objectives: objs,
-                sections:course.sections,
-                statistics:  {},
-                history: ''
-            }).then(function(response) {
-                $log.debug('ok despues de editar-post', response.data.token);
+            $http.put(common.bitbloqBackendUrl + '/courses/'+course._id,{objectives:objs}).then(function(response) {
+                console.log('ok despues de añadir obj a curso (API)', response.data.token);
                 coursesPromise.resolve();  
             }, function(err) {
-                 $log.debug('error despues de editar-post',err);
+                console.log('error despues de añadir obj a curso (API)',err);
             });
             return coursesPromise.promise;
         }

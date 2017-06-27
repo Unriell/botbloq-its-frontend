@@ -35,6 +35,8 @@
 
         $scope.editCourseObjectives=common.sectionsCourseSelected[0];
         $scope.editSections=common.sectionsCourseSelected[0];
+
+        $scope.addSectionEdit=false;
         // --- END EDIT COURSE ---
         
         $scope.lomsAux=[];
@@ -309,11 +311,10 @@
                     common.objectivesCourseSelected.push($scope.objectives);
                     $scope.objectivesCourseSelected=common.objectivesCourseSelected;
                     coursesApi.addObjectiveEdit(common.courseSelected,common.objectivesCourseSelected).then(function(response) {
-                        $log.debug('ok después de editCourse', response);
+                        $console.log('ok después añadir objetivo a curso en editar curso', response);
                         $scope.updateCourses(); 
                     }, function(error) {
-                        $log.debug('error después de editCourse', error);
-                    });         
+                        $console.log('ERROR después añadir objetivo a curso en editar curso', error);                    });         
                     break;
                 case 2:
                     objectivesSection.push($scope.sectionObj);
@@ -350,7 +351,8 @@
         };
 
         $scope.addSection=function(){
-            if ($scope.adminCoursesFormSection.$valid) {
+            if ($scope.adminCoursesFormSection.$valid || $scope.addSectionEdit) {
+                $scope.addSectionEdit=false;
                 console.log('parametros addSection: ',idActualCourse, $scope.sections.name, $scope.sections.summary,objectivesSection);
                 coursesApi.addSection(idActualCourse, $scope.sections.name, $scope.sections.summary,objectivesSection).then(function(response) {
                     $log.debug('ok después de addSection', response);

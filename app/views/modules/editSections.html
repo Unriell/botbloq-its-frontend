@@ -48,9 +48,11 @@
 					<button class="btnBq--style1" ng-click="newSection= !newSection" ng-hide="newSection" type="button">Nueva Sección</button>
 					<!-- <button ng-click="addObjectives()">Fin</button> -->
 					<div ng-show="newSection" ng-init="newSection = false">
+						<!-- poner formulaio? -->
 						<ng-include src=" 'views/modules/addNewSectionEdit.html' "></ng-include>
-						<button class="btnBq--style1" ng-click="addObjectiveEdit(1)" type="button">Añadir Sección</button>
+						<button class="btnBq--style1 mt13" ng-click="addSectionEdit=true;addSection()">Añadir Sección</button>
 						<button class="btnBq--style1" ng-click="newSection= !newSection" ng-show="newSection" type="button">Ocultar</button>
+						<!-- fin formulario -->
 					</div>
 				</div>						
 			</div>
