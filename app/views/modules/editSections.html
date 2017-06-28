@@ -40,7 +40,7 @@
 								<ng-include src=" 'views/modules/editObjectivesSection.html' "></ng-include>
 								<ng-include src=" 'views/modules/editLessons.html' "></ng-include>		
 							</div>
-							<button ng-show="visible" ng-click="editSection($index,section.name,section.summary, section.objectives,section.lessons);visible = false" class="btnBq--style2 edit">Guardar Sección</button>
+							<button ng-show="visible" type="button" ng-click="editSection($index,section.name,section.summary, section.objectives,section.lessons);visible = !visible" class="btnBq--style2 edit">Guardar Sección</button>
         				</fieldset>
     				</li>
     			</ul>	
@@ -50,7 +50,7 @@
 					<div ng-show="newSection" ng-init="newSection = false">
 						<!-- poner formulaio? -->
 						<ng-include src=" 'views/modules/addNewSectionEdit.html' "></ng-include>
-						<button class="btnBq--style1 mt13" ng-click="addSectionEdit=true;addSection()">Añadir Sección</button>
+						<button class="btnBq--style1 mt13" ng-click="addSectionEdit();newSection= !newSection" type="button">Añadir Sección</button>
 						<button class="btnBq--style1" ng-click="newSection= !newSection" ng-show="newSection" type="button">Ocultar</button>
 						<!-- fin formulario -->
 					</div>

@@ -128,7 +128,7 @@
 					<!-- <button ng-click="addObjectives()">Fin</button> -->
 					<div ng-show="newLesson">
 						<ng-include src=" 'views/modules/addNewLesson.html' "></ng-include>
-						<button class="btnBq--style1 mt13" ng-click="newLesson= !newLesson" type="button">Añadir Lección</button>
+						<button class="btnBq--style1 mt13" ng-click="addLessonEdit(section.name);newLesson= !newLesson" type="button">Añadir Lección</button>
 						<button class="btnBq--style1" ng-click="newLesson= !newLesson" ng-show="newLesson" type="button">Ocultar</button>
 					</div>
 				</div>						

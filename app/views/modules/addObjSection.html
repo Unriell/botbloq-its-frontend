@@ -7,8 +7,8 @@
 		<!-- <button ng-click="addObjectives()">Fin</button> -->
 		<div ng-show="newObjective">
 			<ng-include src=" 'views/modules/objSection.html' "></ng-include>
-			<button class="btnBq--style1" ng-click="addNewObjective(2)" type="button">Añadir Objetivo</button>
-			<button class="btnBq--style1" ng-click="newObjective= !newObjective" type="button">Ocultar Objetivo</button>
+			<button class="btnBq--style1" ng-click="addNewObjective(2);newObjective= !newObjective" type="button">Añadir Objetivo</button>
+			<button class="btnBq--style1" ng-click="newObjective= !newObjective" type="button">Ocultar</button>
 		</div>
 	</div>
 

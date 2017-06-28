@@ -22,6 +22,11 @@
 			</div>
 		</div>
 	</div>
+	<ul>
+		<li ng-repeat="obj in section.objectives" ng-init="visible = false">
+			<ng-include src=" 'views/modules/editObjectives.html' "></ng-include>	
+		</li>
+	</ul>
 	<ng-include src=" 'views/modules/addObjSection.html' "></ng-include>						
-	<ng-include src=" 'views/modules/addNewLessonEdit.html' "></ng-include>						
+	<!-- <ng-include src=" 'views/modules/addNewLessonEdit.html' "></ng-include>	 -->					
 </div>
