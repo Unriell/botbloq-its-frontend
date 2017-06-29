@@ -113,10 +113,10 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             });
             return coursesPromise.promise;
         }
-        function addObjectiveEdit(course,objs) {
-            console.log("Objetos para editar (API): ", course,objs);
+        function addObjectivesToCourse(idCourse,objs) {
+            console.log("Objetos para editar (API): ", idCourse,objs);
             var coursesPromise = $q.defer();
-            $http.put(common.bitbloqBackendUrl + '/courses/'+course._id,{objectives:objs}).then(function(response) {
+            $http.put(common.bitbloqBackendUrl + '/courses/'+idCourse+'/includeObjectives',objs).then(function(response) {
                 console.log('ok despues de añadir obj a curso (API)', response.data.token);
                 coursesPromise.resolve();  
             }, function(err) {
@@ -124,6 +124,30 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             });
             return coursesPromise.promise;
         }
+        function addObjectivesToSection(idCourse,section,objs) {
+            console.log("Objetos para editar (API): ", idCourse,objs);
+            var coursesPromise = $q.defer();
+            $http.put(common.bitbloqBackendUrl + '/courses/'+idCourse+'/section/'+section+'/includeObjectives',objs).then(function(response) {
+                console.log('ok despues de añadir obj a sección (API)', response.data.token);
+                coursesPromise.resolve();  
+            }, function(err) {
+                console.log('error despues de añadir obj a sección (API)',err);
+            });
+            return coursesPromise.promise;
+        }
+        
+        function addObjectivesToLesson(idCourse,section,lesson,objs) {
+            console.log("Objetos para editar (API): ", idCourse,objs);
+            var coursesPromise = $q.defer();
+            $http.put(common.bitbloqBackendUrl + '/courses/'+idCourse+'/section/'+section+'/lesson/'+lesson+'/includeObjectives',objs).then(function(response) {
+                console.log('ok despues de añadir obj a lección (API)', response.data.token);
+                coursesPromise.resolve();  
+            }, function(err) {
+                console.log('error despues de añadir obj a lección (API)',err);
+            });
+            return coursesPromise.promise;
+        }
+
         function editSection(idCourse, sectionsName,newSectionsName,sectionsSummary,sectionsObjectives,sectionsLessons) {
             console.log("Objetos para hacer put section(SERVICE) : "+ newSectionsName,sectionsSummary,sectionsObjectives,sectionsLessons);
             var coursesPromise = $q.defer();
@@ -188,7 +212,9 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             removeAllItem : removeAllItem,
             editCourse : editCourse,
             editSection: editSection,
-            addObjectiveEdit : addObjectiveEdit,
+            addObjectivesToCourse : addObjectivesToCourse,
+            addObjectivesToSection : addObjectivesToSection,
+            addObjectivesToLesson : addObjectivesToLesson,
             assignLomsLesson : assignLomsLesson,
             addSection : addSection,
             addLesson : addLesson,

@@ -300,25 +300,42 @@
             }
             $scope.newObjective=false;
         };
-        $scope.addObjectiveEdit=function(breadCrumb){
-            $scope.objectives={};
+        $scope.addObjectiveEdit=function(breadCrumb,section,lesson){
+            console.log('datos para addObjective: ',section,lesson);
+            var newObjectives=[];
             switch (breadCrumb) {
                 case 1:
+                    newObjectives.push($scope.objectives);
                     common.objectivesCourseSelected.push($scope.objectives);
-                    $scope.objectivesCourseSelected=common.objectivesCourseSelected;
-                    coursesApi.addObjectiveEdit(common.courseSelected,common.objectivesCourseSelected).then(function(response) {
-                        $console.log('ok después añadir objetivo a curso en editar curso', response);
+                    coursesApi.addObjectivesToCourse(common.courseSelected._id,newObjectives).then(function(response) {
+                        console.log('ok después añadir objetivo a curso en editar curso', response);
                         $scope.updateCourses(); 
+                        $scope.objectives={};
                     }, function(error) {
-                        $console.log('ERROR después añadir objetivo a curso en editar curso', error);                    });         
+                        $console.log('ERROR después añadir objetivo a curso en editar curso', error);      
+                    });         
                     break;
                 case 2:
+                    newObjectives.push($scope.sectionObj);
                     objectivesSection.push($scope.sectionObj);
-                    $scope.sectionObj={};
+                    coursesApi.addObjectivesToSection(common.courseSelected._id,section,newObjectives).then(function(response) {
+                        console.log('ok después añadir objetivo a sección en editar curso', response);
+                        $scope.updateCourses(); 
+                        $scope.sectionObj={};
+                    }, function(error) {
+                        $console.log('ERROR después añadir objetivo a sección en editar curso', error);      
+                    });
                     break;
                 case 3:
+                    newObjectives.push($scope.lessonObj);
                     objectivesLesson.push($scope.lessonObj);
-                    $scope.lessonObj={};
+                    coursesApi.addObjectivesToLesson(common.courseSelected._id,section,lesson,newObjectives).then(function(response) {
+                        console.log('ok después añadir objetivo a lección en editar curso', response);
+                        $scope.updateCourses(); 
+                        $scope.lessonObj={};
+                    }, function(error) {
+                        $console.log('ERROR después añadir objetivo a lección en editar curso', error);      
+                    });
                     break;
                 default:
             }
