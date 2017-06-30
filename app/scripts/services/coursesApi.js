@@ -104,7 +104,8 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             $http.put(common.bitbloqBackendUrl + '/courses/'+idCourse, {
                 name: courseName,
                 code: courseCode,
-                summary: courseSummary 
+                summary: courseSummary/*,
+                objectives: objs*/
             }).then(function(response) {
                 $log.debug('ok despues de editar-post', response.data.token);
                 coursesPromise.resolve();  

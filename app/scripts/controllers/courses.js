@@ -300,7 +300,7 @@
             }
             $scope.newObjective=false;
         };
-        $scope.addObjectiveEdit=function(breadCrumb,section,lesson){
+        $scope.addObjectiveEdit=function(breadCrumb,section,lesson,objLesson){
             console.log('datos para addObjective: ',section,lesson);
             var newObjectives=[];
             switch (breadCrumb) {
@@ -329,6 +329,7 @@
                 case 3:
                     newObjectives.push($scope.lessonObj);
                     objectivesLesson.push($scope.lessonObj);
+                    objLesson.push($scope.lessonObj);
                     coursesApi.addObjectivesToLesson(common.courseSelected._id,section,lesson,newObjectives).then(function(response) {
                         console.log('ok después añadir objetivo a lección en editar curso', response);
                         $scope.updateCourses(); 
