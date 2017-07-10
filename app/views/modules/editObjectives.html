@@ -1,10 +1,10 @@
 
 <fieldset class="formAddLom__fieldset">
 	<legend class="formAddLom__fieldset__legend"> 
-		<a class="formAddLom__fieldset__legend__link" ng-click="visible= !visible" href><span ng-class="{'bbq-minus bbq-minus--form':visible, 'bbq-plus bbq-plus--form': !visible}"></span></a>
+		<a class="formAddLom__fieldset__legend__link" ng-init="objVisible= false" ng-click="objVisible= !objVisible" href><span ng-class="{'bbq-minus bbq-minus--form':objVisible, 'bbq-plus bbq-plus--form': !objVisible}"></span></a>
 		Objetivo {{$index+1}}
 	</legend>
-	<div class="formAddLom__fieldset__contentFields" ng-show="visible">
+	<div class="formAddLom__fieldset__contentFields" ng-show="objVisible">
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 mb15">
 				<div class="row">

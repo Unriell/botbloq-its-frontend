@@ -121,6 +121,7 @@
             $log.debug('loading Sections ...');
             coursesApi.getSections(idCourse).then(function(response){
                     $scope.sections= response.data;
+                    $scope.sectionsSelected=$scope.sections;
                     actualSection=$scope.sections[$scope.sections.length -1];
                     console.log("numero de secciones actuales: "+$scope.sections.length);
                 }, function myError(err) {
@@ -300,7 +301,7 @@
             }
             $scope.newObjective=false;
         };
-        $scope.addObjectiveEdit=function(breadCrumb,section,lesson,objLesson){
+        $scope.addObjectiveEdit=function(breadCrumb,section,lesson,objSection,objLesson){
             console.log('datos para addObjective: ',section,lesson);
             var newObjectives=[];
             switch (breadCrumb) {
@@ -318,6 +319,7 @@
                 case 2:
                     newObjectives.push($scope.sectionObj);
                     objectivesSection.push($scope.sectionObj);
+                    objSection.push($scope.sectionObj);
                     coursesApi.addObjectivesToSection(common.courseSelected._id,section,newObjectives).then(function(response) {
                         console.log('ok después añadir objetivo a sección en editar curso', response);
                         $scope.updateCourses(); 
