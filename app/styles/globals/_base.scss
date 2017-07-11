@@ -401,6 +401,7 @@
 					font-size: 1.2em;
 				}
 			}
+
 		}
 
 		.contentTotalCourses, .contentEnrolledCourses{
@@ -643,6 +644,7 @@
 			float: right;
 	    	display: inline-block;
 		}
+
 	}
 
 	.contentTotalCourses,.contentEnrolledCourses{
@@ -836,6 +838,13 @@
 		}
 		.contentCourses__list__wrapperCourse{
 			padding:29px 17px;
+		}
+		
+	}
+
+	.contentAddItem{
+		.formAddCourse__fieldset__contentFields__selectLoms__toSelect .contentRow, .formAddCourse__fieldset__contentFields__selectLoms__added .contentRow{
+			margin-bottom:20px;
 		}
 		
 	}

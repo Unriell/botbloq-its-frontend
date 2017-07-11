@@ -24,7 +24,7 @@
                             </div>
                             <div class="col-xs-6 col-sm-3">
                                 <div class="contentCourses__viewOptionsfilterSearch__search">
-                                    <input ng-model="courses.name" placeholder="Buscar ..." class="contentCourses__viewOptionsfilterSearch__search__input" type="text" name="searchCourse"> 
+                                    <input ng-model="searchText" placeholder="Buscar ..." class="contentCourses__viewOptionsfilterSearch__search__input" type="text" name="searchCourse"> 
                                     <span class="bbq-search bbq-search--Courses"></span>   
                                 </div>  
                             </div>
@@ -34,7 +34,7 @@
             </div>
             <div class="contentCourses__wrapperCourses">
                 <ul class="row">
-                    <li ng-repeat="i in courses" class="col-xs-12 col-sm-4">          
+                    <li ng-repeat="i in courses | filter:searchText" class="col-xs-12 col-sm-4">          
                         <div class="contentCourses__wrapperCourses__course">
                             <div class="contentCourses__wrapperCourses__course__contentLinks">                         
                                <a class="contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i)" href>
