@@ -113,7 +113,17 @@
         $scope.updateCourses= function() {
             $log.debug('loading Courses ...');
             coursesApi.getCourses().then(function(response){
-                $scope.courses= response.data;          
+                $scope.courses= response.data;        
+            }, function myError(err) {
+                $log.debug(err);
+                alert('Error de tipo: '+err.status);      
+            }); 
+        };
+        $scope.updateLastCourse= function() {
+            $log.debug('loading Courses ...');
+            coursesApi.getCourses().then(function(response){
+                $scope.courses= response.data; 
+                common.courseSelected=$scope.courses[$scope.courses.length -1];         
             }, function myError(err) {
                 $log.debug(err);
                 alert('Error de tipo: '+err.status);      
@@ -237,6 +247,7 @@
             common.objectivesCourseSelected=item.objectives;
             common.sectionsCourseSelected=item.sections;
             $location.path("/editCourse");
+            console.log('edicion de ',common.courseSelected.name);
             /*resetCourseSelected();
             var promise=updateSectionsSelected(item._id);
             promise.then(function() {
@@ -367,7 +378,7 @@
                 $log.debug('adding...');
                 coursesApi.addCourse($scope.courseName,$scope.courseCode,$scope.courseSummary, objectivesCourse).then(function(response) {
                     $log.debug('ok después de addCourse', response);
-                    $scope.updateCourses();
+                    $scope.updateLastCourse();
                     common.courseSelected=$scope.courses[$scope.courses.length -1];
                     $location.path("/addSections");
                 }, function(error) {
