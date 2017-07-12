@@ -67,8 +67,8 @@
             objectivesSection=[],
             objectivesLesson=[];
 
-        var idActualCourse;
-        var actualSection;
+        var actualCourseToAdd={};
+        var actualSection={};
 
         lomsApi.getLoms().then(function(response){
                 $scope.loms= response.data;
@@ -96,9 +96,11 @@
         coursesApi.getCourses().then(function(response){
                 $scope.courses= response.data;
                 if($scope.courses.length>0)
-                    idActualCourse=$scope.courses[$scope.courses.length -1]._id;
-                if ($scope.courses[$scope.courses.length -1].sections.length >0)
-                    $scope.updateSections(idActualCourse);
+                    actualCourseToAdd=$scope.courses[$scope.courses.length -1];
+                if (actualCourseToAdd.sections.length >0)
+                    $scope.updateActualSections(actualCourseToAdd._id);
+                console.log('actualCourseToAdd: ',actualCourseToAdd);
+                console.log('actualSection: ',actualSection);
             }, function myError(err) {
                 $log.debug(err);
                 alert('Error de tipo: '+err.status);      
@@ -129,7 +131,17 @@
                     alert('Error de tipo: '+err.status);      
             });
         };
-      
+        $scope.updateActualSections= function(idCourse) {
+            var sections=[];
+            coursesApi.getSections(idCourse).then(function(response){
+                    sections= response.data;
+                    actualSection=sections[sections.length -1];
+                }, function myError(err) {
+                    console.log(err);
+                    alert('Error de tipo: '+err.status);      
+            });
+        };
+       
         var updateSectionsSelected= function(idCourse){
             var defered = $q.defer(),
                 promise = defered.promise;
@@ -223,8 +235,9 @@
         $scope.goEditCourse = function(item) {
             common.courseSelected=item;
             common.objectivesCourseSelected=item.objectives;
-
-            resetCourseSelected();
+            common.sectionsCourseSelected=item.sections;
+            $location.path("/editCourse");
+            /*resetCourseSelected();
             var promise=updateSectionsSelected(item._id);
             promise.then(function() {
                 console.log('numero de secciones en goCourse: ', common.sectionsCourseSelected.length);
@@ -232,7 +245,7 @@
                 $location.path("/editCourse");
             }, function(error) {
                 $log.debug('Se ha producido un error al obtener el dato: '+error);     
-            });
+            });*/
 
         
             $scope.editObjectives=item.objetives;
@@ -355,6 +368,7 @@
                 coursesApi.addCourse($scope.courseName,$scope.courseCode,$scope.courseSummary, objectivesCourse).then(function(response) {
                     $log.debug('ok después de addCourse', response);
                     $scope.updateCourses();
+                    common.courseSelected=$scope.courses[$scope.courses.length -1];
                     $location.path("/addSections");
                 }, function(error) {
                     $log.debug('error después de addCourse', error);
@@ -368,10 +382,10 @@
 
         $scope.addSection=function(){
             if ($scope.adminCoursesFormSection.$valid) {
-                console.log('parametros addSection: ',idActualCourse, $scope.sections.name, $scope.sections.summary,objectivesSection);
-                coursesApi.addSection(idActualCourse, $scope.sections.name, $scope.sections.summary,objectivesSection).then(function(response) {
+                console.log('parametros addSection: ',common.courseSelected._id, $scope.sections.name, $scope.sections.summary,objectivesSection);
+                coursesApi.addSection(common.courseSelected._id, $scope.sections.name, $scope.sections.summary,objectivesSection).then(function(response) {
                     $log.debug('ok después de addSection', response);
-                    $scope.updateSections(idActualCourse);
+                    $scope.updateSections(common.courseSelected._id);
                     $location.path("/addLessons");
                 }, function(error) {
                     $log.debug('error después de addSection', error);
@@ -397,8 +411,8 @@
         };
         $scope.addLesson=function(){
             if ($scope.adminCoursesFormSectionLesson.$valid) {
-                coursesApi.addLesson(idActualCourse,actualSection.name, $scope.lesson.name, $scope.lesson.summary,objectivesLesson, $scope.lesson.learningPath, $scope.lesson.type).then(function(response) {
-                    $scope.assignLomsToLesson(idActualCourse,actualSection.name,$scope.lesson.name,$scope.lomsToAdd);
+                coursesApi.addLesson(actualCourseToAdd._id,actualSection.name, $scope.lesson.name, $scope.lesson.summary,objectivesLesson, $scope.lesson.learningPath, $scope.lesson.type).then(function(response) {
+                    $scope.assignLomsToLesson(actualCourseToAdd._id,actualSection.name,$scope.lesson.name,$scope.lomsToAdd);
                     $scope.resetLesson();
                 }, function(error) {
                     $log.debug('error después de addSection', error);
@@ -409,8 +423,8 @@
         };
         $scope.addLessonEdit=function(section){
             /*if ($scope.adminCoursesFormSectionLesson.$valid) {*/
-                coursesApi.addLesson(idActualCourse,section, $scope.lesson.name, $scope.lesson.summary,objectivesLesson, $scope.lesson.learningPath, $scope.lesson.type).then(function(response) {
-                    $scope.assignLomsToLesson(idActualCourse,section,$scope.lesson.name,$scope.lomsToAdd);
+                coursesApi.addLesson(common.courseSelected._id,section, $scope.lesson.name, $scope.lesson.summary,objectivesLesson, $scope.lesson.learningPath, $scope.lesson.type).then(function(response) {
+                    $scope.assignLomsToLesson(common.courseSelected._id,section,$scope.lesson.name,$scope.lomsToAdd);
                     $scope.resetLesson();
                 }, function(error) {
                     $log.debug('error después de addSection', error);
@@ -576,23 +590,31 @@
             $scope.courseHistory='';
         };
         $scope.editSection = function(index,newSectionsName, sectionsSummary, sectionsObjectives,sectionsLessons) {
-            $log.debug('editing section ...');
-            console.log('objetos para editar ',newSectionsName,sectionsSummary,sectionsObjectives,sectionsLessons);
-            var sectionName=getSectiontByIndex(common.courseSelected,index);
-            coursesApi.editSection(common.courseSelected._id,sectionName,newSectionsName,sectionsSummary,sectionsObjectives,sectionsLessons).then(function(response) {
-                $log.debug('ok después de editSection', response);
-                confirm("Sección editada con éxito!");
-            }, function(error) {
-                $log.debug('error después de editSection', error);
-                confirm("Error al editar la sección.");
-            });
-            $scope.showCoursesForm=false; 
+            console.log('editing section ...');
+            var sections=[],sectionName="";
+            var defered = $q.defer(),
+                promise = defered.promise;
+            coursesApi.getSections(common.courseSelected._id).then(function(response){
+                sections=response.data;
+                sectionName=sections[index].name;
+                console.log("(GET SECTIONS) sections de "+common.courseSelected._id+": "+sections.length);
+                defered.resolve();
+                console.log('anterior nombre de seccion: ',sectionName);
+                console.log('objetos para editar ',sectionName,newSectionsName,sectionsSummary,sectionsObjectives,sectionsLessons);
+                coursesApi.editSection(common.courseSelected._id,sectionName,newSectionsName,sectionsSummary,sectionsObjectives,sectionsLessons).then(function(response) {
+                    console.log('ok después de editSection', response);
+                    confirm("Sección editada con éxito!");
+                }, function(error) {
+                    $log.debug('error después de editSection', error);
+                    confirm("Error al editar la sección.");
+                });
+                $scope.showCoursesForm=false;
+            }, function myError(err) {
+                console.log(err);
+                alert('Error de tipo: '+err.status);      
+            });    
         };
 
-        var getSectiontByIndex=function(course, index){
-            return course.sections[index].name;
-        };
-     
         $scope.removeCourse = function(course,e){
             $log.debug('eliminado course con id: ', course);
             if (confirm("¿SEGURO QUE QUIERE ELIMINAR ESTE CURSO?") === false) {
