@@ -16,7 +16,7 @@ var botBloqApp= angular.module('botbloqItsFrontendApp', [
     .config(function($routeProvider, $httpProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'views/pages/students.html',
+                templateUrl: 'views/pages/signUp.html',
                 controller: 'studentsCtrl'
             })
             .when('/login', {
@@ -58,6 +58,10 @@ var botBloqApp= angular.module('botbloqItsFrontendApp', [
             .when('/lesson', {
                 templateUrl: 'views/pages/lesson.html',
                 controller: 'coursesCtrl'
+            })
+            .when('/signUp', {
+                templateUrl: 'views/pages/signUp.html',
+                controller: 'studentsCtrl'
             })
             .otherwise({
                 redirectTo: 'views/pages/404'
