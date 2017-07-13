@@ -1,44 +1,57 @@
 .contentSignUp{
 	padding: 40px 0;
     width: 100%;
+    /* background-image: url("/../app/assets/images/common/bkgBq.png"); */
+    background-image: url("../bkgBq.png");
 }
 	.contentSignUp__contentLogo{
 		text-align:center;
+		margin-bottom:30px;
 	}
 	.contentSignUp__contentLogo__logo{
 
 	}
 	.contentSignUp__contentLogo__title{
-		
 	}
 	.contentSignUp__wrapperContent{
 		margin:0 auto;
 		width: 75%;
 		padding: 20px 30px;
+		background:$bg-color-greenTooLight;
+		margin-bottom:15px;
 	}
 	.contentSignUp__wrapperContent__title{
+		font-weight: bold;
 		text-align:center;
+		margin-bottom: 20px;
 	}
 	.contentSignUp__wrapperContent__form{
-
+		
+	}
+	.contentSignUp__wrapperContent__form .contentRow{
+		margin-bottom:15px;
 	}
 	.contentSignUp__wrapperContent__form__label{
 
 	}
 	.contentSignUp__wrapperContent__form__input{
 		width:100%;
+		padding:5px 0 5px 20px;
 	}
 	.contentSignUp__wrapperContent__form__optionsCheck{
-
+		margin-bottom: 15px;
 	}
 	.contentSignUp__wrapperContent__form__optionsCheck__content{
-
+		&:first-child{
+			margin-bottom: 10px;
+		}
 	}
 	.contentSignUp__wrapperContent__form__optionsCheck__content__checkBox{
-		width:100%;
+		width:9%;
 	}
 	.contentSignUp__wrapperContent__form__optionsCheck__content__labelCheck{
-		
+		float: right;
+    	width: 90%;
 	}
 	.contentSignUp__wrapperContent__form__submit{
 		width:100%;
