@@ -5,22 +5,26 @@
 	</h1>
 	<div class="contentSignUp__wrapperContent">
 		<h2 class="contentSignUp__wrapperContent__title">Entrar</h2>
-		<form class="contentSignUp__wrapperContent__form">
+		<form class="contentSignUp__wrapperContent__form" name="signUpForm" ng-submit="signUp()">
 			<div class="contentRow">
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
-						<label class="contentSignUp__wrapperContent__form__label">
-							Usuario
-						</label>
-						<input class="contentSignUp__wrapperContent__form__input" type="text" name="" placeholder="Nombre de usuario" />
-						<span class=""></span>
+						<div class="contentCol clearfix">
+							<label class="contentSignUp__wrapperContent__form__label">
+								Usuario
+							</label>
+							<input class="contentSignUp__wrapperContent__form__input" ng-model="user.name" type="text" name="" placeholder="Nombre de usuario" />
+							<span class=""></span>
+						</div>
 					</div>
 					<div class="col-xs-12 col-sm-6">
-						<label class="contentSignUp__wrapperContent__form__label">
-							Email
-						</label>
-						<input class="contentSignUp__wrapperContent__form__input" type="text" name="" placeholder="Email"/>
-						<span class=""></span>
+						<div class="contentCol clearfix">
+							<label class="contentSignUp__wrapperContent__form__label">
+								Email
+							</label>
+							<input class="contentSignUp__wrapperContent__form__input" ng-model="user.email" type="text" name="" placeholder="Email"/>
+							<span class=""></span>
+						</div>
 					</div>
 				</div>
 			</div>
@@ -35,7 +39,7 @@
 				</div>
 			</div>
 			<div class="contentSignUp__wrapperContent__form__submit">
-				<button class="btnBq--withIcon" type="submit">Registrarme</button>
+				<button class="btnBq--withIcon width100" type="submit">Registrarme</button>
 			</div>			
 		</form>
 	</div>

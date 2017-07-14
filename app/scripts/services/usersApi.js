@@ -11,29 +11,29 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
 
         $log.log('usersApi start');
 
-        function login(email, password) {
-            $log.debug(email, password);
+        function signUp(name, email) {
+            $log.debug(name, email);
 
-            var loginPromise = $q.defer();
+            var signUpPromise = $q.defer();
 
             $http.post(common.bitbloqBackendUrl + '/students', {
                 identification: {
-                email: email,
-                name: password
+                name: name,
+                email: email
             }}).then(function(response) {
                 $log.debug('token', response.data.token);
                 localStorage.userToken = response.data.token; 
                 getCurrentUser().then(function() {
-                    loginPromise.resolve();
+                    signUpPromise.resolve();
                 }, function(err) {
                     logout();
-                    loginPromise.reject(err);
+                    signUpPromise.reject(err);
                 });
             }, function(err) {
                 logout();
-                loginPromise.reject(err);
+                signUpPromise.reject(err);
             });
-            return loginPromise.promise;
+            return signUpPromise.promise;
         }
 
         function enrollStudent(idStudent,idCourse) { 
@@ -76,14 +76,22 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             });
         }
 
+        function activeUser(user){
+            common.activeUSer=user;
+            common.nameActiveUser=user.identification.name;
+
+            console.debug('USUARIO ACTIVO CON ID: '+user._id+' y nombre: '+user.identification.name);
+        }
+
         var exports = {
             currentUser: null,
-            login: login,
+            signUp: signUp,
             getStudents, getStudents,
             logout: logout,
             getCurrentUser: getCurrentUser,
             enrollStudent: enrollStudent,
-            assignStudentToGroup: assignStudentToGroup
+            assignStudentToGroup: assignStudentToGroup,
+            activeUser : activeUser
         };
 
 

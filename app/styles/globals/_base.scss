@@ -1,10 +1,12 @@
-
+body.bkgInit{
+	background-image: url("../../assets/images/common/bkgBq.png");
+}
 .wrapperMain{
 	padding:15px;
 	background:$bg-color-white;
 }
 .containerMain{
-	padding-top: 25px;
+	
 }
 .contentTitle {
     padding-bottom: 15px;
@@ -575,8 +577,6 @@
 
 
 		}
-
-
 	}
 
 	header.contentHeader{
@@ -644,7 +644,6 @@
 			float: right;
 	    	display: inline-block;
 		}
-
 	}
 
 	.contentTotalCourses,.contentEnrolledCourses{
@@ -733,9 +732,14 @@
 		.formAddCourse__fieldset__level2__contentFields__input{
 			
 		}
+	}
+
+	.contentSignUp{
+
 
 	}
-}
+
+} // FIN DE MEDIA QUERY DE TABLET
 
 
 /* Medium devices (desktops, 992px and up) */
@@ -846,6 +850,11 @@
 		.formAddCourse__fieldset__contentFields__selectLoms__toSelect .contentRow, .formAddCourse__fieldset__contentFields__selectLoms__added .contentRow{
 			margin-bottom:20px;
 		}
-		
 	}
-}
+
+	.contentSignUp{
+
+
+	}
+
+} // FIN DE MEDIA QUERY DE TABLET

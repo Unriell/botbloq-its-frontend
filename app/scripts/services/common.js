@@ -11,7 +11,8 @@ botBloqApp.service('common', function($log) {
 
         var bitbloqBackendUrl = 'http://localhost:8000/botbloq/v1/its';
 
-  		var courseSelected={},
+  		var init=true,
+            courseSelected={},
             objectivesCourse=[],
   			sectionsCourseSelected=[],
   			lessonsCourseSelected=[],
@@ -21,6 +22,7 @@ botBloqApp.service('common', function($log) {
         $log.log('common start');
 
         return {
+            init : init,
             bitbloqBackendUrl: bitbloqBackendUrl,
             courseSelected: courseSelected, 
             sectionsCourseSelected: sectionsCourseSelected,

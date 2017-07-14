@@ -16,12 +16,12 @@
     <!-- endbuild -->
 </head>
 
-<body class="wrapperMain" ng-app="botbloqItsFrontendApp" data-ng-controller="BodyCtrl">
+<body class="wrapperMain"  ng-class="{'bkgInit':init}" ng-app="botbloqItsFrontendApp" data-ng-controller="BodyCtrl">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- Add your site or application content here -->
-    <ng-include src=" 'views/partials/header.html' "></ng-include>
+    <ng-include ng-hide="init" src=" 'views/partials/header.html' "></ng-include>
     <!-- <ng-include src=" 'views/partials/header2.html' "></ng-include> -->
 
     <div class="containerMain">
