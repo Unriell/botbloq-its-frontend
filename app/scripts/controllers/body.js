@@ -17,6 +17,10 @@ botBloqApp.controller('BodyCtrl', function($scope, common, $log,usersApi,lomsApi
          console.log('valor de init en body antes de actualizar con service:',common.init);
         $scope.nameActiveUser=common.nameActiveUSer;
         /*$scope.activeUser="Usuariooo";*/
+        
+        $scope.changeInit=function(boolean) {
+          $scope.init=boolean;
+        }
 
         $scope.isActive =  function(currentPath){
        	  return currentPath === $location.path();

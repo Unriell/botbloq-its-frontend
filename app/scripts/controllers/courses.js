@@ -13,6 +13,7 @@
         console.log('valor de init en courses antes de cambiar a falso:',common.init);
         common.init=false;
         $scope.init=common.init;
+        $scope.changeInit(true); 
         console.log('Acabo de cambiar el valor de scope.init en courses  a falso:',$scope.init);
         console.log('valor de init en courses despues de cambiar a falso:',common.init);
         $scope.activeUser=common.activeUSer;
