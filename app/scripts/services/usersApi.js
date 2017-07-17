@@ -12,7 +12,7 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
         $log.log('usersApi start');
 
         function signUp(name, email) {
-            $log.debug(name, email);
+            console.log(name, email);
 
             var signUpPromise = $q.defer();
 
@@ -39,7 +39,7 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
         function enrollStudent(idStudent,idCourse) { 
             var coursesPromise = $q.defer();
             $http.put(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse,{}).then(function(response) {
-                    $log.debug('ok despues de matricular al estudiante '+idStudent+' a un curso', response.data.token);
+                    console.log('(API) ok despues de matricular al estudiante '+idStudent+' a un curso', response.data.token);
                     coursesPromise.resolve();  
                 }, function(err) {
                      $log.debug('error despues intentar matricular un estudiante en un curso',err);
@@ -59,6 +59,10 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
                 assignGroupPromise.reject(err);
             });
             return assignGroupPromise.promise;
+        }
+
+        function getActivityLesson(idStudent,idCourse) {
+            return $http.get(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse);     
         }
 
         function getStudents() { 
@@ -84,13 +88,14 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
         }
 
         var exports = {
-            currentUser: null,
+            currentUser : null,
             signUp: signUp,
-            getStudents, getStudents,
-            logout: logout,
-            getCurrentUser: getCurrentUser,
-            enrollStudent: enrollStudent,
-            assignStudentToGroup: assignStudentToGroup,
+            getStudents : getStudents,
+            logout : logout,
+            getCurrentUser : getCurrentUser,
+            enrollStudent : enrollStudent,
+            assignStudentToGroup : assignStudentToGroup,
+            getActivityLesson : getActivityLesson,
             activeUser : activeUser
         };
 

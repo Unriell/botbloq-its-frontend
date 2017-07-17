@@ -12,9 +12,8 @@ botBloqApp.controller('BodyCtrl', function($scope, common, $log,usersApi,lomsApi
         $scope.usersApi = usersApi;
         $scope.lomsApi = lomsApi;
         $scope.coursesApi= coursesApi;
-         console.log('valor de init en body antes de actualizar con service:',common.init);
-        $scope.init= common.init;
-         console.log('valor de init en body antes de actualizar con service:',common.init);
+        $scope.init= true;
+        
         $scope.nameActiveUser=common.nameActiveUSer;
         /*$scope.activeUser="Usuariooo";*/
         

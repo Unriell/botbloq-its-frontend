@@ -99,6 +99,11 @@
 		&:hover{
     		text-decoration: underline;
     	}
+    	&:link .wrapperCourse__lessons__contentLessons__element__link__info{
+			.wrapperCourse__lessons__contentLessons__element__link__info__subtitle, .wrapperCourse__lessons__contentLessons__element__link__info__description{
+				color:$link-color-black;
+			}
+    	}
 	}
 	.wrapperCourse__lessons__contentLessons__element__link__info{
 		width: 100%;

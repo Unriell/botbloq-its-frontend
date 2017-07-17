@@ -10,12 +10,8 @@
 
    botBloqApp.controller('coursesCtrl',function($log,$q,$scope,$http,$location,$timeout,coursesApi,usersApi,lomsApi,common) {
         $log.log('courses ctrl start');
-        console.log('valor de init en courses antes de cambiar a falso:',common.init);
-        common.init=false;
-        $scope.init=common.init;
-        $scope.changeInit(true); 
-        console.log('Acabo de cambiar el valor de scope.init en courses  a falso:',$scope.init);
-        console.log('valor de init en courses despues de cambiar a falso:',common.init);
+        $scope.changeInit(false); 
+    
         $scope.activeUser=common.activeUSer;
         $scope.enrolledCourses=[];
         $scope.doneCourses=[];
@@ -30,6 +26,8 @@
         $scope.objectivesCourseSelected=common.objectivesCourseSelected;
         $scope.sectionsSelected=common.sectionsCourseSelected;
         $scope.lessonsSelected=common.lessonsCourseSelected;
+        $scope.lessonSelected=common.lessonSelected;
+        $scope.indexLessonSelected=common.indexLessonSelected;
 
         $scope.sections=[];
         $scope.lesson=[];
@@ -727,23 +725,40 @@
 
         // ----------------    STUDENT  ---------------
         $scope.assignStudentToGroup=function(idStudent){
-            $log.debug('Asignando estudiante a grupo ...');
+            console.log('Asignando estudiante a grupo ...');
             usersApi.assignStudentToGroup(idStudent).then(function(response){
-                $log.debug('Estudiante asignado correctamente ...'); 
+                console.log('Estudiante asignado correctamente ...'); 
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
             });
         };
 
         $scope.enrollStudent=function(idStudent,idCourse){
-            $log.debug('Matriculando a alumno ...');
-            usersApi.enrollStudent(idStudent,idCourse).then(function(response) {
-                $log.debug('ok después de enrollStudent', response);
+            console.log('Matriculando a alumno ...');
+            usersApi.enrollStudent(idStudent,idCourse).then(function(response) {       
+                confirm("MATRICULADO CON ÉXITO !!");
+                console.log('ok después de enrollStudent', response);
             }, function(error) {
-                $log.debug('error después de enrollStudent', error);
+                confirm("ERROR AL MATRICULARSE A ESTE CURSO !!");
+                console.log('error después de enrollStudent', error);
             });   
         };
+
+        $scope.goLesson= function(lesson,index){
+            console.log('Go Lesson ---------',common.activeUSer._id,common.courseSelected._id);
+            usersApi.getActivityLesson(common.activeUSer._id,common.courseSelected._id).then(function(response){
+                console.log('Get de actividad de estudiante: '+common.activeUSer._id+' en curso: '+common.courseSelected._id);
+                console.log('----------------ACTIVIDAD: ',response.data);  
+                common.lessonSelected=lesson;
+                $scope.lessonSelected=common.lessonSelected;
+                common.indexLessonSelected=index;
+                $scope.indexLessonSelected=common.indexLessonSelected;
+                $location.path("/lesson");      
+            }, function myError(err) {
+                console.log(err);      
+            });
+        }
 
         $scope.getStudentsCoursesActives= function(idStudent) {
             $log.debug('loading cursos activos ...');

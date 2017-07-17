@@ -11,11 +11,7 @@
    botBloqApp.controller('studentsCtrl',
                          function($log,$q,$scope,$http,$location,usersApi, knowledge, common) {
         $log.log('student ctrl start');
-        console.log('valor de init en students antes de cambiar a true:',common.init);
-        common.init=true;
-        $scope.init=common.init;
-        console.log('valor de init en students antes de cambiar a true:',common.init);
-
+        
         $scope.registeredStudent={};
         usersApi.getStudents().then(function(response){
                 $scope.students= response.data;
