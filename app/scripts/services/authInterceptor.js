@@ -13,7 +13,7 @@ botBloqApp.service('authInterceptor', function($log, $q) {
             },
             'responseError': function(rejection) {
                 // do something on error
-                $log.debug('responseError', rejection);
+                console.log('responseError', rejection);
                 switch (rejection.status) {
                     case 0: //server null
 

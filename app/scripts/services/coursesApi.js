@@ -12,7 +12,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
         $log.log('coursesApi start');
 
         function addCourse(courseName,courseCode,courseSummary, obj) {
-            $log.debug("Objetos para hacer post course: "+ courseName,courseCode,courseSummary,obj);
+            console.log("Objetos para hacer post course: "+ courseName,courseCode,courseSummary,obj);
 
             var coursesPromise = $q.defer();
 
@@ -24,15 +24,15 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
                 statistics:  {},
                 history: ''
             }).then(function(response) {
-                $log.debug('ok despues de post course', response.data.token);
+                console.log('ok despues de post course', response.data.token);
                 coursesPromise.resolve();  
             }, function(err) {
-                 $log.debug('error despues de post course',err);
+                 console.log('error despues de post course',err);
             });
             return coursesPromise.promise;
         }
         function addSection(idCourse, sectionsName,sectionsSummary,sectionsObjectives) {
-            $log.debug("Objetos para hacer post section: "+ idCourse, sectionsName,sectionsSummary,sectionsObjectives);
+            console.log("Objetos para hacer post section: "+ idCourse, sectionsName,sectionsSummary,sectionsObjectives);
 
             var coursesPromise = $q.defer();
 
@@ -41,16 +41,16 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
                 summary: sectionsSummary,
                 objectives:sectionsObjectives
             }).then(function(response) {
-                $log.debug('ok despues de post section', response.data.token);
+                console.log('ok despues de post section', response.data.token);
                 coursesPromise.resolve();  
             }, function(err) {
-                 $log.debug('error despues de post section',err);
+                 console.log('error despues de post section',err);
             });
             return coursesPromise.promise;
         }
         
         function addLesson(idCourse, section, lessonName,lessonSummary,lessonObjectives, learningPath, lessonType) {
-            $log.debug("Objetos para hacer post lesson: "+ idCourse,section,lessonName,lessonSummary,lessonObjectives,learningPath,lessonType);
+            console.log("Objetos para hacer post lesson: "+ idCourse,section,lessonName,lessonSummary,lessonObjectives,learningPath,lessonType);
 
             var coursesPromise = $q.defer();
 
@@ -62,37 +62,37 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
                 type: lessonType,
                 loms:[]
             }).then(function(response) {
-                $log.debug('ok despues de post lesson', response.data.token);
+                console.log('ok despues de post lesson', response.data.token);
                 coursesPromise.resolve();  
             }, function(err) {
-                 $log.debug('error despues de post lesson',err);
+                 console.log('error despues de post lesson',err);
             });
             return coursesPromise.promise;
         }
 
         function asignLomLesson(idCourse,section,lesson,idLom) { 
             var coursesPromise = $q.defer();
-            $log.debug("Objetos para hacer post asign lom: "+ idCourse,section,lesson,idLom);
+            console.log("Objetos para hacer post asign lom: "+ idCourse,section,lesson,idLom);
             $http.post(common.bitbloqBackendUrl + '/courses/'+idCourse+'/section/'+section+'/lesson/'+lesson+'/lom/'+idLom, {
                 }).then(function(response) {
-                    $log.debug('ok despues de asignar un lom '+idLom+' a una leccion', response.data.token);
+                    console.log('ok despues de asignar un lom '+idLom+' a una leccion', response.data.token);
                     coursesPromise.resolve();  
                 }, function(err) {
-                     $log.debug('error despues intentar asignar el lom '+idLom+' a una leccion',err);
+                     console.log('error despues intentar asignar el lom '+idLom+' a una leccion',err);
                 });
             return coursesPromise.promise;     
         }
 
         function assignLomsLesson(idCourse,section,lesson,listLoms) { 
             var coursesPromise = $q.defer();
-            $log.debug("Objetos para hacer post asign lom: "+ idCourse,section,lesson,listLoms);
+            console.log("Objetos para hacer post asign lom: "+ idCourse,section,lesson,listLoms);
             $http.post(common.bitbloqBackendUrl + '/courses/'+idCourse+'/section/'+section+'/lesson/'+lesson+'/assign_loms', 
               listLoms
                 ).then(function(response) {
-                    $log.debug('ok despues de asignar una lista de '+listLoms.length+' loms a una leccion', response.data.token);
+                    console.log('ok despues de asignar una lista de '+listLoms.length+' loms a una leccion', response.data.token);
                     coursesPromise.resolve();  
                 }, function(err) {
-                     $log.debug('error despues intentar asignar la lista de loms a una leccion',err);
+                     console.log('error despues intentar asignar la lista de loms a una leccion',err);
             });
             return coursesPromise.promise;     
         }
@@ -100,17 +100,17 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
         function editCourse(idCourse,courseName,courseCode,courseSummary,objs) {
             console.log("Objetos para editar (SERVICE): "+ courseName,courseCode,courseSummary,objs);
             var coursesPromise = $q.defer();
-            $log.debug('id de item a editar (antes de llamada)', idCourse);
+            console.log('id de item a editar (antes de llamada)', idCourse);
             $http.put(common.bitbloqBackendUrl + '/courses/'+idCourse, {
                 name: courseName,
                 code: courseCode,
                 summary: courseSummary/*,
                 objectives: objs*/
             }).then(function(response) {
-                $log.debug('ok despues de editar-post', response.data.token);
+                console.log('ok despues de editar-post', response.data.token);
                 coursesPromise.resolve();  
             }, function(err) {
-                 $log.debug('error despues de editar-post',err);
+                 console.log('error despues de editar-post',err);
             });
             return coursesPromise.promise;
         }
@@ -158,10 +158,10 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
                 objectives:sectionsObjectives,
                 lessons:sectionsLessons
             }).then(function(response) {
-                $log.debug('ok despues de put section', response.data.token);
+                console.log('ok despues de put section', response.data.token);
                 coursesPromise.resolve();  
             }, function(err) {
-                 $log.debug('error despues de put section',err);
+                 console.log('error despues de put section',err);
             });
             return coursesPromise.promise;
         }

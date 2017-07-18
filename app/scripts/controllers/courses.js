@@ -79,7 +79,7 @@
                     $scope.lomsAux.push(element);
                 });
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
         });
 
@@ -91,7 +91,7 @@
                     $scope.lomsAux.push(element);
                 });
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
             });
         };
@@ -105,7 +105,7 @@
                 console.log('actualCourseToAdd: ',actualCourseToAdd);
                 console.log('actualSection: ',actualSection);
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
         }); 
 
@@ -114,33 +114,33 @@
         };
 
         $scope.updateCourses= function() {
-            $log.debug('loading Courses ...');
+            console.log('loading Courses ...');
             coursesApi.getCourses().then(function(response){
                 $scope.courses= response.data;        
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
             }); 
         };
         $scope.updateLastCourse= function() {
-            $log.debug('loading Courses ...');
+            console.log('loading Courses ...');
             coursesApi.getCourses().then(function(response){
                 $scope.courses= response.data; 
                 common.courseSelected=$scope.courses[$scope.courses.length -1];         
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
             }); 
         };
         $scope.updateSections= function(idCourse) {
-            $log.debug('loading Sections ...');
+            console.log('loading Sections ...');
             coursesApi.getSections(idCourse).then(function(response){
                     $scope.sections= response.data;
                     $scope.sectionsSelected=$scope.sections;
                     actualSection=$scope.sections[$scope.sections.length -1];
                     console.log("numero de secciones actuales: "+$scope.sections.length);
                 }, function myError(err) {
-                    $log.debug(err);
+                    console.log(err);
                     alert('Error de tipo: '+err.status);      
             });
         };
@@ -160,10 +160,10 @@
                 promise = defered.promise;
             coursesApi.getSections(idCourse).then(function(response){
                     common.sectionsCourseSelected=response.data;
-                    $log.debug('numero de secciones en getSections dentro: ', common.sectionsCourseSelected.length);
+                    console.log('numero de secciones en getSections dentro: ', common.sectionsCourseSelected.length);
                     defered.resolve();
                 }, function myError(err) {
-                    $log.debug(err);
+                    console.log(err);
                     alert('Error de tipo: '+err.status);      
             });
             return promise;
@@ -178,10 +178,10 @@
                 angular.forEach(lessonsSection,function(lesson){
                     common.lessonsCourseSelected.push(lesson);
                 });
-                $log.debug('numero de lecciones en getLessons dentro: ', common.sectionsCourseSelected.length);
+                console.log('numero de lecciones en getLessons dentro: ', common.sectionsCourseSelected.length);
                 defered.resolve();
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
             });
             
@@ -213,7 +213,7 @@
 
         $scope.showInfoCourse = function(item){
             $scope.InfoCourse=true;
-            $log.debug('loading get info courses ...');
+            console.log('loading get info courses ...');
             coursesApi.getCourse(item).then(function(response){
                 $scope.courseName=response.data.name;
                 $scope.courseCode=response.data.code;
@@ -222,7 +222,7 @@
                 $scope.sections=response.data.sections;
                 $scope.courseHistory=response.data.history;
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
             });
         };
@@ -258,7 +258,7 @@
                 $scope.sectionsSelected=common.sectionsCourseSelected;
                 $location.path("/editCourse");
             }, function(error) {
-                $log.debug('Se ha producido un error al obtener el dato: '+error);     
+                console.log('Se ha producido un error al obtener el dato: '+error);     
             });*/
 
         
@@ -305,7 +305,7 @@
 
 
         $scope.addEditCourse = function() {
-            $log.debug('valor de edit: ', $scope.edit);
+            console.log('valor de edit: ', $scope.edit);
             if($scope.edit) $scope.editCourse($scope.idItemToEdit);
             else $scope.addCourse();
         };
@@ -378,18 +378,18 @@
 
         $scope.addCourse = function() {
             if ($scope.adminCoursesForm.$valid) {
-                $log.debug('adding...');
+                console.log('adding...');
                 coursesApi.addCourse($scope.courseName,$scope.courseCode,$scope.courseSummary, objectivesCourse).then(function(response) {
-                    $log.debug('ok después de addCourse', response);
+                    console.log('ok después de addCourse', response);
                     $scope.updateLastCourse();
                     common.courseSelected=$scope.courses[$scope.courses.length -1];
                     $location.path("/addSections");
                 }, function(error) {
-                    $log.debug('error después de addCourse', error);
+                    console.log('error después de addCourse', error);
                 });
                 $scope.showCoursesForm=false;
             } else {
-                $log.debug('There are invalid fields');
+                console.log('There are invalid fields');
             }
             objectivesCourse=[];
         };
@@ -398,14 +398,14 @@
             if ($scope.adminCoursesFormSection.$valid) {
                 console.log('parametros addSection: ',common.courseSelected._id, $scope.sections.name, $scope.sections.summary,objectivesSection);
                 coursesApi.addSection(common.courseSelected._id, $scope.sections.name, $scope.sections.summary,objectivesSection).then(function(response) {
-                    $log.debug('ok después de addSection', response);
+                    console.log('ok después de addSection', response);
                     $scope.updateSections(common.courseSelected._id);
                     $location.path("/addLessons");
                 }, function(error) {
-                    $log.debug('error después de addSection', error);
+                    console.log('error después de addSection', error);
                 });
             } else {
-                $log.debug('There are invalid fields');
+                console.log('There are invalid fields');
             }
             objectivesSection=[];
         };
@@ -413,13 +413,13 @@
             /*if ($scope.adminCoursesFormSection.$valid || $scope.addSectionEdit) {*/
                 console.log('parametros addSection (EDIT): ',common.courseSelected._id, $scope.sections.name, $scope.sections.summary,objectivesSection);
                 coursesApi.addSection(common.courseSelected._id, $scope.sections.name, $scope.sections.summary,objectivesSection).then(function(response) {
-                    $log.debug('ok después de addSection', response);
+                    console.log('ok después de addSection', response);
                     $scope.updateSections(common.courseSelected._id);
                 }, function(error) {
-                    $log.debug('error después de addSection', error);
+                    console.log('error después de addSection', error);
                 });
             /*} else {*/
-                /*$log.debug('There are invalid fields');*/
+                /*console.log('There are invalid fields');*/
            /* }*/
                 objectivesSection=[];
         };
@@ -429,10 +429,10 @@
                     $scope.assignLomsToLesson(actualCourseToAdd._id,actualSection.name,$scope.lesson.name,$scope.lomsToAdd);
                     $scope.resetLesson();
                 }, function(error) {
-                    $log.debug('error después de addSection', error);
+                    console.log('error después de addSection', error);
                 });
             } else {
-                $log.debug('There are invalid fields');
+                console.log('There are invalid fields');
             }  
         };
         $scope.addLessonEdit=function(section){
@@ -441,10 +441,10 @@
                     $scope.assignLomsToLesson(common.courseSelected._id,section,$scope.lesson.name,$scope.lomsToAdd);
                     $scope.resetLesson();
                 }, function(error) {
-                    $log.debug('error después de addSection', error);
+                    console.log('error después de addSection', error);
                 });
             /*} else {*/
-                $log.debug('There are invalid fields');
+                console.log('There are invalid fields');
             /*}  */
         };
 
@@ -459,23 +459,23 @@
         };
 
         $scope.asignLomToLesson=function(idCourse,section,lesson, lom){
-            $log.debug('--- metodo que asigna un lom a una lección----');
+            console.log('--- metodo que asigna un lom a una lección----');
             coursesApi.asignLomLesson(idCourse,section,lesson,lom._id).then(function(response) {
-                    $log.debug('ok después de asignar el lom cuyo id es '+lom._id+' a una lección', response);
-                    $log.debug('    -----    '); 
+                    console.log('ok después de asignar el lom cuyo id es '+lom._id+' a una lección', response);
+                    console.log('    -----    '); 
                 }, function(error) {
-                     $log.debug('error después de asignación de lom a una lección', error);
+                     console.log('error después de asignación de lom a una lección', error);
             }); 
         };
         $scope.assignLomsToLesson=function(idCourse,section,lesson, loms){
-            $log.debug('--- metodo que asigna una lista de loms a una lección ----');
-            $log.debug('Numero de loms para asignar: '+loms.length);
+            console.log('--- metodo que asigna una lista de loms a una lección ----');
+            console.log('Numero de loms para asignar: '+loms.length);
             var listIdLoms= $scope.listIdLoms(loms);
             coursesApi.assignLomsLesson(idCourse,section,lesson,listIdLoms).then(function(response) {
-                    $log.debug('ok después de asignar la lista de '+listIdLoms.length+' loms a una lección', response);
-                    $log.debug('    -----    '); 
+                    console.log('ok después de asignar la lista de '+listIdLoms.length+' loms a una lección', response);
+                    console.log('    -----    '); 
                 }, function(error) {
-                     $log.debug('error después de asignación de lom a una lección', error);
+                     console.log('error después de asignación de lom a una lección', error);
             });
         };
 
@@ -531,10 +531,10 @@
             });
             $scope.listAuxLomsAdd=[];
             coursesApi.assignLomsLesson(common.courseSelected._id,section,lesson,lomsToAdd).then(function(response) {
-                    $log.debug('ok después de asignar la lista de '+lomsToAdd.length+' loms a una lección', response);
-                    $log.debug('    -----    '); 
+                    console.log('ok después de asignar la lista de '+lomsToAdd.length+' loms a una lección', response);
+                    console.log('    -----    '); 
                 }, function(error) {
-                     $log.debug('error después de asignación de lom a una lección', error);
+                     console.log('error después de asignación de lom a una lección', error);
             });
         };
         $scope.deleteFromListEditLom=function(section,lesson,$event){
@@ -545,10 +545,10 @@
             });
             $scope.listAuxLomsAdd=[];
             lomsApi.removeLomsOfLesson(common.courseSelected._id,section,lesson,lomsToDelete).then(function(response) {
-                    $log.debug('ok después eliminar loms de una lección', response);
-                    $log.debug('    -----    '); 
+                    console.log('ok después eliminar loms de una lección', response);
+                    console.log('    -----    '); 
                 }, function(error) {
-                     $log.debug('error después de asignación de lom a una lección', error);
+                     console.log('error después de asignación de lom a una lección', error);
             });
         };
 
@@ -584,17 +584,17 @@
                 console.log('editing...');
                 console.log("parametros de entrada: ",common.courseSelected._id,courseName,courseCode,courseSummary,objs);
                 coursesApi.editCourse(common.courseSelected._id,courseName,courseCode,courseSummary,common.objectivesCourseSelected).then(function(response) {
-                    $log.debug('ok después de editCourse', response);
+                    console.log('ok después de editCourse', response);
                     $scope.updateCourses();
                     confirm("Curso editado con éxito!");
                     $location.path("/courses");
                 }, function(error) {
-                    $log.debug('error después de editCourse', error);
+                    console.log('error después de editCourse', error);
                     confirm("Error al editar el curso.");
                 });
                 $scope.showCoursesForm=false;
             } else {
-                $log.debug('There are invalid fields');
+                console.log('There are invalid fields');
             }
             $scope.courseName='';
             $scope.courseCode='';
@@ -619,7 +619,7 @@
                     console.log('ok después de editSection', response);
                     confirm("Sección editada con éxito!");
                 }, function(error) {
-                    $log.debug('error después de editSection', error);
+                    console.log('error después de editSection', error);
                     confirm("Error al editar la sección.");
                 });
                 $scope.showCoursesForm=false;
@@ -630,28 +630,28 @@
         };
 
         $scope.removeCourse = function(course,e){
-            $log.debug('eliminado course con id: ', course);
+            console.log('eliminado course con id: ', course);
             if (confirm("¿SEGURO QUE QUIERE ELIMINAR ESTE CURSO?") === false) {
                 e.preventDefault();
                 return;
             }
             coursesApi.removeItem(course._id).then(function(response) {
-                    $log.debug('eliminado course con exito', response);
+                    console.log('eliminado course con exito', response);
                     $scope.updateCourses();
                 }, function(error) {
-                    $log.debug('error al eliminar course', error);
+                    console.log('error al eliminar course', error);
              });
         };
         $scope.deleteAllCourses = function(e){
-            $log.debug('eliminado courses');
+            console.log('eliminado courses');
             if (confirm("¿ESTÁ DISPUESTO A ELIMINAR TODOS LOS CURSOS?") === false) {
                 e.preventDefault();
                 return;
             }
             coursesApi.removeAllItem().then(function(response) {
-                    $log.debug('eliminado todos los items con exito', response);
+                    console.log('eliminado todos los items con exito', response);
                 }, function(error) {
-                    $log.debug('error al eliminar todos los items', error);
+                    console.log('error al eliminar todos los items', error);
              });
         };
 
@@ -661,10 +661,10 @@
             resetCourseSelected();
             var promise=updateSectionsSelected(course._id);
             promise.then(function() {
-                $log.debug('numero de secciones en goCourse: ', common.sectionsCourseSelected.length);
+                console.log('numero de secciones en goCourse: ', common.sectionsCourseSelected.length);
                 calculateNumLessons(course._id);
             }, function(error) {
-                $log.debug('Se ha producido un error al obtener el dato: '+error);     
+                console.log('Se ha producido un error al obtener el dato: '+error);     
             });
             $scope.coursePage=true;
             $scope.totalCoursesPage=false;
@@ -761,39 +761,39 @@
         }
 
         $scope.getStudentsCoursesActives= function(idStudent) {
-            $log.debug('loading cursos activos ...');
+            console.log('loading cursos activos ...');
             /*coursesApi.getStudentsCoursesActives(idStudent).then(function(response){
                 $scope.enrolledCourses= response.data;          
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
             });*/ 
             $scope.enrolledCourses=$scope.activeUser.course[0];
         };
         $scope.getStudentsCoursesFinished= function(idStudent) {
-            $log.debug('loading cursos terminados ...');
+            console.log('loading cursos terminados ...');
             coursesApi.getStudentsCoursesFinished(idStudent).then(function(response){
                 $scope.doneCourses= response.data;          
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
             }); 
         };
         $scope.getStudentsCoursesUnfinished= function(idStudent) {
-            $log.debug('loading cursos inacabados ...');
+            console.log('loading cursos inacabados ...');
             coursesApi.getStudentsCoursesUnfinished(idStudent).then(function(response){
                 $scope.enrolledCourses= response.data;          
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
             }); 
         };
         $scope.getAllStudentsCourses= function(idStudent) {
-            $log.debug('loading todos los cursos ...');
+            console.log('loading todos los cursos ...');
             coursesApi.getAllStudentsCourses(idStudent).then(function(response){
                 $scope.enrolledCourses= response.data;          
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
             }); 
         };

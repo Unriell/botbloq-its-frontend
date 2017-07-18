@@ -21,7 +21,8 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
                 name: name,
                 email: email
             }}).then(function(response) {
-                $log.debug('token', response.data.token);
+                console.log('token', response.data);
+                common.questionnaire=response.data;
                 localStorage.userToken = response.data.token; 
                 getCurrentUser().then(function() {
                     signUpPromise.resolve();
@@ -42,18 +43,18 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
                     console.log('(API) ok despues de matricular al estudiante '+idStudent+' a un curso', response.data.token);
                     coursesPromise.resolve();  
                 }, function(err) {
-                     $log.debug('error despues intentar matricular un estudiante en un curso',err);
+                     console.log('error despues intentar matricular un estudiante en un curso',err);
             });
             return coursesPromise.promise;     
         }
 
         function assignStudentToGroup(idStudent) {
-            $log.debug('asignando estudiante con id: '+idStudent+' a grupo. (userApi).');
+            console.log('asignando estudiante con id: '+idStudent+' a grupo. (userApi).');
 
             var assignGroupPromise = $q.defer();
 
             $http.put(common.bitbloqBackendUrl + '/students/'+idStudent+'/group', {}).then(function(response) {
-                $log.debug('assignado estudiante a grupo correctamente (userApi).');
+                console.log('assignado estudiante a grupo correctamente (userApi).');
             }, function(err) {
                 logout();
                 assignGroupPromise.reject(err);
@@ -85,6 +86,13 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             common.nameActiveUser=user.identification.name;
 
             console.debug('USUARIO ACTIVO CON ID: '+user._id+' y nombre: '+user.identification.name);
+        }
+
+        function activeUser(user){
+            common.activeUSer=user;
+            common.nameActiveUser=user.identification.name;
+
+           console.debug('USUARIO ACTIVO CON ID: '+user._id+' y nombre: '+user.identification.name);
         }
 
         var exports = {

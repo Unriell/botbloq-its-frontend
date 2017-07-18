@@ -5,6 +5,7 @@
 @import "globals/base";
 @import "globals/fonts";
 @import "globals/icon-fonts";
+@import "globals/helper";
 
 @import "partials/buttons";
 @import "partials/table";
@@ -22,3 +23,4 @@
 @import "pages/objectives";
 @import "pages/users";
 @import "pages/signUp";
+@import "pages/questionnaire";

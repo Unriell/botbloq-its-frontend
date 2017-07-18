@@ -12,7 +12,7 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
         $log.log('lomsApi start');
 
         function addLom(generalSchema,lifecycleSchema,metadataSchema,technicalSchema, useSchema) {
-            $log.debug("Objetos para hacer post: "+ generalSchema,lifecycleSchema,metadataSchema,
+            console.log("Objetos para hacer post: "+ generalSchema,lifecycleSchema,metadataSchema,
                                  technicalSchema, useSchema);
 
             var lomsPromise = $q.defer();
@@ -53,19 +53,19 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
                     resource_difficulty: useSchema.resource_difficulty
                 }
             }).then(function(response) {
-                $log.debug('ok despues de post', response.data.token);
+                console.log('ok despues de post', response.data.token);
                 lomsPromise.resolve();  
             }, function(err) {
-                 $log.debug('error despues de post',err);
+                 console.log('error despues de post',err);
             });
             return lomsPromise.promise;
         }
         function editLom(idItem,generalSchema,lifecycleSchema,metadataSchema,technicalSchema, useSchema) {
-            $log.debug("Objetos para editar: "+ generalSchema,lifecycleSchema,metadataSchema,
+            console.log("Objetos para editar: "+ generalSchema,lifecycleSchema,metadataSchema,
                                  technicalSchema, useSchema);
 
             var lomsPromise = $q.defer();
-            $log.debug('id de item a editar (antes de llamada)', idItem);
+            console.log('id de item a editar (antes de llamada)', idItem);
             $http.put(common.bitbloqBackendUrl + '/loms/'+idItem, {
                 general: {
                     id_catalog: generalSchema.id_catalog,
@@ -102,10 +102,10 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
                     resource_difficulty: useSchema.resource_difficulty
                 }
             }).then(function(response) {
-                $log.debug('ok despues de editar-post', response.data.token);
+                console.log('ok despues de editar-post', response.data.token);
                 lomsPromise.resolve();  
             }, function(err) {
-                 $log.debug('error despues de editar-post',err);
+                 console.log('error despues de editar-post',err);
             });
             return lomsPromise.promise;
         }

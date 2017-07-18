@@ -11,7 +11,7 @@
    botBloqApp.controller('lomsCtrl',
                          function($log, $scope,$http,$location,lomsApi) {
         $log.log('loms ctrl start');
-        $log.debug('loading loms p ...');
+        console.log('loading loms p ...');
 
         $scope.InfoLom=false;
         $scope.idItemToEdit;
@@ -42,22 +42,22 @@
         lomsApi.getLoms().then(function(response){
                 $scope.loms= response.data;
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
         }); 
 
         $scope.showLoms= function() {
-            $log.debug('loading Loms ...');
+            console.log('loading Loms ...');
             lomsApi.getLoms().then(function(response){
                    $scope.loms= response.data;
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
             }); 
         };
         $scope.showInfoLom = function(item){
             $scope.InfoLom=true;
-            $log.debug('loading get info lom ...');
+            console.log('loading get info lom ...');
             lomsApi.getLom(item).then(function(response){
                 $scope.generalSchema=response.data.general;
                 $scope.lifecycleSchema=response.data.lifecycle;
@@ -65,7 +65,7 @@
                 $scope.technicalSchema=response.data.technical;
                 $scope.useSchema=response.data.use;
             }, function myError(err) {
-                $log.debug(err);
+                console.log(err);
                 alert('Error de tipo: '+err.status);      
             });
         };
@@ -97,17 +97,17 @@
         };
         $scope.addLom = function() {
             if ($scope.adminLomsForm.$valid) {
-                $log.debug('adding...', $scope.technicalSchema);
+                console.log('adding...', $scope.technicalSchema);
                 lomsApi.addLom($scope.generalSchema,$scope.lifecycleSchema,$scope.metadataSchema,$scope.technicalSchema, $scope.useSchema).then(function(response) {
-                    $log.debug('ok después de addLom', response);
+                    console.log('ok después de addLom', response);
                     $scope.showLoms();
                     $location.path("/loms");
                 }, function(error) {
-                    $log.debug('error después de addLom', error);
+                    console.log('error después de addLom', error);
                 });
                 $scope.showAdminLomsForm=false;
             } else {
-                $log.debug('There are invalid fields');
+                console.log('There are invalid fields');
             }
             $scope.generalSchema={};
             $scope.lifecycleSchema={};
@@ -117,16 +117,16 @@
         };
         $scope.editLom = function(idItem) {
             if ($scope.adminLomsForm.$valid) {
-                $log.debug('editing...', $scope.technicalSchema);
+                console.log('editing...', $scope.technicalSchema);
                 lomsApi.editLom(idItem,$scope.generalSchema,$scope.lifecycleSchema,$scope.metadataSchema,$scope.technicalSchema, $scope.useSchema).then(function(response) {
-                    $log.debug('ok después de editLom', response);
+                    console.log('ok después de editLom', response);
                     $scope.showLoms();
                 }, function(error) {
-                    $log.debug('error después de editLom', error);
+                    console.log('error después de editLom', error);
                 });
                 $scope.showAdminLomsForm=false;
             } else {
-                $log.debug('There are invalid fields');
+                console.log('There are invalid fields');
             }
             $scope.generalSchema={};
             $scope.lifecycleSchema={};
@@ -135,30 +135,30 @@
             $scope.useSchema={};
         };
         $scope.addEditLom = function() {
-            $log.debug('valor de edit: ', $scope.edit);
+            console.log('valor de edit: ', $scope.edit);
             if($scope.edit) $scope.editLom($scope.idItemToEdit);
             else $scope.addLom();
         };
 
         $scope.removeLom = function(item){
-            $log.debug('eliminado item con id: ', item);
+            console.log('eliminado item con id: ', item);
             lomsApi.removeItem(item).then(function(response) {
-                    $log.debug('eliminado item con exito', response);
+                    console.log('eliminado item con exito', response);
                     $scope.showLoms();
                 }, function(error) {
-                    $log.debug('error al eliminar item', error);
+                    console.log('error al eliminar item', error);
              });
         };
         $scope.deleteAllLoms = function(e){
-            $log.debug('eliminado loms');
+            console.log('eliminado loms');
             if (confirm("¿ESTÁ DISPUESTO A ELIMINAR TODOS LOS LOMS?") === false) {
                 e.preventDefault();
                 return;
             }
             lomsApi.removeAllItem().then(function(response) {
-                    $log.debug('eliminado todos los items con exito', response);
+                    console.log('eliminado todos los items con exito', response);
                 }, function(error) {
-                    $log.debug('error al eliminar todos los items', error);
+                    console.log('error al eliminar todos los items', error);
              });
         };
         
