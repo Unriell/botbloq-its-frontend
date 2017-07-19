@@ -14,7 +14,18 @@
         $scope.changeInit(false); 
 
         $scope.questionnaire=common.questionnaire;
-        console.log('----- Valor de cuestionario: ',common.questionnaire.id_student);
+
+        $scope.questions=$scope.questionnaire.form[0].children;
+        $scope.questionAnswer=[];
+        $scope.answers=[];
+        //Cosntruyo una estructura para recorrerla en el html y crear formulario
+        angular.forEach($scope.questions,function(question,$index){
+            var values_options=[];
+            angular.forEach(question.children[0].choices,function(option){
+                values_options.push(option.label.en);
+            });
+            $scope.questionAnswer[$index]={id:question.id,title:question.title.en,value:"",values:values_options};
+        });
 
         usersApi.getStudents().then(function(response){
                 $scope.students= response.data;
@@ -50,5 +61,24 @@
                 alert('Error de tipo: '+err.status);      
             });     
         };
+        $scope.sendQuestionnaire=function(){
+            console.log('Enviando cuestioanario');
+            createJsonAnswer();
+            console.log('RESPUESTAS para enviar: ',$scope.answers);
+            var formatAnswers={answers:$scope.answers};
+            usersApi.sendQuestionnaire(common.activeUSer._id,formatAnswers).then(function(response){
+                console.log('Cuestionario enviado con éxito',response);
+            }, function myError(err) {
+                console.log(err);
+                alert('Error de tipo: '+err.status);      
+            });     
+        };
+
+        //Cosntruyo el json con la estructura que debo enviarlo y lo guardo en answers.
+        var createJsonAnswer=function(){
+            angular.forEach($scope.questionAnswer,function(question,$index){
+                $scope.answers[$index]={id_question:question.id,value:question.value};
+            });     
+        }
         
     });

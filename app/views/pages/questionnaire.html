@@ -4,11 +4,11 @@
 
 <div class="contentQuestionnaire">
 	<form name="userQuestionnaire" class="contentQuestionnaire__form" ng-submit="sendQuestionnaire()">
-		<div class="contentQuestionnaire__form__wrapperQuestions" ng-repeat="question in questionnaire.form[0].children">
-			<p class="contentQuestionnaire__form__wrapperQuestions__question">{{question.title.en}}</p>
-			<div class="contentQuestionnaire__form__wrapperQuestions__options" ng-repeat="option in question.children[0].choices">
-				<input id="q{{$parent.$index+1}}_option_{{$index+1}}" type="radio" name="question_{{$parent.$index+1}}" requiered value=""> <!-- ng-model que pongo? -->
-				<label for="q{{$parent.$index+1}}_option_{{$index+1}}">{{option.label.en}}</label>	
+		<div class="contentQuestionnaire__form__wrapperQuestions" ng-repeat="question in questionAnswer">
+			<p class="contentQuestionnaire__form__wrapperQuestions__question">{{question.title}}</p>
+			<div class="contentQuestionnaire__form__wrapperQuestions__options" ng-repeat="option in question.values">
+				<input id="q{{$parent.$index+1}}_option_{{$index+1}}" type="radio" name="question_{{$parent.$index+1}}" ng-value="option|lowercase" ng-model="question.value"> 
+				<label for="q{{$parent.$index+1}}_option_{{$index+1}}">{{option}}</label>	
 			</div>
 		</div>
 		<input type="submit" name="">
