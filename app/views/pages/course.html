@@ -3,14 +3,14 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-7">
 				<div class="wrapperCourse__header__contentImg">
-					<img class="wrapperCourse__header__contentImg__img" src="../../assets/images/common/angular.png" alt="">
+					<img class="wrapperCourse__header__contentImg__img" src="../../assets/images/common/prueba.png" alt="">
 				</div>
 			</div>
 			<div class="col-xs-12 col-sm-5">
 				<div class="wrapperCourse__header__info">
 					<h2 class="wrapperCourse__header__info__title">{{courseSelected.name}}</h2>
 					<p class="wrapperCourse__header__info__description">Última Lección 2. Conociendo BitBloq</p>
-					<a class="wrapperCourse__header__info__link">Nueva actividad <span></span></a>
+					<button class="wrapperCourse__header__info__link btnBq--style1 center" ng-click="newActivity()" type="button">Nueva actividad <span></span></button>
 				</div>
 				<button class="btnBq--withIcon btnBig" ng-click="enrollStudent(activeUser._id,courseSelected._id)" type="button">MATRICÚLATE</button>
 			</div>
@@ -25,7 +25,7 @@
 			<li class="wrapperCourse__lessons__contentLessons__element" ng-repeat="lesson_i in lessonsSelected">	
 				<div class="row">
 					<div class="col-xs-12 col-sm-3">
-						<img class="wrapperCourse__lessons__contentLessons__element__img" src="../../assets/images/common/angular.png" alt="">	
+						<img class="wrapperCourse__lessons__contentLessons__element__img" src="../../assets/images/common/prueba.png" alt="">	
 					</div>
 					<div class="col-xs-12 col-sm-9">
 						<a class="wrapperCourse__lessons__contentLessons__element__link" ng-click="goLesson(lesson_i,$index + 1)" href>

@@ -1,17 +1,27 @@
 .contentQuestionnaire{
 	background: $bg-color-graytooLight;
     padding: 20px 20px 0 20px;
-    min-height: 300px;
+    min-height: 600px;
 }
 	.contentQuestionnaire__form{
 		background: $bg-color-white;
+		padding:20px;
+	}
+	.contentQuestionnaire__form .contentRow{
+		margin-bottom:15px;
+	}
+	.contentQuestionnaire__form .contentCol{
+		margin-bottom:15px;
 	}
 	.contentQuestionnaire__form__wrapperQuestions{
-		
+		/* margin-bottom:15px; */
 	}
 	.contentQuestionnaire__form__wrapperQuestions__question{
-		
+		font-weight: bold;
 	}
 	.contentQuestionnaire__form__wrapperQuestions__options{
-		
+		margin-left:5px;
 	}
+	.contentQuestionnaire__form__input{
+		width: 190px;
+	} 

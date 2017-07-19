@@ -66,6 +66,8 @@
         $scope.sectionObj={};
         $scope.lessonObj={};
 
+        $scope.newActivity=common.newActivity;
+
         var objectivesCourse=[],
             objectivesSection=[],
             objectivesLesson=[];
@@ -798,8 +800,22 @@
             }); 
         };
         
+        $scope.newActivity=function(){
+            console.log('Solicitando nueva actividad ...');
+            console.log('Parámetros para solicitar nueva actividad: ',common.activeUser._id,common.courseSelected._id);
+            coursesApi.getNewActivity($scope.activeUser._id,common.courseSelected._id).then(function(response){
+                $scope.newActivity= response.data;
+                common.newActivity= $scope.newActivity;     
+                console.log('Nueva actividad obtenida con éxito',$scope.newActivity);
+                $location.path("/activity");
+            }, function myError(err) {
+                console.log(err);
+                alert('Error de tipo: '+err.status);      
+            }); 
+        };
 
          // ----------------    FIN STUDENT METHODS ---------------
+
 
         // -------------- LOAD IMAGES METHODS ---------------------
         $scope.thumbnail = {
@@ -825,3 +841,4 @@
         // 
 
     });
+

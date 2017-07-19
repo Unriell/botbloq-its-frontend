@@ -99,14 +99,7 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             common.activeUSer=user;
             common.nameActiveUser=user.identification.name;
 
-            console.debug('USUARIO ACTIVO CON ID: '+user._id+' y nombre: '+user.identification.name);
-        }
-
-        function activeUser(user){
-            common.activeUSer=user;
-            common.nameActiveUser=user.identification.name;
-
-           console.debug('USUARIO ACTIVO CON ID: '+user._id+' y nombre: '+user.identification.name);
+           console.log('USUARIO ACTIVO CON ID: '+user._id+' y nombre: '+user.identification.name);
         }
 
         var exports = {

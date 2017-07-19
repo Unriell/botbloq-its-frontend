@@ -165,6 +165,10 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             });
             return coursesPromise.promise;
         }
+        function getNewActivity(idStudent,idCourse){
+            console.log('Parámetros para solicitar nueva actividad: ',idStudent,idCourse);
+            return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+"/course/"+idCourse);
+        }
         function getCourses() { 
           return $http.get( common.bitbloqBackendUrl + "/courses/" );      
         }
@@ -222,7 +226,8 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             getStudentsCoursesActives: getStudentsCoursesActives,
             getStudentsCoursesFinished: getStudentsCoursesFinished,
             getStudentsCoursesUnfinished: getStudentsCoursesUnfinished,
-            getAllStudentsCourses: getAllStudentsCourses
+            getAllStudentsCourses: getAllStudentsCourses,
+            getNewActivity : getNewActivity
         };
 
         return exports;

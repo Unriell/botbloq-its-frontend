@@ -46,6 +46,7 @@
 
         $scope.activeUser=function(user){
             usersApi.activeUser(user);
+            common.activeUSer=user;
         };
 
         $scope.iSActiveUSer=function(user){

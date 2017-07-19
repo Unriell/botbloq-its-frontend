@@ -19,7 +19,8 @@ botBloqApp.service('common', function($log) {
             indexLessonSelected='',
             activeUser={},
             nameActiveUser="",
-            questionnaire={};
+            questionnaire={},
+            newActivity={};
 
         $log.log('common start');
 
@@ -33,7 +34,8 @@ botBloqApp.service('common', function($log) {
             activeUser: activeUser,
             nameActiveUser: nameActiveUser,
             objectivesCourse: objectivesCourse,
-            questionnaire : questionnaire
+            questionnaire : questionnaire,
+            newActivity : newActivity
         };
 
     });
