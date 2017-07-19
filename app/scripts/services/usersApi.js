@@ -37,12 +37,12 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             return signUpPromise.promise;
         }
 
-        function sendQuestionnaire(idStudent,answers_obj) {
-            console.log("Respuestas para enviar (API): ",idStudent,answers_obj);
+        function sendQuestionnaire(idStudent,answers) {
+            console.log("Respuestas para enviar (API): ",idStudent,answers);
 
             var coursesPromise = $q.defer();
 
-            $http.post(common.bitbloqBackendUrl + '/students/'+idStudent+'/init',answers_obj).then(function(response) {
+            $http.post(common.bitbloqBackendUrl + '/students/'+idStudent+'/init',{answers}).then(function(response) {
                 console.log('ok despues de enviar formulario', response.data);
                 coursesPromise.resolve();  
             }, function(err) {

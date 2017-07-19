@@ -68,6 +68,7 @@
             var formatAnswers={answers:$scope.answers};
             usersApi.sendQuestionnaire(common.activeUSer._id,formatAnswers).then(function(response){
                 console.log('Cuestionario enviado con éxito',response);
+                $location.path("/courses");
             }, function myError(err) {
                 console.log(err);
                 alert('Error de tipo: '+err.status);      
