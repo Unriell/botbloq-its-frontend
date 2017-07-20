@@ -66,7 +66,11 @@
         $scope.sectionObj={};
         $scope.lessonObj={};
 
-        $scope.newActivity=common.newActivity;
+        $scope.activity={};
+        $scope.activity=common.newActivity;
+
+        console.log('-----------------NUEVA ACTIVIDAD: (SCOPE)',$scope.activity);
+        console.log('-----------------NUEVA ACTIVIDAD: (SERVICIO)',common.newActivity);
 
         var objectivesCourse=[],
             objectivesSection=[],
@@ -104,8 +108,6 @@
                     actualCourseToAdd=$scope.courses[$scope.courses.length -1];
                 if (actualCourseToAdd.sections.length >0)
                     $scope.updateActualSections(actualCourseToAdd._id);
-                console.log('actualCourseToAdd: ',actualCourseToAdd);
-                console.log('actualSection: ',actualSection);
             }, function myError(err) {
                 console.log(err);
                 alert('Error de tipo: '+err.status);      
@@ -725,6 +727,46 @@
             $scope.objectivesPage=false;
         };
 
+        $scope.okEndLesson = function() {
+            console.log('Terminando lección...');
+            console.log("Parametros de entrada de okEndLesson: ",$scope.userActive._id,common.courseSelected._id,common.newActivity._id);
+            coursesApi.okEndLesson($scope.userActive._id,common.courseSelected._id,common.newActivity._id).then(function(response) {
+                console.log('ok después finalizar correctamente una lección', response);
+                $location.path("/course");
+            }, function(error) {
+                console.log('error después de finalizar correctamente una lección', error);
+            });      
+        };
+
+        $scope.badEndLesson = function() {
+            console.log('Terminando incorrectamente lección...');
+            console.log("Parametros de entrada de badEndLesson: ",$scope.userActive._id,common.courseSelected._id,$scope.activity._id);
+            coursesApi.badEndLesson($scope.userActive._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
+                console.log('ok después finalizar incorrectamente una lección', response);
+            }, function(error) {
+                console.log('error después de finalizar incorrectamente una lección', error);
+            });      
+        };
+
+        $scope.pauseLesson = function() {
+            console.log('Pausando una lección...');
+            console.log("Parametros de entrada de pauseLesson: ",$scope.userActive._id,common.courseSelected._id,$scope.activity._id);
+            coursesApi.pauseLesson($scope.userActive._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
+                console.log('ok después pausar una lección', response);
+            }, function(error) {
+                console.log('error después de pausar una lección', error);
+            });      
+        };
+
+        $scope.getNextLesson= function(lesson,index){
+            console.log('Get de siguiente Lección, Parámetros',common.activeUSer._id,common.courseSelected._id);
+            usersApi.getNextLesson(common.activeUSer._id,common.courseSelected._id).then(function(response){
+                console.log('Ok. Siguiente Lección: ',response.data);             
+            }, function myError(err) {
+                console.log(err);      
+            });
+        }
+
         // ----------------    STUDENT  ---------------
         $scope.assignStudentToGroup=function(idStudent){
             console.log('Asignando estudiante a grupo ...');
@@ -804,9 +846,10 @@
             console.log('Solicitando nueva actividad ...');
             console.log('Parámetros para solicitar nueva actividad: ',common.activeUser._id,common.courseSelected._id);
             coursesApi.getNewActivity($scope.activeUser._id,common.courseSelected._id).then(function(response){
-                $scope.newActivity= response.data;
-                common.newActivity= $scope.newActivity;     
-                console.log('Nueva actividad obtenida con éxito',$scope.newActivity);
+                $scope.activity= response.data;
+                common.newActivity= $scope.activity; 
+                console.log('Nueva actividad obtenida con éxito',$scope.activity.genera);
+                console.log('Nueva actividad obtenida con éxito (SERVICIO)',common.newActivity);
                 $location.path("/activity");
             }, function myError(err) {
                 console.log(err);

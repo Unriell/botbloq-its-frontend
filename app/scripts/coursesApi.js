@@ -165,7 +165,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             });
             return coursesPromise.promise;
         }
-        
+
         function okEndLesson(idStudent,idCourse,idLom) {
             console.log("Objetos para finalizar correctamente una lección(SERVICE) : ",idStudent,idCourse,idLom);
             var coursesPromise = $q.defer();
@@ -210,10 +210,6 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
 
         function getNextLesson(idStudent,idCourse) {     
             return $http.get(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse);      
-        }
-        function getNewActivity(idStudent,idCourse){
-            console.log('Parámetros para solicitar nueva actividad: ',idStudent,idCourse);
-            return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+"/course/"+idCourse);
         }
         function getCourses() { 
           return $http.get( common.bitbloqBackendUrl + "/courses/" );      
@@ -273,7 +269,6 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             badEndLesson : badEndLesson,
             pauseLesson : pauseLesson,
             getNextLesson : getNextLesson,
-            getNewActivity : getNewActivity,
             getStudentsCoursesActives: getStudentsCoursesActives,
             getStudentsCoursesFinished: getStudentsCoursesFinished,
             getStudentsCoursesUnfinished: getStudentsCoursesUnfinished,
@@ -283,3 +278,4 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
         return exports;
 
     });
+

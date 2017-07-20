@@ -14,7 +14,7 @@
 	.contentSignUp__wrapperContent{
 		margin:0 auto;
 		width: 90%;
-		padding: 20px 30px;
+		padding: 30px 30px;
 		background:$bg-color-graytooLight;
 		margin-bottom:15px;
 		border-radius: 10px;
@@ -28,12 +28,10 @@
 		
 	}
 	.contentSignUp__wrapperContent__form .contentRow{
-		margin-bottom:10px;
+		margin-bottom:5px;
 	}
 	.contentSignUp__wrapperContent__form .contentCol{
-		&:first-child{
-			margin-bottom:15px;
-		}
+		margin-bottom:30px;	
 	}
 	.contentSignUp__wrapperContent__form__label{
 		margin-bottom:5px;
@@ -43,12 +41,10 @@
 		padding:5px 0 5px 20px;
 	}
 	.contentSignUp__wrapperContent__form__optionsCheck{
-		margin-bottom: 20px;
+		
 	}
 	.contentSignUp__wrapperContent__form__optionsCheck__content{
-		&:first-child{
-			margin-bottom: 15px;
-		}
+		margin-bottom: 30px;
 	}
 	.contentSignUp__wrapperContent__form__optionsCheck__content__checkBox{
 		width:5%;
@@ -57,8 +53,11 @@
 		float: right;
     	width: 90%;
 	}
-	.contentSignUp__wrapperContent__form__submit{
+	.contentSignUp__wrapperContent__form__contentSubmit{
 		width:100%;
+	}
+	.contentSignUp__wrapperContent__form__contentSubmit__button{
+		padding: 15px 7px;
 	}
 	.contentSignUp__info{
 		text-align: center;

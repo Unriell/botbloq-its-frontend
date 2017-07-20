@@ -230,7 +230,6 @@ body.bkgInit{
 				}
 				.wrapperLinkCourses__list__element__link__img{
 					margin-bottom:15px;
-					width: 30%;
 				}
 				.wrapperLinkCourses__list__element__link__subtitle{
 					margin-bottom:5px;
@@ -572,7 +571,15 @@ body.bkgInit{
 	}
 
 	.contentSignUp{
+	
+		.contentSignUp__wrapperContent{
+			width: 45%;
+    		padding: 45px 50px;
+		}
 
+		.contentSignUp__wrapperContent__form__contentSubmit__button{
+			padding: 15px 7px !important;
+		}
 
 	}
 
@@ -690,6 +697,17 @@ body.bkgInit{
 	}
 
 	.contentSignUp{
+
+		.contentSignUp__wrapperContent{
+			width: 45%;
+    		padding: 45px 50px;
+    	    width: 25%;
+   		 	padding: 55px 40px;
+		}
+
+		.contentSignUp__wrapperContent__form__contentSubmit__button{
+			padding: 17px 7px;
+		}
 
 
 	}
