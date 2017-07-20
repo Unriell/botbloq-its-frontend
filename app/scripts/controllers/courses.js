@@ -729,10 +729,10 @@
 
         $scope.okEndLesson = function() {
             console.log('Terminando lección...');
-            console.log("Parametros de entrada de okEndLesson: ",$scope.userActive._id,common.courseSelected._id,common.newActivity._id);
-            coursesApi.okEndLesson($scope.userActive._id,common.courseSelected._id,common.newActivity._id).then(function(response) {
+            console.log("Parametros de entrada de okEndLesson: ",$scope.activeUser._id,common.courseSelected._id,$scope.activity._id);
+            coursesApi.okEndLesson($scope.activeUser._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
                 console.log('ok después finalizar correctamente una lección', response);
-                $location.path("/course");
+                $location.path("/courses");
             }, function(error) {
                 console.log('error después de finalizar correctamente una lección', error);
             });      
@@ -740,8 +740,8 @@
 
         $scope.badEndLesson = function() {
             console.log('Terminando incorrectamente lección...');
-            console.log("Parametros de entrada de badEndLesson: ",$scope.userActive._id,common.courseSelected._id,$scope.activity._id);
-            coursesApi.badEndLesson($scope.userActive._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
+            console.log("Parametros de entrada de badEndLesson: ",$scope.activeUser._id,common.courseSelected._id,$scope.activity._id);
+            coursesApi.badEndLesson($scope.activeUser._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
                 console.log('ok después finalizar incorrectamente una lección', response);
             }, function(error) {
                 console.log('error después de finalizar incorrectamente una lección', error);
@@ -750,8 +750,8 @@
 
         $scope.pauseLesson = function() {
             console.log('Pausando una lección...');
-            console.log("Parametros de entrada de pauseLesson: ",$scope.userActive._id,common.courseSelected._id,$scope.activity._id);
-            coursesApi.pauseLesson($scope.userActive._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
+            console.log("Parametros de entrada de pauseLesson: ",$scope.activeUser._id,common.courseSelected._id,$scope.activity._id);
+            coursesApi.pauseLesson($scope.activeUser._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
                 console.log('ok después pausar una lección', response);
             }, function(error) {
                 console.log('error después de pausar una lección', error);
@@ -759,8 +759,8 @@
         };
 
         $scope.getNextLesson= function(lesson,index){
-            console.log('Get de siguiente Lección, Parámetros',common.activeUSer._id,common.courseSelected._id);
-            usersApi.getNextLesson(common.activeUSer._id,common.courseSelected._id).then(function(response){
+            console.log('Get de siguiente Lección, Parámetros',$scope.activeUser,common.courseSelected._id);
+            usersApi.getNextLesson($scope.activeUser,common.courseSelected._id).then(function(response){
                 console.log('Ok. Siguiente Lección: ',response.data);             
             }, function myError(err) {
                 console.log(err);      
