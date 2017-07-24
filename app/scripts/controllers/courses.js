@@ -8,7 +8,7 @@
  * Controller of the botbloqItsFrontendApp
  */
 
-   botBloqApp.controller('coursesCtrl',function($log,$q,$scope,$http,$location,$timeout,coursesApi,usersApi,lomsApi,common) {
+   botBloqApp.controller('coursesCtrl',function($log,$q,$scope,$http,$location,$timeout,$sce, coursesApi,usersApi,lomsApi,common) {
         $log.log('courses ctrl start');
         $scope.changeInit(false); 
     
@@ -737,6 +737,10 @@
                 console.log('error después de finalizar correctamente una lección', error);
             });      
         };
+		
+		$scope.trustSrcurl = function(data) {
+			return $sce.trustAsResourceUrl(data);
+		};
 
         $scope.badEndLesson = function() {
             console.log('Terminando incorrectamente lección...');

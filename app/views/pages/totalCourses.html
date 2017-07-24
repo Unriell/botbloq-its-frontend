@@ -39,12 +39,12 @@
                             <div class="contentCourses__wrapperCourses__course__contentLinks">                         
                                <a class="contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i)" href>
                                     <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage">
-                                        <img ng-class="{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage__image" src="../../assets/images/common/prueba.png">
-                                        <p ng-show="!viewCoursesInfo" class="contentCourses__wrapperCourses__course__link__contentImage__title">{{i.name}}</p>
+                                        <img ng-class="{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage__image" src="../../assets/images/common/bitbloq-2-675x446.jpg">
+                                        <p ng-show="!viewCoursesInfo" class="contentCourses__wrapperCourses__course__link__contentImage__title">{{i.summary}}</p>
                                     </div>
                                     <div ng-show="viewCoursesInfo">
                                         <div class="contentCourses__wrapperCourses__course__link__contentTitle">
-                                            <p class="contentCourses__wrapperCourses__course__link__contentTitle__name">{{i.name}}</p>
+                                            <p class="contentCourses__wrapperCourses__course__link__contentTitle__name">{{i.summary}}</p>
                                             <p class="contentCourses__wrapperCourses__course__link__contentTitle__description">{{i.code}}</p>
                                         </div>
                                         <ul class="contentCourses__wrapperCourses__course__link__contentInfo">
@@ -63,15 +63,17 @@
                                         </ul>
                                     </div>
                                 </a>
-                                <a class="contentCourses__wrapperCourses__course__linkIcon edit" title="Editar Curso" ng-click="goEditCourse(i)" href><span class="bbq-edit bbq-edit--course"></span></a>
+<!-- botones para la gestión de cursos -->
+                              <!--  <a class="contentCourses__wrapperCourses__course__linkIcon edit" title="Editar Curso" ng-click="goEditCourse(i)" href><span class="bbq-edit bbq-edit--course"></span></a>
                                 <a class="contentCourses__wrapperCourses__course__linkIcon delete" title="Eliminar Curso" ng-click="removeCourse(i,$event)" href><span class="bbq-close bbq-delete--course"></span></a>
-                            </div>
+                            -->
+							</div>
                         </div>
                     </li>
                 </ul>
             </div>
         </div>
-
+<!--
         <div class="contentCourses__options">
             <button class="btnBq--withIcon" ng-click="goAddCourse()">
                 <span class="hidden-xs contentCourses__options__title">Agregar Curso</span>
@@ -82,7 +84,7 @@
                 <span title="Eliminar todos los cursos" class="bbq-page-delete bbq-page-delete--style1"></span>
             </button>
         </div>
-            
+-->          
       
         <!-- <button class="btnBq--style1" disabled>Agregar con Asistente</button>
         <button class="btnBq--style1" disabled>Regresar</button> -->

@@ -1,6 +1,6 @@
 <header class="contentHeader">
     <div class="contentHeader__logo">
-        <a class="contentHeader__logo__link" ng-click="changeInit(true)" href="#!/" title="BBQ Home">
+        <a class="contentHeader__logo__link" ng-click="changeInit(true)" href="#!/" title="BQ Home">
             <h1>
                 <!-- <img class="contentHeader__logo__image" src="../../assets/images/header/logo_bbq.png"> -->
                 <span class="bbq-logobibtloq bbq-logobibtloq--header"></span>
@@ -28,9 +28,10 @@
                 </a></li>
             </ul>
        </nav>
-        <a class="contentHeader_content__profile" href="#" title="{{nameActiveUser}}">
-            <span class="bbq-user bbq-user--header"></span>
+        <a class="contentHeader_content__profile" href="#" title="{{activeUser.identification.name}}">
+            <span class="bbq-user bbq-user--header">{{activeUser.identification.name}}</span>
         </a>
+		{{activeUser.identification.name}}
     </div>
 </header>
 

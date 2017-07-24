@@ -37,11 +37,15 @@ botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,
                     console.log('Usuario registrado correctamente!', response);
                     console.log('---------Cuestionario common:',common.questionnaire);
                     $scope.questionnaire=common.questionnaire;
-                    var promise=getStudents();
+					var defaultpath = "/questionnaire"
+					if (common.questionnaire.nuevo == 0) {
+						defaultpath = "/courses";
+					}
+					var promise=getStudents();
                     promise.then(function() {
                         console.log('se actualizo el ultimo estudiante registrado correctamente: ', $scope.registeredStudent.identification.name);
                         usersApi.activeUser($scope.registeredStudent);
-                        $location.path("/questionnaire");
+                        $location.path(defaultpath);
                     }, function(error) {
                         console.log('Se ha producido un error al obtener los estudiantes: '+error);     
                     });

@@ -207,6 +207,8 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             });
             return coursesPromise.promise;
         }
+		
+		
 
         function getNextLesson(idStudent,idCourse) {     
             return $http.get(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse);      

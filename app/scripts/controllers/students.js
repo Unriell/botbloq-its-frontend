@@ -63,7 +63,7 @@
             });     
         };
         $scope.sendQuestionnaire=function(){
-            console.log('Enviando cuestioanario');
+            console.log('Enviando cuestionario');
             createJsonAnswer();
             console.log('RESPUESTAS para enviar: ',$scope.answers);
             var formatAnswers={answers:$scope.answers};
