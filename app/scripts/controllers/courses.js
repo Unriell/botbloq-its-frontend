@@ -747,6 +747,7 @@
             console.log("Parametros de entrada de badEndLesson: ",$scope.activeUser._id,common.courseSelected._id,$scope.activity._id);
             coursesApi.badEndLesson($scope.activeUser._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
                 console.log('ok después finalizar incorrectamente una lección', response);
+				$location.path("/courses");
             }, function(error) {
                 console.log('error después de finalizar incorrectamente una lección', error);
             });      
@@ -757,6 +758,7 @@
             console.log("Parametros de entrada de pauseLesson: ",$scope.activeUser._id,common.courseSelected._id,$scope.activity._id);
             coursesApi.pauseLesson($scope.activeUser._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
                 console.log('ok después pausar una lección', response);
+				$location.path("/courses");
             }, function(error) {
                 console.log('error después de pausar una lección', error);
             });      
@@ -854,7 +856,13 @@
                 common.newActivity= $scope.activity; 
                 console.log('Nueva actividad obtenida con éxito',$scope.activity.genera);
                 console.log('Nueva actividad obtenida con éxito (SERVICIO)',common.newActivity);
-                $location.path("/activity");
+				if (!common.newActivity._id) {
+					confirm("Curso Finalizado");
+				} else {
+					$location.path("/activity");
+				}
+				
+               
             }, function myError(err) {
                 console.log(err);
                 alert('Error de tipo: '+err.status);      

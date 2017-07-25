@@ -1,16 +1,16 @@
 <div class="wrapperLesson">
 	<div class="contentTitle">
-        <h2 class="h2Class">{{activity.general.title}} 77 </h2>
+        <h2 class="h2Class">{{activity.general.title}} </h2>
     </div>
 	<div class="wrapperLesson__options">
 	    	<div class="wrapperLesson__options__ok">
 	    		<a class="wrapperLesson__options__ok__link" ng-click="okEndLesson()" href><span class="bbq-ok2 bbq-ok2--lesson"></span></a>
 	    	</div>
     		<div class="wrapperLesson__options__nok">
-				<a class="wrapperLesson__options__ok__link" href><span class="bbq-nok bbq-nok--lesson"></span></a>
+				<a class="wrapperLesson__options__ok__link" ng-click="badEndLesson()" href><span class="bbq-minus bbq-nok--lesson"></span></a>
 			</div>
     		<div class="wrapperLesson__options__wait">
-				<a class="wrapperLesson__options__ok__link" href><span class="bbq-cloud bbq-cloud--lesson"></span></a>
+				<a class="wrapperLesson__options__ok__link" ng-click="pauseLesson()" href><span class="bbq-guardar bbq-cloud--lesson"></span></a>
 			</div>
 	</div>
 	<div class="wrapperLesson__contentBody clearfix">
