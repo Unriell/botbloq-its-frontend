@@ -44,7 +44,9 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
 
             $http.post(common.bitbloqBackendUrl + '/students/'+idStudent+'/init',{answers}).then(function(response) {
                 console.log('ok despues de enviar formulario', response.data);
-                coursesPromise.resolve();  
+				common.activeUSer.learningStyle = response.data.learningStyle;
+				console.log(common.activeUSer);
+				coursesPromise.resolve();  
             }, function(err) {
                  console.log('error despues de enviar formulario',err);
             });
@@ -83,6 +85,10 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
         function getStudents() { 
           return $http.get( common.bitbloqBackendUrl + "/students" );      
         }
+		
+		function getStudent(idStudent) { 
+          return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent );      
+        }
        
         function logout() {
             localStorage.userToken = null;
@@ -107,6 +113,7 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             signUp: signUp,
             sendQuestionnaire : sendQuestionnaire,
             getStudents : getStudents,
+			getStudent : getStudent,
             logout : logout,
             getCurrentUser : getCurrentUser,
             enrollStudent : enrollStudent,

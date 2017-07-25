@@ -35,15 +35,15 @@ botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,
             if ($scope.signUpForm.$valid) {
                 usersApi.signUp($scope.user.name, $scope.user.email).then(function(response) {
                     console.log('Usuario registrado correctamente!', response);
-                    console.log('---------Cuestionario common:',common.questionnaire);
+                    console.log(common.questionnaire.id_student);
                     $scope.questionnaire=common.questionnaire;
 					var defaultpath = "/questionnaire"
 					if (common.questionnaire.nuevo == 0) {
 						defaultpath = "/courses";
 					}
-					var promise=getStudents();
+					var promise=getStudent(common.questionnaire.id_student);
                     promise.then(function() {
-                        console.log('se actualizo el ultimo estudiante registrado correctamente: ', $scope.registeredStudent.identification.name);
+                        console.log('se actualizo el ultimo estudiante registrado correctamente: ', $scope.registeredStudent);
                         usersApi.activeUser($scope.registeredStudent);
                         $location.path(defaultpath);
                     }, function(error) {
@@ -66,6 +66,22 @@ botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,
                 students= response.data;
                 $scope.registeredStudent=students[students.length -1];
                 console.log('Usuario nuevo se llama: ',$scope.registeredStudent.identification.name);
+                defered.resolve();
+            }, function myError(err) {
+                console.log(err);
+                alert('Error de tipo: '+err.status);      
+            });
+            return promise;
+        };
+		
+		 var getStudent= function(idStudent) {
+            var defered = $q.defer(),
+                promise = defered.promise;
+            console.log('get student ...');        
+            var students=[];
+            usersApi.getStudent(idStudent).then(function(response){
+                $scope.registeredStudent=response.data
+                console.log('Usuario se llama: ',$scope.registeredStudent.identification.name);
                 defered.resolve();
             }, function myError(err) {
                 console.log(err);

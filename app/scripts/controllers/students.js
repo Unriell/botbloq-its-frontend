@@ -63,13 +63,12 @@
             });     
         };
         $scope.sendQuestionnaire=function(){
-            console.log('Enviando cuestionario');
             createJsonAnswer();
-            console.log('RESPUESTAS para enviar: ',$scope.answers);
+            console.log('Enviando cuestionario: ',$scope.answers);
             var formatAnswers={answers:$scope.answers};
             usersApi.sendQuestionnaire(common.activeUSer._id,formatAnswers).then(function(response){
                 console.log('Cuestionario enviado con éxito',response);
-                $location.path("/courses");
+				$location.path("/courses");
             }, function myError(err) {
                 console.log(err);
                 alert('Error de tipo: '+err.status);      
