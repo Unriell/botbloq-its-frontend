@@ -797,7 +797,20 @@
         };
 
         $scope.goLesson= function(lesson,index){
-            console.log('Go Lesson ---------',common.activeUSer._id,common.courseSelected._id);
+            console.log('Go Lesson ---------');
+			console.log(lesson);
+			console.log("lom id " +lesson.loms[0].lom_id );
+			
+			
+			coursesApi.getActivityLesson(lesson.loms[0].lom_id).then(function(response){
+				$scope.activity= response.data;
+				common.newActivity= $scope.activity; 
+				console.log('Nueva actividad obtenida con éxito',$scope.activity.genera);
+				console.log('Nueva actividad obtenida con éxito (SERVICIO)',common.newActivity);
+				$location.path("/activity");
+				
+			
+			/*
             usersApi.getActivityLesson(common.activeUSer._id,common.courseSelected._id).then(function(response){
                 console.log('Get de actividad de estudiante: '+common.activeUSer._id+' en curso: '+common.courseSelected._id);
                 console.log('----------------ACTIVIDAD: ',response.data);  
@@ -805,7 +818,8 @@
                 $scope.lessonSelected=common.lessonSelected;
                 common.indexLessonSelected=index;
                 $scope.indexLessonSelected=common.indexLessonSelected;
-                $location.path("/lesson");      
+                $location.path("/activity");     
+			*/				
             }, function myError(err) {
                 console.log(err);      
             });

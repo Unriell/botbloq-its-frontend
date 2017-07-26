@@ -217,6 +217,13 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             console.log('Parámetros para solicitar nueva actividad: ',idStudent,idCourse);
             return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+"/course/"+idCourse);
         }
+		
+		/* obtener el objeto de aprendizaje de una lección */
+		function getActivityLesson(idLom){
+            console.log('Parámetros para solicitar LO de una lección: ',idLom);
+            return $http.get( common.bitbloqBackendUrl + "/loms/" + idLom);
+        }
+		
         function getCourses() { 
           return $http.get( common.bitbloqBackendUrl + "/courses/" );      
         }
@@ -276,6 +283,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             pauseLesson : pauseLesson,
             getNextLesson : getNextLesson,
             getNewActivity : getNewActivity,
+			getActivityLesson : getActivityLesson,
             getStudentsCoursesActives: getStudentsCoursesActives,
             getStudentsCoursesFinished: getStudentsCoursesFinished,
             getStudentsCoursesUnfinished: getStudentsCoursesUnfinished,
