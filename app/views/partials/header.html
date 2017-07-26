@@ -9,7 +9,8 @@
         <a class="contentHeader_content__profile__movil" href="#" title="{{nameActiveUser}}">
             <div class="contentHeader_content__profile__movil__content">
                 <span class="bbq-user bbq-user--header--movil"></span>           
-                <span class="contentHeader_content__profile__movil__userName">{{activeUserHeader.identification.name}}</span>          
+                <span class="contentHeader_content__profile__movil__userName">{{activeUserHeader.identification.name}}</span>
+				<span class="contentHeader_content__profile__movil__userName">({{activeUserHeader.learningStyle.type}})</span>     				
             </div>
         </a>
     </div>
@@ -36,6 +37,7 @@
        </nav>
         <a class="contentHeader_content__profile__tablet" href="#" title="{{nameActiveUser}}">    <span class="contentHeader_content__profile__tablet__userName">
                 {{activeUserHeader.identification.name}}
+				({{activeUserHeader.learningStyle.type}})
             </span> 
             <span class="bbq-user bbq-user--header--tablet"></span>                    
         </a>
