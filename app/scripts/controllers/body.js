@@ -13,14 +13,19 @@ botBloqApp.controller('BodyCtrl', function($scope, common, $log,usersApi,lomsApi
         $scope.lomsApi = lomsApi;
         $scope.coursesApi= coursesApi;
         $scope.init= true;
-        
         $scope.nameActiveUser=common.nameActiveUSer;
+        $scope.activeUserHeader=common.activeUSer;
         /*$scope.activeUser="Usuariooo";*/
         
         $scope.changeInit=function(boolean) {
           $scope.init=boolean;
         }
-
+        $scope.changeActiveUserHeader=function(user) {
+          $scope.activeUserHeader=user;
+        }
+        $scope.showTotalCourses=function(view){
+          common.actualViewCourses=view;
+        }
         $scope.isActive =  function(currentPath){
        	  return currentPath === $location.path();
   		  }

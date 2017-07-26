@@ -13,6 +13,7 @@
         $scope.changeInit(false); 
     
         $scope.activeUser=common.activeUSer;
+		$scope.changeActiveUserHeader($scope.activeUser);
         $scope.enrolledCourses=[];
         $scope.doneCourses=[];
 

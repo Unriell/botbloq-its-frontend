@@ -449,14 +449,31 @@ body.bkgInit{
 			padding: 20px 18px;
 			font-size: 1.6em;
 		}
-		.contentHeader_content__profile{
+		.contentHeader_content__profile__movil{
+			display:none;
+		}
+		.contentHeader_content__profile__tablet{
+			display: block;
 			position: inherit;
 		    float: right;
-		    margin-top: 21px;
+		    margin-top: 19px;
+		    &:hover,&:link{
+		    	.contentHeader_content__profile__tablet__userName,.bbq-user--header--tablet:before{
+		    		color:$link-color-white;
+				}
+		    	text-decoration: none;
+		    }
 		}
-		.bbq-user--header:before {
+		.contentHeader_content__profile__tablet__userName{
+			color: $link-color-grayLight;
+			font-weight: bold;
+			margin-right: 20px;
+		}
+
+		.bbq-user--header--tablet:before {
 			color:$color-grayLight;
-		  	font-size: 1.6em;
+		  	font-size: 2.1em;
+    		vertical-align: middle;
 		}
 	}
 
@@ -581,6 +598,11 @@ body.bkgInit{
 			padding: 15px 7px !important;
 		}
 
+		.bbq-email--signUp:before {
+		}
+		.bbq-userlogin--signUp:before { 
+		}
+
 	}
 
 } // FIN DE MEDIA QUERY DE TABLET
@@ -626,6 +648,11 @@ body.bkgInit{
 		.contentHeader__logo__image{
 			width: 36px;
 		}
+
+		.contentHeader_content__profile__tablet{
+		    margin-top: 28px;
+		}
+
 		.bbq-logobibtloq--header:before {
   			font-size:2.5em;
 		}

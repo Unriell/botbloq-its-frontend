@@ -1,16 +1,22 @@
 <header class="contentHeader">
     <div class="contentHeader__logo">
-        <a class="contentHeader__logo__link" ng-click="changeInit(true)" href="#!/" title="BQ Home">
+        <a class="contentHeader__logo__link" ng-click="changeInit(true)" href="#!/" title="BBQ Home">
             <h1>
                 <!-- <img class="contentHeader__logo__image" src="../../assets/images/header/logo_bbq.png"> -->
                 <span class="bbq-logobibtloq bbq-logobibtloq--header"></span>
             </h1>
         </a>
+        <a class="contentHeader_content__profile__movil" href="#" title="{{nameActiveUser}}">
+            <div class="contentHeader_content__profile__movil__content">
+                <span class="bbq-user bbq-user--header--movil"></span>           
+                <span class="contentHeader_content__profile__movil__userName">{{activeUserHeader.identification.name}}</span>          
+            </div>
+        </a>
     </div>
     <div class="contentHeader_content">
         <nav>
             <ul class="contentHeader_content__options">
-                <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/courses') }"><a class="contentHeader_content__options__element__link" href="#!/courses" title="Cursos">
+                <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/courses') }"><a class="contentHeader_content__options__element__link"  ng-click="showTotalCourses('totalCoursesPage')" ng-href="#!/courses" title="Cursos">
                 <span class="bbq-graduation-cap bbq-graduation-cap--header"></span>
                 <span class="contentHeader_content__options__element__link__label">Cursos</span>
                 </a></li>
@@ -28,10 +34,11 @@
                 </a></li>
             </ul>
        </nav>
-        <a class="contentHeader_content__profile" href="#" title="">
-            <span class="bbq-user bbq-user--header">sssss</span>
+        <a class="contentHeader_content__profile__tablet" href="#" title="{{nameActiveUser}}">    <span class="contentHeader_content__profile__tablet__userName">
+                {{activeUserHeader.identification.name}}
+            </span> 
+            <span class="bbq-user bbq-user--header--tablet"></span>                    
         </a>
-		
     </div>
 </header>
 
