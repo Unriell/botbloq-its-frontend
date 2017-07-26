@@ -10,7 +10,7 @@
 				<div class="wrapperCourse__header__info">
 					<h2 class="wrapperCourse__header__info__title">{{courseSelected.name}}</h2>
 					<p class="wrapperCourse__header__info__description">por determinar...</p>
-					<button class="wrapperCourse__header__info__link btnBq--style1 center" ng-click="newActivity()" type="button">Nueva actividad <span></span></button>
+					<button class="btnBq--withIcon btnBig" ng-click="newActivity()" type="button">Nueva actividad <span></span></button>
 				</div>
 				<button class="btnBq--withIcon btnBig" ng-click="enrollStudent(activeUser._id,courseSelected._id)" type="button">MATRICÚLATE</button>
 			</div>
@@ -24,10 +24,13 @@
 		<ul class="wrapperCourse__lessons__contentLessons">
 			<li class="wrapperCourse__lessons__contentLessons__element" ng-repeat="lesson_i in lessonsSelected">	
 				<div class="row">
-					<div class="col-xs-12 col-sm-3">
-						<img class="wrapperCourse__lessons__contentLessons__element__img" src="../../assets/images/common/scratch-01-270x190.jpg" alt="">	
+					<div class="col-xs-9 col-sm-2">
+					
+					
+						<!-- <img class="" ng-src="../../assets/images/common/scratch-{{$index + 1}}-270x190.jpg" alt="">-->
+						<img class="wrapperCourse__lessons__contentLessons__element__img" ng-src="http://diwo.bq.com/wp-content/uploads/2016/02/scratch-0{{$index + 1}}-270x190.jpg" alt="">
 					</div>
-					<div class="col-xs-12 col-sm-9">
+					<div class="col-xs-9 col-sm-9">
 						<a class="wrapperCourse__lessons__contentLessons__element__link" ng-click="goLesson(lesson_i,$index + 1)" href>
 							<div class="wrapperCourse__lessons__contentLessons__element__link__info">
 								<h4 class="wrapperCourse__lessons__contentLessons__element__link__info__title">Lección {{lesson_i.name}}</h4>
