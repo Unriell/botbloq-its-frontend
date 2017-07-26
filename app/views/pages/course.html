@@ -9,10 +9,10 @@
 			<div class="col-xs-12 col-sm-5">
 				<div class="wrapperCourse__header__info">
 					<h2 class="wrapperCourse__header__info__title">{{courseSelected.name}}</h2>
-					<p class="wrapperCourse__header__info__description">por determinar...</p>
-					<button class="btnBq--withIcon btnBig" ng-click="newActivity()" type="button">Nueva actividad <span></span></button>
+					<p class="wrapperCourse__header__info__description"></p>
+					<button class="btnBq--withIcon btnBig" ng-show="studentEnrolledInCourse && !courseSelected.finished" ng-click="newActivity()" type="button">Nueva actividad <span></span></button>
 				</div>
-				<button class="btnBq--withIcon btnBig" ng-click="enrollStudent(activeUser._id,courseSelected._id)" type="button">MATRICÚLATE</button>
+				<button class="btnBq--withIcon btnBig" ng-show="!studentEnrolledInCourse" ng-click="enrollStudent(activeUser._id,courseSelected._id)" type="button">MATRICÚLATE</button>
 			</div>
 		</div>
 		

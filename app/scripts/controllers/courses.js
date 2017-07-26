@@ -41,7 +41,7 @@
         $scope.editSections=common.sectionsCourseSelected[0];
 
         // --- END EDIT COURSE ---
-        
+      
         $scope.lomsAux=[];
         $scope.lomsToAdd=[];
         $scope.listAuxLomsAdd=[];
@@ -69,9 +69,6 @@
 
         $scope.activity={};
         $scope.activity=common.newActivity;
-
-        console.log('-----------------NUEVA ACTIVIDAD: (SCOPE)',$scope.activity);
-        console.log('-----------------NUEVA ACTIVIDAD: (SERVICIO)',common.newActivity);
 
         var objectivesCourse=[],
             objectivesSection=[],
@@ -660,10 +657,19 @@
              });
         };
 
-        $scope.goCourse=function(course){
+        $scope.goCourse=function(course, idStudent){
             common.courseSelected= course;
             $scope.courseSelected=course;
+			console.log("curso seleccionado " );
+			console.log(course);
             resetCourseSelected();
+			usersApi.isEnrolled(idStudent,course._id).then(function(response){
+				console.log('operación isEnrolledInCourse realizada con éxito',response.data);
+                $scope.studentEnrolledInCourse=response.data;
+            }, function myError(err) {
+                console.log('operación isEnrolledInCourse fallida',err);      
+            });
+			
             var promise=updateSectionsSelected(course._id);
             promise.then(function() {
                 console.log('numero de secciones en goCourse: ', common.sectionsCourseSelected.length);
@@ -671,6 +677,8 @@
             }, function(error) {
                 console.log('Se ha producido un error al obtener el dato: '+error);     
             });
+			
+			
             $scope.coursePage=true;
             $scope.totalCoursesPage=false;
             $scope.enrolledCoursesPage=false;
@@ -789,6 +797,7 @@
             console.log('Matriculando a alumno ...');
             usersApi.enrollStudent(idStudent,idCourse).then(function(response) {       
                 confirm("MATRICULADO CON ÉXITO !!");
+				 $scope.studentEnrolledInCourse=true;
                 console.log('ok después de enrollStudent', response);
             }, function(error) {
                 confirm("ERROR AL MATRICULARSE A ESTE CURSO !!");
@@ -810,16 +819,6 @@
 				$location.path("/activity");
 				
 			
-			/*
-            usersApi.getActivityLesson(common.activeUSer._id,common.courseSelected._id).then(function(response){
-                console.log('Get de actividad de estudiante: '+common.activeUSer._id+' en curso: '+common.courseSelected._id);
-                console.log('----------------ACTIVIDAD: ',response.data);  
-                common.lessonSelected=lesson;
-                $scope.lessonSelected=common.lessonSelected;
-                common.indexLessonSelected=index;
-                $scope.indexLessonSelected=common.indexLessonSelected;
-                $location.path("/activity");     
-			*/				
             }, function myError(err) {
                 console.log(err);      
             });
@@ -873,8 +872,10 @@
                 console.log('Nueva actividad obtenida con éxito (SERVICIO)',common.newActivity);
 				if (!common.newActivity._id) {
 					confirm("Curso Finalizado");
+					common.courseSelected.finished = true;
 				} else {
 					$location.path("/activity");
+					common.courseSelected.finished = false;
 				}
 				
                

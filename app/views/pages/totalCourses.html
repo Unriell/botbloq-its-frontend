@@ -37,7 +37,7 @@
                     <li ng-repeat="i in courses | filter:searchText" class="col-xs-12 col-sm-4">          
                         <div class="contentCourses__wrapperCourses__course">
                             <div class="contentCourses__wrapperCourses__course__contentLinks">                         
-                               <a class="contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i)" href>
+                               <a class="contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i, activeUser._id)" href>
                                     <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage">
                                         <img ng-class="{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage__image" src="http://diwo.bq.com/wp-content/uploads/2015/11/zowi-destacado.jpg">
                                         <p ng-show="!viewCoursesInfo" class="contentCourses__wrapperCourses__course__link__contentImage__title">{{i.name}}</p>

@@ -63,6 +63,12 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             });
             return coursesPromise.promise;     
         }
+		
+		
+		function isEnrolled(idStudent,idCourse) {
+			return $http.get(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse+'/isEnrolled');    
+        }
+		
 
         function assignStudentToGroup(idStudent) {
             console.log('asignando estudiante con id: '+idStudent+' a grupo. (userApi).');
@@ -117,6 +123,7 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             logout : logout,
             getCurrentUser : getCurrentUser,
             enrollStudent : enrollStudent,
+			isEnrolled : isEnrolled,
             assignStudentToGroup : assignStudentToGroup,
             getActivityLesson : getActivityLesson,
             activeUser : activeUser

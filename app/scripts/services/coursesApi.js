@@ -224,6 +224,12 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             return $http.get( common.bitbloqBackendUrl + "/loms/" + idLom);
         }
 		
+		/* comprobar si el estudiante está matriculado */
+		function isEnrolled(idStudent,idCourse) {
+			console.log(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse+'/isEnrolled');
+            return $http.get(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse+'/isEnrolled');    
+        }
+		
         function getCourses() { 
           return $http.get( common.bitbloqBackendUrl + "/courses/" );      
         }
