@@ -16,19 +16,52 @@
 		$scope.changeActiveUserHeader($scope.activeUser);
         $scope.enrolledCourses=[];
         $scope.doneCourses=[];
-
-        $scope.totalCoursesPage=true;
-        $scope.enrolledCoursesPage=false;
-        $scope.coursePage=false;
-        $scope.objectivesPage=false;
-        $scope.completedCoursesPage=false;
-
-        $scope.courseSelected=common.courseSelected;
+		
+		$scope.courseSelected=common.courseSelected;
         $scope.objectivesCourseSelected=common.objectivesCourseSelected;
         $scope.sectionsSelected=common.sectionsCourseSelected;
         $scope.lessonsSelected=common.lessonsCourseSelected;
         $scope.lessonSelected=common.lessonSelected;
         $scope.indexLessonSelected=common.indexLessonSelected;
+
+		/* VIEWS MANAGEMENT*/
+        var resetCourseViews=function(){
+            $scope.coursePage=false;
+            $scope.totalCoursesPage=false;  
+            $scope.enrolledCoursesPage=false;
+            $scope.objectivesPage=false;
+        };
+		
+		$scope.managementCourseViews= function(view){
+            resetCourseViews();
+            switch (view) {
+                case 'coursePage':
+                    $scope.coursePage=true;
+                    break;
+                case 'totalCoursesPage':
+                    $scope.totalCoursesPage=true;  
+                    break;
+                case 'enrolledCoursesPage':
+                    $scope.enrolledCoursesPage=true;
+                    break;
+                case 'objectivesPage':
+                    $scope.objectivesPage=true;
+                    break;
+                default:
+            }
+			console.log("esta matriculado? " + $scope.studentEnrolledInCourse);
+			usersApi.isEnrolled(common.activeUSer._id,$scope.courseSelected._id).then(function(response){
+				console.log('operación isEnrolledInCourse realizada con éxito',response.data);
+                $scope.studentEnrolledInCourse=response.data;
+            }, function myError(err) {
+                console.log('operación isEnrolledInCourse fallida',err);      
+            });
+			
+        };
+		$scope.managementCourseViews(common.actualViewCourses);
+
+
+       
 
         $scope.sections=[];
         $scope.lesson=[];
@@ -111,9 +144,6 @@
                 alert('Error de tipo: '+err.status);      
         }); 
 
-        var navegationCourses= function(){
-
-        };
 
         $scope.updateCourses= function() {
             console.log('loading Courses ...');
@@ -677,12 +707,8 @@
             }, function(error) {
                 console.log('Se ha producido un error al obtener el dato: '+error);     
             });
-			
-			
-            $scope.coursePage=true;
-            $scope.totalCoursesPage=false;
-            $scope.enrolledCoursesPage=false;
-            $scope.objectivesPage=false;
+			common.actualViewCourses='coursePage';
+            $scope.managementCourseViews(common.actualViewCourses);
         };
 
         var calculateNumLessons=function(idCourse){
@@ -729,18 +755,11 @@
             //$scope.getStudentsCoursesFinished($scope.activeUser._id);
         };
 
-        $scope.showTotalCourses=function(){
-            $scope.totalCoursesPage=true;
-            $scope.enrolledCoursesPage=false;
-            $scope.coursePage=false;
-            $scope.objectivesPage=false;
-        };
-
         $scope.okEndLesson = function() {
-            console.log('Terminando lección...');
-            console.log("Parametros de entrada de okEndLesson: ",$scope.activeUser._id,common.courseSelected._id,$scope.activity._id);
             coursesApi.okEndLesson($scope.activeUser._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
                 console.log('ok después finalizar correctamente una lección', response);
+				common.actualViewCourses='coursePage';
+				$scope.studentEnrolledInCourse = true;
                 $location.path("/courses");
             }, function(error) {
                 console.log('error después de finalizar correctamente una lección', error);
@@ -752,10 +771,10 @@
 		};
 
         $scope.badEndLesson = function() {
-            console.log('Terminando incorrectamente lección...');
-            console.log("Parametros de entrada de badEndLesson: ",$scope.activeUser._id,common.courseSelected._id,$scope.activity._id);
             coursesApi.badEndLesson($scope.activeUser._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
                 console.log('ok después finalizar incorrectamente una lección', response);
+				common.actualViewCourses='coursePage';
+				$scope.studentEnrolledInCourse = true;
 				$location.path("/courses");
             }, function(error) {
                 console.log('error después de finalizar incorrectamente una lección', error);
@@ -767,10 +786,19 @@
             console.log("Parametros de entrada de pauseLesson: ",$scope.activeUser._id,common.courseSelected._id,$scope.activity._id);
             coursesApi.pauseLesson($scope.activeUser._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
                 console.log('ok después pausar una lección', response);
+				common.actualViewCourses='coursePage';
+				$scope.studentEnrolledInCourse = true;
 				$location.path("/courses");
             }, function(error) {
                 console.log('error después de pausar una lección', error);
             });      
+        };
+		
+		$scope.backLesson = function() {
+            console.log('vuelta atrás');
+			common.actualViewCourses='coursePage';
+			$scope.studentEnrolledInCourse = true;
+			$location.path("/courses");
         };
 
         $scope.getNextLesson= function(lesson,index){
