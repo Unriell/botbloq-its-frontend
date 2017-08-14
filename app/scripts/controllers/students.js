@@ -27,12 +27,6 @@
             $scope.questionAnswer[$index]={id:question.id,title:question.title.en,value:"",values:values_options};
         });
 
-        usersApi.getStudents().then(function(response){
-                $scope.students= response.data;
-            }, function myError(err) {
-                console.log(err);
-                alert('Error de tipo: '+err.status);      
-        });
 
         $scope.updateStudents= function() {
             console.log('loading students ...');

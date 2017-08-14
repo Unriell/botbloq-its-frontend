@@ -5,24 +5,54 @@
  * @name botbloqItsFrontendApp.usersApi
  * @description
  * # usersApi
- * Service in the bitbloqApp.
+ * Service in the botbloqApp.
  */
 botBloqApp.service('usersApi', function($log, $q, $http, common) {
 
         $log.log('usersApi start');
 
-        function signUp(name, email) {
+		/**
+		* signup teachers
+		*/
+		function signUpTeacher(name, email) {
             console.log(name, email);
 
             var signUpPromise = $q.defer();
-
-            $http.post(common.bitbloqBackendUrl + '/students', {
+            $http.post(common.bitbloqBackendUrl + "/teachers", {
                 identification: {
                 name: name,
                 email: email
             }}).then(function(response) {
                 console.log('token', response.data);
-                common.questionnaire=response.data;
+                localStorage.userToken = response.data.token; 
+                exports.currentUser = response.data;
+				common.activeUSer= response.data;
+				common.nameActiveUser= response.data.identification.name;
+						
+				signUpPromise.resolve();
+            }, function(err) {
+                logout();
+                signUpPromise.reject(err);
+            });
+            return signUpPromise.promise;
+        }
+        
+        
+		
+		/**
+		* signup students
+		*/
+		function signUpStudent(name, email) {
+            console.log(name, email);
+
+            var signUpPromise = $q.defer();
+	        $http.post(common.bitbloqBackendUrl + "/students", {
+                identification: {
+                name: name,
+                email: email
+            }}).then(function(response) {
+                console.log('token', response.data);
+                common.questionnaire= response.data;
                 localStorage.userToken = response.data.token; 
                 getCurrentUser().then(function() {
                     signUpPromise.resolve();
@@ -88,10 +118,7 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             return $http.get(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse);     
         }
 
-        function getStudents() { 
-          return $http.get( common.bitbloqBackendUrl + "/students" );      
-        }
-		
+      	
 		function getStudent(idStudent) { 
           return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent );      
         }
@@ -116,10 +143,10 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
 
         var exports = {
             currentUser : null,
-            signUp: signUp,
+            signUpTeacher: signUpTeacher,
+			signUpStudent: signUpStudent,
             sendQuestionnaire : sendQuestionnaire,
-            getStudents : getStudents,
-			getStudent : getStudent,
+           	getStudent : getStudent,
             logout : logout,
             getCurrentUser : getCurrentUser,
             enrollStudent : enrollStudent,
