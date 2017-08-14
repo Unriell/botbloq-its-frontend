@@ -1,0 +1,97 @@
+<div class="contentAdminCourses">
+        <div class="contentTitle">
+            <h2 class="h2Class">Cursos</h2>
+        </div>
+        <div class="contentCourses mb30">
+            <div class="row">
+               <!-- <div class="col-xs-12 col-sm-2">
+                    <div class="viewOptions clearfix">
+                        <a ng-click="viewCourseWithoutInfo()" class="viewOptions__byIcon" ng-class="{active:!viewCoursesInfo}" href>
+                            <span class="bbq-thumbnails bbq-thumbnails--style"></span>
+                        </a>
+                        <a ng-click="viewCourseWithInfo()" class="viewOptions__byList" ng-class="{active:viewCoursesInfo}" href>
+                            <span class="bbq-list bbq-list--style"></span>
+                        </a> 
+                    </div>
+                </div>
+                -->
+                <div class="col-xs-12 col-sm-10">
+                    <form class="contentCourses__viewOptionsfilterSearch">
+                        <div class="row">
+
+                            <div class="col-xs-6 col-sm-9">
+                            	 <div class="contentCourses__viewOptionsfilterSearch__search">
+	                                <label><input ng-model="search.$" placeholder="Buscar ..." class="contentCourses__viewOptionsfilterSearch__search__input" type="text" name="searchCourse"></label>
+	                                <span class="bbq-search bbq-search--Courses"></span> 
+	                           		
+								</div> 
+                            </div>
+                           <div class="col-xs-6 col-sm-3">
+                                <div class="contentCourses__viewOptionsfilterSearch__search">
+                                    <label><input ng-model="search.author" placeholder="Autor ..." class="contentCourses__viewOptionsfilterSearch__search__input" type="text" name="searchbyauthor">
+	                           		<span class="bbq-search bbq-search--Courses"></span> </label>								 
+								    <label>Estricto <input type="checkbox" ng-model="strict"></label>  
+                                </div>  
+                            </div>
+                         
+                           
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="contentCourses__wrapperCourses">
+                <ul class="row">
+                    <li ng-repeat="i in courses | filter:search:strict" class="col-xs-12 col-sm-4">          
+                        <div class="contentCourses__wrapperCourses__course">
+                            <div class="contentCourses__wrapperCourses__course__contentLinks">                         
+                               <a class="contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i, activeUser._id)" href>
+                                    <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage">
+                                        <img class="contentCourses__wrapperCourses__course__link__contentImage__image" ng-src="{{i.photo}}">
+                                    </div>
+                                    <div >
+                                        <div class="contentCourses__wrapperCourses__course__link__contentTitle">
+                                            <p class="contentCourses__wrapperCourses__course__link__contentTitle__name">{{i.name}}</p>
+                                           <p class="contentCourses__wrapperCourses__course__link__contentTitle__description">{{i.summary}}</p> 
+                                        </div>
+                                        <ul class="contentCourses__wrapperCourses__course__link__contentInfo">
+                                            <li class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum" title="Secciones">
+                                                <span class="bbq-sections bbq-sections--courses" title="Secciones"></span>
+                                                <span class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{i.sections.length}}</span>
+                                            </li>
+                                            <li class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum" title="Lecciones">
+                                                <span class="bbq-lessons bbq-lessons--courses"></span>
+                                                <span class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{i.sections[0].lessons.length}}</span><!-- <span class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{}}</span> -->
+                                            </li>
+                                            <li class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum" title="Estudiantes matriculados">
+                                                <span class="bbq-students bbq-students--courses"></span>
+                                                <span class="contentCourses__wrapperCourses__course__link__contentInfo__iconNum__num">{{i.statistics.std_enrolled.length}}</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </a>
+<!-- botones para la gestión de cursos -->
+                              <a class="contentCourses__wrapperCourses__course__linkIcon edit" title="Editar Curso" ng-click="goEditCourse(i)" href><span class="bbq-edit bbq-edit--course"></span></a>
+                                <a class="contentCourses__wrapperCourses__course__linkIcon delete" title="Eliminar Curso" ng-click="removeCourse(i,$event)" href><span class="bbq-close bbq-delete--course"></span></a>
+                         
+							</div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="contentCourses__options">
+            <button class="btnBq--withIcon" ng-click="goAddCourse()">
+                <span class="hidden-xs contentCourses__options__title">Agregar Curso</span>
+                <span title="Agregar Curso" class="bbq-page-add bbq-page-add--style1"></span>
+            </button>
+        </div>
+        
+      
+        <!-- <button class="btnBq--style1" disabled>Agregar con Asistente</button>
+        <button class="btnBq--style1" disabled>Regresar</button> -->
+
+
+
+	
+</div>

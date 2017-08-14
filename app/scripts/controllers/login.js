@@ -41,7 +41,7 @@ botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,
 						var promise = loginTeacher($scope.user.name, $scope.user.email);
 						promise.then(function() {
 								console.log('Profesor logeado correctamente correctamente: ');
-								$location.path('/courses');
+								$location.path('/teacher');
 						}, function(error) {
 								console.log('Se ha producido un error al obtener a los profesores: '+error);     
 								alert('Usuario no registrado'); 
@@ -50,7 +50,7 @@ botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,
 					} else {
 						usersApi.signUpTeacher($scope.user.name, $scope.user.email).then(function(response) {
 							console.log('Profesor registrado correctamente!');
-							$location.path('/courses');
+							$location.path('/teacher');
 						}, function(error) {
 							alert('Error al registrar un usuario', error);
 						});

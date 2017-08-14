@@ -19,19 +19,39 @@ var botBloqApp= angular.module('botbloqItsFrontendApp', [
                 templateUrl: 'views/pages/signUp.html',
                 controller: 'loginCtrl'
             })
-            .when('/login', {
-                templateUrl: 'views/pages/login.html',
-                controller: 'loginCtrl'
-            })
             .when('/signUp', {
                 templateUrl: 'views/pages/signUp.html',
                 controller: 'loginCtrl'
-            })
+            }) 
             .when('/questionnaire', {
                 templateUrl: 'views/pages/questionnaire.html',
                 controller: 'studentsCtrl'
+            }) 
+            .when('/courses', {
+                templateUrl: 'views/pages/courses.html',
+                controller: 'coursesCtrl'
             })
-            .when('/students', {
+            .when('/lesson', {
+                templateUrl: 'views/pages/lesson.html',
+                controller: 'coursesCtrl'
+            })
+            .when('/activity', {
+                templateUrl: 'views/pages/activity.html',
+                controller: 'coursesCtrl'
+            })
+            .when('/teacher', {
+                templateUrl: 'views/pages/teacher.html',
+                controller: 'teacherCtrl'
+            })
+
+            /* .when('/login', {
+                templateUrl: 'views/pages/login.html',
+                controller: 'loginCtrl'
+            })
+            */
+            
+           
+            /* .when('/students', {
                 templateUrl: 'views/pages/students.html',
                 controller: 'studentsCtrl'
             })
@@ -42,12 +62,9 @@ var botBloqApp= angular.module('botbloqItsFrontendApp', [
             .when('/addLom', {
                 templateUrl: 'views/pages/addLom.html',
                 controller: 'lomsCtrl'
-            })
-            .when('/courses', {
-                templateUrl: 'views/pages/courses.html',
-                controller: 'coursesCtrl'
-            })
-            .when('/addCourse', {
+            }) */
+           
+            /*.when('/addCourse', {
                 templateUrl: 'views/pages/addCourse.html',
                 controller: 'coursesCtrl'
             })
@@ -62,15 +79,8 @@ var botBloqApp= angular.module('botbloqItsFrontendApp', [
             .when('/editCourse', {
                 templateUrl: 'views/pages/editCourse.html',
                 controller: 'coursesCtrl'
-            })
-            .when('/lesson', {
-                templateUrl: 'views/pages/lesson.html',
-                controller: 'coursesCtrl'
-            })
-            .when('/activity', {
-                templateUrl: 'views/pages/activity.html',
-                controller: 'coursesCtrl'
-            })
+            }) */
+           
             .otherwise({
                 redirectTo: 'views/pages/404'
             });

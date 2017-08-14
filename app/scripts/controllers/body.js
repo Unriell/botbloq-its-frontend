@@ -7,11 +7,12 @@
  * # BodyCtrl
  * Controller of the botbloqItsFrontendApp
  */
-botBloqApp.controller('BodyCtrl', function($scope, common, $log,usersApi,lomsApi, coursesApi, $location) {
+botBloqApp.controller('BodyCtrl', function($scope, common, $log,usersApi,lomsApi, coursesApi, teacherApi, $location) {
         $log.log('body ctrl start');
         $scope.usersApi = usersApi;
         $scope.lomsApi = lomsApi;
         $scope.coursesApi= coursesApi;
+        $scope.teacherApi= teacherApi;
         $scope.init= true;
         $scope.nameActiveUser=common.nameActiveUSer;
         $scope.activeUserHeader=common.activeUSer;
