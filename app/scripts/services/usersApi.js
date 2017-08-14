@@ -122,6 +122,15 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
 		function getStudent(idStudent) { 
           return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent );      
         }
+		
+		function getStudents() { 
+          return $http.get( common.bitbloqBackendUrl + "/students" );      
+        }
+
+       
+		function getTeachers() { 
+          return $http.get( common.bitbloqBackendUrl + "/teachers" );      
+        }
        
         function logout() {
             localStorage.userToken = null;
@@ -147,6 +156,8 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
 			signUpStudent: signUpStudent,
             sendQuestionnaire : sendQuestionnaire,
            	getStudent : getStudent,
+			getStudents : getStudents,
+			getTeachers : getTeachers,
             logout : logout,
             getCurrentUser : getCurrentUser,
             enrollStudent : enrollStudent,

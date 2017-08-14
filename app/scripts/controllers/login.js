@@ -37,46 +37,71 @@ botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,
             if ($scope.signUpForm.$valid) {
 				// if the user is a teacher
 				if ($scope.teacher) {
-					usersApi.signUpTeacher($scope.user.name, $scope.user.email).then(function(response) {
-						console.log('Profesor registrado correctamente!');
-						$location.path('/courses');
-					}, function(error) {
-						console.log('Error al registrar un usuario', error);
-					});
-					
-				} else { // if the user is a student
-					usersApi.signUpStudent($scope.user.name, $scope.user.email).then(function(response) {
-						console.log('Estudiante registrado correctamente!');
-						console.log(common.questionnaire.id_student);
-						$scope.questionnaire=common.questionnaire;
-						var defaultpath = "/questionnaire"
-						if (common.questionnaire.nuevo == 0) {
-							defaultpath = "/courses";
-						}
-						var promise=getStudent(common.questionnaire.id_student);
+					if ($scope.registered) {
+						var promise = loginTeacher($scope.user.name, $scope.user.email);
 						promise.then(function() {
-							console.log('se actualizo el ultimo estudiante registrado correctamente: ', $scope.registeredStudent);
-							usersApi.activeUser($scope.registeredStudent);
-							$location.path(defaultpath);
+								console.log('Profesor logeado correctamente correctamente: ');
+								$location.path('/courses');
 						}, function(error) {
-							console.log('Se ha producido un error al obtener los estudiantes: '+error);     
+								console.log('Se ha producido un error al obtener a los profesores: '+error);     
+								alert('Usuario no registrado'); 
+						});
+					
+					} else {
+						usersApi.signUpTeacher($scope.user.name, $scope.user.email).then(function(response) {
+							console.log('Profesor registrado correctamente!');
+							$location.path('/courses');
+						}, function(error) {
+							alert('Error al registrar un usuario', error);
+						});
+					}
+						
+				} else { // if the user is a student
+					if ($scope.registered) {
+						var promise = loginStudent($scope.user.name, $scope.user.email);
+						promise.then(function() {
+								console.log('Estudiante logeado correctamente: ');
+								$location.path('/courses');
+						}, function(error) {
+								console.log('Se ha producido un error al obtener a los estudiantes: '+error);     
+								alert('Usuario no registrado'); 
 						});
 						
-					}, function(error) {
-						console.log('Error al registrar un usuario', error);
-					});
+					} else {
+						usersApi.signUpStudent($scope.user.name, $scope.user.email).then(function(response) {
+							console.log('Estudiante registrado correctamente!');
+							console.log(common.questionnaire.id_student);
+							$scope.questionnaire=common.questionnaire;
+							var defaultpath = "/questionnaire"
+							if (common.questionnaire.nuevo == 0) {
+								defaultpath = "/courses";
+							}
+							var promise=getStudent(common.questionnaire.id_student);
+							promise.then(function() {
+								console.log('Estudiante registrado correctamente: ', $scope.registeredStudent);
+								usersApi.activeUser($scope.registeredStudent);
+								$location.path(defaultpath);
+							}, function(error) {
+								console.log('Se ha producido un error al obtener al estudiante: '+error);     
+							});
+							
+						}, function(error) {
+							alert('Error al registrar un usuario', error);
+						});
+					}
 				}
             } else {
                 console.log('There are invalid fields');
             }
         };
 
-         
+        /**
+		* retrieve student by id
+		*/
 		var getStudent= function(idStudent) {
             var defered = $q.defer(),
                 promise = defered.promise;
             console.log('get student ...');        
-            var students=[];
             usersApi.getStudent(idStudent).then(function(response){
                 $scope.registeredStudent=response.data
                 console.log('Usuario se llama: ',$scope.registeredStudent.identification.name);
@@ -84,6 +109,69 @@ botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,
             }, function myError(err) {
                 console.log(err);
                 alert('Error de tipo: '+err.status);      
+            });
+            return promise;
+        };
+		
+		/**
+		* retrieve all the students
+		*/
+		var loginStudent= function(name,email) {
+            var defered = $q.defer(),
+                promise = defered.promise;
+            var students=[];
+            usersApi.getStudents().then(function(response){
+                students= response.data;
+				var enc = false;
+				for (var i = 0; i < students.length; i++) {
+					if(students[i].identification.name == name && students[i].identification.email == email) {
+						enc = true;
+						break;
+					}
+				}
+				if (enc) {
+					console.log(students[i]);
+					$scope.registeredStudent = students[i];
+					//exports.currentUser = response.data;
+					usersApi.activeUser(students[i]);
+					defered.resolve();
+				} else {
+					alert('Estudiante no Existente');   
+				}
+            }, function myError(err) {
+                console.log(err);
+                alert('Error al cargar a los estudiantes: '+err.status);      
+            });
+            return promise;
+        };
+		
+		/*
+		* -...
+		*/
+		var loginTeacher= function(name, email) {
+            var defered = $q.defer(),
+                promise = defered.promise;
+            var teachers =[];
+            usersApi.getTeachers().then(function(response){
+                teachers = response.data;
+				var enc = false;
+				for (var i = 0; i < teachers.length; i++) {
+					if(teachers[i].identification.name == name && teachers[i].identification.email == email) {
+						enc = true;
+						break;
+					}
+				}
+				if (enc) {
+					console.log(teachers[i]);
+					//exports.currentUser = response.data;
+					usersApi.activeUser(teachers[i]);
+					defered.resolve();
+				} else {
+					alert('Profesor no Existente');   
+				}
+            }, function myError(err) {
+                console.log(err);
+                alert('Error al cargar profesores: '+err.status);      
             });
             return promise;
         };
