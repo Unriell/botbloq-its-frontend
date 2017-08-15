@@ -41,7 +41,7 @@
 													<label class="formAddCourse__fieldset__contentFields__label" for="course_name">Título</label>
 												</div>
 												<div class="col-xs-12 col-sm-6">
-													<input class="formAddCourse__fieldset__contentFields__input" ng-model="courseName" type="text" id="course_name" name="course_name" required>
+													<input class="formAddCourse__fieldset__contentFields__input" ng-model="course.name" type="text" id="course_name" name="course_name" required>
 												</div>
 											</div>
 										</div>
@@ -51,7 +51,7 @@
 													<label class="formAddCourse__fieldset__contentFields__label" for="course_code">Mnemotécnico</label>	
 												</div>
 												<div class="col-xs-12 col-sm-6">
-													<input class="formAddCourse__fieldset__contentFields__input" ng-model="courseCode" type="text" id="course_code" name="course_code">		
+													<input class="formAddCourse__fieldset__contentFields__input" ng-model="course.code" type="text" id="course_code" name="course_code">		
 												</div>
 											</div>
 										</div>
@@ -63,17 +63,17 @@
 													<label class="formAddCourse__fieldset__contentFields__label" for="course_summary">Descripción</label>
 												</div>
 												<div class="col-xs-12 col-sm-6">
-													<input class="formAddCourse__fieldset__contentFields__input" ng-model="courseSummary" type="text" id="course_summary" name="course_summary">
+													<input  class="formAddCourse__fieldset__contentFields__textArea" ng-model="course.summary" type="text" id="course_summary" name="course_summary">
 												</div>
 											</div>
 										</div>	
 										<div class="col-xs-12 col-sm-6">
 											<div class="row">
 												<div class="col-xs-12 col-sm-6">
-													<label class="formAddCourse__fieldset__contentFields__label" for="course_summary">Logo</label>
+													<label class="formAddCourse__fieldset__contentFields__label" for="course_photo">Logo</label>
 												</div>
 												<div class="col-xs-12 col-sm-6">
-													<input class="formAddCourse__fieldset__contentFields__input" ng-model="courseLogo" type="text" id="course_logo" name="course_logo">
+													<input class="formAddCourse__fieldset__contentFields__input" ng-model="course.photo" type="text" id="course_logo" name="course_logo">
 												</div>
 											</div>
 
@@ -91,7 +91,196 @@
 										</div>	
 										-->
 									</div>
-									<!-- <ng-include src=" 'views/modules/addObjCourse.html' "></ng-include>-->
+									<div class="col-xs-12 col-sm-6">
+											<div class="row">
+												<div class="col-xs-12 col-sm-6">
+													<input hidden class="formAddCourse__fieldset__contentFields__input" ng-model="course.author" type="text" id="course_author" name="course_author" value="q3">
+												</div>
+											</div>
+									</div>
+<!-- objetivos -->
+									<div class="contentAddItem">
+										<div class="contentAddItem__wrapperAddItem__level2">
+											<!-- <ng-include src=" 'views/modules/formObjetivo.html' "></ng-include> -->
+											<fieldset class="formAddCourse__fieldset__level2 addObj">
+												<legend class="formAddCourse__fieldset__level2__legend"> 
+													<!-- <a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(2)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsObjectives, 'bbq-plus bbq-plus--form': !showFieldsObjectives}"></span></a> -->
+													Objetivo
+												</legend>
+												<div class="formAddCourse__fieldset__level2__contentFields" >
+													<div class="row">
+														<div class="col-xs-12 col-sm-6 mb15">
+															<div class="row">
+												
+																<div class="col-xs-12 col-sm-6">
+																	<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_code">Código</label>	
+																</div>
+																<div class="col-xs-12 col-sm-6">
+																	<input class="formAddCourse__fieldset__level2__contentFields__input" ng-model="objectives.code" type="text" id="objectives_code" name="objectives_code">		
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-12 col-sm-6 mb15">
+															<div class="row">
+																<div class="col-xs-12 col-sm-4 col-md-3">
+																	<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_description">Descripción</label>
+																</div>
+																<div class="col-xs-12 col-sm-8 col-md-9">
+																	<input class="formAddCourse__fieldset__contentFields__textArea" ng-model="objectives.description" type="text" id="objectives_description" name="objectives_description">
+															</div>
+														</div>
+													</div>
+													
+													<div class="row">
+														<div class="col-xs-12 col-sm-6 mb15">
+															<div class="row">
+																<div class="col-xs-12 col-sm-6">
+																	<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_level">Nivel</label>
+																</div>
+																<div class="col-xs-12 col-sm-6">
+																	<input class="formAddCourse__fieldset__level2__contentFields__input" ng-model="objectives.level" type="number" id="objectives_level" name="objectives_level">
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-12 col-sm-6 mb15">
+															<div class="row">
+																<div class="col-xs-12 col-sm-6">
+																	<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_bloom">Tipo</label>
+																</div>
+																<div class="col-xs-12 col-sm-6">
+																	<select class="formAddCourse__fieldset__level2__contentFields__input" ng-model="objectives.bloom" id="objectives_bloom" type="text" name="objectives_bloom">
+																  		<option value="knowledge">Conocimiento</option>
+																  		<option value="comprehension">Comprensión</option>
+														                  <option value="application">Aplicación</option>
+														                  <option value="analysis">Análisis</option>
+														                  <option value="sinthesis">Síntesis</option>
+														                  <option value="evaluation">Evaluación</option>
+																	</select>
+																</div>
+															</div>
+														</div>
+													</div>								
+												</div>
+											</fieldset> 
+										</div>
+
+									</div>
+				<!-- lessons -->
+									<div class="contentAddItem">
+										<div class="contentAddItem__wrapperAddItem__level2">
+											<fieldset class="formAddCourse__fieldset__level2">
+												<legend class="formAddCourse__fieldset__level2__legend">Lección</legend>
+												<div class="formAddCourse__fieldset__contentFields" >
+													<div class="row">
+														<div class="col-xs-12 col-sm-6 mb15">
+															<div class="row">
+																<div class="col-xs-12 col-sm-6">
+																	<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_name">Nombre</label>	
+																</div>
+																<div class="col-xs-12 col-sm-6">
+																	<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.name" type="text" id="sections_lesson_name" name="sections_lesson_name">		
+																</div>
+															</div>
+														</div>
+														<div class="col-xs-12 col-sm-6 mb15">
+															<div class="row">
+																<div class="col-xs-12 col-sm-4 col-md-3">
+																	<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_summary">Resumen</label>
+																</div>
+																<div class="col-xs-12 col-sm-8 col-md-9">
+																	<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="lesson.summary" type="text" id="sections_lesson_summary" name="sections_lesson_summary"></textarea>
+																</div>
+															</div>
+														</div>
+													</div>
+													<div class="row">
+															<div class="col-xs-12 col-sm-6 mb15">
+																<div class="row">
+																	<div class="col-xs-12 col-sm-6">
+																		<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_desc">Descripción</label>
+																	</div>
+																	<div class="col-xs-12 col-sm-6">
+																		<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="lesson.description" type="text" id="sections_lesson_desc" name="sections_lesson_desc"></textarea>
+
+
+																	</div>
+																</div>
+															</div>
+															<div class="col-xs-12 col-sm-6 mb15">
+																<div class="row">
+																	<div class="col-xs-12 col-sm-6">
+																		<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_name">Imagen</label>	
+																	</div>
+																	<div class="col-xs-12 col-sm-6">
+																		<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.photo" type="text" id="sections_lesson_photo" name="sections_lesson_photo">		
+																	</div>
+																	<!--
+																	
+																	-->
+																	
+																</div>
+															</div>
+													</div>
+													<div class="row">
+															<div class="col-xs-12 col-sm-6 mb15">
+																<div class="row">
+																	<div class="col-xs-12 col-sm-6">
+																		<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Tipo</label>
+																	</div>
+																	<div class="col-xs-12 col-sm-6">
+																	<select class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
+																		  	<option value="Essential">Básica</option>
+																		  	<option value="Reinforcement">Refuerzo</option>
+																		  	<option value="Extension">Ampliación</option>
+																		</select>
+																	</div>
+																</div>
+															</div>
+															<div class="col-xs-12 col-sm-6 mb15">
+																<div class="row">
+																	<div class="col-xs-12 col-sm-6">
+																		<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type"0>
+																		Dificultad
+																		</label>
+																	</div>
+																	<div class="col-xs-12 col-sm-6">
+																		<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.dificulty" 
+																		type="number" id="sections_lesson_dificulty" name="sections_lesson_dificulty">
+																	</div>
+																</div>
+															</div>
+													</div>
+													<div class="row">
+															<div class="col-xs-12 col-sm-6 mb15">
+																<div class="row">
+																	<div class="col-xs-12 col-sm-6">
+																		<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_learningPath">Ruta de Aprendizaje</label>
+																	</div>
+																	<div class="col-xs-12 col-sm-6">
+																	
+																		<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.learningPath" type="text" id="sections_lesson_learningPath" name="sections_lesson_learningPath">
+																	</div>
+																</div>
+															</div>
+															<div class="col-xs-12 col-sm-6 mb15">
+																<div class="row">
+																	<div class="col-xs-12 col-sm-6">
+																		<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_lom_url"0>
+																		Enlace
+																		</label>
+																	</div>
+																	<div class="col-xs-12 col-sm-6">
+																		<input class="formAddCourse__fieldset__contentFields__input" ng-model="lom_url" 
+																		type="text" id="sections_lesson_lom_url" name="sections_lesson_lom_url">
+																	</div>
+																</div>
+															</div>
+													</div>		
+												</div>
+											</fieldset>	
+										</div>
+									</div>	
+					<!-- end lesson -->				
 								</div>
 		        			</fieldset>
 		        		</li>

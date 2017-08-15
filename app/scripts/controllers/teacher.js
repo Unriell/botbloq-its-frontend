@@ -62,11 +62,33 @@
     /* add new course */
     $scope.addCourse = function() {
       if ($scope.adminCoursesForm.$valid) {
-          console.log('adding...');
-          teacherApi.addCourse($scope.courseName,$scope.courseCode,$scope.courseSummary, $scope.courseLogo).then(function(response) {
+          console.log($scope.lessons);
+          // add author
+          $scope.course.author = $scope.activeUser.identification.name;
+          // add objectives
+          $scope.course.objectives = []
+          $scope.course.objectives.push($scope.objectives);
+         
+          // add default section 
+          var section = 
+                    {name: 'default section',
+                     summary: 'default summary',
+                     objectives: [],
+                     lessons : []};
+          // add section objectives
+          section.objectives.push($scope.objectives);
+          // add lesson objectives
+          $scope.lesson.objectives = [];
+          $scope.lesson.objectives.push($scope.objectives); // TODO level distribution
+          // add lesson
+          section.lessons.push($scope.lesson);
+          // push
+          $scope.course.sections = [];
+          $scope.course.sections.push(section);
+          // send request
+          console.log($scope.course);
+          teacherApi.addCourse($scope.course).then(function(response) {
               console.log('ok después de addCourse', response);
-              //$scope.updateLastCourse();
-              //common.courseSelected=$scope.courses[$scope.courses.length -1];
               $location.path("/teacher");
           }, function(error) {
               console.log('error después de addCourse', error);
@@ -75,7 +97,6 @@
       } else {
           console.log('There are invalid fields');
       }
-      //objectivesCourse=[];
     };
 
     /* remove a course */
@@ -93,6 +114,7 @@
       });
     };
 
+    /* refresh courses visualization */
     $scope.refreshCourses= function() {
       console.log('loading Courses ...');
       teacherApi.getCourses().then(function(response){

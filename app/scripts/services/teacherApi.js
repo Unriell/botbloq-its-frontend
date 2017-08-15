@@ -18,18 +18,19 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
         
 
         /* add new course */
-        function addCourse(courseName,courseCode,courseSummary, courseLogo) {
-            console.log("Objetos para hacer post course: "+ courseName,courseCode,courseSummary,courseLogo);
+        function addCourse(course) {
+            console.log("Objeto para hacer el post course: " +  course);
 
             var coursesPromise = $q.defer();
 
             $http.post(common.bitbloqBackendUrl + '/courses/', {
-                name: courseName,
-                code: courseCode,
-                summary: courseSummary,
-                photo: courseLogo,
-                // author 
-                objectives: {},
+                name: course.name,
+                code: course.code,
+                summary: course.summary,
+                photo: course.photo,
+                author: course.author, 
+                objectives: course.objectives,
+                sections: course.sections,
                 statistics:  {},
                 history: ''
             }).then(function(response) {
