@@ -8,11 +8,11 @@
  * Controller of the botbloqItsFrontendApp
  */
 
-   botBloqApp.controller('teacherCtrl',function($log,$q,$scope,$http,$location,$timeout,$sce, teacherApi,common) {
-        $log.log('teacher ctrl start');
-        $scope.changeInit(false); 
+  botBloqApp.controller('teacherCtrl',function($log,$q,$scope,$http,$location,$timeout,$sce, teacherApi,common) {
+    $log.log('teacher ctrl start');
+    $scope.changeInit(false); 
     
-        $scope.activeUser=common.activeUSer;
+    $scope.activeUser=common.activeUSer;
 		$scope.changeActiveUserHeader($scope.activeUser);
      	
 		
@@ -33,14 +33,75 @@
 
         // --- END EDIT COURSE ---
       
-        
-        teacherApi.getCourses().then(function(response){
-                $scope.courses= response.data;
-                console.log(response.data);
-        }, function myError(err) {
-                console.log(err);
-                alert('Error de tipo: '+err.status);      
-        }); 
+    /* listado de cursos **/
+    teacherApi.getCourses().then(function(response){
+      $scope.courses= response.data;
+      console.log(response.data);
+    }, function myError(err) {
+      console.log(err);
+      alert('Error de tipo: '+err.status);      
+    }); 
+
+    /* crear curso nuevo */
+    $scope.goAddCourse= function(){
+      $location.path("/addCourse");
+    };
+
+    $scope.showAddCourseForm = function() {
+      $scope.showCoursesForm=true;
+      $scope.edit=false;
+    };
+
+    $scope.addEditCourse = function() {
+      console.log('valor de edit: ', $scope.edit);
+      //if($scope.edit) $scope.editCourse($scope.idItemToEdit);
+      //else  {
+        $scope.addCourse();
+    };
+
+    /* add new course */
+    $scope.addCourse = function() {
+      if ($scope.adminCoursesForm.$valid) {
+          console.log('adding...');
+          teacherApi.addCourse($scope.courseName,$scope.courseCode,$scope.courseSummary, $scope.courseLogo).then(function(response) {
+              console.log('ok después de addCourse', response);
+              //$scope.updateLastCourse();
+              //common.courseSelected=$scope.courses[$scope.courses.length -1];
+              $location.path("/teacher");
+          }, function(error) {
+              console.log('error después de addCourse', error);
+          });
+          $scope.showCoursesForm=false; // ??
+      } else {
+          console.log('There are invalid fields');
+      }
+      //objectivesCourse=[];
+    };
+
+    /* remove a course */
+    $scope.removeCourse = function(course,e){
+      console.log('eliminado course con id: ', course);
+      if (confirm("¿SEGURO QUE QUIERE ELIMINAR ESTE CURSO?") === false) {
+        e.preventDefault();
+        return;
+      }
+      teacherApi.removeCourse(course._id).then(function(response) {
+        console.log('eliminado course con exito', response);
+        $scope.refreshCourses();
+      }, function(error) {
+        console.log('error al eliminar course', error);
+      });
+    };
+
+    $scope.refreshCourses= function() {
+      console.log('loading Courses ...');
+      teacherApi.getCourses().then(function(response){
+        $scope.courses= response.data;        
+      }, function myError(err) {
+        console.log(err);
+        alert('Error al recuperar los cursos: '+err.status);      
+      }); 
+    };
 
         // $scope.showInfoCourse = function(item){
         //     $scope.InfoCourse=true;
@@ -62,15 +123,7 @@
         // };
 
 
-   //      $scope.updateCourses= function() {
-   //          console.log('loading Courses ...');
-   //          coursesApi.getCourses().then(function(response){
-   //              $scope.courses= response.data;        
-   //          }, function myError(err) {
-   //              console.log(err);
-   //              alert('Error de tipo: '+err.status);      
-   //          }); 
-   //      };
+
    //      $scope.updateLastCourse= function() {
    //          console.log('loading Courses ...');
    //          coursesApi.getCourses().then(function(response){
@@ -105,10 +158,7 @@
    //      };
 
   
-   //      $scope.showAddCourseForm = function() {
-   //          $scope.showCoursesForm=true;
-   //          $scope.edit=false;
-   //      };
+
    //      $scope.showEditCourseForm = function(item) {
    //          $scope.showCoursesForm=true;
    //          $scope.edit=true;
@@ -148,11 +198,7 @@
 
    //      };
 
-
-   //      $scope.goAddCourse= function(){
-   //          $location.path("/addCourse");
-   //      };
-       
+  
 
 
        

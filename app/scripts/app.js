@@ -43,6 +43,10 @@ var botBloqApp= angular.module('botbloqItsFrontendApp', [
                 templateUrl: 'views/pages/teacher.html',
                 controller: 'teacherCtrl'
             })
+            .when('/addCourse', {
+                templateUrl: 'views/pages/addCourse.html',
+                controller: 'teacherCtrl'
+            })
 
             /* .when('/login', {
                 templateUrl: 'views/pages/login.html',

@@ -16,13 +16,42 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
           return $http.get( common.bitbloqBackendUrl + "/courses/" );      
         }
         
+
+        /* add new course */
+        function addCourse(courseName,courseCode,courseSummary, courseLogo) {
+            console.log("Objetos para hacer post course: "+ courseName,courseCode,courseSummary,courseLogo);
+
+            var coursesPromise = $q.defer();
+
+            $http.post(common.bitbloqBackendUrl + '/courses/', {
+                name: courseName,
+                code: courseCode,
+                summary: courseSummary,
+                photo: courseLogo,
+                // author 
+                objectives: {},
+                statistics:  {},
+                history: ''
+            }).then(function(response) {
+                console.log('ok despues de post course', response.data.token);
+                coursesPromise.resolve();  
+            }, function(err) {
+                 console.log('error despues de post course',err);
+            });
+            return coursesPromise.promise;
+        }
+
+        /* remove course */
+        function removeCourse(idCourse) { 
+          return $http.delete(common.bitbloqBackendUrl + "/courses/"+idCourse);      
+        }
         
 
         var exports = {
-            getCourses : getCourses
-    /*
-            addCourse : addCourse,
             getCourses : getCourses,
+            addCourse : addCourse,
+            removeCourse : removeCourse
+      /*    getCourses : getCourses,
             getSections :getSections,
             getSection :getSection,
             getCourse : getCourse,

@@ -24,7 +24,7 @@
 		<div class="contentAddItem__wrapperAddItem">
 			<form id="adminCoursesForm" name="adminCoursesForm" class="formAddCourse" ng-submit="addEditCourse()"  novalidate>
 		    <fieldset>
-		        	<legend class="sr-only">FORMULARIO AGREGAR</legend>
+		        	<legend class="sr-only">Añadir Nuevo Curso</legend>
 		        	<ul>
 		        		<li>
 		        			<fieldset class="formAddCourse__fieldset">
@@ -32,12 +32,13 @@
 					        		<!-- <a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(1)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsGeneral, 'bbq-plus bbq-plus--form': !showFieldsGeneral}"></span></a> -->
 					        		General
 				        		</legend>
-								<div class="formAddCourse__fieldset__contentFields" ng-show="showFieldsGeneral">
+								<!-- <div class="formAddCourse__fieldset__contentFields" ng-show="showFieldsGeneral"> -->
+								<div class="formAddCourse__fieldset__contentFields"> 
 									<div class="row">
 										<div class="col-xs-12 col-sm-6 mb15">
 											<div class="row">
 												<div class="col-xs-12 col-sm-6">
-													<label class="formAddCourse__fieldset__contentFields__label" for="course_name">Name</label>
+													<label class="formAddCourse__fieldset__contentFields__label" for="course_name">Título</label>
 												</div>
 												<div class="col-xs-12 col-sm-6">
 													<input class="formAddCourse__fieldset__contentFields__input" ng-model="courseName" type="text" id="course_name" name="course_name" required>
@@ -47,7 +48,7 @@
 										<div class="col-xs-12 col-sm-6 mb15">
 											<div class="row">
 												<div class="col-xs-12 col-sm-6">
-													<label class="formAddCourse__fieldset__contentFields__label" for="course_code">Code</label>	
+													<label class="formAddCourse__fieldset__contentFields__label" for="course_code">Mnemotécnico</label>	
 												</div>
 												<div class="col-xs-12 col-sm-6">
 													<input class="formAddCourse__fieldset__contentFields__input" ng-model="courseCode" type="text" id="course_code" name="course_code">		
@@ -59,7 +60,7 @@
 										<div class="col-xs-12 col-sm-6 mb15">
 											<div class="row">
 												<div class="col-xs-12 col-sm-6">
-													<label class="formAddCourse__fieldset__contentFields__label" for="course_summary">Summary</label>
+													<label class="formAddCourse__fieldset__contentFields__label" for="course_summary">Descripción</label>
 												</div>
 												<div class="col-xs-12 col-sm-6">
 													<input class="formAddCourse__fieldset__contentFields__input" ng-model="courseSummary" type="text" id="course_summary" name="course_summary">
@@ -68,6 +69,16 @@
 										</div>	
 										<div class="col-xs-12 col-sm-6">
 											<div class="row">
+												<div class="col-xs-12 col-sm-6">
+													<label class="formAddCourse__fieldset__contentFields__label" for="course_summary">Logo</label>
+												</div>
+												<div class="col-xs-12 col-sm-6">
+													<input class="formAddCourse__fieldset__contentFields__input" ng-model="courseLogo" type="text" id="course_logo" name="course_logo">
+												</div>
+											</div>
+
+										<!-- imagen binaria -->
+										<!--	<div class="row">
 												<div class="col-xs-12 col-sm-6">
 													<input class="formAddCourse__fieldset__contentFields__inputPic" type="file" name="file" onchange="angular.element(this).scope().photoChanged(this.files)" />
 												</div>
@@ -78,8 +89,9 @@
 												</div>
 											</div>
 										</div>	
+										-->
 									</div>
-									<ng-include src=" 'views/modules/addObjCourse.html' "></ng-include>	
+									<!-- <ng-include src=" 'views/modules/addObjCourse.html' "></ng-include>-->
 								</div>
 		        			</fieldset>
 		        		</li>
