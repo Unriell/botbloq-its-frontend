@@ -49,24 +49,42 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
 
         /* edit course */
         function editCourse(course) {
-            console.log("Objeto para editar (SERVICE): "+course );
             var coursesPromise = $q.defer();
-            console.log('id de item a editar (antes de llamada)', course._id);
-            $http.put(common.bitbloqBackendUrl + '/courses/'+ course._id, {
+             console.log();
+            
+            var myArray = [];
+
+            //var LearningCenterObject = LearningCenter.LearningCenterModel(timeTable.learningCenter);
+            for (var i = 0; i < course.objectives.length; i++) {
+                var obj = new Object();
+                obj.code = course.objectives[i].code;
+                obj.description = course.objectives[i].description;
+                obj.level = course.objectives[i].level;
+                obj.bloom = course.objectives[i].bloom;
+                myArray.push(obj);
+            }
+            var reqCourse = {
                 name: course.name,
                 code: course.code,
                 summary: course.summary,
+                objectives: myArray, 
+                sections: course.sections,
                 photo: course.photo,
                 author: course.author, 
-                //objectives: course.objectives,
-                //sections: course.sections,
-                //statistics:  course.statistics,
-                //history: course.history
-            }).then(function(response) {
-                console.log('ok despues de editar-post', response.data.token);
+                statistics: course.statistics,
+                history: course.history,
+                solutions: course.solutions,
+
+            };
+            console.log(course._id);
+            console.log(reqCourse);
+
+
+             $http.post(common.bitbloqBackendUrl + '/courses/', reqCourse).then(function(response) {
+                console.log('ok después de añadir nuevo curso', response.data);
                 coursesPromise.resolve();  
             }, function(err) {
-                 console.log('error despues de editar-post',err);
+                 console.log('error despues dsdfsdfsdfsdde editar-post',err);
             });
             return coursesPromise.promise;
         }

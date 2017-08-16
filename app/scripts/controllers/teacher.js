@@ -41,7 +41,7 @@
     /* listado de cursos **/
     teacherApi.getCourses().then(function(response){
       $scope.courses= response.data;
-      //console.log(response.data);
+      console.log(response.data);
     }, function myError(err) {
       console.log(err);
       alert('Error de tipo: '+err.status);      
@@ -171,31 +171,30 @@
         
   };
 
-     $scope.editCourse = function(course) {
+  $scope.editCourse = function(course) {
         if ($scope.coursesEditForm.$valid ) {
             console.log('editing...');
-            console.log("parametros de entrada: ",course);
-            teacherApi.editCourse(course).then(function(response) {
-                console.log('ok después de editCourse', response);
-                //$scope.updateCourses();
-                confirm("Curso editado con éxito!");
-                $location.path("/teacher");
+            console.log("parametros de entrada: ",course); 
+            teacherApi.removeCourse(course._id).then(function(response) {
+                  console.log('eliminado course con exito', response);
+                  teacherApi.editCourse(course).then(function(response) {
+                      console.log('ok después de editCourse', response);
+                      //$scope.updateCourses();
+                      alert("Curso editado con éxito!");
+                      $scope.refreshCourses();
+                      $location.path("/teacher");
+                }, function(error) {
+                  console.log('error al crear curso editado', error);
+                });
             }, function(error) {
-                console.log('error después de editCourse', error);
+                console.log('error después de remove course', error); 
                 confirm("Error al editar el curso.");
             });
             $scope.showCoursesForm=false;
         } else {
             console.log('There are invalid fields');
         }
-        /*
-        $scope.courseName='';
-        $scope.courseCode='';
-        $scope.courseSummary='';
-        $scope.objectives={};
-        $scope.sections={};
-        $scope.courseHistory='';
-        */
+
     };
 
 
