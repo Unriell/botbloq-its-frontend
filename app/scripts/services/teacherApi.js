@@ -19,7 +19,7 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
 
         /* add new course */
         function addCourse(course) {
-            console.log("Objeto para hacer el post course: " +  course);
+           
 
             var coursesPromise = $q.defer();
 
@@ -34,7 +34,7 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
                 statistics:  {},
                 history: ''
             }).then(function(response) {
-                console.log('ok despues de post course', response.data.token);
+                console.log('ok despues de post course', response.data);
                 coursesPromise.resolve();  
             }, function(err) {
                  console.log('error despues de post course',err);
@@ -46,12 +46,53 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
         function removeCourse(idCourse) { 
           return $http.delete(common.bitbloqBackendUrl + "/courses/"+idCourse);      
         }
+
+        /* add lom **/
+        function addLom(lom_title, lom_url) {
+        
+            var lomsPromise = $q.defer();
+            var lom_id = '';
+
+            $http.post(common.bitbloqBackendUrl + '/loms', {
+                general: {
+                    title: lom_title,
+                    language: 'es',
+                    structure: 'complex',
+                },
+                metadata: {
+                    contribution_type: 'web',
+                },
+                technical: {
+                    format: "'application/html'", 
+                    url: lom_url     
+                },
+                use: {
+                    interactivity_type: 'expositive' ,
+                    interactivity_level: 'medium',
+                    language: 'Spanish',
+                    resource_type: 'multimedia',
+                    resource_context: 'school',
+                    resource_difficulty: 'medium'
+                }
+            }).then(function(response) {
+                console.log('lom creado', response.data);
+                var result = response.data.split(" ");
+                common.lom = result[result.length - 1];
+                console.log("id : " + common.lom);
+                lomsPromise.resolve();  
+            }, function(err) {
+                 console.log('error despues de post',err);
+            });
+            return lomsPromise.promise;
+        }
+
         
 
         var exports = {
             getCourses : getCourses,
             addCourse : addCourse,
-            removeCourse : removeCourse
+            removeCourse : removeCourse,
+            addLom: addLom
       /*    getCourses : getCourses,
             getSections :getSections,
             getSection :getSection,

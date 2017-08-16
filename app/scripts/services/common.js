@@ -21,6 +21,7 @@ botBloqApp.service('common', function($log) {
             nameActiveUser="",
             questionnaire={},
             newActivity={},
+            lom = "",
             actualViewCourses="totalCoursesPage";
 
         $log.log('common start');
@@ -37,6 +38,7 @@ botBloqApp.service('common', function($log) {
             objectivesCourse: objectivesCourse,
             questionnaire : questionnaire,
             newActivity : newActivity,
+            lom: lom,
             actualViewCourses : actualViewCourses
         };
 

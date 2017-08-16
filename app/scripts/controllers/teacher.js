@@ -62,40 +62,60 @@
     /* add new course */
     $scope.addCourse = function() {
       if ($scope.adminCoursesForm.$valid) {
-          console.log($scope.lessons);
-          // add author
-          $scope.course.author = $scope.activeUser.identification.name;
-          // add objectives
-          $scope.course.objectives = []
-          $scope.course.objectives.push($scope.objectives);
-         
-          // add default section 
-          var section = 
-                    {name: 'default section',
-                     summary: 'default summary',
-                     objectives: [],
-                     lessons : []};
-          // add section objectives
-          section.objectives.push($scope.objectives);
-          // add lesson objectives
-          $scope.lesson.objectives = [];
-          $scope.lesson.objectives.push($scope.objectives); // TODO level distribution
-          // add lesson
-          section.lessons.push($scope.lesson);
-          // push
-          $scope.course.sections = [];
-          $scope.course.sections.push(section);
-          // send request
-          console.log($scope.course);
-          teacherApi.addCourse($scope.course).then(function(response) {
-              console.log('ok después de addCourse', response);
-              $location.path("/teacher");
+
+        var oa = {
+          lom_id: '',
+          type : ''
+        }; 
+        // insert lom in bd
+        teacherApi.addLom($scope.lesson.name, $scope.lom_url).then(function(response) {
+              console.log('lom añadido');
+             oa.lom_id = common.lom;
+             console.log(oa);
+             
+             common.lom = '';
+             $scope.lesson.loms = [];
+             $scope.lesson.loms.push(oa);
+               
+             // add objectives
+             $scope.course.objectives = []
+             $scope.course.objectives.push($scope.objectives);
+             
+             // add default section 
+             var section = 
+                       {name: 'default section',
+                        summary: 'default summary',
+                        objectives: [],
+                        lessons : []};
+             // add section objectives
+             section.objectives.push($scope.objectives);
+             // add lesson objectives
+             $scope.lesson.objectives = [];
+             $scope.lesson.objectives.push($scope.objectives); // TODO level distribution
+             $scope.lesson.learning_path = JSON.parse("[" + $scope.learningpath + "]");
+             // add lesson
+             section.lessons.push($scope.lesson);
+             // push
+             $scope.course.sections = [];
+             $scope.course.sections.push(section);
+             // add author
+             $scope.course.author = $scope.activeUser.identification.name;
+             // send request
+             console.log($scope.course);
+             teacherApi.addCourse($scope.course).then(function(response) {
+                 console.log('ok después de addCourse', response);
+                 $location.path("/teacher");
+             }, function(error) {
+                 console.log('error después de addCourse', error);
+             });
+             $scope.showCoursesForm=false; // ??
+
           }, function(error) {
-              console.log('error después de addCourse', error);
+              console.log('error después de addLom', error);
           });
-          $scope.showCoursesForm=false; // ??
+        
       } else {
-          console.log('There are invalid fields');
+          alert('Existen valores incorrectos');
       }
     };
 
