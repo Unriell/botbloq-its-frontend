@@ -120,7 +120,7 @@
                 alert('Error de tipo: '+err.status);      
         });
 
-        $scope.updateLomsAux= function(){
+        $scope.LomsAux= function(){
             $scope.lomsAux=[];
             lomsApi.getLoms().then(function(response){
                 $scope.loms= response.data;

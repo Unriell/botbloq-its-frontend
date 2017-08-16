@@ -47,6 +47,29 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
           return $http.delete(common.bitbloqBackendUrl + "/courses/"+idCourse);      
         }
 
+        /* edit course */
+        function editCourse(course) {
+            console.log("Objeto para editar (SERVICE): "+course );
+            var coursesPromise = $q.defer();
+            console.log('id de item a editar (antes de llamada)', course._id);
+            $http.put(common.bitbloqBackendUrl + '/courses/'+ course._id, {
+                name: course.name,
+                code: course.code,
+                summary: course.summary,
+                photo: course.photo,
+                author: course.author, 
+                //objectives: course.objectives,
+                //sections: course.sections,
+                //statistics:  course.statistics,
+                //history: course.history
+            }).then(function(response) {
+                console.log('ok despues de editar-post', response.data.token);
+                coursesPromise.resolve();  
+            }, function(err) {
+                 console.log('error despues de editar-post',err);
+            });
+            return coursesPromise.promise;
+        }
         /* add lom **/
         function addLom(lom_title, lom_url) {
         
@@ -92,6 +115,7 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
             getCourses : getCourses,
             addCourse : addCourse,
             removeCourse : removeCourse,
+            editCourse : editCourse,
             addLom: addLom
       /*    getCourses : getCourses,
             getSections :getSections,
@@ -100,7 +124,7 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
             getLessons: getLessons,
             removeItem : removeItem,
             removeAllItem : removeAllItem,
-            editCourse : editCourse,
+            
             editSection: editSection,
             addObjectivesToCourse : addObjectivesToCourse,
             addObjectivesToSection : addObjectivesToSection,

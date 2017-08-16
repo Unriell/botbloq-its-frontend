@@ -18,8 +18,13 @@
 		
             
 
-        // --- EDIT COURSE --- ????
-        // $scope.courseSelected=common.courseSelected;
+    // --- EDIT COURSE --- ????
+    $scope.courseSelected=common.courseSelected;
+    $scope.objectivesCourseSelected=common.objectivesCourseSelected;
+    $scope.sectionsSelected=common.sectionsCourseSelected;
+    $scope.lessonsSelected=common.lessonsCourseSelected;
+    $scope.lessonSelected=common.lessonSelected;
+    $scope.indexLessonSelected=common.indexLessonSelected;
 
         // $scope.sections=[];
         // $scope.lesson=[];
@@ -36,7 +41,7 @@
     /* listado de cursos **/
     teacherApi.getCourses().then(function(response){
       $scope.courses= response.data;
-      console.log(response.data);
+      //console.log(response.data);
     }, function myError(err) {
       console.log(err);
       alert('Error de tipo: '+err.status);      
@@ -83,8 +88,8 @@
              
              // add default section 
              var section = 
-                       {name: 'default section',
-                        summary: 'default summary',
+                       {name: 'Sección por defecto',
+                        summary: 'Sección que aglutina todas las secciones del curso',
                         objectives: [],
                         lessons : []};
              // add section objectives
@@ -144,6 +149,55 @@
         alert('Error al recuperar los cursos: '+err.status);      
       }); 
     };
+
+/* edición de cursos */
+
+  $scope.goEditCourse = function(item) {
+    common.courseSelected=item;
+    console.log(item);
+    
+    common.objectivesCourseSelected=item.objectives;
+    common.sectionsCourseSelected=item.sections;
+    
+    console.log('edicion de ',common.courseSelected.name);
+    $scope.editObjectives=item.objectives;
+           
+    $scope.editSections=item.sections;
+    $scope.editCourseHistory=item.history;
+    $scope.showCoursesForm=true;
+    $scope.edit=true;
+    $scope.idItemToEdit=item._id;
+    $location.path("/editCourse");
+        
+  };
+
+     $scope.editCourse = function(course) {
+        if ($scope.coursesEditForm.$valid ) {
+            console.log('editing...');
+            console.log("parametros de entrada: ",course);
+            teacherApi.editCourse(course).then(function(response) {
+                console.log('ok después de editCourse', response);
+                //$scope.updateCourses();
+                confirm("Curso editado con éxito!");
+                $location.path("/teacher");
+            }, function(error) {
+                console.log('error después de editCourse', error);
+                confirm("Error al editar el curso.");
+            });
+            $scope.showCoursesForm=false;
+        } else {
+            console.log('There are invalid fields');
+        }
+        /*
+        $scope.courseName='';
+        $scope.courseCode='';
+        $scope.courseSummary='';
+        $scope.objectives={};
+        $scope.sections={};
+        $scope.courseHistory='';
+        */
+    };
+
 
         // $scope.showInfoCourse = function(item){
         //     $scope.InfoCourse=true;
@@ -213,22 +267,8 @@
    //          $scope.sections=item.sections;
    //          $scope.courseHistory=item.history;
    //      };
-   //      $scope.goEditCourse = function(item) {
-   //          common.courseSelected=item;
-   //          common.objectivesCourseSelected=item.objectives;
-   //          common.sectionsCourseSelected=item.sections;
-   //          $location.path("/editCourse");
-   //          console.log('edicion de ',common.courseSelected.name);
-   //          /*resetCourseSelected();
-   //          var promise=updateSectionsSelected(item._id);
-   //          promise.then(function() {
-   //              console.log('numero de secciones en goCourse: ', common.sectionsCourseSelected.length);
-   //              $scope.sectionsSelected=common.sectionsCourseSelected;
-   //              $location.path("/editCourse");
-   //          }, function(error) {
-   //              console.log('Se ha producido un error al obtener el dato: '+error);     
-   //          });*/
 
+ 
         
    //          $scope.editObjectives=item.objetives;
            

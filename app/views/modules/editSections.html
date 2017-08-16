@@ -6,20 +6,20 @@
 	    		<!-- <a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(2)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsObjectives, 'bbq-plus bbq-plus--form': !showFieldsObjectives}"></span></a> -->
 	    		Secciones
 			</legend>
-			<div class="formAddCourse__fieldset__level2__contentFields" ng-show="showFieldsObjectives">
+			<div class="formAddCourse__fieldset__level2__contentFields" >
 				<ul>
     				<li ng-repeat="section in sectionsSelected" ng-init="visible = false">
     					<fieldset class="formAddLom__fieldset pdb10">
 			        		<legend class="formAddLom__fieldset__legend"> 
 				        		<a class="formAddLom__fieldset__legend__link" ng-click="visible= !visible" href><span ng-class="{'bbq-minus bbq-minus--form':visible, 'bbq-plus bbq-plus--form': !visible}"></span></a>
-				        		Section {{$index+1}}
+				        		Sección {{$index+1}}
 			        		</legend>
 							<div class="formAddLom__fieldset__contentFields" ng-show="visible">
 								<div class="row">
 									<div class="col-xs-12 col-sm-6 mb15">
 										<div class="row">
 											<div class="col-xs-12 col-sm-6">
-												<label class="formAddCourse__fieldset__contentFields__label" for="sections_name">Name</label>
+												<label class="formAddCourse__fieldset__contentFields__label" for="sections_name">Nombre</label>
 											</div>
 											<div class="col-xs-12 col-sm-6">
 												<input class="formAddCourse__fieldset__contentFields__input" ng-model="section.name" type="text" id="sections_name" name="sections_name"/>
@@ -29,7 +29,7 @@
 									<div class="col-xs-12 col-sm-6 mb15">
 										<div class="row">
 											<div class="col-xs-12 col-sm-6">
-												 <label class="formAddCourse__fieldset__contentFields__label" for="sections_summary">Summary</label>
+												 <label class="formAddCourse__fieldset__contentFields__label" for="sections_summary">Resumen</label>
 											</div>
 											<div class="col-xs-12 col-sm-6">
 												<input class="formAddCourse__fieldset__contentFields__input" ng-model="section.summary" type="text" id="sections_summary" name="sections_summary"/>
@@ -37,7 +37,7 @@
 										</div>
 									</div>
 								</div>	
-								<ng-include src=" 'views/modules/editObjectivesSection.html' "></ng-include>
+								<!-- <ng-include src=" 'views/modules/editObjectivesSection.html' "></ng-include> -->
 								<ng-include src=" 'views/modules/editLessons.html' "></ng-include>		
 							</div>
 							<button ng-show="visible" type="button" ng-click="editSection($index,section.name,section.summary, section.objectives,section.lessons);visible = !visible;" class="btnBq--style2 edit">Guardar Sección</button>
@@ -45,12 +45,12 @@
     				</li>
     			</ul>	
     			<div class="contentAddItem__wrapperAddItem__level2 mb15 bgWhite">
-					<button class="btnBq--style1" ng-click="newSection= !newSection" ng-hide="newSection" type="button">Nueva Sección</button>
+					<!-- <button class="btnBq--style1" ng-click="newSection= !newSection" ng-hide="newSection" type="button">Nueva Sección</button> ->
 					<!-- <button ng-click="addObjectives()">Fin</button> -->
 					<div ng-show="newSection" ng-init="newSection = false">
 						<!-- poner formulaio? -->
 						<ng-include src=" 'views/modules/addNewSectionEdit.html' "></ng-include>
-						<button class="btnBq--style1 mt13" ng-click="addSectionEdit();newSection= !newSection" type="button">Añadir Sección</button>
+						<!-- <button class="btnBq--style1 mt13" ng-click="addSectionEdit();newSection= !newSection" type="button">Añadir Sección</button>
 						<button class="btnBq--style1" ng-click="newSection= !newSection" ng-show="newSection" type="button">Ocultar</button>
 						<!-- fin formulario -->
 					</div>
