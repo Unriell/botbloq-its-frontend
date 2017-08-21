@@ -1,6 +1,6 @@
 <div class="contentAddItem__wrapperAddItem__level2">
-	<button class="btnBq--style1" ng-click="showEditObjectives= !showEditObjectives" ng-hide="showEditObjectives" type="button">Mostrar Objetivos</button>
-	<div ng-show="showEditObjectives">
+	<!-- <button class="btnBq--style1" ng-click="showEditObjectives= !showEditObjectives" ng-hide="showEditObjectives" type="button">Mostrar Objetivos</button> -->
+	<div>
 		<fieldset class="formAddCourse__fieldset__level2">
     		<legend class="formAddCourse__fieldset__level2__legend"> 
         		<!-- <a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(2)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsObjectives, 'bbq-plus bbq-plus--form': !showFieldsObjectives}"></span></a> -->
@@ -12,18 +12,18 @@
 	        			<ng-include src=" 'views/modules/editObjectives.html' "></ng-include>
 	        		</li>
 	        	</ul>		
-	        	 <div class="contentAddItem__wrapperAddItem__level2 mb15 bgWhite">
-					<!-- <button class="btnBq--style1" ng-click="newObjective= !newObjective" ng-hide="newObjective" type="button">Nuevo Objetivo</button> -->
-					<!-- <button ng-click="addObjectives()">Fin</button> -->
-					<div ng-show="newObjective" ng-init="newObjective = false">
+	        <!--		 <div class="contentAddItem__wrapperAddItem__level2 mb15 bgWhite">
+				 <button class="btnBq--style1" ng-click="newObjective= !newObjective" ng-hide="newObjective" type="button">Nuevo Objetivo</button>
+					<button ng-click="addObjectives()">Fin</button> 
+				<div ng-show="newObjective" ng-init="newObjective = false">
 						<ng-include src=" 'views/modules/objCourse.html' "></ng-include>
 						<button class="btnBq--style1" ng-click="addObjectiveEdit(1,null,null,null,null);newObjective= !newObjective" type="button">Añadir Objetivo</button>
 						<button class="btnBq--style1" ng-click="newObjective= !newObjective" ng-show="newObjective" type="button">Ocultar</button>
 					</div>
 				</div>
-				
-			</div>
+			
+			</div> -->	
 		</fieldset> 
-		<button class="btnBq--style1" ng-click="showEditObjectives= !showEditObjectives" type="button">Ocultar Objetivos</button>
+		<!-- <button class="btnBq--style1" ng-click="showEditObjectives= !showEditObjectives" type="button">Ocultar Objetivos</button> -->
 	</div>
 </div>

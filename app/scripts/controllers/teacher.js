@@ -192,9 +192,64 @@
             });
             $scope.showCoursesForm=false;
         } else {
-            console.log('There are invalid fields');
+            alert('Existen campos con valores no correctos');
         }
 
+    };
+
+    $scope.addLessonEdit=function(section, lesson){
+      // search the section by name
+      var enc = false;
+      var i = 0;
+      while (!enc) {
+        if (section == common.courseSelected.sections[i].name) {
+          enc = true;
+        } else i++;
+
+      }
+      console.log(lesson);
+      
+      if (enc) {
+        var newLesson = new Object();
+        // setting attributes
+        newLesson.name = lesson.name;
+        newLesson.summary = lesson.summary;
+        newLesson.description = lesson.description;
+        newLesson.dificulty = lesson.difficulty;
+        newLesson.type = lesson.type;
+        console.log(lesson.learningpath);
+        newLesson.learning_path = JSON.parse("[" + lesson.learningpath + "]");
+        // add objectives (section)
+        newLesson.objectives = [];
+        newLesson.objectives.push(common.courseSelected.sections[i].objectives[0]);
+        // add loms
+         // insert lom in bd
+        teacherApi.addLom(newLesson.name, lesson.lom_url).then(function(response) {
+          var oa = {lom_id: '', type : ''}; 
+          console.log('lom añadido');
+          oa.lom_id = common.lom;
+          console.log(oa);
+             
+          common.lom = '';
+          newLesson.loms = [];
+          newLesson.loms.push(oa);
+          // add lesson
+          common.courseSelected.sections[i].lessons.push(newLesson);
+
+        }, function(error) {
+            console.log('error después de addLom', error);
+        });
+        
+
+      }
+            /*
+            coursesApi.addLesson(common.courseSelected._id,section, $scope.lesson.name, $scope.lesson.summary,objectivesLesson, $scope.lesson.learningPath, $scope.lesson.type).then(function(response) {
+                    $scope.assignLomsToLesson(common.courseSelected._id,section,$scope.lesson.name,$scope.lomsToAdd);
+                    $scope.resetLesson();
+            */
+   
+      
+ 
     };
 
 

@@ -1,9 +1,9 @@
 <div class="contentAddItem__wrapperAddItem__level2">
-	<button class="btnBq--style1" ng-click="showEditObjectives= !showEditObjectives" ng-hide="showEditObjectives" type="button">Mostrar Lecciones</button>
-	<div ng-show="showEditObjectives">
+	
+	<div>
 		<fieldset class="formAddCourse__fieldset__level2">
     		<legend class="formAddCourse__fieldset__level2__legend"> 
-        		Lecciones
+        		<!-- Lecciones -->
     		</legend>
 			<div class="formAddCourse__fieldset__level2__contentFields">
 				<ul>
@@ -98,12 +98,13 @@
 												</div>
 												<div class="col-xs-12 col-sm-6 mb15">
 													<div class="row">
-														<div class="col-xs-12 col-sm-6">
+													<!--	<div class="col-xs-12 col-sm-6">
 															<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Enlace</label>
 														</div>
 														<div class="col-xs-12 col-sm-6">
 															<input class="formAddCourse__fieldset__contentFields__textArea" ng-model="lesson.loms[0].lom_id" type="text" id="sections_lesson_lom" name="sections_lesson_lom">
 														</div>
+													-->
 													</div>
 												</div>
 										</div>		
@@ -175,13 +176,110 @@
 					<button class="btnBq--style1" ng-init="newLesson=false" ng-click="newLesson= !newLesson" ng-hide="newLesson" type="button">Nueva Lección</button>
 					<!-- <button ng-click="addObjectives()">Fin</button> -->
 					<div ng-show="newLesson">
-						<ng-include src=" 'views/modules/addNewLesson.html' "></ng-include>
-						<button class="btnBq--style1 mt13" ng-click="addLessonEdit(section.name);newLesson= !newLesson" type="button">Añadir Lección</button>
+						<div class="formAddCourse__fieldset__contentFields addNewLesson" >
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 mb15">
+									<div class="row">
+										<div class="col-xs-12 col-sm-6">
+											<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_name">Nombre</label>	
+										</div>
+										<div class="col-xs-12 col-sm-6">
+											<input class="formAddCourse__fieldset__contentFields__input" ng-model="lessonN.name" type="text" id="sections_lesson_name" name="sections_lesson_name">		
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 mb15">
+									<div class="row">
+										<div class="col-xs-12 col-sm-4 col-md-3">
+											<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_summary">Resumen</label>
+										</div>
+										<div class="col-xs-12 col-sm-8 col-md-9">
+											<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="lessonN.summary" type="text" id="sections_lesson_summary" name="sections_lesson_summary"></textarea>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-xs-12 col-sm-6 mb15">
+									<div class="row">
+										<div class="col-xs-12 col-sm-6">
+											<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_name">Descripción</label>	
+										</div>
+										<div class="col-xs-12 col-sm-6">
+											<input class="formAddCourse__fieldset__contentFields__input" ng-model="lessonN.description" type="text" id="sections_lesson_desc" name="sections_lesson_desc">		
+										</div>
+									</div>
+								</div>
+								<div class="col-xs-12 col-sm-6 mb15">
+									<div class="row">
+										<div class="col-xs-12 col-sm-4 col-md-3">
+											<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_summary">Imagen</label>
+										</div>
+										<div class="col-xs-12 col-sm-8 col-md-9">
+											<input class="formAddCourse__fieldset__contentFields__textArea" ng-model="lessonN.photo" type="text" id="sections_lesson_photo" name="sections_lesson_photo">
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="row">
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Tipo</label>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<select class="formAddCourse__fieldset__contentFields__input" ng-model="lessonN.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
+												  	<option value="Essential">Básica</option>
+													<option value="Reinforcement">Refuerzo</option>
+													<option value="Extension">Ampliación</option>
+												</select>
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_learningPath">Dificultad</label>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<input class="formAddCourse__fieldset__contentFields__input" ng-model="lessonN.difficulty" TYPE="RANGE" MIN="0" MAX="10" STEP="2" VALUE="0" id="sections_lesson_difficulty" name="sections_lesson_difficulty">
+											</div>
+										</div>
+									</div>
+									
+							</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_learningPath">Siguientes Lecciones</label>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<input class="formAddCourse__fieldset__contentFields__input" ng-model="lessonN.learningpath" type="text" id="sections_lesson_learningPath" name="sections_lesson_learningPath">
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-6 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-6">
+												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Enlace</label>
+											</div>
+											<div class="col-xs-12 col-sm-6">
+												<input class="formAddCourse__fieldset__contentFields__textArea" ng-model="lessonN.loms[0].lom_id" type="text" id="sections_lesson_lom" name="sections_lesson_lom">
+											</div>
+										</div>
+									</div>
+							</div>		
+						</div>
+
+
+						<!-- <ng-include src=" 'views/modules/addNewLesson.html' "></ng-include>-->
+						<button class="btnBq--style1 mt13" ng-click="addLessonEdit(section.name, lessonN);newLesson= !newLesson" type="button">Añadir Lección</button>
 						<button class="btnBq--style1" ng-click="newLesson= !newLesson" ng-show="newLesson" type="button">Ocultar</button>
 					</div>
 				</div>						
 			</div>
 		</fieldset> 
-		<button class="btnBq--style1" ng-click="showEditObjectives= !showEditObjectives" type="button">Ocultar Lecciones</button>
+	
 	</div>
 </div>
