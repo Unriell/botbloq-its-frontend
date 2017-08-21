@@ -97,7 +97,12 @@
              // add lesson objectives
              $scope.lesson.objectives = [];
              $scope.lesson.objectives.push($scope.objectives); // TODO level distribution
-             $scope.lesson.learning_path = JSON.parse("[" + $scope.learningpath + "]");
+             console.log("learning path");
+             try {
+                $scope.lesson.learning_path = JSON.parse("[" + $scope.learningpath + "]");
+              } catch (e) {
+                $scope.lesson.learning_path = [];
+              }
              // add lesson
              section.lessons.push($scope.lesson);
              // push
@@ -214,11 +219,16 @@
         // setting attributes
         newLesson.name = lesson.name;
         newLesson.summary = lesson.summary;
+        newLesson.photo = lesson.photo;
         newLesson.description = lesson.description;
         newLesson.dificulty = lesson.difficulty;
         newLesson.type = lesson.type;
         console.log(lesson.learningpath);
-        newLesson.learning_path = JSON.parse("[" + lesson.learningpath + "]");
+        try {
+          newLesson.learning_path = JSON.parse("[" + lesson.learningpath + "]");
+        } catch (e) {
+          newLesson.learning_path = [];
+        }
         // add objectives (section)
         newLesson.objectives = [];
         newLesson.objectives.push(common.courseSelected.sections[i].objectives[0]);
