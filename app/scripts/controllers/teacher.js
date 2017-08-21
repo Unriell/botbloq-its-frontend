@@ -41,6 +41,9 @@
     /* listado de cursos **/
     teacherApi.getCourses().then(function(response){
       $scope.courses= response.data;
+      //console.log(common.newActivity);
+      $scope.activity = common.newActivity;
+      //console.log($scope.activity);
       console.log(response.data);
     }, function myError(err) {
       console.log(err);
@@ -73,7 +76,7 @@
           type : ''
         }; 
         // insert lom in bd
-        teacherApi.addLom($scope.lesson.name, $scope.lom_url).then(function(response) {
+        teacherApi.addLom($scope.lesson.summary, $scope.lom_url).then(function(response) {
               console.log('lom añadido');
              oa.lom_id = common.lom;
              console.log(oa);
@@ -234,7 +237,8 @@
         newLesson.objectives.push(common.courseSelected.sections[i].objectives[0]);
         // add loms
          // insert lom in bd
-        teacherApi.addLom(newLesson.name, lesson.lom_url).then(function(response) {
+        console.log('url' + lesson.lom_url);
+        teacherApi.addLom(newLesson.summary, lesson.lom_url).then(function(response) {
           var oa = {lom_id: '', type : ''}; 
           console.log('lom añadido');
           oa.lom_id = common.lom;
@@ -261,6 +265,45 @@
       
  
     };
+
+    /* course visualization */
+
+    $scope.goCourse=function(course, idStudent){
+      console.log("go course");
+      common.courseSelected= course;
+      $scope.courseSelected= course;
+      console.log("curso seleccionado " );
+      console.log(course);
+      common.sectionsCourseSelected= course.sections;
+      common.lessonsCourseSelected=  course.sections[0].lessons;
+      $scope.coursePage = true;
+      common.actualViewCourses='coursePage';
+      $location.path("/viewCourse");
+    };
+
+
+    $scope.goLesson= function(lesson,index){
+      console.log('Go Lesson ---------');
+      console.log(lesson);
+      console.log("lom id " +lesson.loms[0].lom_id );
+      
+      
+      teacherApi.getActivityLesson(lesson.loms[0].lom_id).then(function(response){
+        $scope.activity= response.data;
+        common.newActivity= $scope.activity; 
+        console.log('Nueva actividad obtenida con éxito',$scope.activity.general);
+        console.log('Nueva actividad obtenida con éxito (SERVICIO)',common.newActivity);
+        $location.path("/viewActivity");
+        
+      
+        }, function myError(err) {
+                console.log(err);      
+        });
+      };
+    
+      $scope.trustSrcurl = function(data) {
+        return $sce.trustAsResourceUrl(data);
+      };
 
 
         // $scope.showInfoCourse = function(item){

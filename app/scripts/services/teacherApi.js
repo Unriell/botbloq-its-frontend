@@ -127,14 +127,19 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
             return lomsPromise.promise;
         }
 
-        
+        /* obtener el objeto de aprendizaje de una lección */
+        function getActivityLesson(idLom){
+            console.log('Parámetros para solicitar LO de una lección: ',idLom);
+            return $http.get( common.bitbloqBackendUrl + "/loms/" + idLom);
+        }
 
         var exports = {
             getCourses : getCourses,
             addCourse : addCourse,
             removeCourse : removeCourse,
             editCourse : editCourse,
-            addLom: addLom
+            addLom: addLom,
+            getActivityLesson : getActivityLesson
       /*    getCourses : getCourses,
             getSections :getSections,
             getSection :getSection,

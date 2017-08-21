@@ -1,0 +1,49 @@
+
+
+<div class="wrapperCourse">
+	<div class="wrapperCourse__header">
+		<div class="row">
+			<div class="col-xs-12 col-sm-7">
+				<div class="wrapperCourse__header__contentImg">
+					<img class="wrapperCourse__header__contentImg__img" ng-src="{{courseSelected.photo}}" alt="">
+				</div>
+			</div>
+			<div class="col-xs-12 col-sm-5">
+				<div class="wrapperCourse__header__info">
+					<h2 class="wrapperCourse__header__info__title">{{courseSelected.name}}</h2>
+					<p class="wrapperCourse__header__info__description"></p>
+					
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	<div class="wrapperCourse__lessons" ng-class="{true:courseDisabled}">
+		<h3 class="wrapperCourse__lessons__title">Descripción del curso</h3>
+		<p class="wrapperCourse__lessons__description">{{courseSelected.summary}}</p>
+		<p class="wrapperCourse__lessons__subTitle">Contenidos</p>
+		<ul class="wrapperCourse__lessons__contentLessons">
+			<li class="wrapperCourse__lessons__contentLessons__element" ng-repeat="lesson_i in lessonsSelected">	
+				<div class="row">
+					<div class="col-xs-9 col-sm-2">
+					
+					
+						<!-- <img class="" ng-src="../../assets/images/common/scratch-{{$index + 1}}-270x190.jpg" alt="">-->
+						<img class="wrapperCourse__lessons__contentLessons__element__img" ng-src="{{lesson_i.photo}}" alt="">
+					</div>
+					<div class="col-xs-9 col-sm-9">
+						<a class="wrapperCourse__lessons__contentLessons__element__link" ng-click="goLesson(lesson_i,$index + 1)" href>
+							<div class="wrapperCourse__lessons__contentLessons__element__link__info">
+								<h4 class="wrapperCourse__lessons__contentLessons__element__link__info__title">{{lesson_i.name}}</h4>
+								<h4 class="wrapperCourse__lessons__contentLessons__element__link__info__title">{{lesson_i.summary}}</h4>
+								<p class="wrapperCourse__lessons__contentLessons__element__link__info__description">{{lesson_i.description}}</p>
+							</div>
+							<span class="bbq-arrow-go bbq-arrow-go--lesson"></span>
+						</a>
+					</div>
+				</div>
+			</li>
+		</ul>
+		
+	</div>
+</div>
