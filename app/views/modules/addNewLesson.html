@@ -6,7 +6,7 @@
 					<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_name">Nombre</label>	
 				</div>
 				<div class="col-xs-12 col-sm-6">
-					<input class="formAddCourse__fieldset__contentFields__input" ng-model="newLesson.name" type="text" id="sections_lesson_name" name="sections_lesson_name">		
+					<input class="formAddCourse__fieldset__contentFields__input" ng-model="lessonN.name" type="text" id="sections_lesson_name" name="sections_lesson_name">		
 				</div>
 			</div>
 		</div>
@@ -16,7 +16,7 @@
 					<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_summary">Resumen</label>
 				</div>
 				<div class="col-xs-12 col-sm-8 col-md-9">
-					<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="newLesson.summary" type="text" id="sections_lesson_summary" name="sections_lesson_summary"></textarea>
+					<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="lessonN.summary" type="text" id="sections_lesson_summary" name="sections_lesson_summary"></textarea>
 				</div>
 			</div>
 		</div>
@@ -28,7 +28,7 @@
 					<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_name">Descripción</label>	
 				</div>
 				<div class="col-xs-12 col-sm-6">
-					<input class="formAddCourse__fieldset__contentFields__input" ng-model="newLesson.description" type="text" id="sections_lesson_desc" name="sections_lesson_desc">		
+					<input class="formAddCourse__fieldset__contentFields__input" ng-model="lessonN.description" type="text" id="sections_lesson_desc" name="sections_lesson_desc">		
 				</div>
 			</div>
 		</div>
@@ -38,7 +38,7 @@
 					<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_summary">Imagen</label>
 				</div>
 				<div class="col-xs-12 col-sm-8 col-md-9">
-					<input class="formAddCourse__fieldset__contentFields__textArea" ng-model="newLesson.photo" type="text" id="sections_lesson_photo" name="sections_lesson_photo">
+					<input class="formAddCourse__fieldset__contentFields__textArea" ng-model="lessonN.photo" type="text" id="sections_lesson_photo" name="sections_lesson_photo">
 				</div>
 			</div>
 		</div>
@@ -50,7 +50,7 @@
 						<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Tipo</label>
 					</div>
 					<div class="col-xs-12 col-sm-6">
-						<select class="formAddCourse__fieldset__contentFields__input" ng-model="newLesson.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
+						<select class="formAddCourse__fieldset__contentFields__input" ng-model="lessonN.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
 						  	<option value="Essential">Básica</option>
 							<option value="Reinforcement">Refuerzo</option>
 							<option value="Extension">Ampliación</option>
@@ -64,7 +64,7 @@
 						<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_learningPath">Dificultad</label>
 					</div>
 					<div class="col-xs-12 col-sm-6">
-						<input class="formAddCourse__fieldset__contentFields__input" ng-model="newLesson.difficulty" TYPE="RANGE" MIN="0" MAX="10" STEP="2" VALUE="0" id="sections_lesson_difficulty" name="sections_lesson_difficulty">
+						<input class="formAddCourse__fieldset__contentFields__input" ng-model="lessonN.difficulty" TYPE="RANGE" MIN="0" MAX="10" STEP="2" VALUE="0" id="sections_lesson_difficulty" name="sections_lesson_difficulty">
 					</div>
 				</div>
 			</div>
@@ -77,7 +77,7 @@
 						<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_learningPath">Siguientes Lecciones</label>
 					</div>
 					<div class="col-xs-12 col-sm-6">
-						<input class="formAddCourse__fieldset__contentFields__input" ng-model="newLesson.learning_path" type="text" id="sections_lesson_learningPath" name="sections_lesson_learningPath">
+						<input class="formAddCourse__fieldset__contentFields__input" ng-model="lessonN.learning_path" type="text" id="sections_lesson_learningPath" name="sections_lesson_learningPath">
 					</div>
 				</div>
 			</div>
@@ -87,7 +87,7 @@
 						<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Enlace</label>
 					</div>
 					<div class="col-xs-12 col-sm-6">
-						<input class="formAddCourse__fieldset__contentFields__textArea" ng-model="newLesson.loms[0].lom_id" type="text" id="sections_lesson_lom" name="sections_lesson_lom">
+						<input class="formAddCourse__fieldset__contentFields__textArea" ng-model="lessonN.loms[0].lom_id" type="text" id="sections_lesson_lom" name="sections_lesson_lom">
 					</div>
 				</div>
 			</div>

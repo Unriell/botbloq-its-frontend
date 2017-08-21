@@ -63,7 +63,7 @@
 													<label class="formAddCourse__fieldset__contentFields__label" for="course_summary">Descripción</label>
 												</div>
 												<div class="col-xs-12 col-sm-6">
-													<input  class="formAddCourse__fieldset__contentFields__textArea" ng-model="course.summary" type="text" id="course_summary" name="course_summary">
+													<textarea  class="formAddCourse__fieldset__contentFields__textArea" ng-model="course.summary" type="text" id="course_summary" name="course_summary"></textarea>
 												</div>
 											</div>
 										</div>	
@@ -126,7 +126,7 @@
 																	<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_description">Descripción</label>
 																</div>
 																<div class="col-xs-12 col-sm-8 col-md-9">
-																	<input class="formAddCourse__fieldset__contentFields__textArea" ng-model="objectives.description" type="text" id="objectives_description" name="objectives_description">
+																	<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="objectives.description" type="text" id="objectives_description" name="objectives_description"></textarea>
 															</div>
 														</div>
 													</div>
@@ -187,10 +187,10 @@
 														<div class="col-xs-12 col-sm-6 mb15">
 															<div class="row">
 																<div class="col-xs-12 col-sm-4 col-md-3">
-																	<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_summary">Resumen</label>
+																	<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_summary">Título</label>
 																</div>
 																<div class="col-xs-12 col-sm-8 col-md-9">
-																	<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="lesson.summary" type="text" id="sections_lesson_summary" name="sections_lesson_summary"></textarea>
+																	<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.summary" type="text" id="sections_lesson_summary" name="sections_lesson_summary">
 																</div>
 															</div>
 														</div>
