@@ -61,6 +61,7 @@ botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,
 						var promise = loginStudent($scope.user.name, $scope.user.email);
 						promise.then(function() {
 								console.log('Estudiante logeado correctamente: ');
+								common.actualViewCourses = "totalCoursesPage";
 								$location.path('/courses');
 						}, function(error) {
 								console.log('Se ha producido un error al obtener a los estudiantes: '+error);     
@@ -75,6 +76,7 @@ botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,
 							var defaultpath = "/questionnaire"
 							if (common.questionnaire.nuevo == 0) {
 								defaultpath = "/courses";
+								common.actualViewCourses = "totalCoursesPage";
 							}
 							var promise=getStudent(common.questionnaire.id_student);
 							promise.then(function() {

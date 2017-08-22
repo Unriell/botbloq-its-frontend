@@ -22,7 +22,7 @@
 		<p class="wrapperCourse__lessons__description">{{courseSelected.summary}}</p>
 		<p class="wrapperCourse__lessons__subTitle">Contenidos</p>
 		<ul class="wrapperCourse__lessons__contentLessons">
-			<li class="wrapperCourse__lessons__contentLessons__element" ng-repeat="lesson_i in lessonsSelected">	
+			<li class="wrapperCourse__lessons__contentLessons__element" ng-repeat="lesson_i in courseSelected.sections[0].lessons">	
 				<div class="row">
 					<div class="col-xs-9 col-sm-2">
 					

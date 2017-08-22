@@ -43,7 +43,7 @@
             common.activeUSer=user;
         };
 
-        $scope.iSActiveUSer=function(user){
+        $scope.isActiveUser=function(user){
             return angular.equals(user, common.activeUSer);
         };
 
