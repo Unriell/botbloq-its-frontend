@@ -92,7 +92,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
           console.log("getStudentsCoursesActives");
           return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/active-courses' );      
         }
- /*
+
         function getStudentsCoursesFinished(idStudent) { 
           return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/courses-done' );      
         }
@@ -100,7 +100,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
         function getStudentsCoursesUnfinished(idStudent) { 
           return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/courses-not-done' );      
         }
-
+/*
         function getAllStudentsCourses(idStudent) { 
           return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/all' );      
         }
@@ -114,6 +114,8 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             getNewActivity : getNewActivity,
             getActivityLesson : getActivityLesson,
             getStudentsCoursesActives: getStudentsCoursesActives,
+            getStudentsCoursesFinished: getStudentsCoursesFinished,
+            getStudentsCoursesUnfinished: getStudentsCoursesUnfinished,
             removeItem : removeItem,
             removeAllItem : removeAllItem
            
@@ -136,8 +138,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             addLesson : addLesson,
             
             
-            getStudentsCoursesFinished: getStudentsCoursesFinished,
-            getStudentsCoursesUnfinished: getStudentsCoursesUnfinished,
+            
             getAllStudentsCourses: getAllStudentsCourses
             */
         };
