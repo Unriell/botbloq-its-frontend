@@ -94,17 +94,15 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
         }
 
         function getStudentsCoursesFinished(idStudent) { 
+            console.log("getStudentsCoursesFinished");
           return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/courses-done' );      
         }
 
         function getStudentsCoursesUnfinished(idStudent) { 
           return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/courses-not-done' );      
         }
-/*
-        function getAllStudentsCourses(idStudent) { 
-          return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/all' );      
-        }
-*/
+
+
         var exports = {
             getCourses : getCourses,
             getCourse : getCourse,

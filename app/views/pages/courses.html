@@ -13,7 +13,7 @@
 			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
 				<a ng-click="showTotalCourses()" ng-class="{disabled:totalCoursesPage}" class="wrapperLinkCourses__list__element__link" href>
 					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/common/prueba.png">
-					<p class="wrapperLinkCourses__list__element__link__subtitle">Total de Cursos</p>
+					<p class="wrapperLinkCourses__list__element__link__subtitle">Todos los Cursos</p>
 					<p class="wrapperLinkCourses__list__element__link__description">¡Ver todos los cursos</p>
 				</a>
 			</li>
@@ -24,6 +24,15 @@
 					<p class="wrapperLinkCourses__list__element__link__description">Ver todos los cursos en los que estás matriculado</p>
 				</a>
 			</li>
+
+			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
+				<a ng-class="{disabled:completedCoursesPage}" ng-click="showCompletedCourses()" class="wrapperLinkCourses__list__element__link" href>
+					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/common/prueba.png">
+					<p class="wrapperLinkCourses__list__element__link__subtitle">Cursos completados</p>
+					<p class="wrapperLinkCourses__list__element__link__description">¡Ver todos los cursos ya completados</p>
+				</a>
+			</li>
+		<!--
 			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
 				<a class="wrapperLinkCourses__list__element__link" href>
 					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/common/prueba.png">
@@ -45,13 +54,7 @@
 					<p class="wrapperLinkCourses__list__element__link__description">¡Cursos actualmente inactivos</p>
 				</a>
 			</li>	
-			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
-				<a ng-class="{disabled:completedCoursesPage}" ng-click="showCompletedCourses()" class="wrapperLinkCourses__list__element__link" href>
-					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/common/prueba.png">
-					<p class="wrapperLinkCourses__list__element__link__subtitle">Cursos completados</p>
-					<p class="wrapperLinkCourses__list__element__link__description">¡Ver todos los cursos ya completados</p>
-				</a>
-			</li>
+		-->
 		</ul>
 	</div>
 </div>
