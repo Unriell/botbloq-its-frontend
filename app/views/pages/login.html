@@ -4,7 +4,7 @@
 	</h1>
 	<div class="contentSignUp__wrapperContent">
 		<h2 class="contentSignUp__wrapperContent__title">Botbloq - Sistema Tutor Inteligente</h2>
-		<form class="contentSignUp__wrapperContent__form" name="signUpForm" ng-submit="signUp()">
+		<form class="contentSignUp__wrapperContent__form" name="signUpForm" ng-submit="login()">
 			<div class="contentRow">
 				<div class="row">
 					<div class="col-xs-12">
@@ -19,15 +19,6 @@
 					<div class="col-xs-12">
 						<div class="contentCol clearfix">
 							<label class="contentSignUp__wrapperContent__form__label">
-								Correo Electrónico
-							</label>
-							<input class="contentSignUp__wrapperContent__form__input" ng-model="user.email" type="text" name="" placeholder="Email"/>
-							<span class=""></span>
-						</div>
-					</div>
-					<div class="col-xs-12">
-						<div class="contentCol clearfix">
-							<label class="contentSignUp__wrapperContent__form__label">
 								Password
 							</label>
 							<input class="contentSignUp__wrapperContent__form__input" ng-model="password" type="password" name="" placeholder="Password"/>
@@ -35,24 +26,29 @@
 						</div>
 					</div>
 				</div>
-				<div class="contentSignUp__wrapperContent__form__optionsCheck">
-					<div class="contentSignUp__wrapperContent__form__optionsCheck__content clearfix">
-						<input class="contentSignUp__wrapperContent__form__optionsCheck__content__checkBox" type="checkbox" ng-model="teacher" />
-						<label class="contentSignUp__wrapperContent__form__label">Soy profesor</label>
-					</div>
-				</div>	
 			</div>
-		
+			<div class="contentSignUp__wrapperContent__form__optionsCheck">
+				<div class="contentSignUp__wrapperContent__form__optionsCheck__content clearfix">
+					<input class="contentSignUp__wrapperContent__form__optionsCheck__content__checkBox" type="checkbox" ng-model="teacher" />
+					<label class="contentSignUp__wrapperContent__form__label">Soy profesor</label>
+				</div>
+			<!-- 	<div class="contentSignUp__wrapperContent__form__optionsCheck__content clearfix">
+					<input class="contentSignUp__wrapperContent__form__optionsCheck__content__checkBox" type="checkbox" name=""  ng-model="registered"/>
+					<label class="contentSignUp__wrapperContent__form__optionsCheck__content__labelCheck">Ya estoy registrado</label>
+				</div>
+				--> 
+			</div>
 			<div class="contentSignUp__wrapperContent__form__contentSubmit">
 				<button class="contentSignUp__wrapperContent__form__contentSubmit__button btnBq--withIcon width100" accesskey="intro" type="submit">Entrar</button>
-			</div>			
+			</div>
+				
 		</form>
 	</div>
-	
 	<div class="contentSignUp__info">
 		<p class="contentSignUp__info__text">
-			<a class="contentSignUp__info__text" ng-href="#!/">Ya estoy registrado</a>
+			<a class="contentSignUp__info__text" ng-href="#!/signUp">Crear una cuenta</a>
 		</p>
 	</div>
+
 	
 </div>

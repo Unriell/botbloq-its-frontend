@@ -16,7 +16,7 @@ var botBloqApp= angular.module('botbloqItsFrontendApp', [
     .config(function($routeProvider, $httpProvider) {
         $routeProvider
             .when('/', {
-                templateUrl: 'views/pages/signUp.html',
+                templateUrl: 'views/pages/login.html',
                 controller: 'loginCtrl'
             })
             .when('/signUp', {
