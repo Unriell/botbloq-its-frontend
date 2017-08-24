@@ -7,16 +7,16 @@
  * # BodyCtrl
  * Controller of the botbloqItsFrontendApp
  */
-botBloqApp.controller('BodyCtrl', function($scope, common, $log,usersApi,lomsApi, coursesApi, teacherApi, $location) {
+botBloqApp.controller('BodyCtrl', function($scope, common, $log,usersApi, coursesApi, teacherApi, $location) {
         $log.log('body ctrl start');
         $scope.usersApi = usersApi;
-        $scope.lomsApi = lomsApi;
         $scope.coursesApi= coursesApi;
         $scope.teacherApi= teacherApi;
         $scope.init= true;
-        $scope.nameActiveUser=common.nameActiveUSer;
+        $scope.nameActiveUser=common.nameActiveUser;
         $scope.activeUserHeader=common.activeUSer;
         /*$scope.activeUser="Usuariooo";*/
+        
         
         $scope.changeInit=function(boolean) {
           $scope.init=boolean;
@@ -30,5 +30,7 @@ botBloqApp.controller('BodyCtrl', function($scope, common, $log,usersApi,lomsApi
         $scope.isActive =  function(currentPath){
        	  return currentPath === $location.path();
   		  }
+
+   
   		
     });

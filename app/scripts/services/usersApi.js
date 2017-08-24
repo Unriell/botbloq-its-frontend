@@ -24,6 +24,7 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
                 email: email
             }}).then(function(response) {
                 console.log('token', response.data);
+                response.data.teacher = true;
                 localStorage.userToken = response.data.token; 
                 exports.currentUser = response.data;
 				common.activeUSer= response.data;

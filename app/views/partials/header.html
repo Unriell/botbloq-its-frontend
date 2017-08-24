@@ -14,13 +14,37 @@
             </div>
         </a>
     </div>
-    <div class="contentHeader_content">
+    <!-- CABECERA PROFESOR -->
+     <div ng-if="activeUserHeader.teacher" class="contentHeader_content">
         <nav>
             <ul class="contentHeader_content__options">
-                <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/courses') }"><a class="contentHeader_content__options__element__link"  ng-click="showTotalCourses('totalCoursesPage')" ng-href="#!/courses" title="Cursos">
+                <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/courses') }"><a class="contentHeader_content__options__element__link"  
+                ng-href="#!/courses" title="Cursos">
+
                 <span class="bbq-graduation-cap bbq-graduation-cap--header"></span>
                 <span class="contentHeader_content__options__element__link__label">Cursos</span>
                 </a></li>
+            </ul>
+       </nav>
+        <a class="contentHeader_content__profile__tablet" href="#" title="{{nameActiveUser}}">    <span class="contentHeader_content__profile__tablet__userName">
+                {{activeUserHeader.identification.name}}
+            </span> 
+            <span class="bbq-user bbq-user--header--tablet"></span>                    
+        </a>
+    </div>
+    <!-- CABECERA ESTUDIANTE -->
+    <div  ng-if="!activeUserHeader.teacher" class="contentHeader_content">
+        <nav>
+            <ul class="contentHeader_content__options">
+
+                <li  class="contentHeader_content__options__element" ng-class="{ active : isActive('/courses') }"><a class="contentHeader_content__options__element__link"  
+                ng-click="showTotalCourses('totalCoursesPage')" ng-href="#!/courses" title="Cursos">
+
+
+                <span class="bbq-graduation-cap bbq-graduation-cap--header"></span>
+                <span class="contentHeader_content__options__element__link__label">Cursos</span>
+                </a></li>
+                <!--
                 <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/loms') }"><a class="contentHeader_content__options__element__link" ng-href="#!/loms" title="Recursos">
                 <span class="bbq-cloud bbq-cloud--header"></span>
                 <span class="contentHeader_content__options__element__link__label">Recursos</span>
@@ -33,6 +57,7 @@
                 <span class="bbq-comment bbq-comment--header"></span>
                 <span class="contentHeader_content__options__element__link__label">Foro</span>
                 </a></li>
+                -->
             </ul>
        </nav>
         <a class="contentHeader_content__profile__tablet" href="#" title="{{nameActiveUser}}">    <span class="contentHeader_content__profile__tablet__userName">

@@ -107,6 +107,7 @@ botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,
             console.log('get student ...');        
             usersApi.getStudent(idStudent).then(function(response){
                 $scope.registeredStudent=response.data
+                $scope.registeredStudent.teacher = false;
                 console.log('Usuario se llama: ',$scope.registeredStudent.identification.name);
                 defered.resolve();
             }, function myError(err) {
@@ -134,7 +135,9 @@ botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,
 				}
 				if (enc) {
 					console.log(students[i]);
+					students[i].teacher = false;
 					$scope.registeredStudent = students[i];
+
 					//exports.currentUser = response.data;
 					usersApi.activeUser(students[i]);
 					defered.resolve();
@@ -166,8 +169,10 @@ botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,
 				}
 				if (enc) {
 					console.log(teachers[i]);
+					teachers[i].teacher = true;
 					//exports.currentUser = response.data;
 					usersApi.activeUser(teachers[i]);
+
 					defered.resolve();
 				} else {
 					alert('Profesor no Existente');   
