@@ -1,4 +1,4 @@
-#   bitbloq-frontend
+#   botbloq-its-frontend
 This is the source code of the botbloq Intelligent tutor system frontend. 
 
 The website use node, grunt, bower, and angular 1.x.
