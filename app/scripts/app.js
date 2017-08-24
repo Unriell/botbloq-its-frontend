@@ -61,7 +61,7 @@ var botBloqApp= angular.module('botbloqItsFrontendApp', [
                 controller: 'teacherCtrl'
             }) 
             .otherwise({
-                redirectTo: 'views/pages/404'
+                redirectTo: 'views/404.html'
             });
         $httpProvider.interceptors.push('authInterceptor');
     });
