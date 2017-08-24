@@ -57,7 +57,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
 		
 
         function getNewActivity(idStudent,idCourse){
-            console.log('Parámetros para solicitar nueva actividad: ',idStudent,idCourse);
+            console.log('Parámetros para solicitar nueva actividad coursesAPI: ',common.bitbloqBackendUrl, idStudent,idCourse);
             return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+"/course/"+idCourse);
         }
 		

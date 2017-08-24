@@ -2,7 +2,7 @@
 	<div class="contentTitle">
         <h2 class="h2Class">{{activity.general.title}} </h2>
     </div>
-	<div class="wrapperLesson__options">
+	<div ng-if="studentEnrolledInCourse" class="wrapperLesson__options">
 	    	<div class="wrapperLesson__options__ok">
 	    		<a class="wrapperLesson__options__ok__link" ng-click="okEndLesson()" href><span class="bbq-ok2 bbq-ok2--lesson"></span></a>
 	    	</div>
@@ -12,7 +12,12 @@
     		<div class="wrapperLesson__options__wait">
 				<a class="wrapperLesson__options__ok__link" ng-click="pauseLesson()" href><span class="bbq-guardar bbq-cloud--lesson"></span></a>
 			</div>
-			<div ng-show="" class="wrapperLesson__options__wait">
+			<div class="wrapperLesson__options__wait">
+				<a class="wrapperLesson__options__ok__link" ng-click="backLesson()" href><span class="bbq-nok bbq-cloud--lesson"></span></a>
+			</div>
+	</div>
+	<div ng-if="!studentEnrolledInCourse" class="wrapperLesson__options">
+	    	<div class="wrapperLesson__options__wait">
 				<a class="wrapperLesson__options__ok__link" ng-click="backLesson()" href><span class="bbq-nok bbq-cloud--lesson"></span></a>
 			</div>
 	</div>

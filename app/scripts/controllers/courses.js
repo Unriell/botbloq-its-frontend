@@ -299,7 +299,6 @@
             coursesApi.getNewActivity($scope.activeUser._id,common.courseSelected._id).then(function(response){
                 $scope.activity= response.data;
                 common.newActivity= $scope.activity; 
-                console.log('Nueva actividad obtenida con éxito',$scope.activity.general);
                 console.log('Nueva actividad obtenida con éxito (SERVICIO)',common.newActivity);
 				if (!common.newActivity._id) {
 					confirm("Curso Finalizado");
@@ -312,7 +311,7 @@
                
             }, function myError(err) {
                 console.log(err);
-                alert('Error de tipo: '+err.status);      
+                alert('Error al solicitar una nueva actividad: '+err.status);      
             }); 
         };
 

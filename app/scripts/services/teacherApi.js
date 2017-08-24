@@ -54,7 +54,7 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
             
             var myArray = [];
 
-            //var LearningCenterObject = LearningCenter.LearningCenterModel(timeTable.learningCenter);
+        
             for (var i = 0; i < course.objectives.length; i++) {
                 var obj = new Object();
                 obj.code = course.objectives[i].code;
@@ -140,32 +140,7 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
             editCourse : editCourse,
             addLom: addLom,
             getActivityLesson : getActivityLesson
-      /*    getCourses : getCourses,
-            getSections :getSections,
-            getSection :getSection,
-            getCourse : getCourse,
-            getLessons: getLessons,
-            removeItem : removeItem,
-            removeAllItem : removeAllItem,
-            
-            editSection: editSection,
-            addObjectivesToCourse : addObjectivesToCourse,
-            addObjectivesToSection : addObjectivesToSection,
-            addObjectivesToLesson : addObjectivesToLesson,
-            assignLomsLesson : assignLomsLesson,
-            addSection : addSection,
-            addLesson : addLesson,
-            okEndLesson : okEndLesson,
-            badEndLesson : badEndLesson,
-            pauseLesson : pauseLesson,
-            getNextLesson : getNextLesson,
-            getNewActivity : getNewActivity,
-			getActivityLesson : getActivityLesson,
-            getStudentsCoursesActives: getStudentsCoursesActives,
-            getStudentsCoursesFinished: getStudentsCoursesFinished,
-            getStudentsCoursesUnfinished: getStudentsCoursesUnfinished,
-            getAllStudentsCourses: getAllStudentsCourses
-            */
+
         };
 
         return exports;
