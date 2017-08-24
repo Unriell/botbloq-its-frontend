@@ -11,7 +11,8 @@
 var botBloqApp= angular.module('botbloqItsFrontendApp', [
         'ngRoute',
         'ngSanitize',
-        'ngTouch'
+        'ngTouch',
+        'config'
     ])
     .config(function($routeProvider, $httpProvider) {
         $routeProvider
@@ -59,44 +60,6 @@ var botBloqApp= angular.module('botbloqItsFrontendApp', [
                 templateUrl: 'views/pages/viewactivity.html',
                 controller: 'teacherCtrl'
             }) 
-
-            /* .when('/login', {
-                templateUrl: 'views/pages/login.html',
-                controller: 'loginCtrl'
-            })
-            */
-            
-           
-            /* .when('/students', {
-                templateUrl: 'views/pages/students.html',
-                controller: 'studentsCtrl'
-            })
-            .when('/loms', {
-                templateUrl: 'views/pages/loms.html',
-                controller: 'lomsCtrl'
-            })
-            .when('/addLom', {
-                templateUrl: 'views/pages/addLom.html',
-                controller: 'lomsCtrl'
-            }) */
-           
-            /*.when('/addCourse', {
-                templateUrl: 'views/pages/addCourse.html',
-                controller: 'coursesCtrl'
-            })
-            .when('/addSections', {
-                templateUrl: 'views/pages/addSections.html',
-                controller: 'coursesCtrl'
-            })
-            .when('/addLessons', {
-                templateUrl: 'views/pages/addLessons.html',
-                controller: 'coursesCtrl'
-            })
-            .when('/editCourse', {
-                templateUrl: 'views/pages/editCourse.html',
-                controller: 'coursesCtrl'
-            }) */
-           
             .otherwise({
                 redirectTo: 'views/pages/404'
             });

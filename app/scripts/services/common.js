@@ -7,10 +7,10 @@
  * # common
  * Service in the bitbloqApp.
  */
-botBloqApp.service('common', function($log) {
+botBloqApp.service('common', function($log, envData) {
 
-        var bitbloqBackendUrl = 'http://localhost:8000/botbloq/v1/its';
-
+        var bitbloqBackendUrl =  envData.serverUrl_; 
+        console.log(bitbloqBackendUrl);
   		var courseSelected={},
             objectivesCourse=[],
   			sectionsCourseSelected=[],

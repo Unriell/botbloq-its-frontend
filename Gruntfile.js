@@ -414,6 +414,26 @@ module.exports = function (grunt) {
       ]
     },
 
+
+    ngconstant: {
+      // Options for all targets
+      options: {
+        space: '  ',
+        wrap: '"use strict";\n\n {\%= __ngModule %}',
+        name: 'config',
+      },
+      // Environment targets
+      development: {
+        options: {
+          dest: '<%= yeoman.app %>/res/config/config.js'
+        },
+        constants: {
+          envData: grunt.file.readJSON('app/res/config/config.json')
+          
+        }
+      }
+    },
+
     // Test settings
     karma: {
       unit: {
@@ -434,6 +454,7 @@ module.exports = function (grunt) {
       'wiredep',
       'concurrent:server',
       'autoprefixer:server',
+      'ngconstant:development',
       'connect:livereload',
       'watch'
     ]);

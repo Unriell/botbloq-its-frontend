@@ -1,0 +1,7 @@
+{
+    "env": "local",
+    "defaultLang": "es-ES",
+    "saveTime": 2000,
+    "serverUrl_": "http://localhost:8000/bitbloq/v1/its",
+    "version": "v0.1.0"
+}
