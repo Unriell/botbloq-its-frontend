@@ -24,7 +24,7 @@
 		<div class="contentAddItem__wrapperAddItem">
 			<form id="adminCoursesForm" name="adminCoursesForm" class="formAddCourse" ng-submit="addEditCourse()"  novalidate>
 		    <fieldset>
-		        	<legend class="sr-only">Añadir Nuevo Curso</legend>
+		        	<legend class="sr-only">Añadir Curso Nuevo</legend>
 		        	<ul>
 		        		<li>
 		        			<fieldset class="formAddCourse__fieldset">
@@ -37,10 +37,10 @@
 									<div class="row">
 										<div class="col-xs-12 col-sm-6 mb15">
 											<div class="row">
-												<div class="col-xs-12 col-sm-6">
+												<div class="col-xs-12 col-sm-3">
 													<label class="formAddCourse__fieldset__contentFields__label" for="course_name">Título</label>
 												</div>
-												<div class="col-xs-12 col-sm-6">
+												<div class="col-xs-12 col-sm-12">
 													<input class="formAddCourse__fieldset__contentFields__input" ng-model="course.name" type="text" id="course_name" name="course_name" required>
 												</div>
 											</div>
@@ -50,7 +50,7 @@
 												<div class="col-xs-12 col-sm-6">
 													<label class="formAddCourse__fieldset__contentFields__label" for="course_code">Mnemotécnico</label>	
 												</div>
-												<div class="col-xs-12 col-sm-6">
+												<div class="col-xs-12 col-sm-12">
 													<input class="formAddCourse__fieldset__contentFields__input" ng-model="course.code" type="text" id="course_code" name="course_code">		
 												</div>
 											</div>
@@ -62,7 +62,7 @@
 												<div class="col-xs-12 col-sm-6">
 													<label class="formAddCourse__fieldset__contentFields__label" for="course_summary">Descripción</label>
 												</div>
-												<div class="col-xs-12 col-sm-6">
+												<div class="col-xs-12 col-sm-12">
 													<textarea  class="formAddCourse__fieldset__contentFields__textArea" ng-model="course.summary" type="text" id="course_summary" name="course_summary"></textarea>
 												</div>
 											</div>
@@ -72,7 +72,7 @@
 												<div class="col-xs-12 col-sm-6">
 													<label class="formAddCourse__fieldset__contentFields__label" for="course_photo">Logo</label>
 												</div>
-												<div class="col-xs-12 col-sm-6">
+												<div class="col-xs-12 col-sm-12">
 													<input class="formAddCourse__fieldset__contentFields__input" ng-model="course.photo" type="text" id="course_logo" name="course_logo">
 												</div>
 											</div>
@@ -109,47 +109,46 @@
 												</legend>
 												<div class="formAddCourse__fieldset__level2__contentFields" >
 													<div class="row">
-														<div class="col-xs-12 col-sm-6 mb15">
+														<div class="col-xs-12 col-sm-6 ">
 															<div class="row">
-												
 																<div class="col-xs-12 col-sm-6">
 																	<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_code">Código</label>	
 																</div>
-																<div class="col-xs-12 col-sm-6">
+																<div class="col-xs-12 col-sm-10">
 																	<input class="formAddCourse__fieldset__level2__contentFields__input" ng-model="objectives.code" type="text" id="objectives_code" name="objectives_code">		
 																</div>
 															</div>
 														</div>
-														<div class="col-xs-12 col-sm-6 mb15">
+														<div class="col-xs-12 col-sm-6">
 															<div class="row">
 																<div class="col-xs-12 col-sm-4 col-md-3">
 																	<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_description">Descripción</label>
 																</div>
-																<div class="col-xs-12 col-sm-8 col-md-9">
+																<div class="col-xs-12 col-sm-12">
 																	<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="objectives.description" type="text" id="objectives_description" name="objectives_description"></textarea>
 															</div>
 														</div>
 													</div>
 													
 													<div class="row">
-														<div class="col-xs-12 col-sm-6 mb15">
+														<div class="col-xs-12 col-sm-6 ">
 															<div class="row">
 																<div class="col-xs-12 col-sm-6">
 																	<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_level">Nivel</label>
 																</div>
-																<div class="col-xs-12 col-sm-6">
+																<div class="col-xs-12 col-sm-10">
 																	<!-- <input class="formAddCourse__fieldset__level2__contentFields__input" ng-model="objectives.level" type="number" id="objectives_level" name="objectives_level"> -->
 																	<INPUT class="formAddCourse__fieldset__level2__contentFields__input" ng-model="objectives.level"  id="objectives_level" name="objectives_level" TYPE="RANGE" MIN="0" MAX="10" STEP="2" VALUE="0" > 
 																		
 																</div>
 															</div>
 														</div>
-														<div class="col-xs-12 col-sm-6 mb15">
+														<div class="col-xs-12 col-sm-6 ">
 															<div class="row">
 																<div class="col-xs-12 col-sm-6">
 																	<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_bloom">Tipo</label>
 																</div>
-																<div class="col-xs-12 col-sm-6">
+																<div class="col-xs-12 col-sm-12">
 																	<select class="formAddCourse__fieldset__level2__contentFields__input" ng-model="objectives.bloom" id="objectives_bloom" type="text" name="objectives_bloom">
 																  		<option value="knowledge">Conocimiento</option>
 																  		<option value="comprehension">Comprensión</option>
@@ -171,7 +170,7 @@
 									<div class="contentAddItem">
 										<div class="contentAddItem__wrapperAddItem__level2">
 											<fieldset class="formAddCourse__fieldset__level2">
-												<legend class="formAddCourse__fieldset__level2__legend">Lección</legend>
+												<legend class="formAddCourse__fieldset__level2__legend">Lección Inicial</legend>
 												<div class="formAddCourse__fieldset__contentFields" >
 													<div class="row">
 														<div class="col-xs-12 col-sm-6 mb15">
@@ -179,7 +178,7 @@
 																<div class="col-xs-12 col-sm-6">
 																	<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_name">Nombre</label>	
 																</div>
-																<div class="col-xs-12 col-sm-6">
+																<div class="col-xs-12 col-sm-10">
 																	<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.name" type="text" id="sections_lesson_name" name="sections_lesson_name">		
 																</div>
 															</div>
@@ -189,7 +188,7 @@
 																<div class="col-xs-12 col-sm-4 col-md-3">
 																	<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_summary">Título</label>
 																</div>
-																<div class="col-xs-12 col-sm-8 col-md-9">
+																<div class="col-xs-12 col-sm-12 ">
 																	<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.summary" type="text" id="sections_lesson_summary" name="sections_lesson_summary">
 																</div>
 															</div>
@@ -199,21 +198,24 @@
 															<div class="col-xs-12 col-sm-6 mb15">
 																<div class="row">
 																	<div class="col-xs-12 col-sm-6">
-																		<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_desc">Descripción</label>
+																		<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Tipo</label>
 																	</div>
-																	<div class="col-xs-12 col-sm-6">
-																		<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="lesson.description" type="text" id="sections_lesson_desc" name="sections_lesson_desc"></textarea>
-
-
+																	<div class="col-xs-12 col-sm-10">
+																	<select class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
+																		  	<option value="Essential">Básica</option>
+																		  	<option value="Reinforcement">Refuerzo</option>
+																		  	<option value="Extension">Ampliación</option>
+																		</select>
 																	</div>
 																</div>
+																
 															</div>
 															<div class="col-xs-12 col-sm-6 mb15">
 																<div class="row">
 																	<div class="col-xs-12 col-sm-6">
 																		<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_name">Imagen</label>	
 																	</div>
-																	<div class="col-xs-12 col-sm-6">
+																	<div class="col-xs-12 col-sm-12">
 																		<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.photo" type="text" id="sections_lesson_photo" name="sections_lesson_photo">		
 																	</div>
 																	<!--
@@ -224,20 +226,7 @@
 															</div>
 													</div>
 													<div class="row">
-															<div class="col-xs-12 col-sm-6 mb15">
-																<div class="row">
-																	<div class="col-xs-12 col-sm-6">
-																		<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Tipo</label>
-																	</div>
-																	<div class="col-xs-12 col-sm-6">
-																	<select class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
-																		  	<option value="Essential">Básica</option>
-																		  	<option value="Reinforcement">Refuerzo</option>
-																		  	<option value="Extension">Ampliación</option>
-																		</select>
-																	</div>
-																</div>
-															</div>
+															
 															<div class="col-xs-12 col-sm-6 mb15">
 																<div class="row">
 																	<div class="col-xs-12 col-sm-6">
@@ -245,10 +234,22 @@
 																		Dificultad
 																		</label>
 																	</div>
-																	<div class="col-xs-12 col-sm-12">
+																	<div class="col-xs-12 col-sm-10">
 																		<!-- <input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.dificulty" 
 																		type="number" id="sections_lesson_dificulty" name="sections_lesson_dificulty"> -->
 																		<INPUT  class="formAddCourse__fieldset__contentFields__input"   ng-model="lesson.difficulty"  TYPE="RANGE" MIN="0" MAX="10" STEP="2" VALUE="0" id="sections_lesson_dificulty" name="sections_lesson_dificulty">
+																	</div>
+																</div>
+															</div>
+															<div class="col-xs-12 col-sm-6 mb15">
+																<div class="row">
+																	<div class="col-xs-12 col-sm-6">
+																		<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_desc">Descripción</label>
+																	</div>
+																	<div class="col-xs-12 col-sm-12">
+																		<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="lesson.description" type="text" id="sections_lesson_desc" name="sections_lesson_desc"></textarea>
+
+
 																	</div>
 																</div>
 															</div>
@@ -259,7 +260,7 @@
 																	<div class="col-xs-12 col-sm-6">
 																		<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_learningPath">Siguientes Lecciones</label>
 																	</div>
-																	<div class="col-xs-12 col-sm-6">
+																	<div class="col-xs-12 col-sm-10">
 																	
 																		<input class="formAddCourse__fieldset__contentFields__input" ng-model="learningpath" type="text" id="sections_lesson_learningPath" name="sections_lesson_learningPath">
 																	</div>
@@ -272,7 +273,7 @@
 																		Enlace
 																		</label>
 																	</div>
-																	<div class="col-xs-12 col-sm-6">
+																	<div class="col-xs-12 col-sm-12">
 																	
 																		<input class="formAddCourse__fieldset__contentFields__input" ng-model="lom_url" 
 																		type="text" id="sections_lesson_lom_url" name="sections_lesson_lom_url">
