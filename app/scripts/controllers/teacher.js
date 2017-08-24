@@ -224,7 +224,7 @@
         newLesson.summary = lesson.summary;
         newLesson.photo = lesson.photo;
         newLesson.description = lesson.description;
-        newLesson.dificulty = lesson.difficulty;
+        newLesson.difficulty = lesson.difficulty;
         newLesson.type = lesson.type;
         console.log(lesson.learningpath);
         try {
