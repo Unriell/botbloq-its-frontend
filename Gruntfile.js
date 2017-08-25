@@ -266,16 +266,17 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
-      html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-      options: {
-        assetsDirs: [
-          '<%= yeoman.dist %>',
-          '<%= yeoman.dist %>/images',
-          '<%= yeoman.dist %>/styles'
-        ]
-      }
-    },
+            html: ['dist/**/*.html'],
+            css: ['dist/styles/{,*/}*.css'],
+            options: {
+                assetsDirs: [
+                    'dist',
+                    'dist/images',
+                    'dist/images/icons',
+                    'dist/styles'
+                ]
+            }
+        },
 
     // The following *-min tasks will produce minified files in the dist folder
     // By default, your `index.html`'s <!-- Usemin block --> will take care of

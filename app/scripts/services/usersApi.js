@@ -73,7 +73,7 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
 
             var coursesPromise = $q.defer();
 
-            $http.post(common.bitbloqBackendUrl + '/students/'+idStudent+'/init',{answers}).then(function(response) {
+            $http.post(common.bitbloqBackendUrl + '/students/'+idStudent+'/init',{answers: answers}).then(function(response) {
                 console.log('ok despues de enviar formulario', response.data);
 				common.activeUSer.learningStyle = response.data.learningStyle;
 				console.log(common.activeUSer);
