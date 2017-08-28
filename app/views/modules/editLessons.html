@@ -1,11 +1,11 @@
-<div class="contentAddItem__wrapperAddItem__level2">
+
 	
-	<div>
-		<fieldset class="formAddCourse__fieldset__level2">
-    		<legend class="formAddCourse__fieldset__level2__legend"> 
+
+		<fieldset class="formAddCourse__fieldset">
+    		<legend class="formAddCourse__fieldset__legend"> 
         		<!-- Lecciones -->
     		</legend>
-			<div class="formAddCourse__fieldset__level2__contentFields">
+			<div class="formAddCourse__fieldset__contentFields">
 				<ul>
 	        		<li ng-repeat="lesson in section.lessons" ng-init="visible = false"">
 								<fieldset class="formAddLom__fieldset pdb20">
@@ -105,7 +105,7 @@
 								</fieldset>	
 	        		</li>
 	        	</ul>	
-	        	<div class="contentAddItem__wrapperAddItem__level2 mb15 bgWhite">
+	        	<div class="contentAddItem__wrapperAddItem mb15 bgWhite">
 					<button class="btnBq--style1" ng-init="newLesson=false" ng-click="newLesson= !newLesson" ng-hide="newLesson" type="button">Nueva Lección</button>
 					<!-- <button ng-click="addObjectives()">Fin</button> -->
 					<div ng-show="newLesson">
@@ -223,5 +223,5 @@
 			</div>
 		</fieldset> 
 	
-	</div>
-</div>
+
+

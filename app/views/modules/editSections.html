@@ -3,18 +3,21 @@
 		<fieldset class="formAddCourse__fieldset__level2">
 			<legend class="formAddCourse__fieldset__level2__legend"> 
 	    		<!-- <a class="formAddCourse__fieldset__legend__link" ng-click="showHideFields(2)" href><span ng-class="{'bbq-minus bbq-minus--form':showFieldsObjectives, 'bbq-plus bbq-plus--form': !showFieldsObjectives}"></span></a> -->
-	    		Secciones
+	    		Lecciones
 			</legend>
 			<div class="formAddCourse__fieldset__level2__contentFields" >
 				<ul>
-    				<li ng-repeat="section in sectionsSelected" ng-init="visible = false">
+    				<li ng-repeat="section in sectionsSelected" ng-init="visible = true">
     					<fieldset class="formAddLom__fieldset pdb10">
-			        		<legend class="formAddLom__fieldset__legend"> 
+    						<ng-include src=" 'views/modules/editLessons.html' "></ng-include>	
+			        		<!-- <legend class="formAddLom__fieldset__legend"> 
 				        		<a class="formAddLom__fieldset__legend__link" ng-click="visible= !visible" href><span ng-class="{'bbq-minus bbq-minus--form':visible, 'bbq-plus bbq-plus--form': !visible}"></span></a>
 				        		Sección {{$index+1}}
 			        		</legend>
-							<div class="formAddLom__fieldset__contentFields" ng-show="visible">
-								<div class="row">
+			        		
+			        		
+							<div class="formAddLom__fieldset__contentFields">
+								<!-- <div class="row">
 									<div class="col-xs-12 col-sm-6 mb15">
 										<div class="row">
 											<div class="col-xs-12 col-sm-6">
@@ -36,9 +39,9 @@
 										</div>
 									</div>
 								</div>	
-								<!-- <ng-include src=" 'views/modules/editObjectivesSection.html' "></ng-include> -->
-								<ng-include src=" 'views/modules/editLessons.html' "></ng-include>		
-							</div>
+								<ng-include src=" 'views/modules/editObjectivesSection.html' "></ng-include> 
+									
+							</div>-->
 							<!-- <button ng-show="visible" type="button" ng-click="editSection($index,section.name,section.summary, section.objectives,section.lessons);visible = !visible;" class="btnBq--style2 edit">Guardar Sección</button> -->
         				</fieldset>
     				</li>
