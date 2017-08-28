@@ -25,6 +25,7 @@ botBloqApp.controller('BodyCtrl', function($scope, common, $log,usersApi, course
           $scope.activeUserHeader=user;
         }
         $scope.showTotalCourses=function(view){
+          console.log("showTotalCourses, body.js");
           common.actualViewCourses=view;
         }
         $scope.isActive =  function(currentPath){

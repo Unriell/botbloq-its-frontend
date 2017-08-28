@@ -2,8 +2,8 @@
     <div class="contentHeader__logo">
         <a class="contentHeader__logo__link" ng-click="changeInit(true)" href="#!/" title="botbloq Home">
             <h1>
-                <!-- <img class="contentHeader__logo__image" src="../../logo_bq.png"> -->
-                <span class="bbq-logobibtloq bbq-logobibtloq--header"></span>
+                <img class="contentHeader__logo__image" src="../../logo_bq.png">
+                <!-- <span class="bbq-logobibtloq bbq-logobibtloq--header"></span> -->
             </h1>
         </a>
         <a class="contentHeader_content__profile__movil" href="#" title="{{nameActiveUser}}">
@@ -38,33 +38,19 @@
             <ul class="contentHeader_content__options">
 
                 <li  class="contentHeader_content__options__element" ng-class="{ active : isActive('/courses') }"><a class="contentHeader_content__options__element__link"  
-                ng-click="showTotalCourses()"  title="Cursos">
+                ng-click="showTotalCourses('totalCoursesPage')" ng-href="#!/courses" title="Cursos">
 
 
                 <span class="bbq-graduation-cap bbq-graduation-cap--header"></span>
                 <span class="contentHeader_content__options__element__link__label">Cursos</span>
                 </a></li>
-                <!--
-                <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/loms') }"><a class="contentHeader_content__options__element__link" ng-href="#!/loms" title="Recursos">
-                <span class="bbq-cloud bbq-cloud--header"></span>
-                <span class="contentHeader_content__options__element__link__label">Recursos</span>
-                </a></li>
-                <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/students') }"><a class="contentHeader_content__options__element__link" ng-href="#!/students" title="Aprende">
-                <span class="bbq-book-open bbq-book-open--header"></span>
-                <span class="contentHeader_content__options__element__link__label">Aprende</span>
-                </a></li>
-                <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/login') }"><a class="contentHeader_content__options__element__link" ng-href="#!/login" title="Foro">
-                <span class="bbq-comment bbq-comment--header"></span>
-                <span class="contentHeader_content__options__element__link__label">Foro</span>
-                </a></li>
-                -->
             </ul>
        </nav>
         <a class="contentHeader_content__profile__tablet" href="#" title="{{nameActiveUser}}">    <span class="contentHeader_content__profile__tablet__userName">
                 {{activeUserHeader.identification.name}}
 				({{activeUserHeader.learningStyle.type}})
             </span> 
-            <span class="bbq-user bbq-user--header--tablet"></span>                    
+           <!-- <span class="bbq-user bbq-user--header--tablet"></span>  -->                
         </a>
     </div>
 </header>

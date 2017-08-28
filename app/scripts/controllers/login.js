@@ -80,6 +80,7 @@ botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,
 						console.log('Estudiante registrado correctamente!');
 						console.log(common.questionnaire.id_student);
 						$scope.questionnaire=common.questionnaire;
+						common.actualViewCourses = "totalCoursesPage";
 						var promise=getStudent(common.questionnaire.id_student);
 						promise.then(function() {
 								console.log('Estudiante registrado correctamente: ', $scope.registeredStudent);

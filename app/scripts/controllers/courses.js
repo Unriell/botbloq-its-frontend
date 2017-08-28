@@ -80,6 +80,7 @@
 
 
         $scope.showTotalCourses=function(){
+            console.log("showTotalCourses")
             $scope.totalCoursesPage=true;
             $scope.enrolledCoursesPage=false;
             $scope.coursePage=false; 
@@ -89,7 +90,7 @@
                 $scope.courses= response.data;
             }, function myError(err) {
                 console.log(err);
-                alert('Error de tipo: '+err.status);      
+                alert('Error al obtener los cursos'+err.status);      
             }); 
 
         };
