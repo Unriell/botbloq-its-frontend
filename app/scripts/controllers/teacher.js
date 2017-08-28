@@ -47,7 +47,7 @@
       console.log(response.data);
     }, function myError(err) {
       console.log(err);
-      alert('Error de tipo: '+err.status);      
+      alert('Error al obtener los cursos: '+err.status);      
     }); 
 
     /* crear curso nuevo */
@@ -249,6 +249,14 @@
           newLesson.loms.push(oa);
           // add lesson
           common.courseSelected.sections[i].lessons.push(newLesson);
+          // reset fields
+          lesson.name = "";
+          lesson.summary = "";
+          lesson.photo = "";
+          lesson.description = "";
+          lesson.type = "";
+          lesson.lom_url = "";
+          lesson.learningpath = "";
 
         }, function(error) {
             console.log('error después de addLom', error);
@@ -256,14 +264,6 @@
         
 
       }
-            /*
-            coursesApi.addLesson(common.courseSelected._id,section, $scope.lesson.name, $scope.lesson.summary,objectivesLesson, $scope.lesson.learningPath, $scope.lesson.type).then(function(response) {
-                    $scope.assignLomsToLesson(common.courseSelected._id,section,$scope.lesson.name,$scope.lomsToAdd);
-                    $scope.resetLesson();
-            */
-   
-      
- 
     };
 
     /* course visualization */
