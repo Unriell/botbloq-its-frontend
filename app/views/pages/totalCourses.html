@@ -4,28 +4,14 @@
         </div>
         <div class="contentCourses mb30">
             <div class="row">
-                <div class="col-xs-12 col-sm-2">
-                    <div class="viewOptions clearfix">
-                        <a ng-click="viewCourseWithoutInfo()" class="viewOptions__byIcon" ng-class="{active:!viewCoursesInfo}" href>
-                            <span class="bbq-thumbnails bbq-thumbnails--style"></span>
-                        </a>
-                        <a ng-click="viewCourseWithInfo()" class="viewOptions__byList" ng-class="{active:viewCoursesInfo}" href>
-                            <span class="bbq-list bbq-list--style"></span>
-                        </a>
-                    </div>
-                </div>
+               
                 <div class="col-xs-12 col-sm-10">
                     <form class="contentCourses__viewOptionsfilterSearch">
                         <div class="row">
-                            <div class="col-xs-6 col-sm-9">
-                                <select class="contentCourses__viewOptionsfilterSearch__filter">
-                                    <option selected="" disabled value="0">Filtrar por:</option>
-                                </select>  
-                            </div>
-                            <div class="col-xs-6 col-sm-3">
-                                <div class="contentCourses__viewOptionsfilterSearch__search">
+                            <div class="col-xs-12 col-sm-5">
+                                <div class="formAddCourse__fieldset__contentFields__input">
                                     <input ng-model="searchText" placeholder="Buscar ..." class="contentCourses__viewOptionsfilterSearch__search__input" type="text" name="searchCourse"> 
-                                    <span class="bbq-search bbq-search--Courses"></span>   
+                            
                                 </div>  
                             </div>
                         </div>
