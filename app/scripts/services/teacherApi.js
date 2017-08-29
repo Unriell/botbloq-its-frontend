@@ -80,7 +80,7 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
             console.log(reqCourse);
 
 
-             $http.post(common.bitbloqBackendUrl + '/courses/', reqCourse).then(function(response) {
+             $http.put(common.bitbloqBackendUrl + '/courses/' + course._id + "/all", reqCourse).then(function(response) {
                 console.log('ok después de añadir nuevo curso', response.data);
                 coursesPromise.resolve();  
             }, function(err) {

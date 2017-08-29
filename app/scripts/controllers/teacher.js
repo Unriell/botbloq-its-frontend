@@ -183,21 +183,15 @@
         if ($scope.coursesEditForm.$valid ) {
             console.log('editing...');
             console.log("parametros de entrada: ",course); 
-            teacherApi.removeCourse(course._id).then(function(response) {
-                  console.log('eliminado course con exito', response);
-                  teacherApi.editCourse(course).then(function(response) {
-                      console.log('ok después de editCourse', response);
-                      //$scope.updateCourses();
-                      alert("Curso editado con éxito!");
-                      $scope.refreshCourses();
-                      $location.path("/teacher");
-                }, function(error) {
-                  console.log('error al crear curso editado', error);
-                });
+            teacherApi.editCourse(course).then(function(response) {
+                console.log('ok después de editCourse', response);
+                //$scope.updateCourses();
+                alert("Curso editado con éxito!");
+                $scope.refreshCourses();
+                $location.path("/teacher");
             }, function(error) {
-                console.log('error después de remove course', error); 
-                confirm("Error al editar el curso.");
-            });
+                console.log('error al crear curso editado', error);
+             });
             $scope.showCoursesForm=false;
         } else {
             alert('Existen campos con valores no correctos');
