@@ -76,7 +76,7 @@
           type : ''
         }; 
         // insert lom in bd
-        teacherApi.addLom($scope.lesson.summary, $scope.lom_url).then(function(response) {
+        teacherApi.addLom($scope.lesson.title, $scope.lom_url).then(function(response) {
               console.log('lom añadido');
              oa.lom_id = common.lom;
              console.log(oa);
@@ -221,7 +221,7 @@
         var newLesson = new Object();
         // setting attributes
         newLesson.name = lesson.name;
-        newLesson.summary = lesson.summary;
+        newLesson.title = lesson.title;
         newLesson.photo = lesson.photo;
         newLesson.description = lesson.description;
         newLesson.difficulty = lesson.difficulty;
@@ -238,7 +238,7 @@
         // add loms
          // insert lom in bd
         console.log('url' + lesson.lom_url);
-        teacherApi.addLom(newLesson.summary, lesson.lom_url).then(function(response) {
+        teacherApi.addLom(newLesson.title, lesson.lom_url).then(function(response) {
           var oa = {lom_id: '', type : ''}; 
           console.log('lom añadido');
           oa.lom_id = common.lom;
@@ -251,7 +251,7 @@
           common.courseSelected.sections[i].lessons.push(newLesson);
           // reset fields
           lesson.name = "";
-          lesson.summary = "";
+          lesson.title = "";
           lesson.photo = "";
           lesson.description = "";
           lesson.type = "";

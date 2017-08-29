@@ -10,6 +10,8 @@
     				<li ng-repeat="section in sectionsSelected" ng-init="visible = true">
     					<fieldset class="formAddLom__fieldset pdb10">
     						<ng-include src=" 'views/modules/editLessons.html' "></ng-include>	
+    						<!-- HIDE SECTIONS -->
+
 			        		<!-- <legend class="formAddLom__fieldset__legend"> 
 				        		<a class="formAddLom__fieldset__legend__link" ng-click="visible= !visible" href><span ng-class="{'bbq-minus bbq-minus--form':visible, 'bbq-plus bbq-plus--form': !visible}"></span></a>
 				        		Sección {{$index+1}}
