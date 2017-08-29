@@ -5,9 +5,10 @@
 	.contentSignUp__contentLogo{
 		text-align:center;
 		margin-bottom:30px;
+
 	}
 	.contentSignUp__contentLogo__logo{
-
+		width : 30%;
 	}
 	.contentSignUp__contentLogo__title{
 	}
@@ -64,5 +65,5 @@
 	}
 	.contentSignUp__info__text{
 		font-weight: bold;
-		color:$text-color-white;
+		color:$text-color-black;
 	}
