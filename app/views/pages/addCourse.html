@@ -136,8 +136,9 @@
 																	<label class="formAddCourse__fieldset__level2__contentFields__label" for="objectives_bloom">Tipo</label>
 																</div>
 																<div class="col-xs-12 col-sm-12">
-																	<select class="formAddCourse__fieldset__level2__contentFields__input" ng-model="objectives.bloom" id="objectives_bloom" type="text" name="objectives_bloom">
-																  		<option value="knowledge">Conocimiento</option>
+																	<select class="formAddCourse__fieldset__level2__contentFields__input" ng-model="objectives.bloom" ng-init="objectives.bloom = 'knowledge'"
+																	id="objectives_bloom" type="text" name="objectives_bloom" >
+																  		<option selected value="knowledge">Conocimiento</option>
 																  		<option value="comprehension">Comprensión</option>
 														                  <option value="application">Aplicación</option>
 														                  <option value="analysis">Análisis</option>
@@ -188,8 +189,9 @@
 																		<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Tipo</label>
 																	</div>
 																	<div class="col-xs-12 col-sm-10">
-																	<select class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
-																		  	<option selected value="Essential">Básica</option>
+																	<select class="formAddCourse__fieldset__contentFields__input" 
+																	ng-model="lesson.type" ng-init="lesson.type = 'Essential'" id="sections_lesson_type" type="text" name="sections_lesson_type" >
+																		  	<option value="Essential" >Básica</option>
 																		  	<option value="Reinforcement">Refuerzo</option>
 																		  	<option value="Extension">Ampliación</option>
 																		</select>

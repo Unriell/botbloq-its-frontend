@@ -43,7 +43,8 @@
 														<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Tipo</label>
 													</div>
 													<div class="col-xs-12 col-sm-8">
-														<select class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
+														<select class="formAddCourse__fieldset__contentFields__input" 
+														ng-model="lesson.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
 														  	<option value="Essential">Básica</option>
 															<option value="Reinforcement">Refuerzo</option>
 															<option value="Extension">Ampliación</option>
@@ -139,8 +140,10 @@
 											<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Tipo</label>
 										</div>
 										<div class="col-xs-12 col-sm-8">
-											<select class="formAddCourse__fieldset__contentFields__input" ng-model="lessonN.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
-											  	<option selected value="Essential">Básica</option>
+											<select class="formAddCourse__fieldset__contentFields__input" 
+											ng-model="lessonN.type" ng-init="lessonN.type = 'Essential'"
+											id="sections_lesson_type" type="text" name="sections_lesson_type" value="Essential">
+											  	<option value="Essential">Básica</option>
 												<option value="Reinforcement">Refuerzo</option>
 												<option value="Extension">Ampliación</option>
 											</select>
