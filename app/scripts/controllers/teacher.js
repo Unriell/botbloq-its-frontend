@@ -183,6 +183,19 @@
         if ($scope.coursesEditForm.$valid ) {
             console.log('editing...');
             console.log("parametros de entrada: ",course); 
+            // verificar siguientes lecciones editadas 
+            for (var i = 0; i < course.sections[0].lessons.length; i++) {
+              //console.log(course.sections[0].lessons[i].learning_path);
+              if (typeof(course.sections[0].lessons[i].learning_path) == 'string') {
+                try {
+                  course.sections[0].lessons[i].learning_path= JSON.parse("[" + course.sections[0].lessons[i].learning_path + "]");
+                } catch (e) {
+                  course.sections[0].lessons[i].learning_path = [];
+                }
+              }
+            }
+            
+
             teacherApi.editCourse(course).then(function(response) {
                 console.log('ok después de editCourse', response);
                 //$scope.updateCourses();
@@ -190,6 +203,7 @@
                 $scope.refreshCourses();
                 $location.path("/teacher");
             }, function(error) {
+                alert("Error al editar el curso. Revise los campos");
                 console.log('error al crear curso editado', error);
              });
             $scope.showCoursesForm=false;
