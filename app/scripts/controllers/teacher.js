@@ -262,7 +262,7 @@
           lesson.title = "";
           lesson.photo = "";
           lesson.description = "";
-          lesson.type = "";
+          //lesson.type = "";
           lesson.lom_url = "";
           lesson.learningpath = "";
 

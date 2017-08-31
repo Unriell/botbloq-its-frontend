@@ -246,6 +246,7 @@
 		};
 
         $scope.badEndLesson = function() {
+            
             coursesApi.badEndLesson($scope.activeUser._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
                 console.log('ok después finalizar incorrectamente una lección', response);
 				common.actualViewCourses='coursePage';
