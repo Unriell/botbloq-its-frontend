@@ -117,28 +117,6 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             removeItem : removeItem,
             removeAllItem : removeAllItem
            
-              
-            /*
-            addCourse : addCourse,
-         
-            getSections :getSections,
-            getSection :getSection,
-            getCourse : getCourse,
-            getLessons: getLessons,
-            
-            editCourse : editCourse,
-            editSection: editSection,
-            addObjectivesToCourse : addObjectivesToCourse,
-            addObjectivesToSection : addObjectivesToSection,
-            addObjectivesToLesson : addObjectivesToLesson,
-            assignLomsLesson : assignLomsLesson,
-            addSection : addSection,
-            addLesson : addLesson,
-            
-            
-            
-            getAllStudentsCourses: getAllStudentsCourses
-            */
         };
 
         return exports;
