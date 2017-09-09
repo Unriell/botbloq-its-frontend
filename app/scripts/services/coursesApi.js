@@ -233,6 +233,22 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
         function removeItem(idCourse) { 
           return $http.delete(common.bitbloqBackendUrl + "/courses/"+idCourse);      
         }
+        function removeObjFromCourse(idCourse, objsToDelete) { 
+            var coursesPromise = $q.defer();
+                console.log("Objetos para eliminar objetivos de un curso: "+idCourse, objsToDelete);
+                $http.delete(common.bitbloqBackendUrl + "/courses/"+idCourse+'/deleteObjectives', 
+                    objsToDelete
+                ).then(function(response) {
+                    console.log('ok despues de intentar eliminar una lista de objetivos de un curso', response.data);
+                    coursesPromise.resolve();  
+                }, function(err) {
+                     console.log('error despues de intentar eliminar una lista de objetivos de un curso',err);
+            });
+            return coursesPromise.promise;     
+        }
+        /*function removeObjFromCourse(idCourse, deleteObjectives) { 
+          return $http.delete(common.bitbloqBackendUrl + "/courses/"+idCourse+'/'+deleteObjectives);      
+        }*/
         function removeAllItem() { 
           return $http.delete(common.bitbloqBackendUrl + "/courses");      
         }
@@ -261,6 +277,7 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             getLessons: getLessons,
             removeItem : removeItem,
             removeAllItem : removeAllItem,
+            removeObjFromCourse : removeObjFromCourse,
             editCourse : editCourse,
             editSection: editSection,
             addObjectivesToCourse : addObjectivesToCourse,

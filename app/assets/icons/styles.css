@@ -80,7 +80,7 @@
 .bbq-ver-verserialmonitor:before {
   content: "\70";
 }
-.bbq-verificar:before {
+.bbq-ok2:before {
   content: "\71";
 }
 .bbq-exportcode:before {
@@ -110,7 +110,7 @@
 .bbq-close:before {
   content: "\41";
 }
-.bbq-cargar:before {
+.bbq-nok:before {
   content: "\42";
 }
 .bbq-cambiaridioma:before {
@@ -176,12 +176,18 @@
 .bbq-sections:before {
   content: "\54";
 }
-.bbq-students:before {
-  content: "\55";
-}
 .bbq-logobibtloq:before {
   content: "\56";
 }
 .bbq-arrow-go:before {
   content: "\57";
+}
+.bbq-students:before {
+  content: "\55";
+}
+.bbq-userlogin:before {
+  content: "\58";
+}
+.bbq-email:before {
+  content: "\59";
 }

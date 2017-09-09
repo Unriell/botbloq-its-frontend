@@ -9,10 +9,12 @@
  */
 
    botBloqApp.controller('lomsCtrl',
-                         function($log, $scope,$http,$location,lomsApi) {
+                         function($log, $scope,$http,$location,lomsApi,common) {
         $log.log('loms ctrl start');
         console.log('loading loms p ...');
-
+        $scope.changeInit(false); 
+        $scope.lomSelected=common.lomSelected;
+        $scope.addingLom=common.addingLom;
         $scope.InfoLom=false;
         $scope.idItemToEdit;
         $scope.showFieldsGeneral=true;
@@ -20,6 +22,16 @@
         $scope.showFieldsMetadata=true;
         $scope.showFieldsTechnical=true;
         $scope.showFieldsUse=true;
+        if(!common.addingLom){
+            $scope.generalSchema=common.lomSelected.general;
+            $scope.lifecycleSchema=common.lomSelected.lifecycle;
+            $scope.metadataSchema=common.lomSelected.metadata;
+            $scope.technicalSchema=common.lomSelected.technical;
+            $scope.useSchema=common.lomSelected.use;
+        }
+        $scope.backLoms=function(){
+            $location.path("/loms");
+        };
         $scope.showHideFields= function(fieldset) {
             if (fieldset==1){
                 if($scope.showFieldsGeneral) $scope.showFieldsGeneral=false;
@@ -92,9 +104,20 @@
             $scope.technicalSchema=item.technical;
             $scope.useSchema=item.use;
         };
-        $scope.goAddLom= function(){
-            $location.path("/addLom");
+        $scope.goAddEditLom= function(action,lom){
+            common.lomSelected=lom;
+            switch (action) {
+                case 'add':
+                    common.addingLom=true;
+                    break;
+                case 'edit':
+                    common.addingLom=false;
+                    break;
+                default:
+            }
+            $location.path("/addEditLom");
         };
+        
         $scope.addLom = function() {
             if ($scope.adminLomsForm.$valid) {
                 console.log('adding...', $scope.technicalSchema);
@@ -121,6 +144,8 @@
                 lomsApi.editLom(idItem,$scope.generalSchema,$scope.lifecycleSchema,$scope.metadataSchema,$scope.technicalSchema, $scope.useSchema).then(function(response) {
                     console.log('ok después de editLom', response);
                     $scope.showLoms();
+                    confirm("Lom editado con éxito!");
+                    $location.path("/loms");
                 }, function(error) {
                     console.log('error después de editLom', error);
                 });
@@ -128,21 +153,20 @@
             } else {
                 console.log('There are invalid fields');
             }
-            $scope.generalSchema={};
-            $scope.lifecycleSchema={};
-            $scope.metadataSchema={};
-            $scope.technicalSchema={};
-            $scope.useSchema={};
         };
         $scope.addEditLom = function() {
             console.log('valor de edit: ', $scope.edit);
-            if($scope.edit) $scope.editLom($scope.idItemToEdit);
-            else $scope.addLom();
+            if($scope.addingLom) $scope.addLom();
+            else $scope.editLom($scope.lomSelected._id);
         };
 
-        $scope.removeLom = function(item){
-            console.log('eliminado item con id: ', item);
-            lomsApi.removeItem(item).then(function(response) {
+        $scope.removeLom = function(idLom, e){
+            console.log('eliminado item con id: ', idLom);
+            if (confirm("¿SEGURO QUE QUIERE ELIMINAR ESTE LOM?") === false) {
+                e.preventDefault();
+                return;
+            }
+            lomsApi.removeItem(idLom).then(function(response) {
                     console.log('eliminado item con exito', response);
                     $scope.showLoms();
                 }, function(error) {

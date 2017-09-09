@@ -36,9 +36,18 @@
 	.contentSignUp__wrapperContent__form__label{
 		margin-bottom:5px;
 	}
-	.contentSignUp__wrapperContent__form__input{
+	.contentSignUp__wrapperContent__form__contentInput{
+		position:relative;
+	}
+	.contentSignUp__wrapperContent__form__contentInput__input{
 		width:100%;
-		padding:5px 0 5px 20px;
+		border: 1px solid $color-grayLight;
+	    border-radius: 4px;
+	    padding: 7px 0 7px 35px;
+	    font-size: 0.9em;
+	    &::-webkit-input-placeholder {
+		    font-style: italic;
+		}
 	}
 	.contentSignUp__wrapperContent__form__optionsCheck{
 		
@@ -66,3 +75,29 @@
 		font-weight: bold;
 		color:$text-color-white;
 	}
+
+	.error{
+		border: 1px solid #fff;
+    	background-color: rgba(255,51,51,.2);
+    	box-shadow: 0 0 2px 2px rgba(255,51,51,.7);
+	}
+	
+	// ----- ICONS -----
+	
+		.bbq-email--signUp:before {
+		  position:absolute;
+		  top:9px;
+		  left:9px;
+		  font-size: 0.9em;
+		  color:$color-grayLight;
+		}
+		.bbq-userlogin--signUp:before {
+		  position:absolute;
+		  top:9px;
+		  left:9px;
+		  font-size: 0.9em;
+		  color:$color-grayLight;
+		}
+
+
+	// ----- FIN ICONS -----

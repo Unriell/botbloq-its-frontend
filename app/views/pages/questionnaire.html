@@ -2,7 +2,7 @@
     <h2 class="h2Class">Cuestionario</h2>
 </div>
 
-<div class="contentQuestionnaire">
+<div class="contentQuestionnaire" ng-if="false">
 	<form name="userQuestionnaire" class="contentQuestionnaire__form" ng-submit="sendQuestionnaire()">
 			<div class="row">
 				<div class="contentRow clearfix">
@@ -18,7 +18,38 @@
 						</div>
 					</div>
 					<div class="col-xs-12 center">	
-						<input class="contentQuestionnaire__form__input btnBq--style1" type="submit" name="">
+						<input class="contentQuestionnaire__form__input btnBq--style1" type="submit" value="Enviar Consulta" name="">
+					</div>
+				</div>	
+			</div>
+	</form>
+</div>
+
+<div class="contentQuestionnaire" ng-if="true">
+	<form name="userQuestionnaire" class="contentQuestionnaire__form" ng-submit="sendQuestionnaire()">
+			<div class="row">
+				<div class="contentRow clearfix">
+					<div class="contentQuestionnaire__form__wrapperQuestions" ng-repeat="question in questionnaire2">
+						<div class="col-xs-12 col-sm-6">
+							<div class="contentCol">
+								<p class="contentQuestionnaire__form__wrapperQuestions__question">{{question.title}}</p>
+								<div class="contentQuestionnaire__form__wrapperQuestions__options" ng-repeat="answer in question.answers">
+								<div class="pdl5">
+									<div class="row">
+									<div class="col-xs-1">
+										<input id="q{{$parent.$index+1}}_option_{{$index+1}}" type="radio" name="question_{{$parent.$index+1}}" ng-value="option|lowercase" ng-model="question.value"> 	
+									</div>
+									<div class="col-xs-10">
+										<label for="q{{$parent.$index+1}}_option_{{$index+1}}">{{answer.title}}</label>	
+									</div>
+									</div>
+								</div>
+								</div>		
+							</div>
+						</div>
+					</div>
+					<div class="col-xs-12 center">	
+						<input class="contentQuestionnaire__form__input btnBq--style1" type="submit" value="Enviar Consulta" name="">
 					</div>
 				</div>	
 			</div>

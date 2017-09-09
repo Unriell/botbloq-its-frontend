@@ -449,14 +449,31 @@ body.bkgInit{
 			padding: 20px 18px;
 			font-size: 1.6em;
 		}
-		.contentHeader_content__profile{
+		.contentHeader_content__profile__movil{
+			display:none;
+		}
+		.contentHeader_content__profile__tablet{
+			display: block;
 			position: inherit;
 		    float: right;
-		    margin-top: 21px;
+		    margin-top: 19px;
+		    &:hover,&:link{
+		    	.contentHeader_content__profile__tablet__userName,.bbq-user--header--tablet:before{
+		    		color:$link-color-white;
+				}
+		    	text-decoration: none;
+		    }
 		}
-		.bbq-user--header:before {
+		.contentHeader_content__profile__tablet__userName{
+			color: $link-color-grayLight;
+			font-weight: bold;
+			margin-right: 20px;
+		}
+
+		.bbq-user--header--tablet:before {
 			color:$color-grayLight;
-		  	font-size: 1.6em;
+		  	font-size: 2.1em;
+    		vertical-align: middle;
 		}
 	}
 
@@ -525,6 +542,12 @@ body.bkgInit{
 		.formAddLom__input{
 			
 		}
+		.formAddLom__submit{
+			margin-right:10px;
+		}
+		.formAddLom__cancel{
+			float:inherit;
+		}
 
 		// ------- CURSOS ----------
 		.formAddCourse__fieldset__contentFields{
@@ -568,6 +591,12 @@ body.bkgInit{
 		.formAddCourse__fieldset__level2__contentFields__input{
 			
 		}
+
+		.bbq-remove--obj:before {
+			right: -27px;
+		    top: 12px;
+		}
+
 	}
 
 	.contentSignUp{
@@ -579,6 +608,11 @@ body.bkgInit{
 
 		.contentSignUp__wrapperContent__form__contentSubmit__button{
 			padding: 15px 7px !important;
+		}
+
+		.bbq-email--signUp:before {
+		}
+		.bbq-userlogin--signUp:before { 
 		}
 
 	}
@@ -626,6 +660,11 @@ body.bkgInit{
 		.contentHeader__logo__image{
 			width: 36px;
 		}
+
+		.contentHeader_content__profile__tablet{
+		    margin-top: 28px;
+		}
+
 		.bbq-logobibtloq--header:before {
   			font-size:2.5em;
 		}
@@ -693,6 +732,11 @@ body.bkgInit{
 	.contentAddItem{
 		.formAddCourse__fieldset__contentFields__selectLoms__toSelect .contentRow, .formAddCourse__fieldset__contentFields__selectLoms__added .contentRow{
 			margin-bottom:20px;
+		}
+
+		.bbq-remove--obj:before {
+			right: -28px;
+		    top: 11px;
 		}
 	}
 

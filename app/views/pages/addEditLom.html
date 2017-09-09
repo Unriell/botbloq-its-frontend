@@ -3,7 +3,8 @@
 
 <div class="contentAddItem clearfix">
 	<div class="contentTitle">
-    	<h2 class="h2Class">Nuevo Objeto de Aprendizaje</h2>
+    	<h2 ng-if="addingLom" class="h2Class">Nuevo Objeto de Aprendizaje</h2>
+    	<h2 ng-if="!addingLom" class="h2Class">Editar Objeto de Aprendizaje</h2>
 	</div>
 	<div class="contentAsideWrapper clearfix">
 		<div class="asideLeft">
@@ -363,7 +364,9 @@
 			        		</li>
 			        	</ul>        		        		
 			   	</fieldset>
-		        <button class="btnBq--style2 formAddCourse__submit" type="submit" name="sendFormAddLom">Crear Lom</button>
+		        <button ng-if="addingLom" class="btnBq--style2 formAddLom__submit" type="submit" name="sendFormAddLom">Crear Lom</button>
+		        <button ng-if="!addingLom" class="btnBq--style2 formAddLom__submit" type="submit" name="sendFormAddLom">Editar Lom</button>
+		        <button class="btnBq--style2 formAddLom__cancel" type="button" name="sendFormAddLom" ng-click="backLoms()">Cancelar</button>
 			</form>
 		</div>
 	</div>

@@ -11,16 +11,46 @@
    botBloqApp.controller('coursesCtrl',function($log,$q,$scope,$http,$location,$timeout,coursesApi,usersApi,lomsApi,common) {
         $log.log('courses ctrl start');
         $scope.changeInit(false); 
-    
         $scope.activeUser=common.activeUSer;
+        $scope.changeActiveUserHeader($scope.activeUser);
         $scope.enrolledCourses=[];
         $scope.doneCourses=[];
 
-        $scope.totalCoursesPage=true;
-        $scope.enrolledCoursesPage=false;
-        $scope.coursePage=false;
-        $scope.objectivesPage=false;
-        $scope.completedCoursesPage=false;
+        var resetCourseViews=function(){
+            $scope.coursePage=false;
+            $scope.totalCoursesPage=false;  
+            $scope.enrolledCoursesPage=false;
+            $scope.objectivesPage=false;
+            $scope.completedCoursesPage=false;
+        }
+        $scope.managementCourseViews= function(view){
+            resetCourseViews();
+            common.actualViewCourses=view;
+            switch (view) {
+                case 'coursePage':
+                    $scope.coursePage=true;
+                    break;
+                case 'totalCoursesPage':
+                    $scope.totalCoursesPage=true;  
+                    /*$scope.getAllStudentsCourses($scope.activeUser._id);*/
+                    break;
+                case 'enrolledCoursesPage':
+                    $scope.enrolledCoursesPage=true;
+                    break;
+                case 'objectivesPage':
+                    $scope.objectivesPage=true;
+                    break;
+                case 'completedCoursesPage':
+                    $scope.completedCoursesPage=true;
+                    /*$scope.getStudentsCoursesFinished($scope.activeUser._id);*/
+                    break;
+                default:
+            }
+            /*getStudentsCoursesActives($scope.activeUser._id);*/
+            //$scope.getStudentsCoursesUnfinished($scope.activeUser._id);
+        }
+
+        $scope.managementCourseViews(common.actualViewCourses);
 
         $scope.courseSelected=common.courseSelected;
         $scope.objectivesCourseSelected=common.objectivesCourseSelected;
@@ -31,6 +61,7 @@
 
         $scope.sections=[];
         $scope.lesson=[];
+
         // --- EDIT COURSE ---
         $scope.editCourseName=common.courseSelected.name;
         $scope.editCourseCode=common.courseSelected.code;
@@ -68,9 +99,6 @@
 
         $scope.activity={};
         $scope.activity=common.newActivity;
-
-        console.log('-----------------NUEVA ACTIVIDAD: (SCOPE)',$scope.activity);
-        console.log('-----------------NUEVA ACTIVIDAD: (SERVICIO)',common.newActivity);
 
         var objectivesCourse=[],
             objectivesSection=[],
@@ -113,9 +141,6 @@
                 alert('Error de tipo: '+err.status);      
         }); 
 
-        var navegationCourses= function(){
-
-        };
 
         $scope.updateCourses= function() {
             console.log('loading Courses ...');
@@ -634,7 +659,7 @@
         };
 
         $scope.removeCourse = function(course,e){
-            console.log('eliminado course con id: ', course);
+            console.log('eliminado course con id: ', course._id);
             if (confirm("¿SEGURO QUE QUIERE ELIMINAR ESTE CURSO?") === false) {
                 e.preventDefault();
                 return;
@@ -644,6 +669,21 @@
                     $scope.updateCourses();
                 }, function(error) {
                     console.log('error al eliminar course', error);
+             });
+        };
+        $scope.removeObjFromCourse = function(obj,e){
+            console.log('eliminado objetivo con id: ', obj._id);
+            if (confirm("¿SEGURO QUE QUIERE ELIMINAR ESTE OBJETIVO?") === false) {
+                e.preventDefault();
+                return;
+            }
+            var objsToDelete=[];
+            objsToDelete.push(obj);
+            coursesApi.removeObjFromCourse(common.courseSelected._id,objsToDelete).then(function(response) {
+                    console.log('eliminado objetivo con exito', response);
+                    $scope.updateCourses();
+                }, function(error) {
+                    console.log('error al eliminar objetivo', error);
              });
         };
         $scope.deleteAllCourses = function(e){
@@ -667,13 +707,12 @@
             promise.then(function() {
                 console.log('numero de secciones en goCourse: ', common.sectionsCourseSelected.length);
                 calculateNumLessons(course._id);
+                isEnrolledInCourse($scope.activeUser._id,$scope.courseSelected._id);
             }, function(error) {
                 console.log('Se ha producido un error al obtener el dato: '+error);     
             });
-            $scope.coursePage=true;
-            $scope.totalCoursesPage=false;
-            $scope.enrolledCoursesPage=false;
-            $scope.objectivesPage=false;
+            common.actualViewCourses='coursePage';
+            $scope.managementCourseViews(common.actualViewCourses);
         };
 
         var calculateNumLessons=function(idCourse){
@@ -697,41 +736,12 @@
             return courseSelected;
         };
 
-        $scope.showEnrolledCourses=function(){
-            $scope.totalCoursesPage=false;
-            $scope.enrolledCoursesPage=true;
-            $scope.coursePage=false;
-            $scope.objectivesPage=false;
-            $scope.completedCoursesPage=false;
-            $scope.getStudentsCoursesActives($scope.activeUser._id);
-            //$scope.getAllStudentsCourses($scope.activeUser._id);
-            //$scope.getStudentsCoursesUnfinished($scope.activeUser._id);
-            //$scope.getStudentsCoursesFinished($scope.activeUser._id);
-        };
-        $scope.showCompletedCourses=function(){
-            $scope.totalCoursesPage=false;
-            $scope.enrolledCoursesPage=false;
-            $scope.coursePage=false;
-            $scope.objectivesPage=false;
-            $scope.completedCoursesPage=true;
-            $scope.getStudentsCoursesActives($scope.activeUser._id);
-            //$scope.getAllStudentsCourses($scope.activeUser._id);
-            //$scope.getStudentsCoursesUnfinished($scope.activeUser._id);
-            //$scope.getStudentsCoursesFinished($scope.activeUser._id);
-        };
-
-        $scope.showTotalCourses=function(){
-            $scope.totalCoursesPage=true;
-            $scope.enrolledCoursesPage=false;
-            $scope.coursePage=false;
-            $scope.objectivesPage=false;
-        };
-
         $scope.okEndLesson = function() {
             console.log('Terminando lección...');
             console.log("Parametros de entrada de okEndLesson: ",$scope.activeUser._id,common.courseSelected._id,$scope.activity._id);
             coursesApi.okEndLesson($scope.activeUser._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
                 console.log('ok después finalizar correctamente una lección', response);
+                common.actualViewCourses='coursePage';
                 $location.path("/courses");
             }, function(error) {
                 console.log('error después de finalizar correctamente una lección', error);
@@ -789,6 +799,16 @@
             });   
         };
 
+        var isEnrolledInCourse=function(idStudent,idCourse){
+             console.log("Función isEnrolled, parametros:",idStudent,idCourse);
+            usersApi.isEnrolledInCourse(idStudent,idCourse).then(function(response){
+                console.log('operación isEnrolledInCourse realizada con éxito',response.data);
+                $scope.studentEnrolledInCourse=response.data;
+            }, function myError(err) {
+                console.log('operación isEnrolledInCourse fallida',err);      
+            });
+        }
+
         $scope.goLesson= function(lesson,index){
             console.log('Go Lesson ---------',common.activeUSer._id,common.courseSelected._id);
             usersApi.getActivityLesson(common.activeUSer._id,common.courseSelected._id).then(function(response){
@@ -804,16 +824,18 @@
             });
         }
 
-        $scope.getStudentsCoursesActives= function(idStudent) {
+        var getStudentsCoursesActives= function(idStudent) {
             console.log('loading cursos activos ...');
-            /*coursesApi.getStudentsCoursesActives(idStudent).then(function(response){
-                $scope.enrolledCourses= response.data;          
+            coursesApi.getStudentsCoursesActives(idStudent).then(function(response){
+                $scope.enrolledCourses= response.data;
+                console.log('----------- cursos matriculados  ',$scope.enrolledCourses);          
             }, function myError(err) {
                 console.log(err);
                 alert('Error de tipo: '+err.status);      
-            });*/ 
-            $scope.enrolledCourses=$scope.activeUser.course[0];
+            }); 
+            /*$scope.enrolledCourses=$scope.activeUser.course[0];*/
         };
+    
         $scope.getStudentsCoursesFinished= function(idStudent) {
             console.log('loading cursos terminados ...');
             coursesApi.getStudentsCoursesFinished(idStudent).then(function(response){
@@ -856,6 +878,7 @@
                 alert('Error de tipo: '+err.status);      
             }); 
         };
+
 
          // ----------------    FIN STUDENT METHODS ---------------
 

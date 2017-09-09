@@ -42,16 +42,47 @@
 	.contentAdminLoms__contentLoms__list__wrapperLom{
 		padding:15px 0;
 	}
-	.contentAdminLoms__contentLoms__list__wrapperLom__lom{
+	.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks{
+		position:relative;
+		&:hover, &:link{
+		    .contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__linkIcon{
+		    	display: block;
+		    	text-decoration: none;
+		    }
+	    }
+	}
+	.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom{
 		border:1px solid $color-grayLight;
 		border-radius:3px;
 		box-shadow: 3px 3px 20px -2px rgba(0,0,0,0.39);
+		display: block;
+		&:hover{
+		    text-decoration: none;  
+			box-shadow: 6px 6px 20px -2px rgba(0,0,0,0.39);
+	    }
+	    &:link{
+		    text-decoration: none;  
+	    }
+	    
 	}
-	.contentAdminLoms__contentLoms__list__wrapperLom__lom__img{
+
+	.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__linkIcon{
+		position:absolute;
+		display: none;
+		top: 10px;
+		&.delete{
+			right: 10px;	
+		}
+		&.edit{
+			right: 37px;	
+		}
+	}
+
+	.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__img{
 		width: 100%;
 		display: inherit;
 	}
-	.contentAdminLoms__contentLoms__list__wrapperLom__lom__info{
+	.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__info{
 		padding: 7px;
 		background: $bg-color-white;
 		border-top:1px solid $color-grayLight;
@@ -67,9 +98,11 @@
 	.originInfoLom__user{
 		color:$link-color-green;
 	}
-	.contentAdminLoms__contentLoms__list__wrapperLom__lom__info__viewsInfoLom{
+	.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__info__viewsInfoLom{
 
 	}
+
+	
 	
 
 	.bbq-list--loms:before {

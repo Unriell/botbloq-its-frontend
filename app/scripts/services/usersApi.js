@@ -76,6 +76,9 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             return assignGroupPromise.promise;
         }
 
+        function isEnrolledInCourse(idStudent,idCourse) {
+            return $http.get(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse+'/isEnrolled');    
+        }
         function getActivityLesson(idStudent,idCourse) {
             return $http.get(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse);     
         }
@@ -111,6 +114,7 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             getCurrentUser : getCurrentUser,
             enrollStudent : enrollStudent,
             assignStudentToGroup : assignStudentToGroup,
+            isEnrolledInCourse : isEnrolledInCourse,
             getActivityLesson : getActivityLesson,
             activeUser : activeUser
         };

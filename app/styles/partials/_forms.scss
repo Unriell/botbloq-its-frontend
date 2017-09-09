@@ -26,12 +26,10 @@
 		width: 100%;
 		padding:5px 0 5px 7px;
 	}
-	.formAddLom__submit{
-		
-	}
 	.formAddLom__fieldset{
 		background:$bg-color-white;
 		margin-bottom:10px;
+		position:relative;
 	}
 	.formAddLom__legend__link{
 		text-decoration: none;
@@ -47,6 +45,12 @@
 	}
 	.formAddLom__fieldset__contentFields{
 		padding:10px;
+	}
+	.formAddLom__submit{
+	
+	}
+	.formAddLom__cancel{
+		float:right;
 	}
 
 .formAddCourse{
@@ -84,6 +88,7 @@
 	.formAddCourse__fieldset{
 		background:$bg-color-white;
 		margin-bottom:10px;
+		position:relative;
 	}
 	.formAddCourse__fieldset__level2{
 		padding: 42px 26px 0 26px;
@@ -235,6 +240,14 @@
 	    position: absolute;
 	    right: 7px;
 	    top: 3px;
+	}
+	.bbq-remove--obj:before {
+  		color: $color-black;
+	    font-size: 1.1em;
+	    float: right;
+	    position: absolute;
+	    right: -22px;
+	    top: 12px;
 	} 
 
 

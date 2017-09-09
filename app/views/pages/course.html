@@ -9,17 +9,17 @@
 			<div class="col-xs-12 col-sm-5">
 				<div class="wrapperCourse__header__info">
 					<h2 class="wrapperCourse__header__info__title">{{courseSelected.name}}</h2>
-					<p class="wrapperCourse__header__info__description">Última Lección 2. Conociendo BitBloq</p>
+					<p class="wrapperCourse__header__info__description">{{courseSelected.summary}}</p>
 					<button class="wrapperCourse__header__info__link btnBq--style1 center" ng-click="newActivity()" type="button">Nueva actividad <span></span></button>
 				</div>
-				<button class="btnBq--withIcon btnBig" ng-click="enrollStudent(activeUser._id,courseSelected._id)" type="button">MATRICÚLATE</button>
+				<button ng-hide="studentEnrolledInCourse" class="btnBq--withIcon btnBig" ng-click="enrollStudent(activeUser._id,courseSelected._id)" type="button">MATRICÚLATE</button>
 			</div>
 		</div>
 		
 	</div>
 	<div class="wrapperCourse__lessons" ng-class="{true:courseDisabled}">
 		<h3 class="wrapperCourse__lessons__title">Descripción del curso</h3>
-		<p class="wrapperCourse__lessons__description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum natus quia officiis maiores fugit asperiores quo doloremque eligendi sint at quibusdam nostrum, accusantium iusto sed facere rerum ea. Sed, explicabo?</p>
+		<p class="wrapperCourse__lessons__description">{{courseSelected.summary}}</p>
 		<p class="wrapperCourse__lessons__subTitle">Contenidos</p>
 		<ul class="wrapperCourse__lessons__contentLessons">
 			<li class="wrapperCourse__lessons__contentLessons__element" ng-repeat="lesson_i in lessonsSelected">	
