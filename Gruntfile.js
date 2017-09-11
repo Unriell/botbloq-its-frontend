@@ -180,23 +180,23 @@ module.exports = function (grunt) {
     wiredep: {
       app: {
         src: ['<%= yeoman.app %>/index.html'],
-        ignorePath:  /\.\.\//
+        ignorePath: /\.\.\//
       },
       test: {
         devDependencies: true,
         src: '<%= karma.unit.configFile %>',
-        ignorePath:  /\.\.\//,
-        fileTypes:{
+        ignorePath: /\.\.\//,
+        fileTypes: {
           js: {
             block: /(([\s\t]*)\/{2}\s*?bower:\s*?(\S*))(\n|\r|.)*?(\/{2}\s*endbower)/gi,
-              detect: {
-                js: /'(.*\.js)'/gi
-              },
-              replace: {
-                js: '\'{{filePath}}\','
-              }
+            detect: {
+              js: /'(.*\.js)'/gi
+            },
+            replace: {
+              js: '\'{{filePath}}\','
             }
           }
+        }
       },
       sass: {
         src: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
@@ -266,17 +266,17 @@ module.exports = function (grunt) {
 
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
-            html: ['dist/**/*.html'],
-            css: ['dist/styles/{,*/}*.css'],
-            options: {
-                assetsDirs: [
-                    'dist',
-                    'dist/images',
-                    'dist/images/icons',
-                    'dist/styles'
-                ]
-            }
-        },
+      html: ['dist/**/*.html'],
+      css: ['dist/styles/{,*/}*.css'],
+      options: {
+        assetsDirs: [
+          'dist',
+          'dist/images',
+          'dist/images/icons',
+          'dist/styles'
+        ]
+      }
+    },
 
     // The following *-min tasks will produce minified files in the dist folder
     // By default, your `index.html`'s <!-- Usemin block --> will take care of
@@ -430,7 +430,7 @@ module.exports = function (grunt) {
         },
         constants: {
           envData: grunt.file.readJSON('app/res/config/config.json')
-          
+
         }
       }
     },
@@ -494,7 +494,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'test',
+    //'test',
     'build'
   ]);
 };
