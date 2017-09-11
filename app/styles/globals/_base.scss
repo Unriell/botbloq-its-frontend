@@ -414,7 +414,17 @@ body.bkgInit{
 
 		}
 	}
-
+	.contentQuestionnaire{
+		.contentQuestionnaire__form{
+			padding:20px;
+		}
+		.contentQuestionnaire__form__wrapperQuestions__question{
+			margin-bottom:10px;
+		}
+		.contentQuestionnaire__form__input{
+			margin-top: 25px;
+		} 
+	}
 	header.contentHeader{
 		display:table;
 		padding-right: 12px;

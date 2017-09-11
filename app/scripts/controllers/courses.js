@@ -26,6 +26,7 @@
         $scope.managementCourseViews= function(view){
             resetCourseViews();
             common.actualViewCourses=view;
+            console.log("Vista de "+common.actualViewCourses);
             switch (view) {
                 case 'coursePage':
                     $scope.coursePage=true;
@@ -36,6 +37,7 @@
                     break;
                 case 'enrolledCoursesPage':
                     $scope.enrolledCoursesPage=true;
+                    getStudentsCoursesActives(common.activeUSer._id);
                     break;
                 case 'objectivesPage':
                     $scope.objectivesPage=true;
@@ -51,6 +53,7 @@
         }
 
         $scope.managementCourseViews(common.actualViewCourses);
+        console.log("Vista de "+common.actualViewCourses);
 
         $scope.courseSelected=common.courseSelected;
         $scope.objectivesCourseSelected=common.objectivesCourseSelected;
@@ -825,10 +828,10 @@
         }
 
         var getStudentsCoursesActives= function(idStudent) {
-            console.log('loading cursos activos ...');
+            console.log('loading cursos activos ...',idStudent);
             coursesApi.getStudentsCoursesActives(idStudent).then(function(response){
                 $scope.enrolledCourses= response.data;
-                console.log('----------- cursos matriculados  ',$scope.enrolledCourses);          
+                console.log('----------- cursos matriculados:  ',$scope.enrolledCourses);          
             }, function myError(err) {
                 console.log(err);
                 alert('Error de tipo: '+err.status);      
@@ -836,10 +839,11 @@
             /*$scope.enrolledCourses=$scope.activeUser.course[0];*/
         };
     
-        $scope.getStudentsCoursesFinished= function(idStudent) {
-            console.log('loading cursos terminados ...');
+        var getStudentsCoursesFinished= function(idStudent) {
+            console.log('loading cursos terminados ...',idStudent);
             coursesApi.getStudentsCoursesFinished(idStudent).then(function(response){
-                $scope.doneCourses= response.data;          
+                $scope.doneCourses= response.data;  
+                console.log('----------- cursos terminados:  ',$scope.doneCourses);         
             }, function myError(err) {
                 console.log(err);
                 alert('Error de tipo: '+err.status);      

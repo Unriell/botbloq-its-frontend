@@ -1,0 +1,217 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"tex",
+				"text-decoration"
+			]
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"build_system_choices":
+	[
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 150.0,
+		"last_filter": "Package Control: ins",
+		"selected_items":
+		[
+			[
+				"Package Control: ins",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: in",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: inst",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 528.0
+	},
+	"console":
+	{
+		"height": 126.0,
+		"history":
+		[
+			"import urllib.request,os,hashlib; h = 'df21e130d211cfc94d9b0905775a7c0f' + '1e3d39e33b79698005270310898eea76'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://packagecontrol.io/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front"
+	],
+	"file_history":
+	[
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Back/app/api/courses/Readme.md",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Back/README.md",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Back/app/api/courses/loms.controller.js",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Back/app/api/courses/index.js",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Back/mongodb",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/main.scss",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/styles/modules/_adminResources.scss",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/controllers/adminResources.js",
+		"/E/eimard/UNI/TFG/app/views/adminResources.html",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/views/adminResources.html",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/index.html",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/Repo_Front/app/scripts/app.js",
+		"/C/Users/Eimard/EIMARD/UNI/TFG/botbloq-its-frontend-develop/package.json",
+		"/C/Users/Eimard/.ssh/id_rsa.pub"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"C:\\Users\\Eimard\\EIMARD\\UNI\\TFG\\Repo_Back"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"localhost:9",
+			"localhost",
+			"9000",
+			"active",
+			"all",
+			"lesson",
+			"sections",
+			"courses",
+			"sections",
+			".form-control",
+			"form",
+			"before",
+			"ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCvHr7Mp5TRa4s+F4qjAEJ9dFgswXxKKbSIxDxAuvqEN4pBRbXSNi2kOyKgkqD1XxVeGVc+4zSt/O2tTyG6FY0LTYdrYNBgD7LzAucAptpPAPLTnMLYZi0KDIU2z9nU3bUqaYeShZDq0zlWWWNLLPZxsXKcWO03QuHbWhKAVrGsXVgby0qgYu1WInAgQMmJ2nx9LKzs+O73xtKXyqoHF8DLLKAIWIkQO5+aIPmYr5W5xWXEeLWyTk5P29UIVwqWZlWTwiydKjIzpSB7qCPeRJ+l2C1aNQPiOlXL72cPP1O1P03HMqiul44IWSE2H3pD9JCAZrIg2BDBlTss8PJcFPvZ eimardsobrinoz@gmail.com\n"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "FRONT_10sept.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"last_filter": "",
+		"selected_items":
+		[
+			[
+				"",
+				"C:\\Users\\Eimard\\EIMARD\\UNI\\TFG\\botbloq-its-frontend-develop\\.tmp\\styles\\TFG_FRONT_REPO.sublime-workspace"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 317.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
