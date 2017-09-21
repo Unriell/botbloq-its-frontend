@@ -8,13 +8,15 @@
  * Controller of the botbloqItsFrontendApp
  */
 
-   botBloqApp.controller('coursesCtrl',function($log,$q,$scope,$http,$location,$timeout,coursesApi,usersApi,lomsApi,common) {
+   botBloqApp.controller('coursesCtrl',function($log,$q,$scope,$http,$location,$timeout,coursesApi,usersApi,lomsApi,common, $sce) {
         $log.log('courses ctrl start');
         $scope.changeInit(false); 
         $scope.activeUser=common.activeUSer;
         $scope.changeActiveUserHeader($scope.activeUser);
         $scope.enrolledCourses=[];
         $scope.doneCourses=[];
+        $scope.lastIncludedCourses=[];
+        $scope.relatedCourses=[];
 
         var resetCourseViews=function(){
             $scope.coursePage=false;
@@ -22,6 +24,8 @@
             $scope.enrolledCoursesPage=false;
             $scope.objectivesPage=false;
             $scope.completedCoursesPage=false;
+            $scope.lastIncludedCoursesPage=false;
+            $scope.relatedCoursesPage=false;         
         }
         $scope.managementCourseViews= function(view){
             resetCourseViews();
@@ -44,8 +48,16 @@
                     break;
                 case 'completedCoursesPage':
                     $scope.completedCoursesPage=true;
-                    /*$scope.getStudentsCoursesFinished($scope.activeUser._id);*/
+                    $scope.getStudentsCoursesFinished($scope.activeUser._id);
                     break;
+                case 'lastIncludedCoursesPage':
+                    $scope.lastIncludedCoursesPage=true;
+                    $scope.getLastInludedCourses($scope.activeUser._id);
+                break;
+                case 'relatedCoursesPage':
+                    $scope.relatedCoursesPage=true;
+                    $scope.getRelatedCourses($scope.activeUser._id);
+                break;
                 default:
             }
             /*getStudentsCoursesActives($scope.activeUser._id);*/
@@ -102,6 +114,7 @@
 
         $scope.activity={};
         $scope.activity=common.newActivity;
+        $scope.page = common.urlActivity;
 
         var objectivesCourse=[],
             objectivesSection=[],
@@ -143,7 +156,6 @@
                 console.log(err);
                 alert('Error de tipo: '+err.status);      
         }); 
-
 
         $scope.updateCourses= function() {
             console.log('loading Courses ...');
@@ -740,14 +752,43 @@
         };
 
         $scope.okEndLesson = function() {
+            var defered = $q.defer(),
+                promise = defered.promise;
             console.log('Terminando lección...');
             console.log("Parametros de entrada de okEndLesson: ",$scope.activeUser._id,common.courseSelected._id,$scope.activity._id);
             coursesApi.okEndLesson($scope.activeUser._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
                 console.log('ok después finalizar correctamente una lección', response);
                 common.actualViewCourses='coursePage';
-                $location.path("/courses");
+                /*$location.path("/courses");*/
+                defered.resolve();
             }, function(error) {
                 console.log('error después de finalizar correctamente una lección', error);
+            });  
+            return promise;    
+        };
+        $scope.endActivity = function() {
+            console.log('Terminando actividad...');
+            console.log("Parametros de entrada de endActivity: ",$scope.activeUser._id,common.courseSelected._id,$scope.activity._id);
+            coursesApi.endActivity($scope.activeUser._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
+                console.log('ok después finalizar correctamente una lección', response);
+                var promise=$scope.okEndLesson();
+                promise.then(function() {
+                    $scope.newActivity();   
+                }, function(error) {
+                    console.log('Se ha producido un error al obtener el dato: '+error);     
+                });
+            }, function(error) {
+                console.log('error después de finalizar correctamente una lección', error);
+            });      
+        }; 
+        $scope.correctActivity = function(score) {
+            console.log('Corrigiendo actividad...');
+            console.log("Parametros de entrada de correctActivity: ",$scope.activeUser._id,common.courseSelected._id,$scope.activity._id,score);
+            coursesApi.correctActivity($scope.activeUser._id,common.courseSelected._id,$scope.activity._id).then(function(response) {
+                console.log('ok después corregir correctamente una actividad', response);
+                /*$scope.newActivity();*/
+            }, function(error) {
+                console.log('error después de corregir correctamente una actividad', error);
             });      
         };
 
@@ -839,7 +880,7 @@
             /*$scope.enrolledCourses=$scope.activeUser.course[0];*/
         };
     
-        var getStudentsCoursesFinished= function(idStudent) {
+        $scope.getStudentsCoursesFinished= function(idStudent) {
             console.log('loading cursos terminados ...',idStudent);
             coursesApi.getStudentsCoursesFinished(idStudent).then(function(response){
                 $scope.doneCourses= response.data;  
@@ -858,6 +899,24 @@
                 alert('Error de tipo: '+err.status);      
             }); 
         };
+        $scope.getLastInludedCourses= function(idStudent) {
+            console.log('loading los últimos cursos incluidos ...');
+            coursesApi.getLastInludedCourses(idStudent).then(function(response){
+                $scope.lastIncludedCourses= response.data;          
+            }, function myError(err) {
+                console.log(err);
+                alert('Error de tipo: '+err.status);      
+            }); 
+        };
+        $scope.getRelatedCourses= function(idStudent) {
+            console.log('loading todos los cursos relacionados...');
+            coursesApi.getRelatedCourses(idStudent).then(function(response){
+                $scope.relatedCourses= response.data;          
+            }, function myError(err) {
+                console.log(err);
+                alert('Error de tipo: '+err.status);      
+            }); 
+        };
         $scope.getAllStudentsCourses= function(idStudent) {
             console.log('loading todos los cursos ...');
             coursesApi.getAllStudentsCourses(idStudent).then(function(response){
@@ -870,12 +929,14 @@
         
         $scope.newActivity=function(){
             console.log('Solicitando nueva actividad ...');
-            console.log('Parámetros para solicitar nueva actividad: ',common.activeUser._id,common.courseSelected._id);
+            console.log('Parámetros para solicitar nueva actividad: ',$scope.activeUser._id,common.courseSelected._id);
             coursesApi.getNewActivity($scope.activeUser._id,common.courseSelected._id).then(function(response){
                 $scope.activity= response.data;
                 common.newActivity= $scope.activity; 
-                console.log('Nueva actividad obtenida con éxito',$scope.activity.genera);
-                console.log('Nueva actividad obtenida con éxito (SERVICIO)',common.newActivity);
+                console.log('Nueva actividad obtenida con éxito',$scope.activity);
+                
+                $scope.page = {src: $scope.activity.technical.url, title:"Loading activity."};
+                common.urlActivity =$scope.page;
                 $location.path("/activity");
             }, function myError(err) {
                 console.log(err);
@@ -883,6 +944,15 @@
             }); 
         };
 
+        $scope.trustSrc = function(src) {
+            return $sce.trustAsResourceUrl(src);
+        }
+        var loadPage= function(){
+            $scope.page = {src: $scope.activity.technical.url, title:"Loading activity."};
+            common.urlActivity =$scope.page;
+            /*var url = $scope.activity.technical.url + "&output=embed";
+            window.location.replace(url);*/
+        }
 
          // ----------------    FIN STUDENT METHODS ---------------
 

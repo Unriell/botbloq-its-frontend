@@ -179,6 +179,33 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             });
             return coursesPromise.promise;
         }
+        function endActivity(idStudent,idCourse,idLom) {
+            console.log("Objetos para finalizar correctamente una actividad(SERVICE) : ",idStudent,idCourse,idLom);
+            var coursesPromise = $q.defer();
+            $http.put(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse+'/lom/'+idLom+'/finalize', { 
+                
+            }).then(function(response) {
+                console.log('ok despues finalizar correctamente una actividad', response.data.token);
+
+                coursesPromise.resolve();  
+            }, function(err) {
+                 console.log('error despues finalizar correctamente una actividad',err);
+            });
+            return coursesPromise.promise;
+        }
+        function correctActivity(idStudent,idCourse,idLom,score) {
+            console.log("Objetos para corregir correctamente una actividad(SERVICE) : ",idStudent,idCourse,idLom,score);
+            var coursesPromise = $q.defer();
+            $http.put(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse+'/lom/'+idLom+score, { 
+                
+            }).then(function(response) {
+                console.log('ok despues corregir correctamente una actividad', response.data.token);
+                coursesPromise.resolve();  
+            }, function(err) {
+                 console.log('error despues corregir correctamente una actividad',err);
+            });
+            return coursesPromise.promise;
+        }
   
         function badEndLesson(idStudent,idCourse,idLom) {
             console.log("Objetos para finalizar incorrectamente una lección(SERVICE) : ",idStudent,idCourse,idLom);
@@ -208,11 +235,12 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             return coursesPromise.promise;
         }
 
+        //¿Hace falta esta funciom getNewLesson pudiendose utilizar la funcion getNewActivity?
         function getNextLesson(idStudent,idCourse) {     
             return $http.get(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse);      
         }
         function getNewActivity(idStudent,idCourse){
-            console.log('Parámetros para solicitar nueva actividad: ',idStudent,idCourse);
+            console.log('Parámetros para solicitar nueva actividad: (SERVICE)',idStudent,idCourse);
             return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+"/course/"+idCourse);
         }
         function getCourses() { 
@@ -264,6 +292,14 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
           return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/courses-not-done' );      
         }
 
+        function getLastInludedCourses(idStudent) { 
+          return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/last-included' );      
+        }
+
+        function getRelatedCourses(idStudent) { 
+          return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/related-courses' );      
+        }
+
         function getAllStudentsCourses(idStudent) { 
           return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent+'/all' );      
         }
@@ -287,6 +323,8 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             addSection : addSection,
             addLesson : addLesson,
             okEndLesson : okEndLesson,
+            endActivity : endActivity,
+            correctActivity : correctActivity,
             badEndLesson : badEndLesson,
             pauseLesson : pauseLesson,
             getNextLesson : getNextLesson,
@@ -294,6 +332,8 @@ botBloqApp.service('coursesApi', function($log, $q, $http, common) {
             getStudentsCoursesActives: getStudentsCoursesActives,
             getStudentsCoursesFinished: getStudentsCoursesFinished,
             getStudentsCoursesUnfinished: getStudentsCoursesUnfinished,
+            getLastInludedCourses : getLastInludedCourses,
+            getRelatedCourses : getRelatedCourses,
             getAllStudentsCourses: getAllStudentsCourses
         };
 

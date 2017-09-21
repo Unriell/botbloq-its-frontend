@@ -23,7 +23,8 @@ botBloqApp.service('common', function($log) {
             newActivity={},
             actualViewCourses="totalCoursesPage",
             addingLom=true,
-            lomSelected={};
+            lomSelected={},
+            urlActivity = {src: "", title:"Loading activity."};;
 
         $log.log('common start');
 
@@ -41,7 +42,8 @@ botBloqApp.service('common', function($log) {
             newActivity : newActivity,
             actualViewCourses : actualViewCourses,
             addingLom : addingLom,
-            lomSelected : lomSelected
+            lomSelected : lomSelected,
+            urlActivity : urlActivity
         };
 
     });

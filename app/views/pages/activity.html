@@ -7,15 +7,17 @@
 	    		<a class="wrapperLesson__options__ok__link" ng-click="okEndLesson()" href><span class="bbq-ok2 bbq-ok2--lesson"></span></a>
 	    	</div>
     		<div class="wrapperLesson__options__nok">
-				<a class="wrapperLesson__options__ok__link" href><span class="bbq-nok bbq-nok--lesson"></span></a>
+				<a class="wrapperLesson__options__ok__link" ng-click="endActivity()" href title="Siguiente Actividad"><span class="bbq-nok bbq-nok--lesson"></span></a>
 			</div>
     		<div class="wrapperLesson__options__wait">
-				<a class="wrapperLesson__options__ok__link" href><span class="bbq-cloud bbq-cloud--lesson"></span></a>
+				<a class="wrapperLesson__options__ok__link" ng-click="pauseLesson()" href title="pause"><span class="bbq-cloud bbq-cloud--lesson"></span></a>
 			</div>
 	</div>
 	<div class="wrapperLesson__contentBody clearfix">
 		<!-- <object class="width100" type="text/html" data="{{activity.technical.url}}" width="330 px" height="860 px">  -->
 		<!-- <object class="width100" type="text/html" data="{{newActivity.technical.url}}" width="330 px" height="860 px"> -->
-		<!-- <iframe class="minH700 width100" src="{{activity.technical.url}}" frameborder="0" allowfullscreen></iframe>   --> <iframe class="wrapperLesson__contentBody__activity" ng-src="http://diwo.bq.com/conociendo-bitbloq-2/" frameborder="0" allowfullscreen></iframe> 
+		<!-- <iframe class="minH700 width100" src="{{activity.technical.url}}" frameborder="0" allowfullscreen></iframe>   -->
+		<!-- <iframe class="wrapperLesson__contentBody__activity" ng-src="{{activity.technical.url}}" frameborder="0" allowfullscreen></iframe>  -->
+		<iframe width="420" height="315" ng-src="{{page.src | scrurl}}" allowfullscreen frameborder="0" target="_parent">
 	 </div>
 </div>
