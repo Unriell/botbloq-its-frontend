@@ -1,45 +1,79 @@
-<div ng-show="coursePage" class="wrapperCourse">
+<div class="wrapperCourse">
 	<div class="wrapperCourse__header">
 		<div class="row">
-			<div class="col-xs-12 col-sm-7">
+			<div class="col-xs-12 col-sm-5">
 				<div class="wrapperCourse__header__contentImg">
-					<img class="wrapperCourse__header__contentImg__img" src="../../assets/images/common/prueba.png" alt="">
+					<img class="wrapperCourse__header__contentImg__img" src="../../assets/images/courses/noPhotoCourse.png" ng-src="{{courseSelected.photo}}" alt="coursePhoto" on-error-src="../../assets/images/common/noPhoto.png">
 				</div>
 			</div>
-			<div class="col-xs-12 col-sm-5">
-				<div class="wrapperCourse__header__info">
-					<h2 class="wrapperCourse__header__info__title">{{courseSelected.name}}</h2>
-					<p class="wrapperCourse__header__info__description">{{courseSelected.summary}}</p>
-					<button class="wrapperCourse__header__info__link btnBq--style1 center" ng-click="newActivity()" type="button">Nueva actividad <span></span></button>
+			<div class="col-xs-12 col-sm-7">
+				<div class="wrapperCourse__header__contentInfoCourse">
+					<div class="wrapperCourse__header__contentInfoCourse__info">
+						<h2 class="wrapperCourse__header__contentInfoCourse__info__title">{{courseSelected.name}}</h2>
+						<p class="wrapperCourse__header__contentInfoCourse__info__description">{{courseSelected.summary}}</p>
+						<button ng-class="{'disabled': !(activeUser.role == 'student') || !(studentEnrolledInCourse)}" class="wrapperCourse__header__contentInfoCourse__info__link btnBq--style1 center" ng-click="newActivity()" type="button">Nueva actividad <span></span></button>
+					</div>
+					<button ng-if="activeUser.role == 'student'" ng-hide="studentEnrolledInCourse" class="btnBq--withIcon btnBig" ng-click="enrollStudent(activeUser._id,courseSelected._id)" type="button">MATRICÚLATE</button>
+					<button ng-if="activeUser.role == 'student'" ng-show="studentEnrolledInCourse" class="btnBq--withIcon btnBig btnDanger" ng-click="unEnrollStudent(activeUser,courseSelected._id)" type="button">DARSE DE BAJA</button>
 				</div>
-				<button ng-hide="studentEnrolledInCourse" class="btnBq--withIcon btnBig" ng-click="enrollStudent(activeUser._id,courseSelected._id)" type="button">MATRICÚLATE</button>
 			</div>
 		</div>
-		
 	</div>
-	<div class="wrapperCourse__lessons" ng-class="{true:courseDisabled}">
-		<h3 class="wrapperCourse__lessons__title">Descripción del curso</h3>
-		<p class="wrapperCourse__lessons__description">{{courseSelected.summary}}</p>
-		<p class="wrapperCourse__lessons__subTitle">Contenidos</p>
-		<ul class="wrapperCourse__lessons__contentLessons">
-			<li class="wrapperCourse__lessons__contentLessons__element" ng-repeat="lesson_i in lessonsSelected">	
-				<div class="row">
-					<div class="col-xs-12 col-sm-3">
-						<img class="wrapperCourse__lessons__contentLessons__element__img" src="../../assets/images/common/prueba.png" alt="">	
-					</div>
-					<div class="col-xs-12 col-sm-9">
-						<a class="wrapperCourse__lessons__contentLessons__element__link" ng-click="goLesson(lesson_i,$index + 1)" href>
-							<div class="wrapperCourse__lessons__contentLessons__element__link__info">
-								<h4 class="wrapperCourse__lessons__contentLessons__element__link__info__title">{{lesson_i.name}}</h4>
-								<p class="wrapperCourse__lessons__contentLessons__element__link__info__subtitle">Antes de empezar con Bitbloq 2</p>
-								<p class="wrapperCourse__lessons__contentLessons__element__link__info__description">Primeros pasos con bitbloq 2 antes de empezar a programar</p>
+
+	<div class="wrapperCourse__lessons" ng-class="{'courseDisabled':false}">
+		<div ng-class="{'disabled': !studentEnrolledInCourse}">
+			<h3 class="wrapperCourse__lessons__title">Descripción del curso</h3>
+			<p class="wrapperCourse__lessons__description">{{courseSelected.summary}}</p>
+
+			<ul class="wrapperCourse__lessons__contentMenu nav nav-tabs nav-justified" ng-init="viewLessons=true">
+			  <li class="wrapperCourse__lessons__contentMenu__element" ng-class="{'active':viewLessons}"><a class="wrapperCourse__lessons__contentMenu__element__link" ng-click="viewLessons=true;viewObjectives=false;viewAuthor=false" href>Lecciones</a></li>
+			  <li class="wrapperCourse__lessons__contentMenu__element" ng-class="{'active':viewObjectives}"><a class="wrapperCourse__lessons__contentMenu__element__link" ng-click="viewLessons=false;viewObjectives=true;viewAuthor=false" href>Objetivos</a></li>
+			  <li class="wrapperCourse__lessons__contentMenu__element" ng-class="{'active':viewAuthor}"><a class="wrapperCourse__lessons__contentMenu__element__link" ng-click="viewLessons=false;viewObjectives=false;viewAuthor=true" href>Autor</a></li>
+			</ul>
+
+			<div ng-show="viewLessons" class="wrapperCourse__lessons__contentSections" ng-repeat="section in courseSelected.sections">
+				<h2 class="wrapperCourse__lessons__contentSections__title">Sección {{$index+1}}</h2>
+				<ul class="wrapperCourse__lessons__contentSections__contentLessons">
+					<!-- <li class="wrapperCourse__lessons__contentSections__contentLessons__element" ng-repeat="lesson_i in lessonsSelected">	 -->
+					<li class="wrapperCourse__lessons__contentSections__contentLessons__element" ng-repeat="lesson_i in section.lessons">
+						<div class="row">
+							<div class="col-xs-12 col-sm-3">
+								<img class="wrapperCourse__lessons__contentSections__contentLessons__element__img" src="../../assets/images/courses/noPhotoLesson.jpg" ng-src="{{lesson_i.photo}}" alt="coursePhoto" on-error-src="../../assets/images/common/noPhoto.png">	
 							</div>
-							<span class="bbq-arrow-go bbq-arrow-go--lesson"></span>
-						</a>
-					</div>
-				</div>
-			</li>
-		</ul>
-		
+							<div class="col-xs-12 col-sm-9">
+								<a class="wrapperCourse__lessons__contentSections__contentLessons__element__link" ng-click="goLesson(lesson_i,$index + 1)" href>
+									<div class="wrapperCourse__lessons__contentSections__contentLessons__element__link__info">
+										<h4 class="wrapperCourse__lessons__contentSections__contentLessons__element__link__info__title">LECCIÓN {{$index+1}}</h4>
+										<p class="wrapperCourse__lessons__contentSections__contentLessons__element__link__info__subtitle">{{lesson_i.title}}</p>
+										<p class="wrapperCourse__lessons__contentSections__contentLessons__element__link__info__description">{{lesson_i.description}}</p>
+									</div>
+									<span class="bbq-arrow-go bbq-arrow-go--lesson"></span>
+								</a>
+							</div>
+						</div>
+					</li>
+				</ul>	
+			</div>
+			<div ng-if="courseSelected.numLessons<1" class="list__noResults">
+				<span class="bbq-warning bbq-warning--noResults"></span>
+				<h2 class="list__noResults__title">No hay lecciones disponibles</h2>
+			</div>
+		</div>
 	</div>
+
+	<div ng-show="viewAuthor">
+		Informacion del autor
+	</div>
+	<ng-include ng-if="!existsAchievedObjectives(activeUser.knowledgeLevel,courseSelected.code)" ng-show="viewObjectives" src=" 'views/pages/objectives.html' "></ng-include>
+
+	<div class="wrapperCourse__come">
+		<div class="row">
+			<div class="col-xs-12 center">
+		        <button class="btnBq--style2 big" ng-click="comeToCourses()">
+		            Volver
+		        </button>
+			</div>
+	    </div>
+	</div>
+
 </div>

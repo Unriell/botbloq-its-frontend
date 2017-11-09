@@ -2,14 +2,15 @@
         <div class="contentTitle">
             <h2 class="h2Class">Recursos - Objetos de Aprendizaje </h2>
         </div>
+
         <div class="contentAdminLoms__contentLoms mb20">
             <div class="row">
-                <div class="col-xs-12 col-sm-2">
-                    <div class="viewOptions clearfix">
-                        <a class="viewOptions__byIcon" href="#">
+                <div class="col-xs-12 col-sm-2 contentAdminLoms__contentLoms__contentIcons">
+                    <div class="viewOptions clearfix" ng-init="viewLomsInfo=false">
+                        <a ng-click="viewLomsInfo = false" class="viewOptions__byIcon" ng-class="{active:!viewLomsInfo}" href>
                             <span class="bbq-thumbnails bbq-thumbnails--style"></span>
                         </a>
-                        <a class="viewOptions__byList" href="">
+                        <a ng-click="viewLomsInfo = true" class="viewOptions__byList" ng-class="{active:viewLomsInfo}" href>
                             <span class="bbq-list bbq-list--style"></span>
                         </a>
                     </div>
@@ -17,14 +18,83 @@
                 <div class="col-xs-12 col-sm-10">
                     <form class="contentAdminLoms__contentLoms__viewOptionsfilterSearch">
                         <div class="row">
-                            <div class="col-xs-6 col-sm-9">
-                                <select class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter">
-                                    <option selected="" disabled value="0">Filtrar por:</option>
-                                </select>  
+                            <div class="col-xs-6 col-sm-2">
+                                <div class="contentSelect">    
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__label" for="selectLomsView" class="">Mostrar</label>   
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <select class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter" ng-model="selectLomsView" name="selectLomsView" id="selectLomsView" ng-change="managementViewLoms()" aria-label="ngSelected">
+                                                <option  value="todos">Todos los Loms</option>
+                                                <option  ng-selected="true" value="misLoms">Mis Loms</option>
+                                            </select>    
+                                        </div>
+                                    </div>         
+                                </div>
                             </div>
-                            <div class="col-xs-6 col-sm-3">
+                            <div class="col-xs-6 col-sm-2">
+                                <div class="contentSelect">    
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__label" for="selectLanguage" class="">Dificultad</label>   
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <select class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter" ng-model="difficulty" name="difficulty" id="selectDifficulty">
+                                                <option selected="" value="" disabled>Dificultad</option>
+                                                <option selected="" value="basica">Básica</option>
+                                                <option selected="" value="media">Media</option>
+                                                <option selected="" value="avanzada">Avanzada</option>
+                                                <option selected="" value="">Todos</option>
+                                            </select>    
+                                        </div>
+                                    </div>         
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-2">
+                                <div class="contentSelect">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__label" for="selectStructure" class="">Estructura</label>  
+                                        </div>
+                                        <div class="col-xs-12">
+                                            <select class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter" ng-model="structure" name="structure" id="selectStructure">
+                                                <option selected="" disabled value="" active>Estructura</option>
+                                                <option selected="" value="atomic">Atómica</option>
+                                                <option selected="" value="complex">Compleja</option>
+                                                <option value="">Todos</option>
+                                            </select>   
+                                        </div>
+                                    </div> 
+                                </div>
+                            </div>
+                            <div class="col-xs-6 col-sm-2">
+                                <div class="contentSelect">
+                                    <div class="row">
+                                        <div class="col-xs-12">
+                                            <label class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__label" for="selectFormat" class="">Formato</label>
+                                        </div> 
+                                        <div class="col-xs-12">
+                                            <select class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter" ng-model="format" name="format" id="selectFormat">
+                                            <option selected="" disabled value="">Formato</option>
+                                            <option selected="" value="video">Video</option>
+                                            <option selected="" value="audio">Audio</option>
+                                            <option selected="" value="web">Página web</option>
+                                            <option value="">Todos</option>
+                                        </select>
+                                        </div>    
+                                    </div>   
+                                </div>  
+                            </div>
+                            <div class="col-xs-12 col-sm-2">
                                 <div class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__search">
-                                    <input placeholder="Buscar ..." class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__search__input" type="text" name="searchLom"> 
+                                    <input placeholder="Buscar Autor" class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__search__input" type="text" name="searchLomByAuthor" ng-model="searchLomByAuthor"/> 
+                                    <span class="bbq-search bbq-search--loms"></span>   
+                                </div>  
+                            </div>
+                            <div class="col-xs-12 col-sm-2">
+                                <div class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__search">
+                                    <input placeholder="Buscar Nombre" class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__search__input" type="text" name="searchLomByName" ng-model="searchLomByName"> 
                                     <span class="bbq-search bbq-search--loms"></span>   
                                 </div>  
                             </div>
@@ -35,164 +105,78 @@
             
             <div class="contentAdminLoms__contentLoms__list">
                 <ul class="row">
-                    <li ng-repeat="lom in loms" class="col-xs-12 col-sm-4">
-                        <div class="contentAdminLoms__contentLoms__list__wrapperLom">
+                    <li ng-repeat="lom in loadLoms |  filter:{ general : { title : searchLomByName } } | filter: {author : searchLomByAuthor} | filter:{ general : { structure : structure } } | filter:{ technical : { format : format } } | filter:{ use : { resource_difficulty : difficulty } }" class="col-xs-12 col-sm-4">
+                        <div class="contentAdminLoms__contentLoms__list__wrapperLom okResults">
                             <div class="contentAdminLoms__contentLoms__list__wrapperLom__contentLinks">
                                 <a class="contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom" href>
-                                    <img class="contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__img" src="../../assets/images/common/prueba.png">
-                                    <div class="contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__info">
+                                    <div class="contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__contentImg__img">
+                                        <img class="contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__img" src="../../assets/images/loms/noPhotoLom.png" ng-src="{{lom.technical.photo}}" on-error-src="../../assets/images/common/noPhoto.png">
+                                    </div>
+                                    <div class="contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__info" ng-class="{'infoLom':viewLomsInfo}">
                                         <p class="titleInfoLom">{{lom.general.title}}</p>
                                         <p class="originInfoLom">de 
-                                            <span class="originInfoLom__user">{{lom._id}}</span>  
+                                            <span class="originInfoLom__user">{{lom.author}}</span>  
                                         </p>
-                                        <div class="contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__info__viewsInfoLom">
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
-                                            <span></span>
+                                    </div>
+                                    <div ng-if="viewLomsInfo" class="contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__info__viewsInfoLom">
+                                        <div class="row">
+                                            <div class="col-xs-12 col-sm-6">
+                                                <span class="txtBlack">Dificultad:</span>
+                                            </div> 
+                                            <div class="col-xs-12 col-sm-6">
+                                                <span class="txtCursive">{{lom.use.resource_difficulty}}</span>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-6">
+                                                <span class="txtBlack">Language:</span>
+                                            </div> 
+                                            <div class="col-xs-12 col-sm-6">
+                                                <span class="txtCursive">{{lom.general.language}}</span>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-6">
+                                                <span class="txtBlack">Formato:</span>
+                                            </div> 
+                                            <div class="col-xs-12 col-sm-6">
+                                                <span class="txtCursive">{{lom.technical.format}}</span>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-6">
+                                                <span class="txtBlack">Estado:</span>
+                                            </div> 
+                                            <div class="col-xs-12 col-sm-6">
+                                                <span class="txtCursive">{{lom.lifecycle.state}}</span>
+                                            </div>
+                                            <div class="col-xs-12 col-sm-6">
+                                                <span class="txtBlack">Estructura:</span>
+                                            </div> 
+                                            <div class="col-xs-12 col-sm-6">
+                                                <span class="txtCursive">{{lom.general.structure}}</span>
+                                            </div>                              
                                         </div>
                                     </div>
+                                    
                                 </a>
-                                <a class="contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__linkIcon edit" title="Editar Lom" ng-click="goAddEditLom('edit',lom)" href><span class="bbq-edit bbq-edit--course"></span></a>
-                                <a class="contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__linkIcon delete" title="Eliminar Lom" ng-click="removeLom(lom._id,$event)" href><span class="bbq-close bbq-delete--course"></span></a>
+                                <a ng-if="selectLomsView == 'misLoms' " class="contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__linkIcon edit" title="Editar Lom" ng-click="goAddEditLom('edit',lom)" href><span class="bbq-edit bbq-edit--course"></span></a>
+                                <a ng-if="selectLomsView == 'misLoms' " class="contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__linkIcon delete" title="Eliminar Lom" ng-click="removeLom(lom._id,$event)" href><span class="bbq-close bbq-delete--course"></span></a>
                             </div>
                         </div>
                     </li>
                 </ul>
+                <div ng-hide="results.length > 0" class="list__noResults">
+                    <span class="bbq-warning bbq-warning--noResults"></span>
+                    <h2 class="list__noResults__title">No se encontraron resultados</h2>
+                </div>
             </div>
+        </div>	
 
-
-        </div>
-
-		<!-- <table>
-            <caption>Tabla de administración de recursos</caption>
-            <colgroup>
-                <col class="size10">
-                <col class="size10">    
-                <col class="size10">    
-                <col class="size30">    
-                <col class="size40">        
-            </colgroup>
-            <thead>
-                <tr>
-                    <th>ID CATÁLOGO</th>
-                    <th>Título</th>
-                    <th>ID</th>
-                    <th>Opciones</th>
-                    <th>Herramientas</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr ng-repeat="i in loms">
-                    <td></td>
-                    <td>archivo.txt</td>{{i.general.id_catalog}}
-                    <td>{{i._id}}</td>
-                    <td>
-                        <ul class="contentOptions">
-                            <li><button disabled>Contenido</button></li>
-                            <li><button ng-click="showInfoLom(i)">Información</button></li>
-                            <li><button disabled>Estadísticas</button></li>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul class="contentOptions">
-                            <li><button ng-click="showEditLomForm(i)">Editar</button></li>
-                            <li><button ng-click="removeLom(i._id)">Eliminar</button></li>
-                            <li><button disabled>Descargar</button></li>
-                            <li><button disabled>Empaquetar</button></li>
-                            <li><button disabled>Evaluar y comentar</button></li>
-                            <li><button disabled>Copiar</button></li>
-                        </ul>
-                    </td>
-                </tr>
-            </tbody>
-        </table> -->
-
-
-        <!-- <button class="btn btn-primary" ng-click="showLoms()">Mostrar</button>  -->
-
-        <div class="contentLoms__options">
+        <div ng-if=" selectLomsView == 'misLoms' " class="contentLoms__options">
             <button class="btnBq--withIcon" ng-click="goAddEditLom('add',null)">
                 <span class="hidden-xs contentAdminCourses__options__title">Agregar Lom</span>
                 <span title="Agregar Curso" class="bbq-page-add bbq-page-add--style1"></span>
             </button>
-            <button class="btnBq--withIcon" ng-click="deleteAllLoms($event)">
+            <button ng-if="false" class="btnBq--withIcon" ng-click="deleteAllLoms($event)">
                 <span class="hidden-xs contentAdminCourses__options__title">Eliminar Todo</span>
                 <span title="Eliminar todos los cursos" class="bbq-page-delete bbq-page-delete--style1"></span>
             </button>
         </div>
-      
-       <!--  <button class="btnBq--style1" disabled>Agregar con Asistente</button>
-       <button class="btnBq--style1" disabled>Regresar</button> -->
-
-       
-        <div class="contentInfoLom" ng-show="InfoLom">
-        	<div>
-        		<h3 class="h3Class">General</h3>
-        		<span class="attr">Id Catalog:</span>
-        		<span>{{generalSchema.id_catalog}}</span>
-        		<span class="attr">Language</span>
-        		<span>{{generalSchema.id_entry}}</span>
-        		<span class="attr">Structure</span>
-        		<span>{{generalSchema.title}}</span>
-        		<span class="attr">aggregation_level</span>
-        		<span>{{generalSchema.language}}</span>
-        		<span class="attr">id_entry</span>
-        		<span>{{generalSchema.structure}}</span>
-        		<span class="attr">id_catalog</span>
-        		<span>{{generalSchema.aggregation_level}}</span>	
-        	</div>
-        	<div>
-        		<h3 class="h3Class">Lifecycle</h3>
-        		<span class="attr">contribution_type</span>
-        		<span>{{lifecycleSchema.version}}</span>
-        		<span class="attr">contribution_entity</span>
-        		<span>{{lifecycleSchema.state}}</span>
-        		<span class="attr">contribution_date</span>
-        		<span>{{lifecycleSchema.contribution_type}}</span>
-        		<span class="attr">state</span>
-        		<span>{{lifecycleSchema.contribution_entity}}</span>
-        		<span class="attr">version</span>
-        		<span>{{lifecycleSchema.contribution_date}}</span>
-        	</div>
-        	<div>
-        		<h3 class="h3Class">Metadata</h3>
-        		<span class="attr">Contribution_type</span>
-        		<span>{{metadataSchema.contribution_type}}</span>
-        		<span class="attr">Contribution_entity</span>
-        		<span>{{metadataSchema.contribution_entity}}</span>
-        		<span class="attr">Contribution_date</span>
-        		<span>{{metadataSchema.contribution_date}}</span>
-        	</div>
-        	<div>
-        		<h3 class="h3Class">Technical</h3>
-        		<span class="attr">Format</span>
-        		<span>{{technicalSchema.format}}</span>
-        		<span class="attr">Size_kb</span>
-        		<span>{{technicalSchema.size_kb}}</span>
-        		<span class="attr">Url</span>
-        		<span>{{technicalSchema.url}}</span>
-        	</div>
-        	<div>
-        		<h3 class="h3Class">Use</h3>
-        		<span class="attr">Interactivity_type</span>
-        		<span>{{useSchema.interactivity_type}}</span>
-        		<span class="attr">Interactivity_level</span>
-        		<span>{{useSchema.interactivity_level}}</span>
-        		<span class="attr">Language</span>
-        		<span>{{useSchema.language}}</span>
-        		<span class="attr">Resource_type</span>
-        		<span>{{useSchema.resource_type}}</span>
-        		<span class="attr">Resource_target</span>
-        		<span>{{useSchema.resource_target}}</span>
-        		<span class="attr">Resource_context</span>
-        		<span>{{useSchema.resource_context}}</span>
-        		<span class="attr">Resource_difficulty</span>
-        		<span>{{useSchema.resource_difficulty}}</span>
-        	</div>
-        	<button ng-click="hideInfoLom()">Ocultar</button>
-        </div>
-    
 </div>
 
 

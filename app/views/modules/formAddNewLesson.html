@@ -14,10 +14,10 @@
 		<div class="col-xs-12 col-sm-6 mb15">
 			<div class="row">
 				<div class="col-xs-12 col-sm-4 col-md-3">
-					<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_summary">Description</label>
+					<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_description">Descripción</label>
 				</div>
 				<div class="col-xs-12 col-sm-8 col-md-9">
-					<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="lesson.summary" type="text" id="sections_lesson_summary" name="sections_lesson_summary"></textarea>
+					<textarea class="formAddCourse__fieldset__contentFields__textArea" ng-model="lesson.description" type="text" id="sections_lesson_description" name="sections_lesson_description"></textarea>
 				</div>
 			</div>
 		</div>
@@ -26,7 +26,7 @@
 			<div class="col-xs-12 col-sm-6 mb15">
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
-						<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_learningPath">Learning Path</label>
+						<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_learningPath">Siguientes Lecciones</label>
 					</div>
 					<div class="col-xs-12 col-sm-6">
 						<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.learningPath" type="number" id="sections_lesson_learningPath" name="sections_lesson_learningPath">
@@ -36,13 +36,13 @@
 			<div class="col-xs-12 col-sm-6 mb15">
 				<div class="row">
 					<div class="col-xs-12 col-sm-6">
-						<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Type</label>
+						<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Tipo</label>
 					</div>
 					<div class="col-xs-12 col-sm-6">
 						<select class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
-						  	<option>Reinforcement</option>
-						  	<option>Essential</option>
-		              		<option>Extension</option>
+						  	<option value="reinforcement">Refuerzo</option>
+						  	<option value="essential">Básica</option>
+		              		<option value="extension">Ampliación</option>
 						</select>
 					</div>
 				</div>
@@ -69,7 +69,7 @@
 					<p class="formAddCourse__fieldset__contentFields__selectLoms__toSelect__labelSelect" for="sections_name">Seleccionar</p>
 					<ul class="formAddCourse__fieldset__contentFields__loms">
 						<li class="formAddCourse__fieldset__contentFields__loms__element" ng-repeat="i in lomsAux">
-							<a ng-click="selected=!selected; addToListAux(i,selected)" ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link" href>{{i.general.id_catalog}}</a>
+							<a ng-click="selected=!selected; selectLomsToAddToLesson(i,selected)" ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link" href>{{i.general.id_catalog}}</a>
 						</li>
 					</ul>
 				</div>
@@ -95,7 +95,7 @@
 					<p class="formAddCourse__fieldset__contentFields__selectLoms__added__label" for="sections_summary">Añadidos</p>
 					<ul class="formAddCourse__fieldset__contentFields__loms">
 						<li class="formAddCourse__fieldset__contentFields__loms__element" ng-repeat="i in lomsToAdd">
-							<a ng-click="selected=!selected; removeFromListAux(i,selected)" ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link">{{i.general.id_catalog}}
+							<a ng-click="selected=!selected; selectLomToDeleteFromLesson(i,selected)" ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link">{{i.general.id_catalog}}
 								<a ng-class="{active:selected}" class="formAddCourse__fieldset__contentFields__loms__element__link__link" ng-click="removeLomFromListAdd(i)" href><span class="bbq-remove bbq-remove--lom" title="Eliminar lom"></span></a>
 							</a>
 						</li>

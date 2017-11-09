@@ -9,7 +9,7 @@
 			<div class="formAddCourse__fieldset__level2__contentFields" ng-show="showFieldsObjectives">
 				<ul>
 	        		<li ng-repeat="obj in lesson.objectives" ng-init="visible = false">	
-						<ng-include src=" 'views/modules/editObjectives.html' "></ng-include>
+						<ng-include class="editLesson" src=" 'views/modules/editObjectives.html' "></ng-include>
 	        		</li>
 	        	</ul>
 	        	<div class="contentAddItem__wrapperAddItem__level2 mb15 bgWhite">

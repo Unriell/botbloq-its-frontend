@@ -118,13 +118,29 @@
 		}
 	}
 	.formAddCourse__fieldset__contentFields{
-		padding:18px;
+		padding:36px 18px 18px 18px;
+		& .error{
+			label span{
+				color: $text-color-red;
+			}
+			input{
+				border:1px solid $color-red;
+				background:#fff0f0;
+			}
+		}
 	}
+	
 	.formAddCourse__fieldset__contentFields__label{
 		margin-bottom:5px;
 	}
+	.formAddCourse__fieldset__contentFields__label__annotation{
+		position: absolute;
+	    top: 15px;
+	    color: darkslategray;
+	}
 	.formAddCourse__fieldset__contentFields__input{
 		padding:5px 0 5px 7px;
+		width: 100%;
 	}
 	.formAddCourse__fieldset__contentFields__textArea{
 		min-height:75px;
@@ -159,6 +175,7 @@
 		background: $bg-color-greenLight;
 		border:13px solid $color-grayTooLight;
 		padding:13px;
+		overflow: hidden;
 	}
 	.formAddCourse__fieldset__contentFields__selectLoms__toSelect{
 		margin-bottom: 20px;
@@ -171,7 +188,9 @@
 		margin-bottom:15px;
 	}
 	.formAddCourse__fieldset__contentFields__selectLoms__searchLom{
-
+		&::-webkit-input-placeholder {
+		    padding:3px;
+		}
 	}
 	.formAddCourse__fieldset__contentFields__selectLoms__options{
 		text-align: center;
@@ -205,6 +224,7 @@
 		}
 		&:link{
 			text-decoration: none;
+			color:$link-color-black;
 		}
 		&:hover{
 			cursor: pointer;
@@ -249,7 +269,22 @@
 	    right: -22px;
 	    top: 12px;
 	} 
-
+	.bbq-remove--section:before {
+  		color: $color-black;
+	    font-size: 1.1em;
+	    float: right;
+	    position: absolute;
+	    right: -22px;
+	    top: 17px;
+	}
+	.bbq-remove--lesson:before {
+  		color: $color-black;
+	    font-size: 1.1em;
+	    float: right;
+	    position: absolute;
+	    right: -22px;
+	    top: 17px;
+	} 
 
 
 //EDIT COURSE

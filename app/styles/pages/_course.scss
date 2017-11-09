@@ -14,22 +14,26 @@
     	overflow: hidden;
     	border-radius:10px;
 	}
-	.wrapperCourse__header__info{
+	.wrapperCourse__header__contentInfoCourse__info{
 		padding:16px 5px 0 5px;
 		margin-bottom:20px;
 	}
-	.wrapperCourse__header__info__title{
+	.wrapperCourse__header__contentInfoCourse__info__title{
 		font-weight: bold;
 		text-transform: uppercase;
 		font-size:2em;
 		margin-bottom:11px;
 		text-align: center;
+		word-break: break-all;
 	}
-	.wrapperCourse__header__info__description{
+	.wrapperCourse__header__contentInfoCourse__info__description{
 		margin-bottom:7px;
 		text-align: left;
+		text-overflow: ellipsis;
+	    white-space: nowrap;
+	    overflow: hidden;
 	}
-	.wrapperCourse__header__info__link{
+	.wrapperCourse__header__contentInfoCourse__info__link{
 		text-align: left;
 	}
 
@@ -62,8 +66,8 @@
 		}
 	}
 	.wrapperCourse__lessons__title{
-		@extend .wrapperCourse__header__info__title;
-		font-size: 1.6em;
+		@extend .wrapperCourse__header__contentInfoCourse__info__title;
+		font-size: 1.8em;
 		text-align:center;
 	}
 	.wrapperCourse__lessons__description{
@@ -73,17 +77,46 @@
 		font-weight: bold;
 		text-transform: uppercase;
 		font-size: 1.3em;
+		margin-bottom:20px;
 	}
-	.wrapperCourse__lessons__contentLessons{
-		padding:18px 0;
+	.wrapperCourse__lessons__contentMenu{
+		margin-bottom:0px;
 	}
-	.wrapperCourse__lessons__contentLessons__element{
+	.wrapperCourse__lessons__contentMenu__element.active{
+		.wrapperCourse__lessons__contentMenu__element__link{
+			font-weight: bold;
+		}
+	}
+	.wrapperCourse__lessons__contentMenu__element__link{
+		color: $text-color-black;
+		text-transform: uppercase;
+		&:link,&:hover{
+			color: $text-color-black;
+		}
+	}
+
+	.wrapperCourse__lessons__contentSections{
+		margin-top:5px;
+		margin-bottom:47px;
+	}
+	.wrapperCourse__lessons__contentSections__title{
+		font-weight: bold;
+		font-size: 1.3em;
+		text-transform: uppercase;
+		padding:3px;
+		background: linear-gradient(to right, #b9c176 0%, #e1eccc 14%, #e1eccc 28%, rgb(255, 255, 255) 33%);
+	}
+	.wrapperCourse__lessons__contentSections__contentLessons{
+		padding-top:18px;
+		margin-bottom:20px;
+	}
+	.wrapperCourse__lessons__contentSections__contentLessons__element{
 		margin-bottom: 30px;
 		border: 1px solid $color-black;
     	padding-bottom: 7px;
     	border-radius:10px;
 	}
-	.wrapperCourse__lessons__contentLessons__element__img{
+	.wrapperCourse__lessons__contentSections__contentLessons__element__img{
 		margin-bottom: 11px;
 		width: 100%;
 		max-height: 115px;
@@ -91,36 +124,43 @@
 		border-top-right-radius: 8px;
     	border-top-left-radius: 8px;
 	}
-	.wrapperCourse__lessons__contentLessons__element__link{
+	.wrapperCourse__lessons__contentSections__contentLessons__element__link{
 		display: block;
 		color:$link-color-black;
 		border-radius:10px;
 		&:hover{
     		text-decoration: underline;
     	}
-    	&:link .wrapperCourse__lessons__contentLessons__element__link__info{
-			.wrapperCourse__lessons__contentLessons__element__link__info__subtitle, .wrapperCourse__lessons__contentLessons__element__link__info__description{
+    	&:link .wrapperCourse__lessons__contentSections__contentLessons__element__link__info{
+			.wrapperCourse__lessons__contentSections__contentLessons__element__link__info__subtitle, .wrapperCourse__lessons__contentSections__contentLessons__element__link__info__description{
 				color:$link-color-black;
 			}
     	}
 	}
-	.wrapperCourse__lessons__contentLessons__element__link__info{
+	.wrapperCourse__lessons__contentSections__contentLessons__element__link__info{
 		width: 100%;
 		padding: 10px 10px 2px 10px;
 		text-align: center;
 	}
-	.wrapperCourse__lessons__contentLessons__element__link__info__title{
+	.wrapperCourse__lessons__contentSections__contentLessons__element__link__info__title{
 		font-size: 1.5em;
     	text-transform: uppercase;
     	margin-bottom: 10px;
     	text-align: center;
 	}
-	.wrapperCourse__lessons__contentLessons__element__link__info__subtitle{
+	.wrapperCourse__lessons__contentSections__contentLessons__element__link__info__subtitle{
 	    margin-bottom: 7px;
     	font-size: 1.1em;
 	}
-	.wrapperCourse__lessons__contentLessons__element__link__info__description{
+	.wrapperCourse__lessons__contentSections__contentLessons__element__link__info__description{
 		margin-bottom: 7px;
+		text-overflow: ellipsis;
+	    white-space: nowrap;
+	    overflow: hidden;
+	}
+
+	.wrapperCourse__come{
+		margin-bottom: 20px;
 	}
 
 	.bbq-arrow-go--lesson:before {

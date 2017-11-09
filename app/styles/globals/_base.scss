@@ -1,5 +1,6 @@
 body.bkgInit{
-	background-image: url("../../assets/images/common/bkgBq.png");
+	background-image: url("../../assets/images/common/bkgBqBlanco.png");
+	//background-image: url("../../assets/images/common/bkgBq2.jpg");
 }
 .wrapperMain{
 	padding:15px;
@@ -160,11 +161,34 @@ body.bkgInit{
   vertical-align: middle;
 }
 
+// --- COMÚN CURSOS Y LOMS ---
+	
+	.list__noResults{
+		text-align:center;
+		padding: 30px 0 50px 0;
+	}
+	.list__noResults__title{
+		font-size: 1.3em;
+		margin-top: 10px;
+		text-transform: uppercase;
+		color: $text-color-grayLight;
+		line-height: 27px;
+	}	   
+	.bbq-warning--noResults:before {
+	    font-size: 5em;
+	    color:$color-grayLight;
+	} 
+	
+// --- FIN CURSOS Y LOMS ---
 
 /* Small devices (tablets, 768px and up) */
 
 @media (min-width: $screen-sm) {
 	body.wrapperMain{
+		.btnBig{
+  			font-size:2.5em;
+		}
+
 		padding:30px;
 		.h2Class{
 			font-size: 2em;
@@ -248,13 +272,23 @@ body.bkgInit{
 			}
 			.contentCourses__wrapperCourses{
 				padding: 20px 20px 0px 20px;
+   				max-height: 383px;
 			}
+			
+			.contentCourses__wrapperCourses.activeMoreInfo{
+				max-height: 607px;
+			}
+				
 			.contentCourses__wrapperCourses__course{
 				padding: 0px 10px 46px 10px; 
 			}
 			.contentCourses__wrapperCourses__course__link__contentImage__title{
 	    		font-size: 1.6em;
 	    		bottom: 8px;
+			}
+			.contentCourses__wrapperCourses__course__link__contentImage__image{
+		    	border-radius: 6px 6px 0 0;
+		    	height: 150px;
 			}
 			.bbq-edit--course:before{
 				font-size: 1.1em;
@@ -270,17 +304,17 @@ body.bkgInit{
 			.wrapperCourse__header{
 				padding: 7px 0 20px 0;
 			}
-			.wrapperCourse__header__info{
+			.wrapperCourse__header__contentInfoCourse__info{
 				text-align: center;
 				margin-bottom:40px;
 			}
-			.wrapperCourse__header__info__title{
+			.wrapperCourse__header__contentInfoCourse__info__title{
 				
 			}
-			.wrapperCourse__header__info__description{
+			.wrapperCourse__header__contentInfoCourse__info__description{
 				text-align: center;
 			}
-			.wrapperCourse__header__info__link{
+			.wrapperCourse__header__contentInfoCourse__info__link{
 				text-align: center;
 			}
 			.wrapperCourse__lessons{
@@ -292,13 +326,19 @@ body.bkgInit{
 			.wrapperCourse__lessons__description{
 				margin-bottom: 25px;
 			}
-			.wrapperCourse__lessons__contentLessons__element{
+			.wrapperCourse__lessons__contentMenu{
+				margin-bottom:35px;
+			}
+			.wrapperCourse__lessons__contentSections__contentLessons__element{
 				margin-bottom: 30px;
 				border: none;
 		    	padding-bottom: 0px;
 		    	border-radius:0px;
 			}
-			.wrapperCourse__lessons__contentLessons__element__img{
+			.wrapperCourse__lessons__contentSections__title{
+				font-size: 1.3em;
+			}
+			.wrapperCourse__lessons__contentSections__contentLessons__element__img{
 				margin-bottom: 0px;
 				width: 100%;
 				max-height: 115px;
@@ -306,7 +346,7 @@ body.bkgInit{
 				vertical-align: middle;
 				border-radius:10px;
 			}
-			.wrapperCourse__lessons__contentLessons__element__link{
+			.wrapperCourse__lessons__contentSections__contentLessons__element__link{
 				padding-left:15px;
 				display: block;
 				vertical-align: middle;
@@ -320,7 +360,7 @@ body.bkgInit{
 		    		color:$link-color-black;
 		    	}
 			}
-			.wrapperCourse__lessons__contentLessons__element__link__info{
+			.wrapperCourse__lessons__contentSections__contentLessons__element__link__info{
 				text-align:left;
 				width: 91%;
 				display: inline-block;
@@ -328,10 +368,15 @@ body.bkgInit{
 				padding:0px;
 				vertical-align: middle;
 			}
-			.wrapperCourse__lessons__contentLessons__element__link__info__title{
+			.wrapperCourse__lessons__contentSections__contentLessons__element__link__info__title{
 				font-size: 1.2em;
 				text-align: inherit;
 				margin-bottom:7px;
+			}
+			.warpperCourse__lessons{
+				.wrapperObjectives__contetObjetives__list__element{
+					margin-bottom: 20px;
+				}
 			}
 			.bbq-arrow-go--lesson {
 				vertical-align: middle;
@@ -374,6 +419,9 @@ body.bkgInit{
 			.bbq-cloud--lesson:before {
 			  	font-size: 2em;
 			}
+			.bbq-save--lesson:before {
+			  	font-size: 2em;
+			}
 
 
 		}
@@ -383,10 +431,9 @@ body.bkgInit{
 				text-align: left;
 			}
 			.wrapperObjectives__contetObjetives__list{
-				padding:40px 0 0 70px;
+				padding:10px 0 20px 70px;
 			}
 			.wrapperObjectives__contetObjetives__list__element{
-				margin-bottom: 20px;
 			}
 			.wrapperObjectives__contetObjetives__list__element__contentImage{
 				vertical-align: middle;
@@ -492,17 +539,32 @@ body.bkgInit{
 			padding-left: 15px;
 		}	
 		.contentAdminLoms__contentLoms__viewOptionsfilterSearch{
-			padding-top: 6px;
+			padding-top: 0px;
 		}
 		.contentAdminLoms__contentLoms__list{
 			padding:0 60px;
+			max-height: 500px;
+			margin-top:0px;
 		}
 		.contentAdminLoms__contentLoms__list__wrapperLom{
 			padding:26px 11px;
 		}
-		.contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter{
-		    float:right;
+		.contentAdminLoms__contentLoms__contentIcons{
+			top:7px;
 		}
+		.contentAdminLoms__contentLoms__viewOptionsfilterSearch__label{
+			margin-bottom:5px;
+		}
+		.contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter{
+		    float:right;    
+		}
+		.contentAdminLoms__contentLoms__viewOptionsfilterSearch{
+			.contentSelect{
+				margin-bottom:0px;
+				text-align: right;
+			}
+		}
+		
 		.contentAdminLoms__contentLoms__viewOptionsfilterSearch__search{
 			float: right;
 	    	display: inline-block;
@@ -516,6 +578,11 @@ body.bkgInit{
 		.contentCourses__viewOptionsfilterSearch{
 			padding-top: 6px;
 		}
+		.contentCourses__viewOptionsfilterSearch{
+			& .contentCol{
+				margin-bottom:0px;
+			}
+		}
 		.contentCourses__list{
 			padding:0 60px;
 		}
@@ -525,15 +592,26 @@ body.bkgInit{
 		.contentCourses__viewOptionsfilterSearch__filter{
 		    float:right;
 		}
-		.contentCourses__viewOptionsfilterSearch__search{
-			float: right;
-	    	display: inline-block;
-		}
 		.bbq-edit--course:before{
 			font-size: 1.3em;
 		}
 		.bbq-delete--course:before{
 			font-size: 1.3em;
+		}
+	}
+
+	.contentAdminLoms,.contentTotalCourses{
+		.list__noResults{
+			text-align:center;
+			padding:60px 0;
+		}
+		.list__noResults__title{
+    		margin-top: 15px;
+		    font-size: 1.9em;
+		    line-height: 43px;
+		}
+		.bbq-warning--noResults:before{
+			font-size:6.3em;
 		}
 	}
 
@@ -606,13 +684,22 @@ body.bkgInit{
 			right: -27px;
 		    top: 12px;
 		}
-
+		.bbq-remove--section:before {
+			right: -27px;
+		    top: 17px;
+		}
+		.bbq-remove--lesson:before {
+			right: -27px;
+		    top: 17px;
+		}
 	}
 
 	.contentSignUp{
+		.contentSignUp__wrapperContent__outline{
+			width: 45%;
+		}
 	
 		.contentSignUp__wrapperContent{
-			width: 45%;
     		padding: 45px 50px;
 		}
 
@@ -651,15 +738,26 @@ body.bkgInit{
 		.contentTotalCourses, .contentEnrolledCourses{
 			.contentCourses__wrapperCourses{
 				padding: 20px 40px 0px 40px;
+				max-height: 520px;
+			}
+			.contentCourses__wrapperCourses.activeMoreInfo{
+				max-height: 700px;
 			}
 			.contentCourses__wrapperCourses__course{
 				padding: 0px 15px 60px 15px; 
 			}
+			.contentCourses__wrapperCourses__course__link__contentImage{
+				height: 210px;
+			}
+			
 			.contentCourses__wrapperCourses__course__link__contentImage__title{
 	    		font-size: 1.8em;
 	    		bottom: 8px;
 			}
-
+			.contentCourses__wrapperCourses__course__link__contentImage__image{
+		    	border-radius: 6px 6px 0 0;
+		    	height: 210px;
+			}
 		}
 	}
    header.contentHeader{
@@ -701,6 +799,22 @@ body.bkgInit{
 		}
 	}
 
+	
+	.contentAdminLoms,.contentTotalCourses{
+		.list__noResults{
+			text-align:center;
+			padding: 45px 0 65px 0;
+		}
+		.list__noResults__title{
+			margin-top: 15px;
+		    font-size: 1.9em;
+		    line-height: 43px;
+		}
+		.bbq-warning--noResults:before{
+			font-size:6.3em;
+		}
+	}
+
 	.contentAdminLoms{
 		
 		.contentAdminLoms__contentLoms__list{
@@ -708,6 +822,12 @@ body.bkgInit{
 		}
 		.contentAdminLoms__contentLoms__list__wrapperLom{
 			padding:29px 17px;
+		}
+		.contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter.showViewLoms{
+		    width:75%;    
+		}
+		.list__noResults{
+			padding: 70px 0 65px 0;
 		}
 	}
 
@@ -748,14 +868,23 @@ body.bkgInit{
 			right: -28px;
 		    top: 11px;
 		}
+		.bbq-remove--section:before {
+			right: -28px;
+		    top: 17px;
+		}
+		.bbq-remove--lesson:before {
+			right: -28px;
+		    top: 17px;
+		}
+
 	}
 
 	.contentSignUp{
 
+		.contentSignUp__wrapperContent__outline{
+			width: 25%;
+		}
 		.contentSignUp__wrapperContent{
-			width: 45%;
-    		padding: 45px 50px;
-    	    width: 25%;
    		 	padding: 55px 40px;
 		}
 

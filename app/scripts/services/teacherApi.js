@@ -16,11 +16,56 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
           return $http.get( common.bitbloqBackendUrl + "/courses/" );      
         }
         
+        /*function signUpTeacher(name, email) {
+            console.log(name, email);
+
+            var signUpPromise = $q.defer();
+            $http.post(common.bitbloqBackendUrl + "/teachers", {
+                identification: {
+                name: name,
+                email: email
+            }}).then(function(response) {
+                console.log('token', response.data);
+                response.data.teacher = true;
+                localStorage.userToken = response.data.token; 
+                exports.currentUser = response.data;
+                common.activeUSer= response.data;
+                common.nameActiveUser= response.data.identification.name;
+                        
+                signUpPromise.resolve();
+            }, function(err) {
+                logout();
+                signUpPromise.reject(err);
+            });
+            return signUpPromise.promise;
+        }*/
+        function signUpTeacher(name, email, pass, userRole) {
+            
+            var signUpPromise = $q.defer();
+            $http.post(common.bitbloqBackendUrl + "/teachers", {
+                identification: {
+                    name: name,
+                    email: email,
+                    password: pass
+                },
+                role: userRole
+            }).then(function(response) {
+                console.log('token', response);
+                signUpPromise.resolve(); 
+            }, function(err) {
+                signUpPromise.reject(err);
+            });
+            return signUpPromise.promise;
+        }
+
+        function getTeachers() { 
+          return $http.get( common.bitbloqBackendUrl + "/teachers" );      
+        }
+        
 
         /* add new course */
         function addCourse(course) {
            
-
             var coursesPromise = $q.defer();
 
             $http.post(common.bitbloqBackendUrl + '/courses/', {
@@ -88,6 +133,42 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
             });
             return coursesPromise.promise;
         }
+        function updateLomsTeacher(idTeacher,lomsTeacher,ident) {
+            var coursesPromise = $q.defer();
+            console.log("Objetos para asignar lom a profesor (SERVICE): "+ idTeacher,lomsTeacher);
+            $http.put(common.bitbloqBackendUrl + '/teachers/'+idTeacher, {
+                identification: ident,
+                elements: {
+                    loms: lomsTeacher
+                }
+            }).then(function(response) {
+                console.log('ok despues actualizar los nuevos loms a profesor (SERVICE): ', response.data.token);
+                coursesPromise.resolve();  
+            }, function(err) {
+                 console.log('error despues actualizar los nuevos loms a profesor (SERVICE): ',err);
+            });
+            return coursesPromise.promise;
+        }
+        function updateCoursesTeacher(idTeacher,coursesTeacher,ident) {
+            var coursesPromise = $q.defer();
+            console.log("Objetos para actualizar cursos de profesor (SERVICE): "+ idTeacher,coursesTeacher);
+            $http.put(common.bitbloqBackendUrl + '/teachers/'+idTeacher, {
+                identification: ident,
+                elements: {
+                    courses: coursesTeacher
+                }
+            }).then(function(response) {
+                console.log('ok despues actualizar los nuevos cursos a profesor (SERVICE): ', response.data.token);
+                coursesPromise.resolve();  
+            }, function(err) {
+                 console.log('error despues actualizar los nuevos cursos a profesor (SERVICE): ',err);
+            });
+            return coursesPromise.promise;
+        }
+        
+        function getTeacher(idTeacher) { 
+          return $http.get( common.bitbloqBackendUrl + "/teachers/"+idTeacher);      
+        }
         /* add lom **/
         function addLom(lom_title, lom_url) {
         
@@ -132,15 +213,23 @@ botBloqApp.service('teacherApi', function($log, $q, $http, common) {
             console.log('Parámetros para solicitar LO de una lección: ',idLom);
             return $http.get( common.bitbloqBackendUrl + "/loms/" + idLom);
         }
+        function removeAllTeachers() { 
+          return $http.delete(common.bitbloqBackendUrl + "/teachers");      
+        }
 
         var exports = {
+            updateLomsTeacher: updateLomsTeacher,
+            updateCoursesTeacher : updateCoursesTeacher,
+            getTeacher : getTeacher,
+            signUpTeacher : signUpTeacher,
+            getTeachers : getTeachers,
             getCourses : getCourses,
             addCourse : addCourse,
             removeCourse : removeCourse,
             editCourse : editCourse,
             addLom: addLom,
+            removeAllTeachers : removeAllTeachers,
             getActivityLesson : getActivityLesson
-
         };
 
         return exports;

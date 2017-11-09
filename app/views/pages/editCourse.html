@@ -21,7 +21,7 @@
 			</ul>
 		</div>
 		<div class="contentAddItem__wrapperAddItem">
-			<form id="adminCoursesForm" name="coursesEditForm" class="formAddCourse formEditCourse" ng-submit="editCourse(editCourseName,editCourseCode,editCourseSummary,courseSelected.objectives)"  novalidate>
+			<form id="adminCoursesForm" name="coursesEditForm" class="formAddCourse formEditCourse" ng-submit="editCourse(editCourseName,editCourseCode,editCourseSummary,editCoursePhoto,sectionsSelected,courseSelected.objectives)">	
 		    <fieldset>
 		        	<legend class="sr-only">FORMULARIO AGREGAR</legend>
 		        	<ul>
@@ -36,20 +36,20 @@
 										<div class="col-xs-12 col-sm-6 mb15">
 											<div class="row">
 												<div class="col-xs-12 col-sm-6">
-													<label class="formAddCourse__fieldset__contentFields__label" for="course_name">Name</label>
+													<label class="formAddCourse__fieldset__contentFields__label" for="course_name">Nombre</label>
 												</div>
 												<div class="col-xs-12 col-sm-6">
-													<input class="formAddCourse__fieldset__contentFields__input" ng-model="editCourseName" type="text" id="course_name" name="course_name" value="{{courseSelected.name}}" required>
+													<input class="formAddCourse__fieldset__contentFields__input" ng-model="editCourseName" type="text" id="course_name" name="course_name" value="{{courseSelected.name}}">
 												</div>
 											</div>
 										</div>
 										<div class="col-xs-12 col-sm-6 mb15">
 											<div class="row">
-												<div class="col-xs-12 col-sm-6">
-													<label class="formAddCourse__fieldset__contentFields__label" for="course_code">Code</label>	
+												<div class="col-xs-12 col-sm-3">
+													<label class="formAddCourse__fieldset__contentFields__label" for="course_photo">Imagen</label>
 												</div>
-												<div class="col-xs-12 col-sm-6">
-													<input class="formAddCourse__fieldset__contentFields__input" ng-model="editCourseCode" type="text" id="course_code" name="course_code">		
+												<div class="col-xs-12 col-sm-9">
+													<input class="formAddCourse__fieldset__contentFields__input" ng-model="editCoursePhoto" type="text" id="course_photo" name="course_photo">
 												</div>
 											</div>
 										</div>
@@ -58,25 +58,24 @@
 										<div class="col-xs-12 col-sm-6 mb15">
 											<div class="row">
 												<div class="col-xs-12 col-sm-6">
-													<label class="formAddCourse__fieldset__contentFields__label" for="course_summary">Summary</label>
+													<label class="formAddCourse__fieldset__contentFields__label" for="course_code">Código</label>	
 												</div>
 												<div class="col-xs-12 col-sm-6">
-													<input class="formAddCourse__fieldset__contentFields__input" ng-model="editCourseSummary" type="text" id="course_summary" name="course_summary">
+													<input class="formAddCourse__fieldset__contentFields__input" ng-model="editCourseCode" type="text" id="course_code" name="course_code">		
 												</div>
 											</div>
 										</div>
-										<div class="col-xs-12 col-sm-6">
+										<div class="col-xs-12 col-sm-6 mb15">
 											<div class="row">
-												<div class="col-xs-12 col-sm-6">
-													<input class="formAddCourse__fieldset__contentFields__inputPic" type="file" name="file" onchange="angular.element(this).scope().photoChanged(this.files)" />
+												<div class="col-xs-12 col-sm-3">
+													<label class="formAddCourse__fieldset__contentFields__label" for="course_summary">Descripción</label>
 												</div>
-												<div class="col-xs-12 col-sm-6">
-													<div class="center">
-		        										<img class="loadPic" ng-src="{{ thumbnail.dataUrl }}"/>
-													</div>
+												<div class="col-xs-12 col-sm-9">
+													<textarea class="formAddCourse__fieldset__contentFields__input minH120" ng-model="editCourseSummary" type="text" id="course_summary" name="course_summary">
+													</textarea>
 												</div>
 											</div>
-										</div>	
+										</div>
 									</div>
 									<div class="contentAddItem clearfix">
 										<ng-include src=" 'views/modules/editObjectivesCourse.html' "></ng-include>
@@ -87,7 +86,7 @@
 		        		</li>
 		        	</ul>        		        		
 		    </fieldset>
-		    <button class="btnBq--style2 formAddCourse__submit" type="submit" name="sendFormAddCourse" >Guardar Cambios</button>   
+		    <button class="btnBq--style2 formAddCourse__submit" type="submit" name="sendFormAddCourse" >Guardar Cambios</button>  <button class="btnBq--style2 formAddCourse__submit" type="button" name="cancelSendFormAddCourse" ng-click="cancelAddEditCourse()">Cancelar</button>  
 			</form>
 		</div>
 	</div>

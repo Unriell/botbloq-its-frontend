@@ -11,7 +11,12 @@
 	}
 	
 	.contentAdminLoms__contentLoms__viewOptionsfilterSearch{
-
+		.contentSelect{
+			margin-bottom:15px;
+		}
+	}
+	.contentAdminLoms__contentLoms__viewOptionsfilterSearch__label{
+		margin-bottom:5px;
 	}
 	.contentAdminLoms__contentLoms__viewOptionsfilterSearch__filter{
 		font-color:$text-color-grayLight;
@@ -19,9 +24,11 @@
 	    border: 1px solid $color-grayLight;
 	    padding: 5px 0 6px 7px;
     	font-size: 1em;
+    	width:100%;
 	}
 	.contentAdminLoms__contentLoms__viewOptionsfilterSearch__search{
 		position:relative;
+		top:21px;
 	}
 	.contentAdminLoms__contentLoms__viewOptionsfilterSearch__search__input{
 		width: 100%;
@@ -29,7 +36,7 @@
 		border-radius:5px;
 		border:1px solid $color-grayLight;
 		&::-webkit-input-placeholder {
-		    font-size: 1.2em;
+		    font-size: 1em;
 			font-color:$text-color-gray;
 		}
 	}
@@ -37,13 +44,18 @@
 
 	}
 	.contentAdminLoms__contentLoms__list{
-	
+		overflow-y: scroll;
+		max-height: 680px;
+		overflow-x: hidden;
+		margin-top:40px;
 	}
+	    
 	.contentAdminLoms__contentLoms__list__wrapperLom{
 		padding:15px 0;
 	}
 	.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks{
 		position:relative;
+		border-radius: 10px;
 		&:hover, &:link{
 		    .contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__linkIcon{
 		    	display: block;
@@ -53,7 +65,7 @@
 	}
 	.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom{
 		border:1px solid $color-grayLight;
-		border-radius:3px;
+		border-radius:10px;
 		box-shadow: 3px 3px 20px -2px rgba(0,0,0,0.39);
 		display: block;
 		&:hover{
@@ -77,15 +89,34 @@
 			right: 37px;	
 		}
 	}
+	.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__contentImg__img{
+		overflow: hidden;
+		width: 100%;
+		height: 140px;
+		background: $bg-color-white;
+		border-top-right-radius: 10px;
+    	border-top-left-radius: 10px;
+	}
 
 	.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__img{
 		width: 100%;
 		display: inherit;
+		height: auto;
+		min-height: 140px;
 	}
 	.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__info{
 		padding: 7px;
 		background: $bg-color-white;
 		border-top:1px solid $color-grayLight;
+		color: $text-color-black;
+		border-bottom-left-radius: 10px;
+    	border-bottom-right-radius: 10px;
+    	text-align: center;
+	}
+	.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom{
+		.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__info.infoLom{
+			border-radius:0px;
+		}
 	}
 	.titleInfoLom{
 		color: $text-color-black;
@@ -99,11 +130,13 @@
 		color:$link-color-green;
 	}
 	.contentAdminLoms__contentLoms__list__wrapperLom__contentLinks__lom__info__viewsInfoLom{
-
+		padding: 7px;
+		background: $bg-color-white;
+		border-top:1px solid $color-grayLight;
+		color: $text-color-black;
+		border-bottom-left-radius: 10px;
+    	border-bottom-right-radius: 10px;
 	}
-
-	
-	
 
 	.bbq-list--loms:before {
 	  color:$color-grayLight2;

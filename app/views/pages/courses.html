@@ -1,58 +1,153 @@
-<div class="contentAdminCourses">
-	<ng-include src=" 'views/pages/totalCourses.html' "></ng-include>
-	<ng-include src=" 'views/pages/enrolledCourses.html' "></ng-include>
-	<ng-include src=" 'views/pages/completedCourses.html' "></ng-include>
-	<ng-include src=" 'views/pages/lastIncludedCourses.html' "></ng-include>
-	<ng-include src=" 'views/pages/relatedCourses.html' "></ng-include>
-	<ng-include src=" 'views/pages/course.html' "></ng-include>
-	<ng-include src=" 'views/pages/objectives.html' "></ng-include>
+<div class="contentTotalCourses">
+        <div class="contentTitle">
+            <h2 ng-show="totalCoursesPage" class="h2Class">Cursos Disponibles </h2>
+            <h2 ng-show="coursesTeacherPage" class="h2Class">Mis Cursos Creados </h2>
+            <h2 ng-show="enrolledCoursesPage" class="h2Class">Cursos Matriculados </h2>
+            <h2 ng-show="completedCoursesPage" class="h2Class">Cursos Completados </h2>
+            <h2 ng-show="lastIncludedCoursesPage" class="h2Class">Últimos Cursos Incluídos</h2>
+            <h2 ng-show="relatedCoursesPage" class="h2Class">Cursos Relacionados </h2>            
+        </div>
+        <div class="contentCourses mb30">
+            <div class="row">
+                <div class="col-xs-12 col-sm-2">
+                    <div class="viewOptions clearfix" ng-init="viewCoursesInfo=false">
+                        <a ng-click="viewCoursesInfo = false" class="viewOptions__byIcon" ng-class="{active:!viewCoursesInfo}" href>
+                            <span class="bbq-thumbnails bbq-thumbnails--style"></span>
+                        </a>
+                        <a ng-click="viewCoursesInfo = true" class="viewOptions__byList" ng-class="{active:viewCoursesInfo}" href>
+                            <span class="bbq-list bbq-list--style"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-10">
+                    <form class="contentCourses__viewOptionsfilterSearch">
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-4 col-sm-offset-4 col-md-3 col-md-offset-6">
+                                <div class="contentCol">            
+                                    <!-- <label class="contentAdminLoms__contentLoms__viewOptionsfilterSearch__author__label" for="selectFormat" class="">
+                                    Búsqueda por autor</label>    -->                            
+                                    <div ng-hide="coursesTeacherPage" class="contentCourses__viewOptionsfilterSearch__search">
+                                        <input ng-model="searchCourseByAuthor" placeholder="Buscar por autor" class="contentCourses__viewOptionsfilterSearch__search__input" type="text" name="searchCourseByAuthor"> 
+                                        <span class="bbq-search bbq-search--Courses"></span>   
+                                    </div>                  
+                                </div>                                
+                            </div>
+                            <!-- <div class="col-xs-6 col-sm-9">
+                                <select class="contentCourses__viewOptionsfilterSearch__filter">
+                                    <option selected="" disabled value="0">Filtrar por:</option>
+                                </select>  
+                            </div> -->
+                            <div class="col-xs-12 col-sm-4 col-md-3">
+                                <div class="contentCourses__viewOptionsfilterSearch__search">
+                                    <input ng-model="searchText" placeholder="Buscar por curso" class="contentCourses__viewOptionsfilterSearch__search__input" type="text" name="searchCourse"> 
+                                    <span class="bbq-search bbq-search--Courses"></span>   
+                                </div>  
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="contentCourses__wrapperCourses" ng-class="{'activeMoreInfo':viewCoursesInfo}">
+                <ul class="row">
+                    <li ng-repeat="i in loadCourses | filter:{name:searchText} | filter:{author:searchCourseByAuthor}" class="col-xs-12 col-sm-4">          
+                        <div class="contentCourses__wrapperCourses__course okResults">
+                            <div class="contentCourses__wrapperCourses__course__contentLinks">                         
+                               <a class="contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(i)" href>
+                                    <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage">
+                                        <img ng-class="{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage__image" src="../../assets/images/courses/noPhotoCourse.png" ng-src="{{i.photo}}" on-error-src="../../assets/images/common/noPhoto.png">
+                                        <p ng-show="!viewCoursesInfo" class="contentCourses__wrapperCourses__course__link__contentImage__title">{{i.name}}</p>
+                                    </div>
+                                    <div class="contentCourses__wrapperCourses__course__link__contentInfo" ng-show="viewCoursesInfo">
+                                        <div class="contentCourses__wrapperCourses__course__link__contentInfo__contentTitle">
+                                            <p class="contentCourses__wrapperCourses__course__link__contentInfo__contentTitle__name">{{i.name}}</p>
+                                            <p class="contentCourses__wrapperCourses__course__link__contentInfo__contentTitle__description">{{i.summary}}</p>
+                                        </div>
+                                        <div class="row contentCourses__wrapperCourses__course__link__contentInfo__contentAuthor"> 
+                                            <div class="col-xs-5 col-md-6">
+                                                <p>de <span class="green">{{i.author}}</span></p>
+                                            </div>
+                                            <div class="col-xs-7 col-md-6">
+                                                <ul class="contentCourses__wrapperCourses__course__link__contentInfo__info">
+                                                    <li class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum" title="Secciones">
+                                                        <span class="bbq-sections bbq-sections--courses" title="Secciones"></span>
+                                                        <span class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum__num">{{i.sections.length}}</span>
+                                                    </li>
+                                                    <li class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum" title="Lecciones">
+                                                        <span class="bbq-lessons bbq-lessons--courses"></span>
+                                                        <span class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum__num">{{i.numLessons}}</span><!-- <span class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum__num">{{}}</span> -->
+                                                    </li>
+                                                    <li class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum" title="Estudiantes matriculados">
+                                                        <span class="bbq-students bbq-students--courses"></span>
+                                                        <span class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum__num">{{i.statistics.std_enrolled.length}}</span>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                                <a ng-if="teacher && coursesTeacherPage" class="contentCourses__wrapperCourses__course__linkIcon edit" title="Editar Curso" ng-click="goEditCourse(i)" href><span class="bbq-edit bbq-edit--course"></span></a>
+                                <a ng-if="teacher && coursesTeacherPage" class="contentCourses__wrapperCourses__course__linkIcon delete" title="Eliminar Curso" ng-click="removeCourse(i,$event)" href><span class="bbq-close bbq-delete--course"></span></a>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <div ng-hide="results.length > 0" class="list__noResults">
+                    <span class="bbq-warning bbq-warning--noResults"></span>
+                    <h2 class="list__noResults__title">No se encontraron resultados</h2>
+                </div>
+            </div>
+        </div>
 
-	<div class="wrapperLinkCourses"> 
+        <div ng-if="teacher && coursesTeacherPage" class="contentCourses__options">
+            <button class="btnBq--withIcon" ng-click="goAddCourse()">
+                <span class="hidden-xs contentCourses__options__title">Agregar Curso</span>
+                <span title="Agregar Curso" class="bbq-page-add bbq-page-add--style1"></span>
+            </button>
+            <button ng-if="false" class="btnBq--withIcon" ng-click="deleteAllCourses($event)">
+                <span class="hidden-xs contentCourses__options__title">Eliminar Todo</span>
+                <span title="Eliminar todos los cursos" class="bbq-page-delete bbq-page-delete--style1"></span>
+            </button>
+        </div>
+            
+      
+        <!-- <button class="btnBq--style1" disabled>Agregar con Asistente</button>
+        <button class="btnBq--style1" disabled>Regresar</button> -->
 
-		<h3 class="h3Class wrapperLinkCourses__title">Explora y Aprende</h3>
-		<ul class="row wrapperLinkCourses__list">
-			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
-				<a ng-click="managementCourseViews('totalCoursesPage')" ng-class="{disabled:totalCoursesPage}" class="wrapperLinkCourses__list__element__link" href>
-					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/common/prueba.png">
-					<p class="wrapperLinkCourses__list__element__link__subtitle">Total de Cursos</p>
-					<p class="wrapperLinkCourses__list__element__link__description">¡Ver todos los cursos</p>
-				</a>
-			</li>
-			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
-				<a ng-class="{disabled:enrolledCoursesPage}" class="wrapperLinkCourses__list__element__link" ng-click="managementCourseViews('enrolledCoursesPage')" href>
-					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/common/prueba.png">
-					<p class="wrapperLinkCourses__list__element__link__subtitle">Cursos matriculados</p>
-					<p class="wrapperLinkCourses__list__element__link__description">Ver todos los cursos en los que estás matriculado</p>
-				</a>
-			</li>
-			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
-				<a ng-class="{disabled:lastIncludedCoursesPage}" class="wrapperLinkCourses__list__element__link" ng-click="managementCourseViews('lastIncludedCoursesPage')" href>
-					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/common/prueba.png">
-					<p class="wrapperLinkCourses__list__element__link__subtitle">Novedades</p>
-					<p class="wrapperLinkCourses__list__element__link__description">¡No te pierdas los cursos más actualizados! ¡Matricúlate!</p>
-				</a>
-			</li>	
-			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
-				<a ng-class="{disabled:relatedCoursesPage}" class="wrapperLinkCourses__list__element__link" ng-click="managementCourseViews('relatedCoursesPage')" href>
-					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/common/prueba.png">
-					<p class="wrapperLinkCourses__list__element__link__subtitle">Cursos relacionados</p>
-					<p class="wrapperLinkCourses__list__element__link__description">¡No te pierdas los cursos más clásicos! ¡Matricúlate!</p>
-				</a>
-			</li>
-			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
-				<a class="wrapperLinkCourses__list__element__link" href>
-					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/common/prueba.png">
-					<p class="wrapperLinkCourses__list__element__link__subtitle">Cursos Inactivos</p>
-					<p class="wrapperLinkCourses__list__element__link__description">¡Cursos actualmente inactivos</p>
-				</a>
-			</li>	
-			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
-				<a ng-class="{disabled:completedCoursesPage}" ng-click="managementCourseViews('completedCoursesPage')" class="wrapperLinkCourses__list__element__link" href>
-					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/common/prueba.png">
-					<p class="wrapperLinkCourses__list__element__link__subtitle">Cursos completados</p>
-					<p class="wrapperLinkCourses__list__element__link__description">¡Ver todos los cursos ya completados</p>
-				</a>
-			</li>
-		</ul>
-	</div>
+        <div class="contentInfoCourse" ng-show="InfoCourse">
+            <div>
+                <h3 class="h3Class">General</h3>
+                <span class="attr">Name</span>
+                <span>{{courseName}}</span>
+                <span class="attr">Code</span>
+                <span>{{courseCode}}</span>
+                <span class="attr">Summary</span>
+                <span>{{courseSummary}}</span>
+            </div>
+            <div>
+                <h3 class="h3Class">Objectives</h3>
+                <span class="attr">Code</span>
+                <span>{{objectives.code}}</span>
+                <span class="attr">Description</span>
+                <span>{{objectives.description}}</span>
+                <span class="attr">Level</span>
+                <span>{{objectives.level}}</span>
+                <span class="attr">Type</span>
+                <span>{{objectives.bloom}}</span>
+            </div>
+            <div>
+                <h3 class="h3Class">Statistics</h3>
+                <span class="attr">Std_enrolled</span>
+                <span>{{statistics.std_enrolled}}</span>
+                <span class="attr">Std_finished</span>
+                <span>{{statistics.std_finished}}</span>
+                <span class="attr">std_unenrolled</span>
+                <span>{{statistics.std_unenrolled}}</span>
+            </div>
+            <div>
+                <span class="attr">History</span>
+                <span>{{courseHistory}}</span>
+            </div>
+            <button ng-click="hideInfoCourse()">Ocultar</button>
+        </div>
+    
 </div>

@@ -49,7 +49,7 @@
 .bbq-web2board:before {
   content: "\64";
 }
-.bbq-guardar:before {
+.bbq-save:before {
   content: "\65";
 }
 .bbq-icon-close:before {
@@ -189,4 +189,7 @@
 }
 .bbq-email:before {
   content: "\59";
+}
+.bbq-password:before {
+  content: "\5a";
 }

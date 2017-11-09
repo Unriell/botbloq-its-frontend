@@ -14,8 +14,8 @@
 .bttn-warning {
   color: #feab3a;
 }
-.bttn-danger {
-  color: #ff5964;
+.btnDanger {
+  background: $bg-color-red !important;
 }
 .bttn-success {
   color: #28b78d;
@@ -185,6 +185,10 @@
   &.edit{
     margin: 20px 0 0 10px;
   }
+  &.big{
+    padding: 10px 40px;
+    font-size: 1.2em;
+  }
 }
 .btnBq--withIcon{
  @extend .btnBq--style1;
@@ -199,7 +203,7 @@
 }
 
 .btnBig{
-  font-size:2.5em;
+  font-size:2.3em;
 }
 
 .btnDisabled{

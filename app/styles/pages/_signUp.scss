@@ -11,12 +11,18 @@
 	}
 	.contentSignUp__contentLogo__title{
 	}
-	.contentSignUp__wrapperContent{
+	.contentSignUp__wrapperContent__outline{
+		padding:2px;
+		border-radius:10px;
+		border:1px solid black;
 		margin:0 auto;
 		width: 90%;
+	}
+	.contentSignUp__wrapperContent{
+		width: 100%;
 		padding: 30px 30px;
+		border:1px solid black;
 		background:$bg-color-graytooLight;
-		margin-bottom:15px;
 		border-radius: 10px;
 	}
 	.contentSignUp__wrapperContent__title{
@@ -25,7 +31,12 @@
 		margin-bottom: 20px;
 	}
 	.contentSignUp__wrapperContent__form{
-		
+		.contentCol{
+			overflow: hidden;
+		}
+		.formError{
+			font-size:0.8em;
+		}
 	}
 	.contentSignUp__wrapperContent__form .contentRow{
 		margin-bottom:5px;
@@ -35,9 +46,24 @@
 	}
 	.contentSignUp__wrapperContent__form__label{
 		margin-bottom:5px;
+		padding-left:2px;
 	}
 	.contentSignUp__wrapperContent__form__contentInput{
 		position:relative;
+		text-align: center;
+		&.error{
+			.bbq-password--singUp:before, .bbq-userlogin--signUp:before, .bbq-email--signUp:before{ 
+			  color:$color-red;
+			}
+			.contentSignUp__wrapperContent__form__contentInput__input{
+				border: 1px solid #fff;
+		    	background-color: rgba(255,51,51,.2);
+		    	box-shadow: 0 0 2px 2px rgba(255,51,51,.7);
+		    	&::-webkit-input-placeholder {
+					color: $text-color-red;
+				}
+			}
+		}
 	}
 	.contentSignUp__wrapperContent__form__contentInput__input{
 		width:100%;
@@ -48,7 +74,10 @@
 	    &::-webkit-input-placeholder {
 		    font-style: italic;
 		}
+		width: 98%;
+    	margin-bottom: 3px;
 	}
+	
 	.contentSignUp__wrapperContent__form__optionsCheck{
 		
 	}
@@ -70,20 +99,31 @@
 	}
 	.contentSignUp__info{
 		text-align: center;
+		margin-top: 7px;
 	}
 	.contentSignUp__info__text{
 		font-weight: bold;
-		color:$text-color-white;
+		color:$link-color-gray;
+		&:hover{
+			color:#494948;
+		}
 	}
 
-	.error{
-		border: 1px solid #fff;
-    	background-color: rgba(255,51,51,.2);
-    	box-shadow: 0 0 2px 2px rgba(255,51,51,.7);
+	.formError {
+    	color: $text-color-red;
+    	font-style: italic;
+    	display: block;
+	    margin-top: 0.5em;
 	}
-	
 	// ----- ICONS -----
 	
+		.bbq-userlogin--signUp:before {
+		  position:absolute;
+		  top:9px;
+		  left:9px;
+		  font-size: 0.9em;
+		  color:$color-grayLight;
+		}
 		.bbq-email--signUp:before {
 		  position:absolute;
 		  top:9px;
@@ -91,7 +131,7 @@
 		  font-size: 0.9em;
 		  color:$color-grayLight;
 		}
-		.bbq-userlogin--signUp:before {
+		.bbq-password--singUp:before {
 		  position:absolute;
 		  top:9px;
 		  left:9px;

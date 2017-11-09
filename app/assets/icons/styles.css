@@ -191,3 +191,6 @@
 .bbq-email:before {
   content: "\59";
 }
+.bbq-password:before {
+  content: "\5a";
+}

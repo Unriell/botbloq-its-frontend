@@ -1,24 +1,38 @@
 .width100{
 	width:100%;
 }
+.center{
+	text-align:center;
+}
 .txtLeft{
 	text-align:left;
 }
-
+.txtRight{
+	text-align:right;
+}
+.txtCursive{
+	font-style:italic;
+}
 .floatR{
 	float:right;
 }
 .floatL{
 	float:left;
 }
-.center{
-	text-align:center;
+
+.small{
+	font-size:0.7em;
 }
 
 .minH700{
 	min-height:700px;
 }
-
+.minH120{
+	min-height:120px;
+}
+.txtBlack{
+	font-weight:bold;
+}
 .size5{
 	width:5%;
 }.size10{

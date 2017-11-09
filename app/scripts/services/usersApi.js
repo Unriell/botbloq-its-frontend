@@ -11,15 +11,36 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
 
         $log.log('usersApi start');
 
-        function signUp(name, email) {
-            console.log(name, email);
+        function signUpStudent(name, email, pass,userRole) {
+            
+            var signUpPromise = $q.defer();
+
+            $http.post(common.bitbloqBackendUrl + '/students', {
+                identification: {
+                    name: name,
+                    email: email,
+                    password: pass
+                },
+                role: userRole
+            }).then(function(response) {
+                console.log('token', response);
+                signUpPromise.resolve();
+            }, function(err) {
+                logout();
+                signUpPromise.reject(err);
+            });
+            return signUpPromise.promise;
+        } 
+
+        function signInStudent(name, pass) {
+            console.log(name, pass);
 
             var signUpPromise = $q.defer();
 
             $http.post(common.bitbloqBackendUrl + '/students', {
                 identification: {
                 name: name,
-                email: email
+                email: pass
             }}).then(function(response) {
                 console.log('token', response.data);
                 common.questionnaire=response.data;
@@ -61,6 +82,16 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             });
             return coursesPromise.promise;     
         }
+        function unEnrollStudent(idStudent,idCourse) { 
+            var coursesPromise = $q.defer();
+            $http.delete(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse,{}).then(function(response) {
+                    console.log('(API) ok despues de desmatricular al estudiante '+idStudent+' a un curso', response.data.token);
+                    coursesPromise.resolve();  
+                }, function(err) {
+                     console.log('error despues intentar desmatricular un estudiante en un curso',err);
+            });
+            return coursesPromise.promise;     
+        }
 
         function assignStudentToGroup(idStudent) {
             console.log('asignando estudiante con id: '+idStudent+' a grupo. (userApi).');
@@ -76,6 +107,23 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             return assignGroupPromise.promise;
         }
 
+        function editStudent(idStudent,studentName,studentEmail,studentPassword) {
+            var coursesPromise = $q.defer();      
+            //Si no estan repeditos este nombres y email
+            $http.put(common.bitbloqBackendUrl + '/students/'+idStudent, {
+                identification: {
+                    name: studentName,
+                    email: studentEmail,
+                    password: studentPassword,
+                }
+            }).then(function(response) {
+                console.log('ok despues de editar-post', response.data.token);
+                coursesPromise.resolve();  
+            }, function(err) {
+                 console.log('error despues de editar-post',err);
+            });
+            return coursesPromise.promise;
+        }
         function isEnrolledInCourse(idStudent,idCourse) {
             return $http.get(common.bitbloqBackendUrl + '/students/'+idStudent+'/course/'+idCourse+'/isEnrolled');    
         }
@@ -86,7 +134,9 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
         function getStudents() { 
           return $http.get( common.bitbloqBackendUrl + "/students" );      
         }
-       
+        function getStudent(idStudent) { 
+          return $http.get( common.bitbloqBackendUrl + "/students/"+idStudent );      
+        }
         function logout() {
             localStorage.userToken = null;
             exports.currentUser = {};
@@ -98,25 +148,25 @@ botBloqApp.service('usersApi', function($log, $q, $http, common) {
             });
         }
 
-        function activeUser(user){
-            common.activeUSer=user;
-            common.nameActiveUser=user.identification.name;
-
-           console.log('USUARIO ACTIVO CON ID: '+user._id+' y nombre: '+user.identification.name);
+        function removeAllStudents() { 
+          return $http.delete(common.bitbloqBackendUrl + "/students");      
         }
 
         var exports = {
             currentUser : null,
-            signUp: signUp,
+            signUpStudent: signUpStudent,
             sendQuestionnaire : sendQuestionnaire,
+            getStudent :getStudent,
             getStudents : getStudents,
             logout : logout,
             getCurrentUser : getCurrentUser,
             enrollStudent : enrollStudent,
+            unEnrollStudent : unEnrollStudent,
             assignStudentToGroup : assignStudentToGroup,
             isEnrolledInCourse : isEnrolledInCourse,
+            editStudent : editStudent,
             getActivityLesson : getActivityLesson,
-            activeUser : activeUser
+            removeAllStudents : removeAllStudents
         };
 
 

@@ -13,6 +13,7 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
+    
     <!-- endbuild -->
 </head>
 
@@ -27,6 +28,7 @@
     <div class="containerMain">
         <div ng-view=""></div>
     </div>
+    <ng-include ng-hide="init" src=" 'views/partials/footer.html' "></ng-include>
     <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
     <script>
         ! function(A, n, g, u, l, a, r) {
@@ -54,6 +56,7 @@
     <script src="scripts/services/common.js"></script>
     <script src="scripts/controllers/body.js"></script>
     <script src="scripts/services/usersApi.js"></script>
+    <script src="scripts/services/teacherApi.js"></script>
     <script src="scripts/services/lomsApi.js"></script>
     <script src="scripts/services/coursesApi.js"></script>
     <script src="scripts/services/authInterceptor.js"></script>
@@ -64,6 +67,8 @@
     <script src="scripts/controllers/loms.js"></script>
     <script src="scripts/controllers/courses.js"></script>
     <script src="scripts/filters/youtubeFilter.js"></script>
+    <script src="scripts/directives/errSrc.js"></script>
+
     <!-- endbuild -->
 </body>
 

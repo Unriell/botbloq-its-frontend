@@ -13,19 +13,20 @@
         $log.log('student ctrl start');
         $scope.changeInit(false);
 
-        $scope.questionnaire=common.questionnaire;
-        if($scope.questionnaire.form[0].children.length>1)
-            $scope.questions=$scope.questionnaire.form[0].children;
-        $scope.questionAnswer=[];
-        $scope.answers=[];
-        //Cosntruyo una estructura para recorrerla en el html y crear formulario
-        angular.forEach($scope.questions,function(question,$index){
-            var values_options=[];
-            angular.forEach(question.children[0].choices,function(option){
-                values_options.push(option.label.en);
-            });
-            $scope.questionAnswer[$index]={id:question.id,title:question.title.en,value:"",values:values_options};
-        });
+        //Cuando usaba cuestionario dinámico necesitaba este codigo y el método createJsonAnswer de abajo.
+                $scope.questionnaire=common.questionnaire;
+                /*if($scope.questionnaire.form[0].children.length>1)
+                    $scope.questions=$scope.questionnaire.form[0].children;*/
+                $scope.questionAnswer=[];
+                $scope.answers=[];
+                //Cosntruyo una estructura para recorrerla en el html y crear formulario
+                angular.forEach($scope.questions,function(question,$index){
+                    var values_options=[];
+                    angular.forEach(question.children[0].choices,function(option){
+                        values_options.push(option.label.en);
+                    });
+                    $scope.questionAnswer[$index]={id:question.id,title:question.title.en,value:"",values:values_options};
+                });
 
         //Cuestionario estático 2
         $scope.questionnaire2=[

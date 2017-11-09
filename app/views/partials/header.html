@@ -16,21 +16,21 @@
     <div class="contentHeader_content">
         <nav>
             <ul class="contentHeader_content__options">
-                <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/courses') }"><a class="contentHeader_content__options__element__link"  ng-click="showTotalCourses('totalCoursesPage')" ng-href="#!/courses" title="Cursos">
+                <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/courses') }"><a class="contentHeader_content__options__element__link" ng-href="#!/courses" title="Cursos">
                 <span class="bbq-graduation-cap bbq-graduation-cap--header"></span>
                 <span class="contentHeader_content__options__element__link__label">Cursos</span>
                 </a></li>
-                <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/loms') }"><a class="contentHeader_content__options__element__link" ng-href="#!/loms" title="Recursos">
+                <li ng-show="activeUserHeader.role == 'teacher'" class="contentHeader_content__options__element" ng-class="{ active : isActive('/loms') }"><a class="contentHeader_content__options__element__link" ng-href="#!/loms" title="Recursos">
                 <span class="bbq-cloud bbq-cloud--header"></span>
                 <span class="contentHeader_content__options__element__link__label">Recursos</span>
                 </a></li>
-                <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/students') }"><a class="contentHeader_content__options__element__link" ng-href="#!/students" title="Aprende">
+                <li ng-show="activeUserHeader.role == 'teacher'" class="contentHeader_content__options__element" ng-class="{ active : isActive('/students') }"><a class="contentHeader_content__options__element__link" ng-href="#!/students" title="Aprende">
                 <span class="bbq-book-open bbq-book-open--header"></span>
-                <span class="contentHeader_content__options__element__link__label">Aprende</span>
+                <span class="contentHeader_content__options__element__link__label">Estudiantes</span>
                 </a></li>
-                <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/login') }"><a class="contentHeader_content__options__element__link" ng-href="#!/login" title="Foro">
+                <li class="contentHeader_content__options__element" ng-class="{ active : isActive('/login') }"><a class="contentHeader_content__options__element__link" ng-href="#!/login" title="Objetivos">
                 <span class="bbq-comment bbq-comment--header"></span>
-                <span class="contentHeader_content__options__element__link__label">Foro</span>
+                <span class="contentHeader_content__options__element__link__label">Objetivos</span>
                 </a></li>
             </ul>
        </nav>

@@ -11,13 +11,14 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
 
         $log.log('lomsApi start');
 
-        function addLom(generalSchema,lifecycleSchema,metadataSchema,technicalSchema, useSchema) {
-            console.log("Objetos para hacer post: "+ generalSchema,lifecycleSchema,metadataSchema,
+        function addLom(generalSchema,lifecycleSchema,metadataSchema,technicalSchema, useSchema, authorLom) {
+            console.log("Objetos para hacer post: ", generalSchema,lifecycleSchema,metadataSchema,
                                  technicalSchema, useSchema);
 
             var lomsPromise = $q.defer();
 
             $http.post(common.bitbloqBackendUrl + '/loms', {
+                author: authorLom,
                 general: {
                     id_catalog: generalSchema.id_catalog,
                     id_entry: generalSchema.id_entry,
@@ -41,12 +42,13 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
                 technical: {
                     format: technicalSchema.format, 
                     size_kb: technicalSchema.size_kb, 
-                    url: technicalSchema.url      
+                    url: technicalSchema.url,
+                    photo: technicalSchema.photo       
                 },
                 use: {
-                    interactivity_type: useSchema.interactivity_type,
-                    interactivity_level: useSchema.interactivity_level,
                     language: useSchema.language,
+                    interactivity_level: useSchema.interactivity_level,
+                    interactivity_type: useSchema.interactivity_type,
                     resource_type: useSchema.resource_type,
                     resource_target: useSchema.resource_target,
                     resource_context: useSchema.resource_context,
@@ -90,7 +92,8 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
                 technical: {
                     format: technicalSchema.format, 
                     size_kb: technicalSchema.size_kb, 
-                    url: technicalSchema.url      
+                    url: technicalSchema.url,
+                    photo: technicalSchema.photo      
                 },
                 use: {
                     interactivity_type: useSchema.interactivity_type,
@@ -113,8 +116,8 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
         function getLoms() { 
           return $http.get( common.bitbloqBackendUrl + "/loms" );      
         }
-        function getLom(item) { 
-          return $http.get( common.bitbloqBackendUrl + "/loms/"+item._id );      
+        function getLom(idlom) { 
+          return $http.get( common.bitbloqBackendUrl + "/loms/"+idlom );      
         }
         function removeItem(item) { 
           return $http.delete(common.bitbloqBackendUrl + "/loms/"+item );      

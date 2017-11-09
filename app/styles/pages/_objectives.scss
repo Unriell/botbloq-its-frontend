@@ -8,7 +8,13 @@
 
 	}
 	.wrapperObjectives__contetObjetives__list__element{
-		margin-bottom: 0px;
+		margin-bottom: 22px;
+		padding-bottom: 25px;
+		border-bottom:1px solid $color-grayLight;
+	}
+	.wrapperObjectives .contentTitle .h2Class{
+		text-align:center;
+		font-size: 1.5em;
 	}
 	.wrapperObjectives__contetObjetives__list__element__contentImage{
 		text-align: center;
@@ -17,9 +23,11 @@
 	.wrapperObjectives__contetObjetives__list__element__contentImage__img{
 		border-radius: 50%;
 		width: 125px;
+		vertical-align: middle
 	}
 	.wrapperObjectives__contetObjetives__list__element__info{
 		text-align:center;
+		vertical-align: middle;
 	}
 
 	.wrapperObjectives__contetObjetives__list__element__info__title{
@@ -29,4 +37,5 @@
 		font-size: 1.1em;
 	}
 	.wrapperObjectives__contetObjetives__list__element__info__description{
+		margin-bottom:2px;
 	}

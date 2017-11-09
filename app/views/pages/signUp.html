@@ -1,54 +1,85 @@
 <div class="contentSignUp">
 	<h1 class="contentSignUp__contentLogo">
-		<img class="contentSignUp__contentLogo__logo" src="../../assets/images/common/bitbloq_logo.png" alt="logo">
+		<!-- <img class="contentSignUp__contentLogo__logo" src="../../assets/images/common/bitbloq_logo.png" alt="logo"> -->
+		<img class="contentSignUp__contentLogo__logo" src="../../assets/images/common/bitbloq_negro.png" alt="logo">
 	</h1>
-	<div class="contentSignUp__wrapperContent">
-		<h2 class="contentSignUp__wrapperContent__title">Entrar</h2>
-		<form class="contentSignUp__wrapperContent__form" name="signUpForm" ng-submit="signUp()">
-			<div class="contentRow">
-				<div class="row">
-					<div class="col-xs-12">
-						<div class="contentCol clearfix">
-							<label class="contentSignUp__wrapperContent__form__label">
-								Usuario
-							</label>
-							<div class="contentSignUp__wrapperContent__form__contentInput">
-								<input class="contentSignUp__wrapperContent__form__contentInput__input" ng-model="user.name" type="text" name="" placeholder="Nombre de usuario" />
-								<span class="bbq-userlogin bbq-userlogin--signUp"></span>
+	<div class="contentSignUp__wrapperContent__outline">
+		<div class="contentSignUp__wrapperContent">
+			<h2 ng-show="login" class="contentSignUp__wrapperContent__title">Entrar</h2>
+			<h2 ng-show="!login" class="contentSignUp__wrapperContent__title">Regístrate</h2>
+			<form class="contentSignUp__wrapperContent__form" name="signUpForm" ng-submit="signUpIn()">
+				<div class="contentRow">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="contentCol clearfix">
+								<label for="user" class="contentSignUp__wrapperContent__form__label">
+									Usuario 
+								</label>
+								<div class="contentSignUp__wrapperContent__form__contentInput" ng-class="{ 'error': nameError || loginError}">
+									<input  ng-hide="login" id="user" name="user" class="contentSignUp__wrapperContent__form__contentInput__input" ng-model="user.name" type="text"  placeholder="Nombre de usuario"/>
+									<input  ng-show="login" id="user" name="user" class="contentSignUp__wrapperContent__form__contentInput__input" ng-model="user.name" type="text"  placeholder="Usuario o Email"/>
+									<span class="bbq-userlogin bbq-userlogin--signUp"></span>
+								</div>
+								<span ng-if="nameError" class="formError">
+									{{nameError}}
+								</span>
+							</div>
+						</div>
+						<div ng-show="!login" class="col-xs-12">
+							<div class="contentCol clearfix">
+								<label for="email" class="contentSignUp__wrapperContent__form__label">
+									Email
+								</label>
+								<div class="contentSignUp__wrapperContent__form__contentInput" ng-class="{ 'error': emailError }">
+									<input id="email" name="email" class="contentSignUp__wrapperContent__form__contentInput__input" ng-model="user.email" type="text" placeholder="Email"/>
+									<span class="bbq-email bbq-email--signUp"></span>
+								</div>
+								<span ng-if="emailError" class="formError">
+									{{emailError}}
+								</span>
+							</div>
+						</div>
+						<div class="col-xs-12">
+							<div class="contentCol clearfix">
+								<label for="password" class="contentSignUp__wrapperContent__form__label">
+									Password
+								</label>
+								<div class="contentSignUp__wrapperContent__form__contentInput" ng-class="{ 'error': passError || loginError }">
+									<input class="contentSignUp__wrapperContent__form__contentInput__input" ng-model="user.password" type="password" name="password" id="password" placeholder="Password"/>
+									<span class="bbq-password bbq-password--singUp"></span>
+								</div>
+								<span ng-if="passError" class="formError">
+									{{passError}}
+								</span>
+								<span ng-if="loginError" class="formError">
+									{{loginError}}
+								</span>
 							</div>
 						</div>
 					</div>
-					<div class="col-xs-12">
-						<div class="contentCol clearfix">
-							<label class="contentSignUp__wrapperContent__form__label">
-								Email
-							</label>
-							<div class="contentSignUp__wrapperContent__form__contentInput">
-								<input class="contentSignUp__wrapperContent__form__contentInput__input" ng-model="user.email" type="text" name="" placeholder="Email"/>
-								<span class="bbq-email bbq-email--signUp"></span>
-							</div>
-						</div>
+				</div>
+				<div class="contentSignUp__wrapperContent__form__optionsCheck clearfix">
+					<div class="contentSignUp__wrapperContent__form__optionsCheck__content clearfix">
+						<input id="teacher" name="teacher" ng-model="teacher" class="contentSignUp__wrapperContent__form__optionsCheck__content__checkBox" type="checkbox"/>
+						<label for="" class="contentSignUp__wrapperContent__form__optionsCheck__content__labelCheck">Soy profesor</label>
+					</div>
+					<div class="contentSignUp__wrapperContent__form__optionsCheck__content clearfix">
+						<input id="conditions" name="conditions" class="contentSignUp__wrapperContent__form__optionsCheck__content__checkBox" type="checkbox" name=""/>
+						<label for="conditions" class="contentSignUp__wrapperContent__form__optionsCheck__content__labelCheck">He leído y acepto las <a href="#">condiciones</a> y <a href="#">políticas de privacidad</a></label>
 					</div>
 				</div>
-			</div>
-			<div class="contentSignUp__wrapperContent__form__optionsCheck clearfix">
-				<div class="contentSignUp__wrapperContent__form__optionsCheck__content clearfix">
-					<input class="contentSignUp__wrapperContent__form__optionsCheck__content__checkBox" type="checkbox" name=""/>
-					<label class="contentSignUp__wrapperContent__form__optionsCheck__content__labelCheck">Soy profesor y/o quiero recibir noticias, consejos y avisos de la aplicación</label>
-				</div>
-				<div class="contentSignUp__wrapperContent__form__optionsCheck__content clearfix">
-					<input class="contentSignUp__wrapperContent__form__optionsCheck__content__checkBox" type="checkbox" name=""/>
-					<label class="contentSignUp__wrapperContent__form__optionsCheck__content__labelCheck">He leído y acepto las <a href="#">condiciones</a> y <a href="#">políticas de privacidad</a></label>
-				</div>
-			</div>
-			<div class="contentSignUp__wrapperContent__form__contentSubmit">
-				<button class="contentSignUp__wrapperContent__form__contentSubmit__button btnBq--withIcon width100" type="submit">Registrarme</button>
-			</div>			
-		</form>
+				<div class="contentSignUp__wrapperContent__form__contentSubmit">
+					<button ng-show="!login" class="contentSignUp__wrapperContent__form__contentSubmit__button btnBq--withIcon width100" type="submit">Registrarme</button>
+					<button ng-show="login" class="contentSignUp__wrapperContent__form__contentSubmit__button btnBq--withIcon width100" type="submit">Iniciar Sesión</button>
+				</div>			
+			</form>
+		</div>
 	</div>
+	
 	<div class="contentSignUp__info">
-		<p class="contentSignUp__info__text">
-			Ya estoy registrado
-		</p>
+		<a ng-show="!login" href ng-click="LoginSignUP()" class="contentSignUp__info__text">Ya estoy registrado</a>
+		<a ng-show="login" href ng-click="LoginSignUP()" class="contentSignUp__info__text">Crear una cuenta</a>
 	</div>
+	<button ng-if="false" type="button" ng-click="deleteAllStudents()">Eliminar todos los alumnos</button>
+	<button ng-if="false" type="button" ng-click="deleteAllTeachers()">Eliminar todos los profesores</button>
 </div>

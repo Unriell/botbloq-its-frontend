@@ -16,7 +16,7 @@ botBloqApp.controller('BodyCtrl', function($scope, common, $log,usersApi,lomsApi
         $scope.nameActiveUser=common.nameActiveUSer;
         $scope.activeUserHeader=common.activeUSer;
         /*$scope.activeUser="Usuariooo";*/
-        
+      
         $scope.changeInit=function(boolean) {
           $scope.init=boolean;
         }

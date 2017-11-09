@@ -37,17 +37,17 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="generalSchema_catalog">Identificador Catálogo*</label>
+														<label class="formAddLom__label" for="generalSchema_catalog">Identificador Catálogo</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
-														<input class="formAddLom__input" ng-model="generalSchema.id_catalog" type="text" id="generalSchema_catalog" name="generalSchema_catalog" required>
+														<input class="formAddLom__input" ng-model="generalSchema.id_catalog" type="text" id="generalSchema_catalog" name="generalSchema_catalog">
 													</div>
 												</div>
 											</div>
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="generalSchema_entry">Identificador De Entrada*</label>	
+														<label class="formAddLom__label" for="generalSchema_entry">Identificador De Entrada</label>	
 													</div>
 													<div class="col-xs-12 col-sm-6">
 														<input class="formAddLom__input" ng-model="generalSchema.id_entry" type="number" id="generalSchema_entry" name="generalSchema_entry">		
@@ -59,20 +59,20 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="generalSchema_title">Título*</label>
+														<label class="formAddLom__label" for="generalSchema_title">Título *</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
-														<input class="formAddLom__input" ng-model="generalSchema.title" type="text" id="generalSchema_title" name="generalSchema_title">
+														<input class="formAddLom__input" ng-model="generalSchema.title" type="text" id="generalSchema_title" name="generalSchema_title" required>
 													</div>
 												</div>
 											</div>
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="generalSchema_language">Idioma*</label>
+														<label class="formAddLom__label" for="generalSchema_language">Idioma *</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
-														<select class="formAddLom__select" ng-model="generalSchema.language" id="generalSchema_language"  type="text" name="generalSchema_language">
+														<select class="formAddLom__select" ng-model="generalSchema.language" id="generalSchema_language"  type="text" name="generalSchema_language" required>
 														  <option>es</option>
 														  <option>en</option>
 														</select>
@@ -84,12 +84,12 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="generalSchema_structure">Estructura*</label>
+														<label class="formAddLom__label" for="generalSchema_structure">Estructura *</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
-														<select class="formAddLom__select" ng-model="generalSchema.structure" id="generalSchema_structure" type="text" name="generalSchema_structure">
-														  <option>atomic</option>
-														  <option>complex</option>
+														<select class="formAddLom__select" ng-model="generalSchema.structure" id="generalSchema_structure" type="text" name="generalSchema_structure" required>
+														  <option value="atomic">Atómica</option>
+														  <option value="complex">Compleja</option>
 														</select>
 													</div>
 												</div>
@@ -97,7 +97,7 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="generalSchema_aggregation_level">Nivel de agregación*</label>
+														<label class="formAddLom__label" for="generalSchema_aggregation_level">Nivel de agregación</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
 														<input class="formAddLom__input" ng-model="generalSchema.aggregation_level" type="number" id="generalSchema_aggregation_level" name="generalSchema_aggregation_level">
@@ -129,12 +129,12 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="lifecycleSchema_state">Estado</label>
+														<label class="formAddLom__label" for="lifecycleSchema_state">Estado *</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
-														<select class="formAddLom__select" ng-model="lifecycleSchema.state" id="lifecycleSchema_state" type="text" name="lifecycleSchema_state">
-											  				<option>draft</option>
-											  				<option>final</option>
+														<select class="formAddLom__select" ng-model="lifecycleSchema.state" id="lifecycleSchema_state" type="text" name="lifecycleSchema_state" required>
+											  				<option value="draft">Preliminar</option>
+											  				<option value="final">Final</option>
 														</select>	
 													</div>
 												</div>
@@ -145,7 +145,7 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="lifecycleSchema_contribution_type">Contribución.Tipo*</label>
+														<label class="formAddLom__label" for="lifecycleSchema_contribution_type">Contribución - Tipo</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
 														<input class="formAddLom__input" ng-model="lifecycleSchema.contribution_type" type="text" id="lifecycleSchema_contribution_type" name="lifecycleSchema_contribution_type">
@@ -155,7 +155,7 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="lifecycleSchema_contribution_entity">Contribución.Entidad*</label>
+														<label class="formAddLom__label" for="lifecycleSchema_contribution_entity">Contribución - Entidad</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
 														<input class="formAddLom__input" ng-model="lifecycleSchema.contribution_entity" type="text" id="lifecycleSchema_contribution_entity" name="lifecycleSchema_contribution_entity">
@@ -168,7 +168,7 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="lifecycleSchema_contribution_date">Contribución.Fecha*</label>
+														<label class="formAddLom__label" for="lifecycleSchema_contribution_date">Contribución - Fecha</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
 														<input class="formAddLom__input" ng-model="lifecycleSchema.contribution_date" type="date" id="lifecycleSchema_contribution_date" name="lifecycleSchema_contribution_date">
@@ -191,7 +191,7 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="metadataSchema_contribution_type">Contribución.Tipo</label>
+														<label class="formAddLom__label" for="metadataSchema_contribution_type">Contribución - Tipo</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
 														<input class="formAddLom__input" ng-model="metadataSchema.contribution_type" type="text" id="metadataSchema_contribution_type" name="metadataSchema_contribution_type">
@@ -201,7 +201,7 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="metadataSchema_contribution_entity">Contribución.Entidad*</label>
+														<label class="formAddLom__label" for="metadataSchema_contribution_entity">Contribución - Entidad </label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
 														<input class="formAddLom__input" ng-model="metadataSchema.contribution_entity" type="text" id="metadataSchema_contribution_entity" name="metadataSchema_contribution_entity">
@@ -214,7 +214,7 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="metadataSchema_contribution_date">Contribución.Fecha*</label>
+														<label class="formAddLom__label" for="metadataSchema_contribution_date">Contribución - Fecha</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
 														<input class="formAddLom__input" ng-model="metadataSchema.contribution_date" type="date" id="metadataSchema_contribution_date" name="metadataSchema_contribution_date">
@@ -236,10 +236,10 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="technicalSchema_format">Formato</label>
+														<label class="formAddLom__label" for="technicalSchema_format">Formato *</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
-														<input class="formAddLom__input" ng-model="technicalSchema.format" type="text" id="technicalSchema_format" name="technicalSchema_format">
+														<input class="formAddLom__input" ng-model="technicalSchema.format" type="text" id="technicalSchema_format" name="technicalSchema_format" required>
 													</div>
 												</div>
 											</div>
@@ -259,10 +259,20 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="technicalSchema_url">Localización</label>
+														<label class="formAddLom__label" for="technicalSchema_url">Url *</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
-														<input class="formAddLom__input" ng-model="technicalSchema.url" type="text" id="technicalSchema_url" name="technicalSchema_url">
+														<input class="formAddLom__input" ng-model="technicalSchema.url" type="text" id="technicalSchema_url" name="technicalSchema_url" required>
+													</div>
+												</div>
+											</div>
+											<div class="col-xs-12 col-sm-6 mb15">
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<label class="formAddLom__label" for="technicalSchema_photo">Imagen</label>
+													</div>
+													<div class="col-xs-12 col-sm-6">
+														<input class="formAddLom__input" ng-model="technicalSchema.photo" type="text" id="technicalSchema_photo" name="technicalSchema_photo">
 													</div>
 												</div>
 											</div>
@@ -305,7 +315,7 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="useSchema_language">Idioma*</label>
+														<label class="formAddLom__label" for="useSchema_language">Idioma</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
 														<input class="formAddLom__input" ng-model="useSchema.language" type="text" id="useSchema_language" name="useSchema_language">
@@ -315,7 +325,7 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="useSchema_resource_type">Tipo de recurso*</label>
+														<label class="formAddLom__label" for="useSchema_resource_type">Tipo de recurso</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
 														<input class="formAddLom__input" ng-model="useSchema.resource_type" type="text" id="useSchema_resource_type" name="useSchema_resource_type">
@@ -351,10 +361,14 @@
 											<div class="col-xs-12 col-sm-6 mb15">
 												<div class="row">
 													<div class="col-xs-12 col-sm-6">
-														<label class="formAddLom__label" for="useSchema_resource_difficulty">Dificultad</label>
+														<label class="formAddLom__label" for="useSchema_resource_difficulty">Dificultad *</label>
 													</div>
 													<div class="col-xs-12 col-sm-6">
-														<input class="formAddLom__input" ng-model="useSchema.resource_difficulty" type="text" id="useSchema_resource_difficulty" name="useSchema_resource_difficulty">
+														<select class="formAddLom__select" ng-model="useSchema.resource_difficulty" id="useSchema_resource_difficulty"  type="text" name="useSchema_resource_difficulty" required>
+														  <option>Básica</option>
+														  <option>Media</option>
+														  <option>Avanzada</option>
+														</select>
 													</div>
 												</div>
 											</div>

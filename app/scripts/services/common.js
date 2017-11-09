@@ -11,7 +11,8 @@ botBloqApp.service('common', function($log) {
 
         var bitbloqBackendUrl = 'http://localhost:8000/botbloq/v1/its';
 
-  		var courseSelected={},
+  		var teacher=false,
+            courseSelected={},
             objectivesCourse=[],
   			sectionsCourseSelected=[],
   			lessonsCourseSelected=[],
@@ -21,15 +22,20 @@ botBloqApp.service('common', function($log) {
             nameActiveUser="",
             questionnaire={},
             newActivity={},
-            actualViewCourses="totalCoursesPage",
+            actualViewCourses="",
+            actualViewCourse="",
+            selectLomsView="todos",
             addingLom=true,
             lomSelected={},
-            urlActivity = {src: "", title:"Loading activity."};;
+            lomsTeacher=[],
+            enrolledInCourse=false,
+            urlActivity = {src: "", title:"Loading activity."};
 
         $log.log('common start');
 
         return {
             bitbloqBackendUrl: bitbloqBackendUrl,
+            teacher : teacher,
             courseSelected: courseSelected, 
             sectionsCourseSelected: sectionsCourseSelected,
             lessonsCourseSelected: lessonsCourseSelected,
@@ -41,8 +47,12 @@ botBloqApp.service('common', function($log) {
             questionnaire : questionnaire,
             newActivity : newActivity,
             actualViewCourses : actualViewCourses,
+            actualViewCourse : actualViewCourse,
+            selectLomsView : selectLomsView,
             addingLom : addingLom,
             lomSelected : lomSelected,
+            lomsTeacher : lomsTeacher,
+            enrolledInCourse : enrolledInCourse,
             urlActivity : urlActivity
         };
 
