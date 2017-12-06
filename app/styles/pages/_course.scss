@@ -1,5 +1,12 @@
 .wrapperCourse{
 	padding:5px;
+	.nav-item .nav-link{
+		border-bottom:2px solid $color-black;
+	}
+	.nav-item.active .nav-link{
+		border:2px solid $color-black;
+		border-bottom:none
+	}
 }
 	.courseDisabled{
 		background: red;
@@ -94,7 +101,10 @@
 			color: $text-color-black;
 		}
 	}
-
+	.wrapperCourse__lessons__wraperSections{
+	    overflow-x: hidden;
+	    max-height: 836px;
+	}
 	.wrapperCourse__lessons__contentSections{
 		margin-top:5px;
 		margin-bottom:47px;
@@ -161,6 +171,7 @@
 
 	.wrapperCourse__come{
 		margin-bottom: 20px;
+		margin-top: 40px;
 	}
 
 	.bbq-arrow-go--lesson:before {
@@ -171,3 +182,55 @@
     	text-align: center;
 	}
 
+
+	
+	.viewAuthor{
+		.viewAuthor__contentAuthor{
+
+		}
+		.viewAuthor__contentAuthor__img{
+			border-radius: 50%;
+    		width: 270px;
+    		margin-bottom: 15px;
+		}
+		.viewAuthor__contentAuthor__title{
+		    font-weight: bold;
+			font-size: 2em;
+			text-transform: capitalize;
+			display: block;
+			margin-bottom: 15px;
+		}
+		.viewAuthor__contentAuthor__description{
+			
+		}
+		.viewAuthor__imgCourse{
+			height: 145px;
+		}
+		.viewAuthor__contentCourseTitle{
+			position:relative;
+		}
+		.viewAuthor__contentTitle__detailsCourse{
+			position:absolute;
+		}
+		.viewAuthor__detailsCourse__link{
+			display: block;
+		}
+		.viewAuthor__contentCourseTitle__title{
+			text-align: center;
+			text-transform: uppercase;
+			font-weight: bold;
+		    font-size: 2em;
+		    margin-bottom: 20px;
+		}
+		.viewAuthor__contentCourses{
+
+		}				
+
+	}
+
+	.bbq-minusDetail--course:before, .bbq-moreDetail--course:before {
+	  color:$color-grayLight2;
+	  display: block;
+	  font-size: 1.6em;
+	  overflow: hidden;
+	}

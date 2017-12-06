@@ -31,48 +31,48 @@
         //Cuestionario estático 2
         $scope.questionnaire2=[
             {
-                "title":"¿Cuando deletreas una palabra ...",
+                "title":"¿Cuando deletrea una palabra ...",
                 "answers":[
                     {
-                        "title":"intentas visualizarla (se ve bien)?"
+                        "title":"intenta visualizarla (se ve bien)?"
                     },
                     {
-                        "title":"la sondeas (es correcta)?"
+                        "title":"la sondea (es correcta)?"
                     },
                     {
-                        "title":"la escribes (la sientes bien)?"
+                        "title":"la escribe (la siente bien)?"
                     }
                 ]
             },
             {
-                "title":"¿Cuando te estas concentrando ...",
+                "title":"¿Cuando se esta concentrando ...",
                 "answers":[
                     {
-                        "title":"te distraes más por el desorden?"
+                        "title":"se distrae más por el desorden?"
                     },
                     {
-                        "title":"te distraes más por el ruido?"
+                        "title":"se distrae más por el ruido?"
                     },
                     {
-                        "title":"te distraes más por el movimiento o perturbación física?"
+                        "title":"se distrae más por el movimiento o perturbación física?"
                     }
                 ]
             },
             {
-                "title":"¿Cuando eliges una forma de arte favorita, ...",
+                "title":"¿Cuando elige una forma de arte favorita, ...",
                 "answers":[
                     {
-                        "title":"prefieres las pinturas?"
+                        "title":"prefiere las pinturas?"
                     },
                     {
-                        "title":"prefieres la música?"
+                        "title":"prefiere la música?"
                     },
                     {
-                        "title":"prefieres la danza o la escultura?"
+                        "title":"prefiere la danza o la escultura?"
                     }
                 ]
             },{
-                "title":"¿Cuando recompensas a alguien, ...",
+                "title":"¿Cuando recompensa a alguien, ...",
                 "answers":[
                     {
                         "title":"tiende a escribir alabanzas en su trabajo en una nota?"
@@ -85,34 +85,21 @@
                     }
                 ]
             },{
-                "title":"¿Cuando hablas, ...",
+                "title":"¿Cuando se encuentra con gente, ...",
                 "answers":[
                     {
-                        "title":"hablas bastante rápido, pero mantienes la conversación ociosa y limitada?. Usando muchos símiles; p.ej. Es como una aguja en un pajar?"
+                        "title":"recuerda principalmente cómo se veían / los alrededores?."
                     },
                     {
-                        "title":"hablas fluidamente con un ritmo uniforme, en un orden lógico y con pocas vacilaciones. Enuncia claramente?."
+                        "title":"recuerda principalmente lo que se dijo / recuerda sus nombres?."
                     },
                     {
-                        "title":"usas muchos movimientos de manos, habla de acciones y sentimientos. Hablar más despacio con pausas más largas?."
-                    }
-                ]
-            },{
-                "title":"¿Cuando te encuentras con gente, ...",
-                "answers":[
-                    {
-                        "title":"recuerdas principalmente cómo se veían / los alrededoresturas?."
-                    },
-                    {
-                        "title":"recuerdas principalmente lo que se dijo / recuerdas sus nombres?."
-                    },
-                    {
-                        "title":"recuerdas que hiciste con ellos / recuerdas sus emociones?."
+                        "title":"recuerda que hiciste con ellos / recuerda sus emociones?."
                     }
                 ]
             },
             {
-                "title":"¿Cuando ves una película, TV o lees una novela, ...",
+                "title":"¿Cuando ve una película, TV o lee una novela, ...",
                 "answers":[
                     {
                         "title":"recuerda las mejores escenas que le parecían a la gente?."
@@ -124,22 +111,20 @@
                         "title":"recuerda lo mejor que sucedió / la emoción del personaje?."
                     }
                 ]
-            },
-            {
-                "title":"¿Cuando intenta interpretar el estado de ánimo de alguien, ...",
+            },{
+                "title":"¿Cuando está aprendiendo, ...",
                 "answers":[
                     {
-                        "title":"principalmente nota sus expresiones faciales?."
+                        "title":"prefiere leer, ver las palabras, ilustraciones o los diagramas; Dibujas?."
                     },
                     {
-                        "title":"escucha el tono de su voz?."
+                        "title":"le gusta que le digan, asistir a conferencias, hablar de ello?."
                     },
                     {
-                        "title":"ve sus movimientos corporales?."
+                        "title":"le gusta involucrarse, ser práctico, probar, escribir notas?."
                     }
                 ]
-            },
-            {
+            },{
                 "title":"¿Cuando está recordando algo, ...",
                 "answers":[
                     {
@@ -152,8 +137,7 @@
                         "title":"recuerda lo que se hizo / como se sentía?."
                     }
                 ]
-            },
-            {
+            },{
                 "title":"¿Cuando está memorizando algo, ...",
                 "answers":[
                     {
@@ -166,8 +150,7 @@
                         "title":"prefiere memorizar haciendo algo repetidamente?."
                     }
                 ]
-            },
-            {
+            },{
                 "title":"¿Cuando está enfadado, ...",
                 "answers":[
                     {
@@ -177,11 +160,23 @@
                         "title":"se expresa con un estallido?."
                     },
                     {
-                        "title":"te acobardas, apretas los puños y tiras cosas?."
+                        "title":"se acobarda, apreta los puños y tira cosas?."
                     }
                 ]
-            },
-            {
+            },{
+                "title":"¿Cuando intenta interpretar el estado de ánimo de alguien, ...",
+                "answers":[
+                    {
+                        "title":"principalmente nota sus expresiones faciales?."
+                    },
+                    {
+                        "title":"escucha el tono de su voz?."
+                    },
+                    {
+                        "title":"ve sus movimientos corporales?."
+                    }
+                ]
+            },{
                 "title":"¿Cuando está inactivo, ...",
                 "answers":[
                     {
@@ -191,12 +186,12 @@
                         "title":"habla consigo mismo u otros?."
                     },
                     {
-                        "title":"piensas, caminas?."
+                        "title":"piensa, camina?."
                     }
                 ]
             },
             {
-                "title":"¿Cuando te expresas, ...",
+                "title":"¿Cuando se expresa, ...",
                 "answers":[
                     {
                         "title":"a menudo usa frases como: 'Yo veo', 'Tengo la imagen', 'Vamos a ver', 'Puedo imaginarlo'?."
@@ -208,22 +203,20 @@
                         "title":"a menudo usa frases como: 'Eso sienta bien', 'Estoy buscando a tientas una respuesta', 'Necesito un ejemplo concreto'?."
                     }
                 ]
-            },
-            {
-                "title":"¿Cuando está aprendiendo, ...",
+            },{
+                "title":"¿Cuando habla, ...",
                 "answers":[
                     {
-                        "title":"prefieres leer, ver las palabras, ilustraciones o los diagramas; Dibujas?."
+                        "title":"habla bastante rápido pero mantienes la conversación ociosa usando muchos símiles como 'una aguja en un pajar'?"
                     },
                     {
-                        "title":"le gusta que le digan, asistir a conferencias, hablar de ello?."
+                        "title":"habla fluidamente con un ritmo uniforme, en un orden lógico y con pocas vacilaciones. Enuncia claramente?."
                     },
                     {
-                        "title":"le gusta involucrarse, ser práctico, probar, escribir notas?."
+                        "title":"usa muchos movimientos de manos, habla de acciones y sentimientos. Hablar más despacio con pausas más largas?."
                     }
                 ]
-            },
-            {
+            },{
                 "title":"¿Cuando monta un equipo nuevo, ...",
                 "answers":[
                     {
@@ -236,7 +229,7 @@
                         "title":"primero trabajas con las piezas?."
                     }
                 ]
-            },
+            }
         ];
         //
         usersApi.getStudents().then(function(response){

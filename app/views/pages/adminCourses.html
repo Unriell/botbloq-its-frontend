@@ -27,28 +27,14 @@
 					<p class="wrapperLinkCourses__list__element__link__description">¡Ver todos los cursos has creado!</p>
 				</a>
 			</li>
-			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
-				<a ng-class="{'disabled':lastIncludedCoursesPage}" class="wrapperLinkCourses__list__element__link" ng-click="managementCoursesViews('lastIncludedCoursesPage')" href>
-					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/courses/coursesTypes.png">
-					<p class="wrapperLinkCourses__list__element__link__subtitle">Novedades</p>
-					<p class="wrapperLinkCourses__list__element__link__description">¡No te pierdas los cursos más actualizados! ¡Matricúlate!</p>
-				</a>
-			</li>	
-			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
+			<li ng-show="userRole=='teacher'" class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
 				<a ng-class="{'disabled':relatedCoursesPage}" class="wrapperLinkCourses__list__element__link" ng-click="managementCoursesViews('relatedCoursesPage')" href>
 					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/courses/coursesTypes.png">
 					<p class="wrapperLinkCourses__list__element__link__subtitle">Cursos Relacionados</p>
 					<p class="wrapperLinkCourses__list__element__link__description">¡No te pierdas los cursos más clásicos! ¡Matricúlate!</p>
 				</a>
-			</li>
-			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
-				<a class="wrapperLinkCourses__list__element__link" ng-class="{'disabled':relatedCoursesPage}" href>
-					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/courses/coursesTypes.png">
-					<p class="wrapperLinkCourses__list__element__link__subtitle">Cursos Inactivos</p>
-					<p class="wrapperLinkCourses__list__element__link__description">¡Cursos actualmente inactivos!</p>
-				</a>
 			</li>	
-			<li class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
+			<li ng-show="userRole=='student'" class="col-xs-12 col-sm-6 col-md-4 wrapperLinkCourses__list__element">
 				<a ng-class="{disabled:completedCoursesPage}" ng-click="managementCoursesViews('completedCoursesPage')" class="wrapperLinkCourses__list__element__link" href>
 					<img class="wrapperLinkCourses__list__element__link__img" src="../../assets/images/courses/coursesTypes.png">
 					<p class="wrapperLinkCourses__list__element__link__subtitle">Cursos Completados</p>

@@ -3,6 +3,12 @@
     padding: 20px 20px 20px 20px;
     min-height: 600px;
 }
+	.contentQuestionnaire .mb{
+		margin-bottom:5px;
+	}
+	.contentQuestionnaire__label{
+		line-height:20px;
+	}
 	.contentQuestionnaire__form{
 		background: $bg-color-white;
 		padding:20px 10px;
@@ -22,6 +28,7 @@
 	}
 	.contentQuestionnaire__form__wrapperQuestions__options{
 		margin-left:5px;
+		margin-bottom:5px;
 	}
 	.contentQuestionnaire__form__input{
 		width: 190px;

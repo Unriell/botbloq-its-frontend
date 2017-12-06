@@ -4,13 +4,13 @@
     </div>
 	
 	<div class="wrapperLesson__options">
-	    	<div class="wrapperLesson__options__ok">
+	    	<div ng-hide="userRole=='teacher'" class="wrapperLesson__options__ok">
 	    		<a title="Realizada"  class="wrapperLesson__options__ok__link" ng-click="okEndLesson()" href><span class="bbq-ok2 bbq-ok2--lesson"></span></a>
 	    	</div>
-    		<div title="No Realizada" class="wrapperLesson__options__nok">
+    		<div ng-hide="userRole=='teacher'" title="No Realizada" class="wrapperLesson__options__nok">
 				<a class="wrapperLesson__options__ok__link" ng-click="badEndLesson()" href><span class="bbq-minus bbq-nok--lesson"></span></a>
 			</div>
-    		<div title="Guardar" class="wrapperLesson__options__wait">
+    		<div ng-hide="userRole=='teacher'" title="Guardar" class="wrapperLesson__options__wait">
 				<a class="wrapperLesson__options__ok__link" ng-click="pauseLesson()" href><span class="bbq-save bbq-save--lesson"></span></a>
 			</div>
 			<div title="Volver" class="wrapperLesson__options__wait">

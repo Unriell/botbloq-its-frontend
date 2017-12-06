@@ -285,7 +285,21 @@
 	    right: -22px;
 	    top: 17px;
 	} 
-
+	.bbq-autocomplete--formLom:before{
+		color:$color-white;
+    	font-size: 2.1em;
+	}
+	.bbq-reset1--formLom:before{
+		color:$color-white;
+    	font-size: 2.1em;
+    	display: inline-block;
+	}
+	.bbq-reset2--formLom:before{
+		color:$color-white;
+    	font-size: 2.1em;
+    	display: inline-block;
+    	margin-left: -8px;
+	}
 
 //EDIT COURSE
 //------SECTION

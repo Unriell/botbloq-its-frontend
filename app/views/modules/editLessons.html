@@ -19,40 +19,20 @@
 								<div class="row">
 									<div class="col-xs-12 col-sm-6 mb15">
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
+											<div class="col-xs-12 col-sm-3">
 												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_name">Nombre</label>
 											</div>
-											<div class="col-xs-12 col-sm-6">
+											<div class="col-xs-12 col-sm-9">
 												<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.name" type="text" id="sections_lesson_name" name="sections_lesson_name">
 											</div>
 										</div>
 									</div>
 									<div class="col-xs-12 col-sm-6 mb15">
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_title">Titulo</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.title" type="text" id="sections_lesson_title" name="sections_lesson_title">
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_learningPath">Siguientes Lecciones</label>
-											</div>
-											<div class="col-xs-12 col-sm-6">
-												<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.learning_path" type="text" id="sections_lesson_learningPath" name="sections_lesson_learningPath">
-											</div>
-										</div>
-									</div>
-									<div class="col-xs-12 col-sm-6 mb15">
-										<div class="row">
-											<div class="col-xs-12 col-sm-6">
+											<div class="col-xs-12 col-sm-3">
 												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_type">Tipo</label>
 											</div>
-											<div class="col-xs-12 col-sm-6">
+											<div class="col-xs-12 col-sm-9">
 												<select class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.type" id="sections_lesson_type" type="text" name="sections_lesson_type">
 												<option value="" disabled>Selecciona</option>
 													<option value="Essential">Básica</option>
@@ -62,12 +42,32 @@
 											</div>
 										</div>
 									</div>
+									<div class="col-xs-12 col-sm-12 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-12">
+												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_title">Titulo</label>
+											</div>
+											<div class="col-xs-12 col-sm-12">
+												<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.title" type="text" id="sections_lesson_title" name="sections_lesson_title">
+											</div>
+										</div>
+									</div>
+									<div class="col-xs-12 col-sm-12 mb15">
+										<div class="row">
+											<div class="col-xs-12 col-sm-12">
+												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_learningPath">Siguientes Lecciones<span class="formAddCourse__fieldset__contentFields__label__annotation small"> *(Números separados por comas)</span></label>
+											</div>
+											<div class="col-xs-12 col-sm-12">
+												<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.learning_path" type="text" id="sections_lesson_learningPath" name="sections_lesson_learningPath">
+											</div>
+										</div>
+									</div>
 									<div class="col-xs-12 col-sm-6 mb15">
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
-												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_difficulty">Dificultad actual: <span class="txtBlack">{{lesson.difficulty}}</span></label>
+											<div class="col-xs-12 col-sm-3">
+												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_difficulty">Dificultad:<span class="txtBlack">{{lesson.difficulty}}</span></label>
 											</div>
-											<div class="col-xs-12 col-sm-6">	
+											<div class="col-xs-12 col-sm-9">	
 												<select class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.difficulty" id="sections_lesson_difficulty" type="number" name="sections_lesson_difficulty">
 													<option value="" disabled>Selecciona</option>
 													<option value="0">0 - Básica</option>
@@ -79,10 +79,10 @@
 									</div>
 									<div class="col-xs-12 col-sm-6 mb15">
 										<div class="row">
-											<div class="col-xs-12 col-sm-6">
+											<div class="col-xs-12 col-sm-3">
 												<label class="formAddCourse__fieldset__contentFields__label" for="sections_lesson_photo">Imagen</label>
 											</div>
-											<div class="col-xs-12 col-sm-6">
+											<div class="col-xs-12 col-sm-9">
 												<input class="formAddCourse__fieldset__contentFields__input" ng-model="lesson.photo" id="sections_lesson_photo" type="text" name="sections_lesson_photo"/>		
 											</div>
 										</div>
@@ -125,9 +125,16 @@
 																</div>
 															</div>	
 														</div>
-														<ul class="formAddCourse__fieldset__contentFields__loms">
+														<ul ng-if="!suggestLoms" class="formAddCourse__fieldset__contentFields__loms">
 															<li class="formAddCourse__fieldset__contentFields__loms__element" ng-repeat="i in loms | filter:searchLom">
-																<a ng-click="selectLomsToAddToLesson(i,$parent.$parent.$index, $parent.$index,$index,$event.target.className)" class="formAddCourse__fieldset__contentFields__loms__element__link" id="add_s{{$parent.$parent.$index}}_l{{$parent.$index}}_l{{$index}}" href>{{i.general.title}}</a>
+																<a ng-click="selectLomsToAddToLesson(i,$parent.$parent.$index, $parent.$index,$index,'loms',$event.target.className)" class="formAddCourse__fieldset__contentFields__loms__element__link" id="add_s{{$parent.$parent.$index}}_l{{$parent.$index}}_l{{$index}}" href>{{i.general.title}}
+																</a>
+															</li>
+														</ul>
+														<ul ng-if="suggestLoms" class="formAddCourse__fieldset__contentFields__loms">
+															<li class="formAddCourse__fieldset__contentFields__loms__element" ng-repeat="i in similarLoms | filter:searchLom" ng-show="$index<6">
+																<a ng-click="selectLomsToAddToLesson(i,$parent.$parent.$index, $parent.$index,$index,'similar',$event.target.className)" class="formAddCourse__fieldset__contentFields__loms__element__link" id="add_s{{$parent.$parent.$index}}_l{{$parent.$index}}_l{{$index}}" href>{{i[0].general.title}}
+																</a>
 															</li>
 														</ul>
 													</div>
@@ -137,12 +144,18 @@
 														<div class="formAddCourse__fieldset__contentFields__selectLoms__options">
 															<div class="col-xs-6 col-sm-12">
 																<div class="formAddCourse__fieldset__contentFields__selectLoms__options__add clearfix">
-																	<button class="btnBq--style1" ng-click="addLomsToLesson(section.name,lesson,$parent.$index,$index,$event)">Añadir</button>
+																	<button class="btnBq--style1" ng-click="addLomsToLesson(section.name,lesson,$parent.$index,$index,$event)" title="Añadir Objetos de Aprendizajes">Añadir</button>
 																</div>
 															</div>
 															<div class="col-xs-6 col-sm-12">
 																<div class="formAddCourse__fieldset__contentFields__selectLoms__options__delete clearfix">
-																	<button class="btnBq--style1" ng-click="deleteLomsFromLesson(section.name,lesson,$parent.$index,$index,$event)">Eliminar</button>
+																	<button class="btnBq--style1" ng-click="deleteLomsFromLesson(section.name,lesson,$parent.$index,$index,$event)" title="Eliminar un Objeto de Aprendizaje">Eliminar</button>
+																</div>
+															</div>
+															<div class="col-xs-6 col-sm-12">
+																<div class="formAddCourse__fieldset__contentFields__selectLoms__options__delete clearfix">
+																	<button ng-hide="suggestLoms" class="btnBq--style1" ng-click="searchSimilarLoms($event)" title="Objetos de Aprendizaje Similares" type="button">OA Similares</button>
+																	<button ng-show="suggestLoms" class="btnBq--style1" ng-click="showAllLoms()" title="Mostrar todos los OA" type="button">Mostrar todos los OA</button>
 																</div>
 															</div>
 														</div>

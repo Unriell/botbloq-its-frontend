@@ -9,6 +9,7 @@
  */
 botBloqApp.controller('loginCtrl', function($log,$q, $scope,$location, usersApi,teacherApi, common) {
         $log.log('login ctrl start');
+        
          var resetCommonServices=function(){
             common.teacher=false,
             common.courseSelected={},

@@ -37,6 +37,7 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 .bbq-verificarmini:before {
   content: "\61";
 }
@@ -192,4 +193,22 @@
 }
 .bbq-password:before {
   content: "\5a";
+}
+.bbq-reset1:before {
+  content: "\31";
+}
+.bbq-reset2:before {
+  content: "\33";
+}
+.bbq-menu:before {
+  content: "\30";
+}
+.bbq-autocomplete:before {
+  content: "\34";
+}
+.bbq-minusDetail:before {
+  content: "\32";
+}
+.bbq-moreDetail:before {
+  content: "\35";
 }

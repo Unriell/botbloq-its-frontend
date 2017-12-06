@@ -42,8 +42,7 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
                 technical: {
                     format: technicalSchema.format, 
                     size_kb: technicalSchema.size_kb, 
-                    url: technicalSchema.url,
-                    photo: technicalSchema.photo       
+                    url: technicalSchema.url
                 },
                 use: {
                     language: useSchema.language,
@@ -53,7 +52,8 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
                     resource_target: useSchema.resource_target,
                     resource_context: useSchema.resource_context,
                     resource_difficulty: useSchema.resource_difficulty
-                }
+                },
+                photo:technicalSchema.photo 
             }).then(function(response) {
                 console.log('ok despues de post', response.data.token);
                 lomsPromise.resolve();  
@@ -92,8 +92,7 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
                 technical: {
                     format: technicalSchema.format, 
                     size_kb: technicalSchema.size_kb, 
-                    url: technicalSchema.url,
-                    photo: technicalSchema.photo      
+                    url: technicalSchema.url
                 },
                 use: {
                     interactivity_type: useSchema.interactivity_type,
@@ -103,7 +102,8 @@ botBloqApp.service('lomsApi', function($log, $q, $http, common) {
                     resource_target: useSchema.resource_target,
                     resource_context: useSchema.resource_context,
                     resource_difficulty: useSchema.resource_difficulty
-                }
+                },
+                photo:technicalSchema.photo 
             }).then(function(response) {
                 console.log('ok despues de editar-post', response.data.token);
                 lomsPromise.resolve();  

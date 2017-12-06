@@ -20,8 +20,12 @@
         $scope.lastIncludedCourses=[];
         $scope.relatedCourses=[];
         $scope.teacher=common.teacher;
+        $scope.teachers=[];
+        $scope.actualCourseTeacher=[];
+        $scope.coursesActualTeacher=[];
         $scope.students=[];
         $scope.studentEnrolledInCourse=common.enrolledInCourse;
+        $scope.viewProgress=true;
 
         var resetCourseViews=function(){
             $scope.coursePage=false;
@@ -54,6 +58,54 @@
                     $scope.objectivesPage=true;
                     break;   
                 default:
+            }
+            /*getStudentsCoursesActives($scope.activeUser._id);*/
+            //$scope.getStudentsCoursesUnfinished($scope.activeUser._id);
+        }
+        $scope.managementTabsCourseViews= function(view){
+            switch (view) {
+                case 'viewProgress':
+                    $scope.viewProgress=true;
+                    $scope.viewLessons=false;
+                    $scope.viewObjectives=false;
+                    $scope.viewAuthor=false;
+                    $scope.ViewComments=false;
+                    break;
+                case 'viewLessons':
+                    $scope.viewProgress=false;
+                    $scope.viewLessons=true;
+                    $scope.viewObjectives=false;
+                    $scope.viewAuthor=false;
+                    $scope.ViewComments=false;
+                    break;
+                case 'viewObjectives':
+                    $scope.viewProgress=false;
+                    $scope.viewLessons=false;
+                    $scope.viewObjectives=true;
+                    $scope.viewAuthor=false;
+                    $scope.ViewComments=false;
+                    break;   
+                case 'viewAuthor':
+                    $scope.viewProgress=false;
+                    $scope.viewLessons=false;
+                    $scope.viewObjectives=false;
+                    $scope.viewAuthor=true;
+                    $scope.ViewComments=false;
+                    break;
+                case 'ViewComments':
+                    $scope.viewProgress=false;
+                    $scope.viewLessons=false;
+                    $scope.viewObjectives=false;
+                    $scope.viewAuthor=false;
+                    $scope.ViewComments=true;
+                break;  
+                default:
+                    $scope.viewProgress=true;
+                    $scope.viewLessons=false;
+                    $scope.viewObjectives=false;
+                    $scope.viewAuthor=false;
+                    $scope.ViewComments=false;
+                    break;
             }
             /*getStudentsCoursesActives($scope.activeUser._id);*/
             //$scope.getStudentsCoursesUnfinished($scope.activeUser._id);
@@ -152,6 +204,8 @@
         $scope.indexLomSelected=[0,0];
         $scope.indexLomSelectedCreate=[0,0];
         $scope.loms=[];
+        $scope.similarLoms=[];
+        $scope.suggestLoms=false
         $scope.listAuxLomsAdd=[];
         $scope.listAuxLomsAddCreate=[];
         $scope.listAuxLomsRemove=[];
@@ -198,9 +252,16 @@
             });
         }
 
+        teacherApi.getTeachers().then(function(response){
+                $scope.teachers= response.data;
+            }, function myError(err) {
+                console.log(err);
+                alert('Error de tipo: '+err.status);      
+        });
+
         lomsApi.getLoms().then(function(response){
-                 if($scope.userRole=='teacher') updateLomsTeacher(response.data);
-                 $scope.loms=response.data;
+                if($scope.userRole=='teacher') updateLomsTeacher(response.data);
+                $scope.loms=response.data;
             }, function myError(err) {
                 console.log(err);
                 alert('Error de tipo: '+err.status);      
@@ -732,7 +793,7 @@
                 }
         }
 
-        $scope.selectLomsToAddToLesson=function(lom,indexSection, indexLesson, indexLom,eventClasses){
+        $scope.selectLomsToAddToLesson=function(lom,indexSection, indexLesson, indexLom,breadCrumb,eventClasses){
             var active=false;
             var action="add_";
             var classes=eventClasses.toString();
@@ -745,17 +806,23 @@
             } 
 
             if(classes.indexOf("active") < 0){
-                $scope.listAuxLomsAdd.push(lom);
+                if(breadCrumb!='similar') $scope.listAuxLomsAdd.push(lom);
+                else $scope.listAuxLomsAdd.push(lom[0]);
                 if((indexSection !=null) && (indexLesson != null))
                     activateLom(action,indexSection,indexLesson,indexLom,true);
             }    
             else{
                 if((indexSection !=null) && (indexLesson != null))
                     activateLom(action,indexSection,indexLesson,indexLom,false);
-
-                $scope.listAuxLomsAdd=$scope.listAuxLomsAdd.filter(function(element) {
-                    return element!== lom;
-                });
+                if(breadCrumb!='similar'){
+                    $scope.listAuxLomsAdd=$scope.listAuxLomsAdd.filter(function(element) {
+                        return element!== lom;
+                    });
+                }else{
+                    $scope.listAuxLomsAdd=$scope.listAuxLomsAdd.filter(function(element) {
+                        return element!== lom[0];
+                    });
+                }                     
             }
         };
         $scope.selectLomsToDeleteFromLesson=function(lom,indexSection, indexLesson, indexLom,eventClasses){
@@ -844,8 +911,260 @@
                 return element!== lom;
             }); 
         };
+        $scope.showAllLoms=function(){
+            $scope.suggestLoms=false;
+            $scope.listAuxLomsAdd=[];
+        }
+
+        var calculateScoreStringsLom =function(data1,data2){
+            var arrayData1=data1.split(" "),
+                arrayData2=data2.split(" "),
+                scoreFormat=0,
+                equals=0;
+            for(var i=0;i<arrayData1.length;i++){
+                for(var j=0;j<arrayData2.length;j++){
+                    if(arrayData1[i]==arrayData2[j]){
+                        equals=equals+1;
+                    }
+                }
+            }
+            scoreFormat=equals/arrayData1.length;                    
+            return scoreFormat;
+        }
+        var parseDate=function(input) {
+          var parts = input.match(/(\d+)/g);
+          // new Date(year, month [, date [, hours[, minutes[, seconds[, ms]]]]])
+          return new Date(parts[0], parts[1]-1, parts[2]); // months are 0-based
+        }
+        var calculateDaysLomDate=function(date1Lom,date2Lom) {
+            var date1=parseDate(date1Lom),
+                date2=parseDate(date2Lom),
+                daysDif = date1.getTime() - date2.getTime(),
+                days = Math.abs(Math.round(daysDif/(1000 * 60 * 60 * 24)));
+
+            return days;
+        }
         
+        $scope.searchSimilarLoms=function(event){
+            if ($scope.listAuxLomsAdd.length!=1) {
+                alert("Debes seleccionar un Objeto de Aprendizaje.")
+                event.preventDefault();
+                return;
+            }
+            $scope.similarLoms=[];
+            var similarLoms=[],
+                firstLom=[];
+            lomsApi.getLom($scope.listAuxLomsAdd[0]._id).then(function(response){
+                var lom=response.data; 
+                for(var i=0;i<$scope.loms.length;i++){
+                    var infoSimilLom=new Object();
+                        infoSimilLom._id=$scope.loms[i]._id;
+                        infoSimilLom.score=0;
+                    if(lom._id== $scope.loms[i]._id){
+                        firstLom=infoSimilLom;
+                    }
+                    else{
+                        if((lom.author != 'unknown author') && (lom.author==$scope.loms[i].author)){
+                            infoSimilLom.score=infoSimilLom.score+1;
+                        }
+                        //Use
+                        //--- enum
+                        if(lom.use.resource_difficulty!="" && lom.use.resource_difficulty == $scope.loms[i].use.resource_difficulty){
+                            infoSimilLom.score=infoSimilLom.score+1;
+                        }
+                        if(lom.use.resource_context!="" && lom.use.resource_context == $scope.loms[i].use.resource_context){
+                            infoSimilLom.score=infoSimilLom.score+1;
+                        }
+                        if(lom.use.resource_target != 'no resource target'){
+                            infoSimilLom.score=infoSimilLom.score+calculateScoreStringsLom(lom.use.resource_target,$scope.loms[i].use.resource_target);
+                        }
+                        if(lom.use.resource_type!="" && lom.use.resource_type == $scope.loms[i].use.resource_type){
+                            infoSimilLom.score=infoSimilLom.score+1;
+                        }
+                        if(lom.use.language!="" && lom.use.language == $scope.loms[i].use.language){
+                            infoSimilLom.score=infoSimilLom.score+1;
+                        }
+                        if(lom.use.interactivity_level!="" && lom.use.interactivity_level == $scope.loms[i].use.interactivity_level){
+                            infoSimilLom.score=infoSimilLom.score+1;
+                        }
+                        if(lom.use.interactivity_type!="" && lom.use.interactivity_type == $scope.loms[i].use.interactivity_type){
+                            infoSimilLom.score=infoSimilLom.score+1;
+                        }
+                        //Technical
+                        if(lom.technical.url != 'no URL'){
+                            infoSimilLom.score=infoSimilLom.score+calculateScoreStringsLom(lom.technical.url,$scope.loms[i].technical.url);
+                        }
+                        // --- size
+                        if(lom.technical.size_kb != null && $scope.loms[i].technical.size_kb!=null){    
+                            var scoreSize=0,
+                                maxValue=1000;
+                            if(lom.technical.size_kb==$scope.loms[i].technical.size_kb){
+                                scoreSize=1;
+                            }else{
+                                scoreSize=1-(Math.abs(lom.technical.size_kb - $scope.loms[i].technical.size_kb)/maxValue);
+                            }
+                            infoSimilLom.score=infoSimilLom.score+scoreSize;
+
+                        }
+                        // ---
+                        if(lom.technical.format!="" && lom.technical.format == $scope.loms[i].technical.format){
+                            infoSimilLom.score=infoSimilLom.score+1;
+                        }
+                        //Metadata
+                        if(lom.metadata.contribution_date!=null && $scope.loms[i].metadata.contribution_date!=null){
+                            infoSimilLom.score=infoSimilLom.score+calculateDaysLomDate(lom.metadata.contribution_date,$scope.loms[i].metadata.contribution_date);
+                        }
+                        if(lom.metadata.contribution_entity != 'no entity'){
+                            infoSimilLom.score=infoSimilLom.score+calculateScoreStringsLom(lom.metadata.contribution_entity,$scope.loms[i].metadata.contribution_entity);
+                        }
+                        if(lom.metadata.contribution_type != 'no type'){
+                            infoSimilLom.score=infoSimilLom.score+calculateScoreStringsLom(lom.metadata.contribution_type,$scope.loms[i].metadata.contribution_type);
+                        }
+                        //lifecycle
+                        if(lom.lifecycle.contribution_date!=null && $scope.loms[i].lifecycle.contribution_date!=null){  
+                            infoSimilLom.score=infoSimilLom.score+calculateDaysLomDate(lom.lifecycle.contribution_date,$scope.loms[i].lifecycle.contribution_date);
+                        }
+                        if(lom.lifecycle.contribution_entity != 'no entity'){
+                            infoSimilLom.score=infoSimilLom.score+calculateScoreStringsLom(lom.lifecycle.contribution_entity,$scope.loms[i].lifecycle.contribution_entity);
+                        }
+                        if(lom.lifecycle.contribution_type!="" && lom.lifecycle.contribution_type == $scope.loms[i].lifecycle.contribution_type){
+                            infoSimilLom.score=infoSimilLom.score+1;
+                        }
+                        //--- enum
+                        if(lom.lifecycle.state!="" && lom.lifecycle.state == $scope.loms[i].lifecycle.state){
+                            infoSimilLom.score=infoSimilLom.score+1;
+                        }
+                        // --- version
+                        if(lom.lifecycle.version!=null && $scope.loms[i].lifecycle.version!=null){
+                            var scoreVersion=0, 
+                                maxValue=10;
+                            if(lom.lifecycle.version == $scope.loms[i].lifecycle.version){
+                                scoreVersion=1;
+                            }else{
+                                scoreVersion=1-(Math.abs(lom.lifecycle.version - $scope.loms[i].lifecycle.version)/maxValue);
+                            }
+                            infoSimilLom.score=infoSimilLom.score+scoreVersion;
+                        }
+                        // ---
+                        
+                        //general
+                        // --- nivel agregacion
+                        if((lom.general.aggregation_level!=null) && ($scope.loms[i].general.aggregation_level=!null)){
+                            var scoreAgregationLevel=0, 
+                                maxValue=10;
+                            if(lom.general.aggregation_level==$scope.loms[i].general.aggregation_level){
+                                scoreAgregationLevel=1;
+                            }else{
+                                scoreAgregationLevel=1-(Math.abs(lom.general.aggregation_level - $scope.loms[i].general.aggregation_level)/maxValue);
+                            }
+                            infoSimilLom.score=infoSimilLom.score+scoreAgregationLevel;
+                        }
+                        // ---
+                        //--- enum
+                        if(lom.general.structure == $scope.loms[i].general.structure){
+                            var scoreStructure=0;
+                            //atomic
+                            if(lom.general.structure == 'atomic' && $scope.loms[i].general.structure== 'atomic' ){
+                                scoreStructure=1;
+                            }
+                            if(lom.general.structure == 'atomic' && $scope.loms[i].general.structure== 'collection' ){
+                                scoreStructure=0;
+                            }
+                            if(lom.general.structure == 'atomic' && $scope.loms[i].general.structure== 'networked' ){
+                                scoreStructure=0;
+                            }
+                            if(lom.general.structure == 'atomic' && $scope.loms[i].general.structure== 'hierarchical' ){
+                                scoreStructure=0;
+                            }
+                            if(lom.general.structure == 'atomic' && $scope.loms[i].general.structure== 'linear' ){
+                                scoreStructure=0;
+                            }
+                            //collection
+                            if(lom.general.structure == 'collection' && $scope.loms[i].general.structure== 'collection' ){
+                                scoreStructure=1;
+                            }
+                            if(lom.general.structure == 'collection' && $scope.loms[i].general.structure== 'networked' ){
+                                scoreStructure=0.5;
+                            }
+                            if(lom.general.structure == 'collection' && $scope.loms[i].general.structure== 'hierarchical' ){
+                                scoreStructure=0.5;
+                            }
+                            if(lom.general.structure == 'collection' && $scope.loms[i].general.structure== 'linear' ){
+                                scoreStructure=0.5;
+                            }
+                            //networked
+                            if(lom.general.structure == 'networked' && $scope.loms[i].general.structure== 'networked' ){
+                                scoreStructure=1;
+                            }
+                            if(lom.general.structure == 'networked' && $scope.loms[i].general.structure== 'hierarchical' ){
+                                scoreStructure=0.8;
+                            }
+                            if(lom.general.structure == 'networked' && $scope.loms[i].general.structure== 'linear' ){
+                                scoreStructure=0.2;
+                            }
+                            //hierarchical
+                            if(lom.general.structure == 'hierarchical' && $scope.loms[i].general.structure== 'hierarchical' ){
+                                scoreStructure=1;
+                            }
+                            if(lom.general.structure == 'hierarchical' && $scope.loms[i].general.structure== 'linear' ){
+                                scoreStructure=0.3;
+                            }
+                            //linear
+                            if(lom.general.structure == 'linear' && $scope.loms[i].general.structure== 'linear' ){
+                                scoreStructure=1;
+                            }
+                            infoSimilLom.score=infoSimilLom.score+scoreStructure;
+                        }
+                        //--- enum
+                        if(lom.general.language == $scope.loms[i].general.language){
+                            infoSimilLom.score=infoSimilLom.score+1;
+                        }
+                        if(lom.general.title != ""){
+                            infoSimilLom.score=infoSimilLom.score+calculateScoreStringsLom(lom.general.title,$scope.loms[i].general.title);
+                        }
+                        // --- Id entrada
+                        if(lom.general.id_entry != null && $scope.loms[i].general.id_entry!=null){
+                            var scoreIdEntry=0, 
+                                maxValue=50;
+                            if(lom.general.id_entry==$scope.loms[i].general.id_entry){
+                                scoreIdEntry=1;
+                            }else{
+                                scoreIdEntry=1-(Math.abs(lom.general.id_entry - $scope.loms[i].general.id_entry)/maxValue);
+                            }
+                            infoSimilLom.score=infoSimilLom.score+scoreIdEntry;
+                        }
+                        // ---
+                        if(lom.general.id_catalog != ""){
+                            infoSimilLom.score=infoSimilLom.score+calculateScoreStringsLom(lom.general.id_catalog,$scope.loms[i].general.id_catalog);
+                        }
+                        similarLoms.push(infoSimilLom);
+                    }
+                }
+                if(similarLoms.length>0){
+                    similarLoms.sort(function (a, b){
+                     return (b.score - a.score)
+                    })
+                }
+                similarLoms.unshift(firstLom);
+                for(var i=0;i<similarLoms.length;i++){
+                    $scope.similarLoms[i]=$scope.loms.filter(function(element) {
+                        return element._id == similarLoms[i]._id;
+                    });
+                }
+                $scope.listAuxLomsAdd=[];
+                $scope.suggestLoms=true;
+            }, function myError(err) {
+                console.log(err);
+                alert('Error de tipo: '+err.status);      
+            });
+        }
+    
         $scope.addLomsToLesson=function(sectionName,lesson,indexSection,indexLesson,$event){
+            if (!$scope.listAuxLomsAdd.length>0) {
+                alert("No has seleccionado ningún Objeto de Aprendizaje!") === false
+                $event.preventDefault();
+                return;
+            }
             $event.preventDefault();
             var lomsToAdd=[],
                 lomsLesson=lesson.loms,
@@ -1215,10 +1534,12 @@
         };
 
         $scope.goCourse=function(course){
+            $scope.managementTabsCourseViews('viewLessons');
             resetCourseSelected();
             common.courseSelected= course;
             $scope.courseSelected=course;
             common.actualViewCourse='coursePage';
+            setActualTeacher(course);
             $scope.managementCourseViews(common.actualViewCourse);
             var promise=updateSectionsSelected(course._id);
             promise.then(function() {
@@ -1228,6 +1549,26 @@
                 console.log('Se ha producido un error al obtener el dato: '+error);     
             });
         };
+
+        var setActualTeacher=function(course){
+            var auxTeacher=[];
+                auxTeacher= $scope.teachers.filter(function(teacher) {
+                    return teacher.identification.name == course.author;
+            });
+            $scope.actualCourseTeacher=auxTeacher[0];
+            loadCoursesTeacher();
+        }
+
+        var loadCoursesTeacher=function(){
+            $scope.coursesActualTeacher=[];
+            var coursesTeacher=$scope.actualCourseTeacher.elements.courses;
+            angular.forEach(coursesTeacher, function(idCourseTeacher) {
+                var courseAux= $scope.courses.filter(function(course) {
+                    return idCourseTeacher == course._id;
+                });
+                $scope.coursesActualTeacher.push(courseAux[0]);
+            });
+        }
 
         var resetCourseSelected=function(){
             common.sectionsCourseSelected=[];
@@ -1445,12 +1786,14 @@
         }
         $scope.existsAchievedObjectives=function(objectives,codeCourse){
             var achievedObjectives=false;
-            for(var i = 0; i < objectives.length; i++) {
-                if (objectives[i].code == codeCourse) {
-                    achievedObjectives = true;
-                    break;
+            if(objectives!= undefined){
+                for(var i = 0; i < objectives.length; i++) {
+                    if (objectives[i].code == codeCourse) {
+                        achievedObjectives = true;
+                        break;
+                    }
                 }
-            }
+            }     
             return achievedObjectives;
         }
         var getStudentsEnrolledCourses= function(idStudent) {

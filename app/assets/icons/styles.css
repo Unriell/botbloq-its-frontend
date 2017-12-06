@@ -50,7 +50,7 @@
 .bbq-web2board:before {
   content: "\64";
 }
-.bbq-guardar:before {
+.bbq-save:before {
   content: "\65";
 }
 .bbq-icon-close:before {
@@ -193,4 +193,22 @@
 }
 .bbq-password:before {
   content: "\5a";
+}
+.bbq-reset1:before {
+  content: "\31";
+}
+.bbq-reset2:before {
+  content: "\33";
+}
+.bbq-menu:before {
+  content: "\30";
+}
+.bbq-light-bulb:before {
+  content: "\34";
+}
+.bbq-minusdetail:before {
+  content: "\32";
+}
+.bbq-moredetail:before {
+  content: "\35";
 }

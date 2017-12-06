@@ -20,52 +20,128 @@
 		</div>
 	</div>
 
-	<div class="wrapperCourse__lessons" ng-class="{'courseDisabled':false}">
-		<div ng-class="{'disabled': !studentEnrolledInCourse}">
+	<div class="wrapperCourse__lessons" ng-class="{'disabled': (!studentEnrolledInCourse && activeUser.role == 'student')}">
+		<div>
 			<h3 class="wrapperCourse__lessons__title">Descripción del curso</h3>
 			<p class="wrapperCourse__lessons__description">{{courseSelected.summary}}</p>
 
-			<ul class="wrapperCourse__lessons__contentMenu nav nav-tabs nav-justified" ng-init="viewLessons=true">
-			  <li class="wrapperCourse__lessons__contentMenu__element" ng-class="{'active':viewLessons}"><a class="wrapperCourse__lessons__contentMenu__element__link" ng-click="viewLessons=true;viewObjectives=false;viewAuthor=false" href>Lecciones</a></li>
-			  <li class="wrapperCourse__lessons__contentMenu__element" ng-class="{'active':viewObjectives}"><a class="wrapperCourse__lessons__contentMenu__element__link" ng-click="viewLessons=false;viewObjectives=true;viewAuthor=false" href>Objetivos</a></li>
-			  <li class="wrapperCourse__lessons__contentMenu__element" ng-class="{'active':viewAuthor}"><a class="wrapperCourse__lessons__contentMenu__element__link" ng-click="viewLessons=false;viewObjectives=false;viewAuthor=true" href>Autor</a></li>
+			<ul class="wrapperCourse__lessons__contentMenu nav nav-tabs nav-justified">
+				<li class="nav-item wrapperCourse__lessons__contentMenu__element" ng-class="{'active':viewProgress}"><a class="nav-link wrapperCourse__lessons__contentMenu__element__link" ng-click="managementTabsCourseViews('viewProgress')" href>Progreso</a></li>
+			  	<li class="nav-item wrapperCourse__lessons__contentMenu__element" ng-class="{'active':viewLessons}"><a class="nav-link wrapperCourse__lessons__contentMenu__element__link" ng-click="managementTabsCourseViews('viewLessons')" href>Lecciones</a></li>
+			 	<li class="nav-item wrapperCourse__lessons__contentMenu__element" ng-class="{'active':viewObjectives}"><a class="nav-link wrapperCourse__lessons__contentMenu__element__link" ng-click="managementTabsCourseViews('viewObjectives')" href>Objetivos</a></li>
+			 	<li class="nav-item wrapperCourse__lessons__contentMenu__element" ng-class="{'active':viewAuthor}"><a class="nav-link wrapperCourse__lessons__contentMenu__element__link" ng-click="managementTabsCourseViews('viewAuthor')" href>Autor</a></li>
+			 	<li class="nav-item wrapperCourse__lessons__contentMenu__element" ng-class="{'active':ViewComments}"><a class="nav-link wrapperCourse__lessons__contentMenu__element__link" ng-click="managementTabsCourseViews('ViewComments')" href>Comentarios</a></li>
 			</ul>
 
-			<div ng-show="viewLessons" class="wrapperCourse__lessons__contentSections" ng-repeat="section in courseSelected.sections">
-				<h2 class="wrapperCourse__lessons__contentSections__title">Sección {{$index+1}}</h2>
-				<ul class="wrapperCourse__lessons__contentSections__contentLessons">
-					<!-- <li class="wrapperCourse__lessons__contentSections__contentLessons__element" ng-repeat="lesson_i in lessonsSelected">	 -->
-					<li class="wrapperCourse__lessons__contentSections__contentLessons__element" ng-repeat="lesson_i in section.lessons">
-						<div class="row">
-							<div class="col-xs-12 col-sm-3">
-								<img class="wrapperCourse__lessons__contentSections__contentLessons__element__img" src="../../assets/images/courses/noPhotoLesson.jpg" ng-src="{{lesson_i.photo}}" alt="coursePhoto" on-error-src="../../assets/images/common/noPhoto.png">	
+			<div ng-show="viewLessons" class="wrapperCourse__lessons__wraperSections" ng-class="{'scrollY':coursesActualTeacher.numLessons>4}">
+				<div ng-show="viewLessons" class="wrapperCourse__lessons__contentSections" ng-repeat="section in courseSelected.sections">
+					<h2 ng-show="courseSelected.numLessons>0" class="wrapperCourse__lessons__contentSections__title">Sección {{$index+1}}</h2>
+					<ul ng-show="courseSelected.numLessons>0" class="wrapperCourse__lessons__contentSections__contentLessons">
+						<!-- <li class="wrapperCourse__lessons__contentSections__contentLessons__element" ng-repeat="lesson_i in lessonsSelected">	 -->
+						<li class="wrapperCourse__lessons__contentSections__contentLessons__element" ng-repeat="lesson_i in section.lessons">
+							<div class="row">
+								<div class="col-xs-12 col-sm-3">
+									<img class="wrapperCourse__lessons__contentSections__contentLessons__element__img" src="../../assets/images/courses/noPhotoLesson.jpg" ng-src="{{lesson_i.photo}}" alt="coursePhoto" on-error-src="../../assets/images/common/noPhoto.png">	
+								</div>
+								<div class="col-xs-12 col-sm-9">
+									<a class="wrapperCourse__lessons__contentSections__contentLessons__element__link" ng-click="goLesson(lesson_i,$index + 1)" href>
+										<div class="wrapperCourse__lessons__contentSections__contentLessons__element__link__info">
+											<h4 class="wrapperCourse__lessons__contentSections__contentLessons__element__link__info__title">LECCIÓN {{$index+1}}</h4>
+											<p class="wrapperCourse__lessons__contentSections__contentLessons__element__link__info__subtitle">{{lesson_i.title}}</p>
+											<p class="wrapperCourse__lessons__contentSections__contentLessons__element__link__info__description">{{lesson_i.description}}</p>
+										</div>
+										<span class="bbq-arrow-go bbq-arrow-go--lesson"></span>
+									</a>
+								</div>
 							</div>
-							<div class="col-xs-12 col-sm-9">
-								<a class="wrapperCourse__lessons__contentSections__contentLessons__element__link" ng-click="goLesson(lesson_i,$index + 1)" href>
-									<div class="wrapperCourse__lessons__contentSections__contentLessons__element__link__info">
-										<h4 class="wrapperCourse__lessons__contentSections__contentLessons__element__link__info__title">LECCIÓN {{$index+1}}</h4>
-										<p class="wrapperCourse__lessons__contentSections__contentLessons__element__link__info__subtitle">{{lesson_i.title}}</p>
-										<p class="wrapperCourse__lessons__contentSections__contentLessons__element__link__info__description">{{lesson_i.description}}</p>
-									</div>
-									<span class="bbq-arrow-go bbq-arrow-go--lesson"></span>
-								</a>
-							</div>
-						</div>
-					</li>
-				</ul>	
+						</li>
+					</ul>	
+				</div>
 			</div>
-			<div ng-if="courseSelected.numLessons<1" class="list__noResults">
+			<div ng-show="courseSelected.numLessons<1 && viewLessons" class="list__noResults">
 				<span class="bbq-warning bbq-warning--noResults"></span>
 				<h2 class="list__noResults__title">No hay lecciones disponibles</h2>
 			</div>
 		</div>
-	</div>
 
-	<div ng-show="viewAuthor">
-		Informacion del autor
+		<div ng-show="viewAuthor" class="viewAuthor" ng-init="viewCoursesInfo=false">
+			<div class="row">
+				<div class="col-xs-12  col-sm-5">
+					<div class="viewAuthor__contentAuthor center" ng-class="{'detailsCourse':viewCoursesInfo}"	>
+						<img class="viewAuthor__contentAuthor__img" src="data:image/jpeg;base64,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" alt="autorCourse">
+						<span class="viewAuthor__contentAuthor__title">{{actualCourseTeacher.identification.name}}</span>
+						<p class="viewAuthor__contentAuthor__description" name="">
+							Encargado de ofrecer a través de esta herramienta complementaria, apoyo en el desarrollo personal del usuario atendiendo a su estilo de aprendizaje de un modo personalizado.
+						</p>
+					</div>
+				</div>
+				<div class="col-xs-12  col-sm-7">
+					<div class="row">
+						<div class="col-xs-12">
+							<div class="viewAuthor__contentCourseTitle">
+								<div class="viewAuthor__contentTitle__detailsCourse clearfix">
+			                    	<a ng-hide="viewCoursesInfo" ng-click="viewCoursesInfo = true" class="viewAuthor__detailsCourse__link" title="Mostrar detalles" href>
+			                    		<span class="bbq-moreDetail bbq-moreDetail--course"></span>
+			                    	</a>
+			                    	<a ng-show="viewCoursesInfo" ng-click="viewCoursesInfo = false" class="viewAuthor__detailsCourse__link" title="Ocultar detalles" href>
+			                    		<span class="bbq-minusDetail bbq-minusDetail--course"></span>
+			                    	</a>
+								</div>
+								<h4 class="viewAuthor__contentCourseTitle__title">Cursos</h4>
+							</div>
+					    </div>
+					</div>   
+					<div class="row card-group viewAuthor__contentCourses" ng-class="{'scrollY':coursesActualTeacher.length>3,'detailsCourse':viewCoursesInfo}">
+						<div class="col-xs-12 col-sm-4 " ng-repeat="course in coursesActualTeacher">
+							<!-- <div class="card">
+							    <img class="card-img-top viewAuthor__imgCourse" src="{{course.photo}}" alt="Card image cap">
+							    <div class="card-block">
+							      <h4 class="card-title">{{course.name}}</h4>
+							      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+							      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+							    </div>  	
+							</div> -->
+							<div class="contentCourses__wrapperCourses__course__contentLinks">                         
+	                               <a class="contentCourses__wrapperCourses__course__link clearfix" ng-click="goCourse(course)" href>
+	                                    <div ng-class="{bkgOpacityBlack:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage">
+	                                        <img ng-class="{bdRadius:!viewCoursesInfo,opacity0_2:!viewCoursesInfo}" class="contentCourses__wrapperCourses__course__link__contentImage__image" src="../../assets/images/courses/noPhotoCourse.png" ng-src="{{course.photo}}" on-error-src="../../assets/images/common/noPhoto.png">
+	                                        <p ng-show="!viewCoursesInfo" class="contentCourses__wrapperCourses__course__link__contentImage__title">{{course.name}}</p>
+	                                    </div>
+	                                    <div class="contentCourses__wrapperCourses__course__link__contentInfo" ng-show="viewCoursesInfo">
+	                                        <div class="contentCourses__wrapperCourses__course__link__contentInfo__contentTitle">
+	                                            <p class="contentCourses__wrapperCourses__course__link__contentInfo__contentTitle__name">{{course.name}}</p>
+	                                            <p class="contentCourses__wrapperCourses__course__link__contentInfo__contentTitle__description">{{course.summary}}</p>
+	                                        </div>
+	                                        <div class="row contentCourses__wrapperCourses__course__link__contentInfo__contentAuthor"> 
+	                                            <div class="col-xs-12">
+	                                                <ul class="contentCourses__wrapperCourses__course__link__contentInfo__info">
+	                                                    <li class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum" title="Secciones">
+	                                                        <span class="bbq-sections bbq-sections--courses" title="Secciones"></span>
+	                                                        <span class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum__num">{{course.sections.length}}</span>
+	                                                    </li>
+	                                                    <li class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum" title="Lecciones">
+	                                                        <span class="bbq-lessons bbq-lessons--courses"></span>
+	                                                        <span class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum__num">{{course.numLessons}}</span><!-- <span class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum__num">{{}}</span> -->
+	                                                    </li>
+	                                                    <li class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum" title="Estudiantes matriculados">
+	                                                        <span class="bbq-students bbq-students--courses"></span>
+	                                                        <span class="contentCourses__wrapperCourses__course__link__contentInfo__info__iconNum__num">{{course.statistics.std_enrolled.length}}</span>
+	                                                    </li>
+	                                                </ul>
+	                                            </div>
+	                                        </div>
+	                                    </div>
+	                                </a>
+	                                <a ng-if="teacher && coursesTeacherPage" class="contentCourses__wrapperCourses__course__linkIcon edit" title="Editar Curso" ng-click="goEditCourse(i)" href><span class="bbq-edit bbq-edit--course"></span></a>
+	                                <a ng-if="teacher && coursesTeacherPage" class="contentCourses__wrapperCourses__course__linkIcon delete" title="Eliminar Curso" ng-click="removeCourse(i,$event)" href><span class="bbq-close bbq-delete--course"></span></a>
+	     					</div>
+	  					</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<ng-include ng-if="!existsAchievedObjectives(activeUser.knowledgeLevel,courseSelected.code)" ng-show="viewObjectives" src=" 'views/pages/objectives.html' "></ng-include>
 	</div>
-	<ng-include ng-if="!existsAchievedObjectives(activeUser.knowledgeLevel,courseSelected.code)" ng-show="viewObjectives" src=" 'views/pages/objectives.html' "></ng-include>
-
 	<div class="wrapperCourse__come">
 		<div class="row">
 			<div class="col-xs-12 center">

@@ -70,6 +70,13 @@ body.bkgInit{
   	color:$color-white;
     font-size: 2.3em;
 }
+.bbq-menu--form:before {
+  	color:$color-white;
+    font-size: 2.3em;
+}
+.asideLeft__element__link.menu{
+	transform:rotate(90deg);
+}
 .bbq-info-1--style1:before {
   	color:$color-white;
     font-size: 2.3em;
@@ -318,7 +325,7 @@ body.bkgInit{
 				text-align: center;
 			}
 			.wrapperCourse__lessons{
-				padding:24px 0 13px 0;
+				padding:24px 0 0 0;
 			}
 			.wrapperCourse__lessons__title{
 				margin-bottom: 25px;
@@ -347,6 +354,7 @@ body.bkgInit{
 				border-radius:10px;
 			}
 			.wrapperCourse__lessons__contentSections__contentLessons__element__link{
+				width: 98%;
 				padding-left:15px;
 				display: block;
 				vertical-align: middle;
@@ -405,6 +413,7 @@ body.bkgInit{
 			}
 			.wrapperLesson__options__wait{
 				display: inline-block;
+				margin-right: 10px;
 			}
 			
 			.wrapperLesson__options__ok__link{
@@ -422,8 +431,6 @@ body.bkgInit{
 			.bbq-save--lesson:before {
 			  	font-size: 2em;
 			}
-
-
 		}
 
 		.wrapperObjectives{
@@ -455,11 +462,67 @@ body.bkgInit{
 			}
 			.wrapperObjectives__contetObjetives__list__element__info__description{
 				
-			}
-			
-
-
+			}	
 		}
+
+		.viewAuthor{
+			.viewAuthor__contentAuthor{
+				border-right:1px solid $color-grayLight;
+				margin-top: 52px;
+				padding-right: 30px;
+				&.detailsCourse{
+					margin-top: 55px;
+				}
+			}
+			.viewAuthor__contentAuthor__img{
+	    		width: 270px;
+	    		margin-bottom: 15px;    		
+			}
+			.viewAuthor__contentAuthor__title{
+    			font-size: 2em;
+    			margin-bottom: 15px;
+			}
+			.viewAuthor__contentAuthor__description{
+				max-height: 75px;
+			}
+			.viewAuthor__imgCourse{
+				height: 145px;
+			}
+			.viewAuthor__contentCourseTitle{
+
+			}
+			.viewAuthor__contentTitle__detailsCourse{
+				top: 6px;
+    			left: 20px;
+			}
+			.viewAuthor__detailsCourse__link{
+				color:$color-grayLight2;
+				&:hover,&:link,{
+					text-decoration: none;
+					color:$color-grayLight2;
+				}
+			}
+			.viewAuthor__contentCourseTitle__title{
+			    font-size: 2em;
+			    margin-bottom: 20px;
+			}
+			.viewAuthor__contentCourses{
+				padding:0 45px;
+    			max-height: 370px;
+    			padding:0 20px;
+    			&.detailsCourse{
+    				max-height: 554px;
+    			}
+			}
+			.contentCourses__wrapperCourses__course__contentLinks{
+				margin-bottom: 35px;
+			}
+
+			.bbq-minusDetail--course:before, .bbq-moreDetail--course:before {
+			  font-size: 1.3em;
+			}
+		}
+
 	}
 	.contentQuestionnaire{
 		.contentQuestionnaire__form{
@@ -644,6 +707,12 @@ body.bkgInit{
 		.formAddCourse__fieldset__level2__contentFields{
 			padding: 10px;
 		}
+		.formAddCourse__fieldset__contentFields__label__annotation{
+			position: inherit;
+		}
+		.formAddLom__fieldset__contentFields.space{
+			padding:20px;
+		}
 		
 		.contentAddItem__wrapperAddItem__level2{
 			margin-top:15px;
@@ -660,7 +729,7 @@ body.bkgInit{
 			margin-bottom:14px;
 		}
 		.formAddCourse__fieldset__contentFields__selectLoms__options__delete{
-
+			margin-bottom:14px;
 		}
 		.formAddCourse__fieldset__contentFields__selectLoms__added{
 			margin-top: 0px;
